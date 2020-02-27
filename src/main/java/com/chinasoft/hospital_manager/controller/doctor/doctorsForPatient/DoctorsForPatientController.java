@@ -43,10 +43,11 @@ public class DoctorsForPatientController {
     private UserForPatientService userForPatientService;
     @Autowired
     private ProductService productService;
+
     @RequestMapping("/findPatientOfAppointment")
    public ModelAndView findPatientOfAppointment(HttpServletRequest request,HttpServletResponse response) throws IOException {
 
-
+         String name=request.getParameter("name");
        ModelAndView  andView=new ModelAndView();
         List<Menu> menus = (List<Menu> )request.getSession().getAttribute("menus");
         HttpSession session = request.getSession();
