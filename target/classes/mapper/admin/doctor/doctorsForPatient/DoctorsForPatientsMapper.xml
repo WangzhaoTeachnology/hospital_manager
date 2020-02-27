@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chinasoft.hospital_manager.mapper.admin.doctor.doctorsForPatient.DoctorsForPatientMapper">
+
+    <select id="findPatientOfAppointmentById" parameterType="map" resultMap="appointments">
+         SELECT p.id as pid,p.name,p.id_number,p.sex,p.is_marry,p.birthday,p.telephone,p.address,p.`work`,
+         a.id as aid,a.content,a.appointId,a.patient_id,a.fee,a.datetime,a.clinc_category_id,a.address as aaddress,a.user_id,a.office_id,a.doctor_id,a.comment,a.number,a.status,
+         a.time,a.flag,dr.id as drid,dr.strength
+         FROM patient p,appointment a ,doctor dr
+         WHERE p.id=a.patient_id  AND  to_days(a.datetime) = to_days(now()) AND a.doctor_id=dr.id AND dr.id=#{id} LIMIT  #{index},#{currentCount}
+    </select>
+    <!--
+
+            private String id;
+            //  private Integer appointId;
+            private Patient patient;
+
+            private String fee;
+            @DateTimeFormat(pattern = "yyyy-MM-dd")
+            private String datetime;
+            private Appoint_category appoint_category;
+            private String address;
+            private User  user;
+            private  Offices offices;
+            private Doctor doctor;
+
+
+            private String comment;
+            private int number; //这个是挂号的编号
+            private int status; //这个是初诊还是复诊
+            private String time;
+            private int flag;   //这个属性是病人成功，挂号以后有没有去医生那里看病，看过为1，默认为0
+
+
+            private String id;
+            private String name;
+            private String id_number;
+            private String sex;
+            private int is_marry;
+            @DateTimeFormat(pattern = "yyyy-MM-dd")
+            private  String birthday;
+            private String telephone;
+            private String address;
+            private String work;
+            private User user;
+    -->
+    <resultMap id="appointments" type="com.chinasoft.hospital_manager.domain.Appointment">
+        <id column="aid" property="id"/>
+        <result column="content" property="content"/>
+        <result column="datetime" property="datetime"/>
+        <result column="fee" property="fee"/>
+        <result column="aaddress" property="address"/>
+        <result column="comment" property="comment"/>
+        <result column="number" property="number"/>
+        <result column="status" property="status"/>
+        <result column="time" property="time"/>
+        <result column="flag" property="flag"/>
+
+        <association javaType="com.chinasoft.hospital_manager.domain.Doctor" property="doctor">
+            <id column="drid" property="id"/>
+            <result column="strength" property="strength"/>
+        </association>
+
+        <association javaType="com.chinasoft.hospital_manager.domain.Appoint_category" property="appoint_category">
+            <id column="appointId" property="id"/>
+            <result column="name" property="name"/>
+        </association>
+
+        <association property="patient" javaType="com.chinasoft.hospital_manager.domain.Patient">
+            <id column="pid" property="id"/>
+            <result column="name" property="name"/>
+            <result column="id_number" property="id_number"/>
+            <result column="sex" property="sex"/>
+            <result column="is_marry" property="is_marry"/>
+            <result column="birthday" property="birthday"/>
+            <result column="telephone" property="telephone"/>
+            <result column="address" property="address"/>
+            <result column="work" property="work"/>
+        </association>
+    </resultMap>
+
+    <select id="getCountAppointmentById" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+           select count(*)
+           FROM patient p,appointment a,doctor dr
+           WHERE p.id=a.patient_id  AND  to_days(a.datetime) = to_days(now()) AND a.doctor_id=dr.id AND dr.id=#{id}
+    </select>
+
+    <update id="doctorsClickForAppointment" parameterType="java.lang.String">
+         update  appointment set flag=1 where  id=#{id}
+    </update>
+
+
+    <select id="findPatientInfoById" parameterType="map" resultMap="findPatientById">
+          SELECT p.id as pid,p.name,p.id_number,p.sex,p.is_marry,p.birthday,p.telephone,p.address,p.`work`,
+                 a.id as aid,a.content,a.appointId,a.patient_id,a.fee,a.datetime,a.clinc_category_id,a.address as aaddress,a.user_id,a.office_id,a.doctor_id,a.comment,a.number,a.status,
+                 a.time,a.flag,dr.id as drid,dr.strength
+          FROM patient p,appointment a ,doctor dr
+         WHERE p.id=a.patient_id  AND a.doctor_id=dr.id AND dr.id=#{drid} AND a.id=#{id}
+    </select>
+
+    <resultMap id="findPatientById" type="com.chinasoft.hospital_manager.domain.Appointment">
+        <id column="aid" property="id"/>
+        <result column="content" property="content"/>
+        <result column="datetime" property="datetime"/>
+        <result column="fee" property="fee"/>
+        <result column="aaddress" property="address"/>
+        <result column="comment" property="comment"/>
+        <result column="number" property="number"/>
+        <result column="status" property="status"/>
+        <result column="time" property="time"/>
+        <result column="flag" property="flag"/>
+
+        <association javaType="com.chinasoft.hospital_manager.domain.Doctor" property="doctor">
+            <id column="drid" property="id"/>
+            <result column="strength" property="strength"/>
+        </association>
+
+        <association javaType="com.chinasoft.hospital_manager.domain.Appoint_category" property="appoint_category">
+            <id column="appointId" property="id"/>
+            <result column="name" property="name"/>
+        </association>
+
+        <association property="patient" javaType="com.chinasoft.hospital_manager.domain.Patient">
+            <id column="pid" property="id"/>
+            <result column="name" property="name"/>
+            <result column="id_number" property="id_number"/>
+            <result column="sex" property="sex"/>
+            <result column="is_marry" property="is_marry"/>
+            <result column="birthday" property="birthday"/>
+            <result column="telephone" property="telephone"/>
+            <result column="address" property="address"/>
+            <result column="work" property="work"/>
+        </association>
+    </resultMap>
+
+
+    <select id="searchPatientsInfoByCondition" parameterType="map" resultMap="searchs">
+        SELECT p.id as pid,p.name,p.id_number,p.sex,p.is_marry,p.birthday,p.telephone,p.address,p.`work`,
+         a.id as aid,a.content,a.appointId,a.patient_id,a.fee,a.datetime,a.clinc_category_id,a.address as aaddress,a.user_id,a.office_id,a.doctor_id,a.comment,a.number,a.status,
+         a.time,a.flag,dr.id as drid,dr.strength
+         FROM patient p,appointment a ,doctor dr
+         WHERE p.id=a.patient_id   AND a.doctor_id=dr.id  AND dr.id=#{drid}
+        <if test="today!=null">
+            AND to_days(a.datetime) = to_days(now())
+        </if>
+        <if test="name!=null">
+            AND p.name  like concat('%',#{name},'%')
+        </if>
+        <if test="aid!=null">
+            AND a.id=#{id}
+        </if>
+        <if test="flag!=null">
+            AND a.flag=#{flag}
+        </if>
+        <if test="sort!=null">
+            ORDER BY a.datetime DESC
+        </if>
+        limit #{index} ,#{count}
+    </select>
+    <resultMap id="searchs" type="com.chinasoft.hospital_manager.domain.Appointment">
+        <id column="aid" property="id"/>
+        <result column="content" property="content"/>
+        <result column="datetime" property="datetime"/>
+        <result column="fee" property="fee"/>
+        <result column="aaddress" property="address"/>
+        <result column="comment" property="comment"/>
+        <result column="number" property="number"/>
+        <result column="status" property="status"/>
+        <result column="time" property="time"/>
+        <result column="flag" property="flag"/>
+
+        <association javaType="com.chinasoft.hospital_manager.domain.Doctor" property="doctor">
+            <id column="drid" property="id"/>
+            <result column="strength" property="strength"/>
+        </association>
+
+        <association javaType="com.chinasoft.hospital_manager.domain.Appoint_category" property="appoint_category">
+            <id column="appointId" property="id"/>
+            <result column="name" property="name"/>
+        </association>
+
+        <association property="patient" javaType="com.chinasoft.hospital_manager.domain.Patient">
+            <id column="pid" property="id"/>
+            <result column="name" property="name"/>
+            <result column="id_number" property="id_number"/>
+            <result column="sex" property="sex"/>
+            <result column="is_marry" property="is_marry"/>
+            <result column="birthday" property="birthday"/>
+            <result column="telephone" property="telephone"/>
+            <result column="address" property="address"/>
+            <result column="work" property="work"/>
+        </association>
+    </resultMap>
+
+    <select id="getTotalPatientsCountByCondition" resultType="java.lang.Integer" parameterType="map">
+        SELECT COUNT(*)
+        FROM patient p,appointment a ,doctor dr
+        WHERE p.id=a.patient_id  AND a.doctor_id=dr.id  AND dr.id= #{drid}
+        <if test="today!=null">
+            AND  to_days(a.datetime) = to_days(now())
+        </if>
+        <if test="name!=null">
+            AND p.name  like concat('%',#{name},'%')
+        </if>
+        <if test="aid!=null">
+            AND a.id=#{id}
+        </if>
+        <if test="flag!=null">
+            AND a.flag=#{flag}
+        </if>
+        <if test="sort!=null">
+            ORDER BY a.datetime DESC
+        </if>
+    </select>
+
+    <update id="updateDoctorWorkInfoById" parameterType="map">
+      UPDATE  doctor d,`work` w ,offices o   set w.status=#{status}   where d.id=w.doctorid AND o.id=d.office_id   AND d.id=#{id} AND to_days(w.startime) = to_days(now())
+    </update>
+
+    <insert id="addPrescription" parameterType="map">
+       INSERT INTO prescription (id,content,datetime,patient_id,doctor_id,comment) VALUES(#{id},#{content},#{datetime},#{patient_id},#{doctor_id},#{comment})
+    </insert>
+
+
+
+    <insert id="addItemsPrescription" parameterType="map">
+      INSERT INTO itemprescription (id,prescription_id,product_id,number,itemprescription.use,itemprescription.day,itemprescription.comment) VALUES(#{id},#{prescription_id},#{product_id},#{number},#{use},#{day},#{comment})
+    </insert>
+
+    <insert id="submitHistoryByDoctor" parameterType="map">
+      INSERT INTO history (id,patient_id,content,doctor_id,datetime) VALUES(#{id},#{patient_id},#{content},#{doctor_id},#{datetime})
+    </insert>
+
+
+    <select id="findPrescriptionsByPatientId" parameterType="map" resultMap="findPrescriptions">
+        SELECT p.id as pid ,p.content,p.datetime,p.comment as pcomment,
+        i.id as iid,i.number,i.use,i.day,i.comment as icomment,
+        pt.id as ptid,pt.name,pt.price
+        FROM prescription p,itemprescription i,patient t, product pt
+        WHERE p.patient_id=t.id AND p.id=i.prescription_id  AND i.product_id=pt.id
+        AND t.id=#{id}
+    </select>
+
+<!--
+    private String id;
+    @DateTimeFormat(pattern = "yyyy-MM-ss HH:mm:ss")
+    private String datetime;
+    private Patient patient;
+    private List<Itemprescription> itemprescription;
+    private Doctor doctor;
+    private String content;
+    private History history;
+    //private MoneyPay history;
+    private String comment;
+
+
+
+    private String id;
+    private Prescription prescription;
+    private Product product;
+    private int number;
+    private String use;//这个是医生安排给病人怎样使用，而药品上有具体的使用方法
+    private int day;  //这个是使用几天
+    private String comment;
+-->
+
+    <resultMap id="findPrescriptions" type="com.chinasoft.hospital_manager.domain.Prescription">
+       <id column="pid" property="id"/>
+        <result column="content" property="content"/>
+        <result column="datetime" property="datetime"/>
+        <result column="pcomment" property="comment"/>
+        <collection property="itemprescription" ofType="com.chinasoft.hospital_manager.domain.Itemprescription">
+             <id column="iid" property="id" />
+             <result column="number" property="number"/>
+            <result column="day" property="day"/>
+            <result column="use" property="use"/>
+            <result column="icomment" property="comment"/>
+            <association property="product" javaType="com.chinasoft.hospital_manager.domain.Product">
+                <id column="ptid" property="id"/>
+                <result column="name" property="name"/>
+                <result column="price" property="price"/>
+            </association>
+        </collection>
+    </resultMap>
+
+    <select id="doctorsFindHistory" parameterType="map"  resultMap="historys">
+          SELECT p.*,h.id as hid ,h.content,h.datetime ,dr.id as drid ,dr.`name` as drname
+          FROM patient p,history h,doctor dr
+          WHERE p.id=h.patient_id AND dr.id=h.doctor_id
+          <if test="drid!=null">
+              AND  dr.id=#{drid}
+          </if>
+        <if test="name!=null">
+            AND  p.name like concat('%',#{name},'%')
+        </if>
+        <if test="id!=null">
+            AND  h.id=#{id}
+        </if>
+            limit #{index},#{count}
+    </select>
+
+    <resultMap id="historys" type="com.chinasoft.hospital_manager.domain.History">
+        <id column="hid" property="id"/>
+        <result column="content" property="content"/>
+        <result column="datetime" property="datetime"/>
+        <association property="patient" javaType="com.chinasoft.hospital_manager.domain.Patient">
+            <id column="id" property="id"/>
+            <result column="name" property="name" />
+            <result column="id_number" property="id_number" />
+            <result column="is_marry" property="is_marry"/>
+            <result column="sex" property="sex"/>
+            <result column="telephone" property="telephone"/>
+            <result column="work" property="work"/>
+            <result column="address" property="address"/>
+            <result column="birthday" property="birthday"/>
+        </association>
+        <association property="doctor" javaType="com.chinasoft.hospital_manager.domain.Doctor">
+           <id column="drid" property="id"/>
+            <result column="drname" property="realname"/>
+        </association>
+    </resultMap>
+
+    <select id="getTotalHistorysCountByCondition" parameterType="map" resultType="java.lang.Integer">
+        SELECT count(*)
+        FROM patient p,history h,doctor dr
+        WHERE p.id=h.patient_id AND dr.id=h.doctor_id
+        <if test="drid!=null">
+            AND  dr.id=#{drid}
+        </if>
+        <if test="name!=null">
+            AND  p.name like concat('%',#{name},'%')
+        </if>
+        <if test="id!=null">
+            AND  h.id=#{id}
+        </if>
+
+    </select>
+</mapper>

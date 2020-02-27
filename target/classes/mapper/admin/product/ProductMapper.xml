@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chinasoft.hospital_manager.mapper.admin.product.ProductsMapper">
+
+    <select id="findProductCategory" resultMap="lists">
+         SELECT * FROM `category_product`
+    </select>
+    <resultMap id="lists" type="com.chinasoft.hospital_manager.domain.Category_Product">
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+    </resultMap>
+    <select id="findProductByCategoryId" parameterType="java.lang.Integer" resultMap="products">
+        SELECT p.id as pid,p.url,p.name as pname,p.detail,p.price,p.number,p.content,p.use,p.component,p.comment,
+        c.id as cid ,c.name as cname FROM product p,category_product c WHERE p.category_id=c.id AND c.id=#{id}
+    </select>
+<!--
+    private Integer id;
+    private String url;
+    private  String name;
+    private  Category_Product category_product;
+    private String detail;
+    private double price;
+    private int number;
+    private  String content;
+    private String use;
+    private String component;
+    private  String comment;-->
+    <resultMap id="products" type="com.chinasoft.hospital_manager.domain.Product">
+         <id column="pid" property="id"/>
+         <result column="url" property="url" />
+        <result column="pname" property="name" />
+        <result column="detail" property="detail" />
+        <result column="price" property="price" />
+        <result column="number" property="number" />
+        <result column="content" property="content" />
+        <result column="use" property="use" />
+        <result column="component" property="component" />
+        <result column="comment" property="comment" />
+        <association property="category_product" javaType="com.chinasoft.hospital_manager.domain.Category_Product">
+            <id column="cid" property="id"/>
+            <result column="cname" property="name"/>
+        </association>
+    </resultMap>
+
+
+    <select id="findProductDetailsById" parameterType="java.lang.Integer" resultType="com.chinasoft.hospital_manager.domain.Product">
+       SELECT * FROM product WHERE id=#{id}
+    </select>
+
+    <select id="findAllProducts" resultMap="finds" parameterType="map">
+        SELECT * FROM  product  limit #{index},#{count}
+    </select>
+    <resultMap id="finds" type="com.chinasoft.hospital_manager.domain.Product">
+        <id column="id" property="id"/>
+        <result column="url" property="url" />
+        <result column="name" property="name" />
+        <result column="detail" property="detail" />
+        <result column="price" property="price" />
+        <result column="number" property="number" />
+        <result column="content" property="content" />
+        <result column="use" property="use" />
+        <result column="component" property="component" />
+        <result column="comment" property="comment" />
+        <association property="category_product" javaType="com.chinasoft.hospital_manager.domain.Category_Product">
+            <id column="cid" property="id"/>
+            <result column="cname" property="name"/>
+        </association>
+    </resultMap>
+
+    <select id="getCountAllProducts" resultType="java.lang.Integer" parameterType="map">
+        SELECT COUNT(*) FROM product where 1=1
+          <if test="category_id!=null">
+            and  product.category_id=#{category_id}
+          </if>
+        <if test="value!=null">
+            and product.name like concat('%',#{value},'%')
+        </if>
+    </select>
+
+
+    <select id="findAllProductsByCategoryId" resultMap="finds" parameterType="map">
+        SELECT * FROM  product  where  1=1
+        <if test="category_id!=null">
+            and  product.category_id=#{category_id}
+        </if>
+        <if test="value!=null">
+            and product.name like concat('%',#{value},'%')
+        </if>
+        limit #{index},#{count}
+    </select>
+
+</mapper>

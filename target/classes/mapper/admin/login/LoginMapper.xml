@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chinasoft.hospital_manager.mapper.admin.login.LoginMapper">
+    <select id="findByName" parameterType="com.chinasoft.hospital_manager.domain.Admin" resultType="com.chinasoft.hospital_manager.domain.Admin">
+    select  * from admin
+    <where>
+        <if test="name!=null">
+            and name=#{name}
+        </if>
+        <if test="password!=null">
+            and  password=#{password}
+        </if>
+    </where>
+</select>
+
+    <select id="login" parameterType="java.lang.Integer" resultType="com.chinasoft.hospital_manager.domain.Admin">
+         select  * from admin  where id=#{id}
+    </select>
+
+    <select id="selectRole" resultMap="rolelist">
+      select  * from  role
+    </select>
+    <resultMap id="rolelist" type="com.chinasoft.hospital_manager.domain.Role">
+        <id column="roleid" property="roleid"/>
+        <result column="name" property="name"/>
+        <result column="remark" property="remark"/>
+    </resultMap>
+
+    <select id="selectUserBeforeLogin" resultType="com.chinasoft.hospital_manager.domain.User" parameterType="java.lang.String">
+        select  * from user
+        <where>
+            <if test="username!=null">
+                and  username=#{username}
+            </if>
+        </where>
+    </select>
+
+    <select id="selectUserNameAndPassword"  parameterType="com.chinasoft.hospital_manager.domain.User" resultMap="selectUser">
+        select  u.* ,r.roleid ,r.`name` as rolename ,r.remark from user  u,role r WHERE u.role_id=r.roleid
+        <if test="username!=null">
+            and  username=#{username}
+        </if>
+        <if test="password!=null">
+            and  password=#{password}
+        </if>
+    </select>
+    <resultMap id="selectUser" type="com.chinasoft.hospital_manager.domain.User">
+        <id column="id"  property="id"/>
+        <result column="name" property="name"/>
+        <result column="username" property="username"/>
+        <result column="password" property="password"/>
+        <result column="birthday" property="birthday"/>
+        <result column="sex" property="sex"/>
+        <result column="profession" property="profession"/>
+        <result column="datetime" property="datetime"/>
+        <result column="job" property="job"/>
+        <association property="role" javaType="com.chinasoft.hospital_manager.domain.Role">
+            <id column="roleid" property="roleid"/>
+            <result column="rolename" property="name"/>
+            <result column="remark" property="remark"/>
+        </association>
+    </resultMap>
+
+    <select  id="seleRoleBeforeLogin" parameterType="java.lang.Integer" resultMap="rolelist">
+       select  * from  role
+        <where>
+            <if test="role_id!=null">
+              and  roleid=#{role_id}
+            </if>
+        </where>
+    </select>
+
+
+    <select id="seleMenuBeforeLoginByRoleId"  parameterType="java.lang.Integer" resultMap="getMenus">
+            SELECT * FROM  menu  WHERE  menuid in(SELECT menuid FROM role_menu WHERE roleid=#{roleid} )
+    </select>
+    <resultMap id="getMenus" type="com.chinasoft.hospital_manager.domain.Menu">
+         <id column="menuid" property="menuid"/>
+        <result column="parentid" property="parentid"/>
+        <result column="name" property="name"/>
+        <result column="url" property="url"/>
+        <result column="remark" property="remark"/>
+    </resultMap>
+
+
+
+    <select id="selectAdminBeforeLogin" parameterType="com.chinasoft.hospital_manager.domain.Admin" resultType="com.chinasoft.hospital_manager.domain.Admin">
+        select  * from admin
+        <where>
+            <if test="username!=null">
+                and  username=#{username}
+            </if>
+        </where>
+    </select>
+
+
+
+    <select id="selectAdminNameAndPassword"  parameterType="com.chinasoft.hospital_manager.domain.Admin" resultMap="selectAdmin">
+       select  u.*,r.roleid as rid,r.name as rolename,r.remark as roleremark  from admin u,role r  where u.username=#{username}  AND u.password=#{password} AND u.role_id=r.roleid
+    </select>
+
+    <resultMap id="selectAdmin" type="com.chinasoft.hospital_manager.domain.Admin">
+        <id column="id"  property="id"/>
+        <result column="username" property="username"/>
+        <result column="password" property="password"/>
+        <result column="name" property="name"/>
+        <result column="birthday" property="birthday"/>
+        <result column="sex" property="sex"/>
+        <result column="count" property="count"/>
+        <result column="lastime" property="lastime"/>
+        <result column="remark" property="remark"/>
+        <association property="role" javaType="com.chinasoft.hospital_manager.domain.Role">
+            <id column="rid" property="roleid"/>
+            <result column="rolename" property="name"/>
+            <result column="roleremark" property="remark"/>
+        </association>
+    </resultMap>
+
+
+    <update id="updateAdminCount" parameterType="com.chinasoft.hospital_manager.domain.Admin" >
+        update  admin set count=#{count}+1
+        <where>
+            <if test="username!=null">
+                and  username=#{username}
+            </if>
+            <if test="password!=null">
+                and  password=#{password}
+            </if>
+        </where>
+    </update>
+
+    <update id="updateAdminLastime" parameterType="map">
+        update  admin  set lastime=#{lastime}
+        <where>
+            <if test="username!=null">
+                and  username=#{username}
+            </if>
+            <if test="password!=null">
+                and  password=#{password}
+            </if>
+        </where>
+    </update>
+
+    <select id="selectAdminInfo" parameterType="com.chinasoft.hospital_manager.domain.Admin" resultType="com.chinasoft.hospital_manager.domain.Admin">
+        select  * from  admin
+        <where>
+           <if test="username!=null">
+             and username=#{username}
+           </if>
+            <if test="password!=null">
+                and password=#{password}
+            </if>
+        </where>
+    </select>
+
+
+    <update id="updateAdminPasswordBySession" parameterType="map">
+     UPDATE  admin set password=#{password} where username=#{username}
+    </update>
+
+
+    <select id="selectDoctorBeforeLogin" parameterType="com.chinasoft.hospital_manager.domain.Doctor" resultType="com.chinasoft.hospital_manager.domain.Doctor">
+        select  * from doctor
+        <where>
+            <if test="name!=null">
+                and  name=#{name}
+            </if>
+        </where>
+    </select>
+
+
+    <select id="selectDoctorNameAndPassword"  parameterType="com.chinasoft.hospital_manager.domain.Doctor" resultMap="selectDoctor">
+        select  u.* ,r.roleid ,r.`name` as rolename ,r.remark from doctor  u,role r WHERE u.role_id=r.roleid
+        <if test="name!=null">
+            and  u.name=#{name}
+        </if>
+        <if test="password!=null">
+            and  u.password=#{password}
+        </if>
+    </select>
+    <resultMap id="selectDoctor" type="com.chinasoft.hospital_manager.domain.Doctor">
+        <id column="id"  property="id"/>
+        <result column="realname" property="realname"/>
+        <result column="url" property="url"/>
+        <result column="name" property="name"/>
+        <result column="password" property="password"/>
+        <result column="sex" property="sex"/>
+        <result column="strength" property="strength"/>
+        <result column="birthday" property="birthday"/>
+        <result column="profession" property="profession"/>
+        <result column="school" property="school"/>
+        <result column="job" property="job"/>
+        <result column="prat" property="prat"/>
+        <association property="role" javaType="com.chinasoft.hospital_manager.domain.Role">
+            <id column="roleid" property="roleid"/>
+            <result column="rolename" property="name"/>
+            <result column="remark" property="remark"/>
+        </association>
+    </resultMap>
+
+</mapper>

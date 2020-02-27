@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB/views/admin/PersonManager/query.jsp" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB/views/admin/doctorInfoAndManager/doctorsForMyself/doctorinfo.jsp" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB/views/admin/doctorInfoAndManager/doctorsForPatient/doctors.jsp" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB/views/admin/doctorInfoAndManager/doctorsForPatient/doctorsFindHistory.jsp" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB/views/admin/doctorInfoAndManager/doctorsForPatient/doctorsForPatient.jsp" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB/views/admin/doctorInfoAndManager/doctorsForPatient/doctorsForPatientFindHistory.jsp" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB/views/admin/doctorInfoAndManager/doctorsForPatient/doctorsForPatientFindHistory.jsp" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB/views/admin/doctorInfoAndManager/doctorsForPatient/doctorsForPatientFindProducts.jsp" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB/views/admin/employee/doctorsInfo/query.jsp" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB/views/admin/employee/userClinicInfo/query.jsp" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB/views/admin/left.jsp" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB/views/admin/user_clinicManager/clinic_Department/doctors.jsp" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB/views/admin/user_clinicManager/clinic_Department/select.jsp" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB/views/admin/user_clinicManager/index.jsp" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB/views/admin/user_clinicManager/query.jsp" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB/views/admin/user_clinicManager/work.jsp" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB/views/layui/demo1.html" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/static/admin/boostrap/css" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/static/admin/boostrap/fonts" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/static/admin/boostrap/images" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/static/admin/boostrap/img" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/static/admin/boostrap/js" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/static/admin/images/timg.jpg" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/static/admin/js/ss.js" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/static/admin/pop/jquery-1.8.3.min.js" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/static/admin/pop/popup_layer.css" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/static/admin/pop/popup_layer.js" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/static/calendar/5e2922d339d9e" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/static/doctor/imgUrl/张天丽.jpg" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/static/doctor/imgUrl/江直树.jpg" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/static/doctor/imgUrl/王丽琳.jpg" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/static/doctor/imgUrl/程立林.jpg" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/static/doctor/imgUrl/郝医生.jpg" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/static/layui/layui" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/static/login/js/abp.js" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/static/login/js/jquery-1.8.3.min.js" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/static/power/5da9cd8d1481e" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/static/print/LodopFuncs.js" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/static/print/PrintSample10.css" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/static/print/PrintSample10.js" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/static/print/install_lodop32.exe" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/static/print/install_lodop64.exe" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/static/product/头孢拉定片剂.jpg" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/static/product/氨咖西林钠.jpg" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/static/product/注射剂.jpg" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/static/product/盐酸土霉菌.jpg" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/static/product/眼膏.jpg" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/static/product/红霉素.jpg" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/static/product/胶囊剂.jpg" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/static/product/阿莫西林.jpg" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/static/product/青霉素.jpg" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/static/product/青霉素注射剂.jpg" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/static/product/颗粒剂.jpg" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/static/upload/css" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/static/upload/img" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/static/upload/js" charset="GBK" />
+    <file url="PROJECT" charset="GBK" />
+  </component>
+</project>

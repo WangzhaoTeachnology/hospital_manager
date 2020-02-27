@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="commons-beanutils-1.8.3">
+    <CLASSES>
+      <root url="jar://D:/开发中的资料/BeanUtils/jar包/commons-beanutils-1.8.3.jar!/" />
+      <root url="jar://D:/开发中的资料/BeanUtils/jar包/commons-logging-1.1.1.jar!/" />
+      <root url="jar://D:/开发中的资料/BeanUtils/jar包/commons-logging.jar!/" />
+      <root url="jar://D:/开发中的资料/BeanUtils/jar包/commons-beanutils-1.8.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
