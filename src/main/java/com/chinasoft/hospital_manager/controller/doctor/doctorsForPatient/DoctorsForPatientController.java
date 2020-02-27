@@ -43,11 +43,6 @@ public class DoctorsForPatientController {
     private UserForPatientService userForPatientService;
     @Autowired
     private ProductService productService;
-
-
-
-
-
     @RequestMapping("/findPatientOfAppointment")
    public ModelAndView findPatientOfAppointment(HttpServletRequest request,HttpServletResponse response) throws IOException {
        ModelAndView  andView=new ModelAndView();
