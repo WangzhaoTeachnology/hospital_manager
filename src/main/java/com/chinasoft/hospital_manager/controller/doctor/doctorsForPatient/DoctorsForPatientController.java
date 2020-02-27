@@ -692,6 +692,8 @@ public class DoctorsForPatientController {
      * @param null
      * @return
      */
+
+
     @RequestMapping("/doctorsFindHistory")
     public ModelAndView doctorsFindHistory(HttpServletRequest request){
       String string=request.getParameter("github");
