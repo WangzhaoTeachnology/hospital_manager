@@ -692,28 +692,9 @@ public class DoctorsForPatientController {
      * @param null
      * @return
      */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     @RequestMapping("/doctorsFindHistory")
     public ModelAndView doctorsFindHistory(HttpServletRequest request){
+      String string=request.getParameter("github");
         ModelAndView andView=new ModelAndView();
         Map<String,Object> map=new HashMap<String, Object>();
         String currentPage = request.getParameter("currentPage");
