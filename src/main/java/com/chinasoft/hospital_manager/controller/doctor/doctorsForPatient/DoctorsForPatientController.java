@@ -45,6 +45,8 @@ public class DoctorsForPatientController {
     private ProductService productService;
     @RequestMapping("/findPatientOfAppointment")
    public ModelAndView findPatientOfAppointment(HttpServletRequest request,HttpServletResponse response) throws IOException {
+
+
        ModelAndView  andView=new ModelAndView();
         List<Menu> menus = (List<Menu> )request.getSession().getAttribute("menus");
         HttpSession session = request.getSession();
