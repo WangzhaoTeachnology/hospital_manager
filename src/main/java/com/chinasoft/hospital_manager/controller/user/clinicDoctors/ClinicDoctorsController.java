@@ -19,16 +19,21 @@ public class ClinicDoctorsController {
     @RequestMapping("/loadDoctorsInfo")
     public void loadDoctorsInfo(HttpServletRequest request,HttpServletResponse response) throws IOException {
         ModelAndView andView=new ModelAndView();
-      //  andView.setViewName("/admin/user_clinicManager/clinic_Department/doctors");
-        //andView.setViewName("redirect:/admin/login");
 
-        String requestURL = request.getRequestURL().toString();
-      //  andView.setViewName("redirect:"+"http://localhost:8080/admin/login");
-        andView.setViewName("<script> window.parent.location.href=\"${pageContext.request.contextPath}/admin/logout</script>");
 
-        //这个是退出frameset框架的操作的java后台代码
-        HttpServletResponse httpServletResponse = (HttpServletResponse) response;
-        httpServletResponse.getWriter().print("<script>parent.window.location.href="+request.getContextPath()+"'/admin/logout'</script>");
+
+/*        <div class="row">
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <img src="..." alt="...">
+      <div class="caption">
+        <h3>Thumbnail label</h3>
+        <p>...</p>
+        <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+      </div>
+    </div>
+  </div>
+</div>*/
 
     }
 }

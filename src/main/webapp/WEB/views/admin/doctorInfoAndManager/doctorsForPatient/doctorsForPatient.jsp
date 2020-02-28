@@ -753,7 +753,7 @@ $(function () {
             if (prescription_content != null && prescription_content != "" &&
                 doctor_comment!=null&&doctor_comment!=""&&id!=null&&id!=""&&patient_id!=null&&
                 patient_id!=""&&doctor_id!=null&&doctor_id!=""
-            ) {
+               ){
                 $.ajax({
                     type:"GET",
                     url:"${pageContext.request.contextPath}/admin/doctor/submitPrescriptionInfo",
@@ -890,8 +890,6 @@ $(function () {
 
             //点击确定，让它自动点击这个关闭按钮
             $("#priscribe_close").trigger("click");
-
-
 
         }else{
             alert("请你填写好数据才能提交");
@@ -1161,9 +1159,9 @@ $(function () {
                                    var  prescriptions=data.prescriptions;
                                           if (prescriptions!=null&&prescriptions!=""){
                                                for (var i=0;i<prescriptions.length;i++){
-                                                   var head="<tr>\n" +
-                                                       "              <td class=\"active\">处方编号</td>\n" +
-                                                       "              <td class=\"active\" colspan=\"8\">"+prescriptions[i].id+"</td>\n" +
+                                                   var head="<tr>" +
+                                                       "            <td class=\"active\">处方编号</td>\n" +
+                                                       "            <td class=\"active\" colspan=\"8\">"+prescriptions[i].id+"</td>\n" +
                                                        "          </tr>\n" +
                                                        "      <tr id='"+prescriptions[i].id+"'>\n" +
                                                        "           <td class=\"active\">编号</td>\n" +

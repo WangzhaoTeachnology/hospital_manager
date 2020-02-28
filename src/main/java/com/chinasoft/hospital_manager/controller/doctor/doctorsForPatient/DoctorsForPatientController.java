@@ -69,7 +69,7 @@ public class DoctorsForPatientController {
         }
 
         //指定当前页数和个数
-
+        String currentPage = request.getParameter("currentPage");
 
         if (currentPage==null){
             currentPage="1";
