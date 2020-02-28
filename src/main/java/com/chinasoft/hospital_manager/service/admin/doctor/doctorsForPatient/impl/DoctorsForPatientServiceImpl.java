@@ -241,5 +241,32 @@ public class DoctorsForPatientServiceImpl implements DoctorsForPatientService {
         return null;
     }
 
+    @Override
+    public History findHistoryById(Map<String, Object> map) {
+        History historyById = doctorsForPatientMapper.findHistoryById(map);
+        if (historyById!=null&&historyById.getId()!=null&&historyById.getId()!=""){
+            return historyById;
+        }
+        return null;
+    }
+
+    @Override
+    public int updateHistoryById(Map<String, Object> map) {
+        int i = doctorsForPatientMapper.updateHistoryById(map);
+        if (i>0){
+            return i;
+        }
+        return 0;
+    }
+
+    @Override
+    public int deleteHistoryById(Map<String, Object> map) {
+        int i = doctorsForPatientMapper.deleteHistoryById(map);
+        if (i>0){
+            return i;
+        }
+        return 0;
+    }
+
 
 }

@@ -47,7 +47,6 @@ public class DoctorsForPatientController {
     @RequestMapping("/findPatientOfAppointment")
    public ModelAndView findPatientOfAppointment(HttpServletRequest request,HttpServletResponse response) throws IOException {
 
-         String name=request.getParameter("name");
        ModelAndView  andView=new ModelAndView();
         List<Menu> menus = (List<Menu> )request.getSession().getAttribute("menus");
         HttpSession session = request.getSession();
@@ -70,7 +69,7 @@ public class DoctorsForPatientController {
         }
 
         //指定当前页数和个数
-        String currentPage = request.getParameter("currentPage");
+
 
         if (currentPage==null){
             currentPage="1";
@@ -695,10 +694,8 @@ public class DoctorsForPatientController {
      * @return
      */
 
-
     @RequestMapping("/doctorsFindHistory")
     public ModelAndView doctorsFindHistory(HttpServletRequest request){
-      String string=request.getParameter("githubdsadsadassdsad");
         ModelAndView andView=new ModelAndView();
         Map<String,Object> map=new HashMap<String, Object>();
         String currentPage = request.getParameter("currentPage");
@@ -755,6 +752,100 @@ public class DoctorsForPatientController {
             andView.setViewName("/admin/doctorInfoAndManager/doctorsForPatient/doctorsFindHistory");
         }
         return andView;
+    }
+
+    /**
+     * @description:这是根据这个病历的id主键，查询这详情数据
+     * @author jack
+     * @date 2020/2/28 19:13
+     * @param null
+     * @return
+     */
+
+    @RequestMapping("/findHistoryById")
+    @ResponseBody
+    public Map<String,Object> findHistoryById(HttpServletRequest request){
+        Map<String,Object> map=new HashMap<String, Object>();
+        Map<String,Object> response_map=new HashMap<String, Object>();
+        String id=request.getParameter("id");
+        if (id!=null&&id!=""){
+            map.put("id",id);
+            History historyById = doctorsForPatientService.findHistoryById(map);
+            if (historyById!=null){
+                response_map.put("type","success");
+                response_map.put("history",historyById);
+                return response_map;
+            }else{
+                response_map.put("type","fail");
+                return response_map;
+            }
+        }else {
+            response_map.put("type","error");
+        }
+        return  response_map;
+    }
+
+
+    /**
+     * @description:按照这个病历的id，修改病历的话，只有修改content字段
+     * 一般来说，病历的修改有和并病历的功能！
+     * @author jack
+     * @date 2020/2/28 21:17
+     * @param null
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping("/updateHistoryById")
+    public  Map<String,Object> updateHistoryById(HttpServletRequest request){
+        Map<String,Object> response_map=new HashMap<String, Object>();
+        Map<String,Object> map=new HashMap<String, Object>();
+        String id=request.getParameter("id");
+        String content=request.getParameter("content");
+        if (id!=null&&id!=""){
+            map.put("id",id);
+            map.put("content",content);
+            int i = doctorsForPatientService.updateHistoryById(map);
+            if (i>0){
+                response_map.put("type","success");
+                return response_map;
+            }else{
+                response_map.put("type","fail");
+                return response_map;
+            }
+        }else {
+            response_map.put("type","error");
+        }
+        return  response_map;
+    }
+
+
+    /**
+     * @description:这是根据id删除这个病历的记录
+     * @author jack
+     * @date 2020/2/28 21:33
+     * @param null
+     * @return
+     */
+    @RequestMapping("/deleteHistoryById")
+    @ResponseBody
+    public  Map<String,Object> deleteHistoryById(HttpServletRequest request){
+        Map<String,Object> response_map=new HashMap<String, Object>();
+        Map<String,Object> map=new HashMap<String, Object>();
+        String id=request.getParameter("id");
+        if (id!=null&&id!=""){
+            map.put("id",id);
+            int i = doctorsForPatientService.deleteHistoryById(map);
+            if (i>0){
+                response_map.put("type","success");
+                return response_map;
+            }else{
+                response_map.put("type","fail");
+                return response_map;
+            }
+        }else {
+            response_map.put("type","error");
+        }
+        return  response_map;
     }
 
 

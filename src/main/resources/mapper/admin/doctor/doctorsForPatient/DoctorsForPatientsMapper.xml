@@ -337,4 +337,41 @@
         </if>
 
     </select>
+
+    <select id="findHistoryById" parameterType="map" resultMap="findHistory">
+        SELECT p.id as pid,p.`name` ,p.id_number,p.sex,p.is_marry,p.birthday,p.telephone,p.address,p.`work`,
+        h.id as hid ,h.content,h.datetime,
+        dr.id as drid , dr.realname
+        FROM history h,patient p ,doctor dr WHERE h.patient_id=p.id AND h.doctor_id=dr.id AND h.id=#{id}
+    </select>
+
+    <resultMap  id="findHistory" type="com.chinasoft.hospital_manager.domain.History">
+         <id column="hid" property="id"/>
+        <result column="datetime" property="datetime"/>
+        <result column="content" property="content"/>
+        <association property="patient" javaType="com.chinasoft.hospital_manager.domain.Patient">
+            <id column="pid" property="id"/>
+            <result column="name" property="name"/>
+            <result column="id_number" property="id_number"/>
+            <result column="sex" property="sex"/>
+            <result column="is_marry" property="is_marry"/>
+            <result column="birthday" property="birthday"/>
+            <result column="telephone" property="telephone"/>
+            <result column="address" property="address"/>
+            <result column="work" property="work"/>
+        </association>
+        <association property="doctor" javaType="com.chinasoft.hospital_manager.domain.Doctor">
+            <id column="drid" property="id"/>
+            <result  column="realname" property="realname"/>
+        </association>
+    </resultMap>
+
+
+    <update id="updateHistoryById" parameterType="map">
+        UPDATE history SET content = #{content}  WHERE id = #{id}
+    </update>
+
+    <delete id="deleteHistoryById" parameterType="map">
+          DELETE  FROM history WHERE id=#{id}
+    </delete>
 </mapper>

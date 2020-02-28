@@ -240,7 +240,7 @@
             <form id="updateform">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="update_exampleModalScrollableTitle">修改挂号人员个人信息</h5>
+                        <h5 class="modal-title" id="update_exampleModalScrollableTitle">修改病历信息</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -443,29 +443,30 @@
     //删除数据的函数
     $("#delete").click(function () {
        var checkboxs=$("input[name='checkbox']:checked");//得到的数据都是选中的数据
-        var  menuid=$("input[name='menuid']").val();
+        //var  menuid=$("input[name='menuid']").val();
         //alert(checkbox.length);
         if (checkboxs.length==0){
             alert("请你选择选项再删除信息");
             return;
-        } else if(checkboxs.length>0&&menuid!=""&&menuid!=null){
+        } else if(checkboxs.length>0){
             for (var i=0;i<checkboxs.length;i++){ //删除你选中所有的数据
                 var id=checkboxs[i].value;
                 if (id!=null&&id!=""){
                     $.ajax({
-                        url:"${pageContext.request.contextPath}/admin/user/deleteUserInfoById",
+                        url:"${pageContext.request.contextPath}/admin/doctor/deleteHistoryById",
                         type:"GET",
-                        data:{"id":id,"menuid":menuid},
+                        data:{"id":id},
                         dataType:"JSON",
                         success:function (data) {
                             var  type=data.type;
-                            var  menuid=data.menuid;
+
                             if (data!=null&&data!=""){
                                 if (type=='success'){
                                     alert("删除成功");
-                                    if (menuid!=null&&menuid!=""){
-                                        window.location.href="${pageContext.request.contextPath}/admin/user/clinicUserInfo?menuid="+menuid;
-                                    }
+                                    window.location.href="${pageContext.request.contextPath}/admin/doctor/doctorsFindHistory";
+                                 /*   if (menuid!=null&&menuid!=""){
+                                        window.location.href="/admin/user/clinicUserInfo?menuid="+menuid;
+                                    }*/
                                 } else {
                                     alert("删除失败");
                                 }
@@ -486,93 +487,81 @@
         var uid=checkboxs[0].value;
         $.ajax({
             type:"GET",
-            url:"${pageContext.request.contextPath}/admin/user/beforUpdateFindUserInfo",
+            url:"${pageContext.request.contextPath}/admin/doctor/findHistoryById",
             data:{"id":uid},
-            dataType:"JSON", //这个表示ajax请求后，返回数据的类型，为json类型
+            dataType:"JSON",
             success:function (data) {
-                //alert(data);
                 if (data!=null&&data!=""){
-                    var  user=data.user;
-                    var  department=user.department;
-                   // var s = JSON.stringify(department);
-                    //alert("s"+s);
-                    //alert(department);
-                    //alert(department.id);
 
+                    var person=data.history.patient;
+                    var doctor=data.history.doctor;
+                    var  history=data.history;
                     var  content=" <div class=\"form-horizontal\" style=\"border:0px solid red;text-align:center;margin-left: 100px;\">\n" +
                         "                        <div class=\"form-group\">\n" +
-                        "                            <label for=\"username\" class=\"col-sm-2 control-label\">姓名</label>\n" +
-                        "                            <div class=\"col-sm-6 col-lg-6 col-xs-6 col-md-6\">\n" +
-                        "                                <input type=\"hidden\" name=\"id\" class=\"form-control\" value="+ user.id +" id=\"id\" >\n" +
-                        "                                <input type=\"text\" name=\"username\" class=\"form-control\" value="+ user.username +" id=\"username\" placeholder=\"姓名\">\n" +
+                        "                            <label for=\"id\" class=\"col-sm-2 control-label\">病历编号</label>\n" +
+                        "                            <div class=\"col-sm-7 col-lg-7 col-xs-7 col-md-7\">\n" +
+                        "                                <input type=\"text\" name=\"id\" class=\"form-control\" value="+ history.id +"  placeholder=\"病历编号\" readonly='readonly' />\n" +
                         "                            </div>\n" +
                         "                        </div>\n" +
-                        "\n" +
+
                         "                        <div class=\"form-group\">\n" +
-                        "                            <label for=\"name\" class=\"col-sm-2 control-label\">真实姓名</label>\n" +
-                        "                            <div class=\"col-sm-6 col-lg-6 col-xs-6 col-md-6\">\n" +
-                        "                                <input type=\"text\" name=\"name\" class=\"form-control\" id=\"name\"  value= "+user.name +" placeholder=\"真实姓名\">\n" +
+                        "                            <label for=\"content\" class=\"col-sm-2 control-label\">诊断内容:</label>\n" +
+                        "                            <div class=\"col-sm-7 col-lg-7 col-xs-7 col-md-7\">\n" +
+                        "                                <textarea  type=\"text\" name=\"content\" class=\"form-control\" id=\"content\" style='height: 80px;' >"+history.content+"</textarea>"+
                         "                            </div>\n" +
                         "                        </div>\n" +
-                        "\n" +
+
                         "                        <div class=\"form-group\">\n" +
-                        "                            <label for=\"password\" class=\"col-sm-2 control-label\">密码</label>\n" +
-                        "                            <div class=\"col-sm-6 col-lg-6 col-xs-6 col-md-6\">\n" +
-                        "                                <input type=\"text\" name=\"password\" class=\"form-control\"  value= "+ user.password + " id=\"password\" placeholder=\"输入密码\">\n" +
+                        "                            <label for=\"realname\" class=\"col-sm-2 control-label\">医生姓名:</label>\n" +
+                        "                            <div class=\"col-sm-7 col-lg-7 col-xs-7 col-md-7\">\n" +
+                        "                                <input type=\"text\" name=\"realname\" class=\"form-control\" id=\"realname\" value= "+ doctor.realname + "  readonly='readonly'>\n" +
                         "                            </div>\n" +
                         "                        </div>\n" +
-                        "\n" +
+
                         "                        <div class=\"form-group\">\n" +
-                        "                            <label for=\"birthday\" class=\"col-sm-2 control-label\">出生日期</label>\n" +
-                        "                            <div class=\"col-sm-6 col-lg-6 col-xs-6 col-md-6\">\n" +
-                        "                                <input type=\"date\" name=\"birthday\" class=\"form-control\"  value= "+ user.birthday +" id=\"birthday\" >\n" +
+                        "                            <label for=\"name\" class=\"col-sm-2 control-label\">姓名</label>\n" +
+                        "                            <div class=\"col-sm-7 col-lg-7 col-xs-7 col-md-7\">\n" +
+                        "                                <input type=\"text\" name=\"name\" class=\"form-control\" id=\"name\"  value= "+person.name +" readonly='readonly' >\n" +
                         "                            </div>\n" +
                         "                        </div>\n" +
-                        "\n" +
+
                         "                        <div class=\"form-group\">\n" +
-                        "                            <label  class=\"col-sm-2 control-label\">性别</label>\n" +
-                        "                            <div class=\"col-sm-6 col-lg-6 col-xs-6 col-md-6\" style=\"margin-left: -70px;\">\n" +
-                        "                                <input type=\"radio\"  id=\"male\" name=\"sex\" value=\"0\"   checked=\"checked\">男\n" +
-                        "                                <input type=\"radio\"  id=\"female\"  name=\"sex\"  value=\"1\" > 女\n" +
+                        "                            <label for=\"sex\" class=\"col-sm-2 control-label\">性别</label>\n" +
+                        "                            <div class=\"col-sm-7 col-lg-7 col-xs-7 col-md-7\">\n" +
+                        "                                <input type=\"text\" name=\"sex\" class=\"form-control\"  value= "+ person.sex + " id=\"sex\" readonly='readonly' >\n" +
                         "                            </div>\n" +
                         "                        </div>\n" +
-                        "\n" +
+
                         "                        <div class=\"form-group\">\n" +
-                        "                            <label for=\"profession\" class=\"col-sm-2 control-label\">专业</label>\n" +
-                        "                            <div class=\"col-sm-6 col-lg-6 col-xs-6 col-md-6\">\n" +
-                        "                                <input type=\"text\" name=\"profession\" class=\"form-control\" value= "+ user.profession + " id=\"profession\" placeholder=\"输入专业信息\">\n" +
+                        "                            <label for=\"telephone\" class=\"col-sm-2 control-label\">电话</label>\n" +
+                        "                            <div class=\"col-sm-7 col-lg-7 col-xs-7 col-md-7\">\n" +
+                        "                                <input type=\"text\" name=\"telephone\" class=\"form-control\"  value= "+ person.telephone +" id=\"telephone\" readonly='readonly'>\n" +
                         "                            </div>\n" +
                         "                        </div>\n" +
-                        "\n" +
+
                         "                        <div class=\"form-group\">\n" +
-                        "                            <label for=\"job\" class=\"col-sm-2 control-label\">职业</label>\n" +
-                        "                            <div class=\"col-sm-6 col-lg-6 col-xs-6 col-md-6\">\n" +
-                        "                                <input type=\"text\" name=\"job\" class=\"form-control\" id=\"job\" value= "+ user.job + " placeholder=\"输入职业\">\n" +
+                        "                            <label  class=\"col-sm-2 control-label\">地址</label>\n" +
+                        "                            <div class=\"col-sm-7 col-lg-7 col-xs-7 col-md-7\" >\n" +
+                        "                                <input type=\"text\" name=\"address\" class=\"form-control\"  value= "+ person.address +" id=\"address\" readonly='readonly'>\n" +
+                        "                            </div>\n" +
+                        "                        </div>\n" +
+
+                        "                        <div class=\"form-group\">\n" +
+                        "                            <label for=\"work\" class=\"col-sm-2 control-label\">职业</label>\n" +
+                        "                            <div class=\"col-sm-7 col-lg-7 col-xs-7 col-md-7\">\n" +
+                        "                                <input type=\"text\" name=\"work\" class=\"form-control\" value= "+ person.work + " id=\"work\" readonly='readonly'  placeholder=\"输入工作信息\">\n" +
                         "                            </div>\n" +
                         "                        </div>\n" +
                         "                        <div class=\"form-group\">\n" +
-                        "                            <label for=\"school\" class=\"col-sm-2 control-label\">学校</label>\n" +
-                        "                            <div class=\"col-sm-6 col-lg-6 col-xs-6 col-md-6\">\n" +
-                        "                                <input type=\"text\" name=\"school\" class=\"form-control\" value= "+ user.school +" id=\"school\" placeholder=\"输入学校的信息\">\n" +
+                        "                            <label for=\"datetime\" class=\"col-sm-2 control-label\">诊断时间:</label>\n" +
+                        "                            <div class=\"col-sm-7 col-lg-7 col-xs-7 col-md-7\" >\n" +
+                        "                                <input type=\"date\" name=\"datetime\" class=\"form-control\" id=\"datetime\" value= "+ history.datetime + " readonly='readonly' >\n" +
                         "                            </div>\n" +
-                        "                        </div>\n" +
-                        "                        <div class=\"form-group\">\n" +
-                        "                            <div class=\"col-sm-6 col-lg-6 col-xs-6 col-md-6\">\n" ;
-                    content+= "<input type='hidden' class=\"form-control\" value='2' name='role' placeholder='挂号人员' /></div></div>";
-                    content+="<div class=\"form-group\">\n" +
-                        "<label  class=\"col-sm-2 control-label\">部门</label>\n" +
-                        " <div class=\"col-sm-6 col-lg-6 col-xs-6 col-md-6\">\n" +
-                        " <select class=\"form-control\" name=\"department\">";
-                    content+=" <option value="+user.department.id+">"+user.department.name+"</option>";
-                    content+=" </select>\n" +
-                        "</div>\n" +
-                        " </div>\n" +
-                        "</div>";
+                        "                        </div></div>" ;
+
                     $("#updatemain").html(content);
                     $("#update").removeAttr("data-target");
-                    //每次成功的加载数据，要移出这个属性，
-                    //因为当你第一次点击成功，跳出一个框子，然后再次不选择，点击
-                    //保证不选择点击这个框子，不能跳出来，所以要将这个属性移出！
+
                 }
             },error:function (data) {
                 alert("响应数据失败");
@@ -583,20 +572,6 @@
 
     //这个是手动点击触发的函数
     $("#update").click(function () {
-/*        问题：当你点击修改按钮的时候，这个input标签有个属性，$("#update").attr("data-target","#_updateexampleModalScrollable");
-        只要你点击这个按钮，都会跳出这个框子，这个是boostrap内部的js
-        而我想要的效果是：在你选中的checkbox，当你点击修改按钮的时候，跳出这个框子
-        而当你未选中的时候，则无论怎么点击都不会跳出这个框子
-
-        以前的思路：
-           通过隐藏这个div标签，不管你有没有选中这个checkbox，都会跳出这个框子，然后按照你是不是选中的状态，是不是隐藏还是显示这个框子
-
-        现在的思路：
-           1：首先要移出这个$("#update").attr("data-target","#_updateexampleModalScrollable");属性
-           2：当你点击修改按钮的时候，判断你有没有选中这个checkbox，选中则，加上这个属性，没有则按照默认的不加这个属性
-           3：当判断你已经选中时候，会自动的按照触发器，自动的触发一个函数，这个函数可以将数据查询，然后回显到跳出一个框子
-*/
-
         var checkboxs=$("input[name='checkbox']:checked");//得到的数据都是选中的数据
         if (checkboxs.length==0){
             alert("编辑之前请你选择一项数据");
@@ -604,9 +579,6 @@
         } else{
             $("#update").attr("data-target","#_updateexampleModalScrollable");
             $("#update").trigger("dblclick");
-         /*   $(document).ready(function(){
-                $("#update").trigger("dblclick");
-            });*/
         }
     });
 
@@ -615,19 +587,19 @@
     $("#updatebtn").click(function () {
         $.ajax({
             type:"GET",
-            url:"${pageContext.request.contextPath}/admin/user/updateUserInfoById",
+            url:"${pageContext.request.contextPath}/admin/doctor/updateHistoryById",
             dataType:"JSON",
             data:$('#updateform').serialize(),
             success:function (data) {
                  if (data!=null&&data!=""){
                      var  type=data.type;
                      var menuid=data.menuid;
-                  //   alert(menuid);
                      if (type == 'success'){
                          alert("修改数据成功");
-                         if (menuid!=null&&menuid!=""){
-                             window.location.href="${pageContext.request.contextPath}/admin/user/clinicUserInfo?menuid="+menuid;
-                         }
+                         window.location.href="${pageContext.request.contextPath}/admin/doctor/doctorsFindHistory";
+                       /*  if (menuid!=null&&menuid!=""){
+                             window.location.href="/admin/doctor/doctorsFindHistory?menuid="+menuid;
+                         }*/
                      } else if (type == 'fail') {
                          alert("修改数据失败");
                      }
@@ -638,13 +610,6 @@
         });
     });
 
-
-
-    //这个种写法也行
-   /* $("#menuls").on("click","li",function(){
-        alert($(this).text());
-    });
-*/
 
 </script>
 </html>

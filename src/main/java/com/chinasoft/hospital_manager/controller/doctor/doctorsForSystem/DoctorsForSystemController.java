@@ -29,6 +29,7 @@ public class DoctorsForSystemController {
     public void logout(HttpServletResponse response, HttpServletRequest request) throws IOException {
         //这个是退出frameset框架的操作的java后台代码
         HttpServletResponse httpServletResponse = (HttpServletResponse) response;
+        request.getSession().removeAttribute("doctor");
         httpServletResponse.getWriter().print("<script>parent.window.location.href="+request.getContextPath()+"'/admin/logout'</script>");
     }
 }

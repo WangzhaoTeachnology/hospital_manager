@@ -43,6 +43,15 @@ public interface DoctorsForPatientService  {
     //查询这个该医生病人的病历史
     public PageBean<History> doctorsFindHistory(Map<String,Object> map,int currentPage,int count);
 
+    //根据这个病历的id，查询该条数据，在点击编辑的时候，数据回显的函数
+    public History findHistoryById(Map<String,Object> map);
+
+    //根据id，修该病历信息
+    public int updateHistoryById(Map<String,Object> map);
+
+    //根据id,删除这个病历的信息
+    public int deleteHistoryById(Map<String,Object> map);
+
 
 
 }
