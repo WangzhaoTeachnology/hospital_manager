@@ -59,4 +59,14 @@ public interface UserForPatientMapper {
     public int getTotalPatientsCountByCondition(Map<String,Object> map);
 
 
+
+
+
+    //下面是门诊的挂号人员，查询门诊医生的信息，按照当天的日期查询,查询当天所有的医生的信息(工作的信息和个人的信息)
+    //涉及到分页，所以要查询个数
+    public List<Doctor> selectDoctorsInfoByOnTime(Map<String,Object> map);
+    public int getSelectDoctorsInfoByOnTimeCount(Map<String,Object> map);
+
+
+
 }

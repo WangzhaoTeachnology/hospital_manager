@@ -212,5 +212,49 @@ public class UserForPatientMapperImpl implements UserForPatientService {
         return null;
     }
 
+    @Override
+    public PageBean<Doctor> selectDoctorsInfoByOnTime(Map<String,Object> map,int currentPage, int count) {
+        Map<String,Object> condition=new HashMap<String, Object>();
+
+        for (Map.Entry<String,Object> entry:map.entrySet()){
+            String key = entry.getKey();
+            if (key.equals("name")){
+                String name = (String) entry.getValue();
+                condition.put("name",name);
+            }
+            else if (key.equals("today")){
+                String today = (String) entry.getValue();
+                condition.put("today",today);
+            }
+        }
+
+        if (count!=0&&currentPage!=0){
+            int totalCount = userForPatientMapper.getSelectDoctorsInfoByOnTimeCount(condition);
+            PageBean<Doctor> pageBean=new PageBean<Doctor>();
+            if (totalCount!=0){
+                int totalPages= (int) Math.ceil(totalCount*1.0/count);
+                int index= (currentPage-1)*count;
+                condition.put("index",index);
+                condition.put("count",count);
+                List<Doctor> doctors = userForPatientMapper.selectDoctorsInfoByOnTime(condition);
+                if (doctors!=null&&doctors.size()!=0){
+                    pageBean.setCurrentCount(count);
+                    pageBean.setCurrentPage(currentPage);
+                    pageBean.setList(doctors);
+                    pageBean.setTotalCount(totalCount);
+                    pageBean.setTotalPage(totalPages);
+                }
+            }else {
+                pageBean.setTotalPage(0);
+                pageBean.setTotalCount(0);
+                pageBean.setCurrentPage(currentPage);
+                pageBean.setCurrentCount(count);
+                pageBean.setList(null);
+            }
+            return  pageBean;
+        }
+        return null;
+    }
+
 
 }

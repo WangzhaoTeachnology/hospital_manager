@@ -628,4 +628,85 @@
             AND to_days(a.datetime) = to_days(now())
         </if>
     </select>
+
+
+    <select id="getSelectDoctorsInfoByOnTimeCount" resultType="java.lang.Integer" parameterType="map">
+        SELECT COUNT(*)
+        FROM doctor d,`work` w ,offices o
+        WHERE  d.id=w.doctorid AND o.id=d.office_id
+        <if test="today!=null">
+            AND to_days(w.startime) = to_days(now())
+        </if>
+        <if test="name!=null">
+            and  d.realname  like concat('%',#{name},'%')
+        </if>
+        AND w.status=0
+    </select>
+
+    <select id="selectDoctorsInfoByOnTime"  parameterType="map" resultMap="DoctorsInfoByOnTime">
+        SELECT d.*,
+        w.id as wid,w.user_id,w.doctorid,w.address,w.onday,w.morning,w.afternoon,w.startime,w.endtime,w.comment,w.status as wstatus ,
+        o.id as oid,o.name as oname
+        FROM doctor d,`work` w ,offices o
+        WHERE  d.id=w.doctorid AND o.id=d.office_id
+        <if test="today!=null">
+            AND to_days(w.startime) = to_days(now())
+        </if>
+        <if test="name!=null">
+            and  d.realname  like concat('%',#{name},'%')
+        </if>
+        AND w.status=0
+        limit #{index},#{count}
+    </select>
+
+    <resultMap id="DoctorsInfoByOnTime" type="com.chinasoft.hospital_manager.domain.Doctor">
+        <id column="id" property="id"/>
+        <result column="realname" property="realname"/>
+        <result column="url" property="url"/>
+        <result column="name" property="name"/>
+        <result column="sex" property="sex"/>
+        <result column="strength" property="strength"/>
+        <result column="status" property="status"/>
+        <result column="birthday" property="birthday"/>
+        <result column="school" property="school"/>
+        <result column="job" property="job"/>
+        <result column="prat" property="prat"/>
+        <association property="department" javaType="com.chinasoft.hospital_manager.domain.Department">
+
+        </association>
+        <association property="offices" javaType="com.chinasoft.hospital_manager.domain.Offices">
+            <id column="oid" property="id"/>
+            <result column="oname" property="name"/>
+            <association property="appoint_category" javaType="com.chinasoft.hospital_manager.domain.Appoint_category">
+            </association>
+        </association>
+        <collection property="works" ofType="com.chinasoft.hospital_manager.domain.Work">
+            <id column="wid" property="id"/>
+            <result column="address" property="address"/>
+            <result column="onday" property="onday"/>
+            <result column="morning" property="morning"/>
+            <result column="wstatus" property="status"/>
+            <result column="afternoon" property="afternoon"/>
+            <result column="startime" property="startime"/>
+            <result column="endtime" property="endtime"/>
+            <association property="user" javaType="com.chinasoft.hospital_manager.domain.User">
+                <id column="user_id"  property="id"/>
+                <result column="name" property="name"/>
+                <result column="username" property="username"/>
+                <result column="password" property="password"/>
+                <result column="birthday" property="birthday"/>
+                <!--  <result column="sex" property="sex"/>-->
+                <result column="profession" property="profession"/>
+                <result column="datetime" property="datetime"/>
+                <result column="job" property="job"/>
+                <association property="role" javaType="com.chinasoft.hospital_manager.domain.Role">
+                    <id column="roleid" property="roleid"/>
+                    <result column="rolename" property="name"/>
+                    <result column="remark" property="remark"/>
+                </association>
+            </association>
+        </collection>
+    </resultMap>
+
+
 </mapper>

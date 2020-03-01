@@ -576,6 +576,8 @@ public class LoginController {
         request.getSession().removeAttribute("second");
         request.getSession().removeAttribute("role");
         request.getSession().removeAttribute("user");
+        request.getSession().removeAttribute("doctor");
+        request.getSession().removeAttribute("admin");
         andView.setViewName("redirect:/admin/login");
         return  andView;
     }
