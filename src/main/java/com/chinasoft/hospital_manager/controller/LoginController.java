@@ -310,7 +310,7 @@ public class LoginController {
                             if (menus != null) {
                                 List<Menu> top = MenuUtils.getTop(menus);
                                 List<Menu> second = MenuUtils.getSecond(menus,top);
-                            //    request.getSession().setAttribute("admin", admin2);
+                                request.getSession().setAttribute("admin", admin2);
                                 request.getSession().setAttribute("role", role.getName());
                                 request.getSession().setAttribute("menus",menus);
                                 request.getSession().setAttribute("top",top);

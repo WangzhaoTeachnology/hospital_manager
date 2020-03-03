@@ -22,7 +22,20 @@
 
 <body>
 		<div class="row" style="padding-left: 310px;margin-top: 20px;">
-			<div class="col-lg-6 col-sm-6 col-md-6 col-xs-6" style="border: 0px solid  red;margin-left: -300px; ">
+			<div class="col-lg-3 col-sm-3 col-md-3 col-xs-3" style="border: 0px solid  red;margin-left: -300px;">
+				<div class="form-group">
+					<div class="col-sm-10">
+						<select class="form-control" style="width: 147px;" name="role_category">
+							<option value="0">请选择用户类型</option>
+							<c:forEach items="${allRoles}" var="role">
+								<option value="${role.roleid}">${role.name}</option>
+							</c:forEach>
+						</select>
+					</div>
+				</div>
+		   </div>
+
+			<div class="col-lg-6 col-sm-6 col-md-6 col-xs-6" style="border: 0px solid  red;margin-left: -175px; ">
 				<div class="input-group">
 					<div class="input-group-btn">
 						<button id="appear_btn" type="button" class="btn btn-default dropdown-toggle"
@@ -30,12 +43,12 @@
 								aria-haspopup="true" aria-expanded="false">姓名<span
 								class="caret"></span></button>
 						<ul class="dropdown-menu" id="menuls">
-							<c:forEach items="${users}" var="user">
+							<%--<c:forEach items="${users}" var="user">
 								<input  type="hidden" value="${user.id}" name="${user.name}"/>
 								<li>
 									<a href="#">${user.name}</a>
 								</li>
-							</c:forEach>
+							</c:forEach>--%>
 						</ul>
 					</div>
 					<input type="text" placeholder="按照条件进行搜索" id="searchvalue"  value="" class="form-control" aria-label="...">
@@ -65,17 +78,18 @@
 		      <div class="am-margin-sm">
 		      	<form action="" class="am-form am-form-inline" id="workform">
 		      	  <div class="hd-work-type">
-		      	  	<div class="hd-work-block">
-			      	  	<label class="hd-type-label" >类型:</label>
-			      	  	<div class="hd-type-select">
-			      	  		<select data-am-selected class="am-u-sm-10" id="hd-type-option">
-							  <option value="workday" selected>工作时间</option>
-							  <option value="freeday" >非工作日</option>
-							  <option value="lawday" >法定假日</option>
-							  <option value="tradeday" >调休日</option>
-							</select>
-			      	  	</div>
-		      	  	</div>
+
+             <div class="hd-work-block" style="display: none;">
+                <label class="hd-type-label" >类型:</label>
+                 <div class="hd-type-select">
+                     <select data-am-selected class="am-u-sm-10" id="hd-type-option">
+                         <option value="workday" selected>工作时间</option>
+                         <option value="freeday" >非工作日</option>
+                         <option value="lawday" >法定假日</option>
+                         <option value="tradeday" >调休日</option>
+                     </select>
+                 </div>
+             </div>
 		      	  	<div class="stone">
 
 					</div>
@@ -143,10 +157,6 @@
 		    </div>
 		  </div>
 		</div>
-
-
-
-
 
 
 	</body>

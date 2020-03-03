@@ -99,5 +99,58 @@
         </association>
     </resultMap>
 
+    <select id="getAllRoles" resultMap="roles">
+      SELECT * FROM  role
+    </select>
+    <resultMap id="roles" type="com.chinasoft.hospital_manager.domain.Role">
+        <id column="roleid" property="roleid"/>
+        <result column="name" property="name"/>
+        <result column="remark" property="remark"/>
+     </resultMap>
+
+    <select id="findUsersByCategory" resultMap="findUsersByCategId">
+       SELECT * FROM  `user` where role_id =2
+    </select>
+    <resultMap id="findUsersByCategId" type="com.chinasoft.hospital_manager.domain.User">
+        <id column="id"  property="id"/>
+        <result column="name" property="name"/>
+        <result column="username" property="username"/>
+        <result column="password" property="password"/>
+        <result column="birthday" property="birthday"/>
+        <result column="sex" property="sex"/>
+        <result column="profession" property="profession"/>
+        <result column="datetime" property="datetime"/>
+        <result column="job" property="job"/>
+        <result column="school" property="school"/>
+    </resultMap>
+    <select id="findDoctorsByCategory" resultMap="findDoctorsByCategoryId">
+       SELECT * FROM doctor where role_id =3
+    </select>
+    <resultMap id="findDoctorsByCategoryId" type="com.chinasoft.hospital_manager.domain.Doctor">
+        <id column="id" property="id"/>
+        <result column="realname" property="realname"/>
+        <result column="name" property="name"/>
+        <result column="password" property="password"/>
+        <result column="url" property="url"/>
+    </resultMap>
+    <select id="findAdminsByCategory" resultMap="findAdminsByCategoryId">
+       SELECT * FROM  admin where role_id =1
+    </select>
+    <resultMap id="findAdminsByCategoryId" type="com.chinasoft.hospital_manager.domain.Admin">
+        <id column="id" property="id"/>
+        <result column="username" property="username"/>
+        <result column="password" property="password"/>
+        <result column="name" property="name"/>
+    </resultMap>
+
+
+    <update id="editWorkInfoById" parameterType="map">
+       UPDATE `work` SET address=#{address} WHERE id=#{id}
+    </update>
+
+    <delete id="deleteWorkInfoById" parameterType="map">
+        DELETE FROM work WHERE id=#{id}
+    </delete>
+
 
 </mapper>

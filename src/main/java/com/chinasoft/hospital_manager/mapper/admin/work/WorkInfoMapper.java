@@ -6,6 +6,7 @@ import com.chinasoft.hospital_manager.domain.*;
 import com.sun.javafx.tk.TKPulseListener;
 import org.springframework.stereotype.Repository;
 
+import java.lang.reflect.MalformedParameterizedTypeException;
 import java.util.List;
 import java.util.Map;
 
@@ -24,5 +25,21 @@ public interface WorkInfoMapper {
 
     //根据id，查询工作表的详细信息
     public  Work findUserWorkInfoById(int id);
+
+    //查询用户角色的类型
+    public List<Role> getAllRoles();
+
+    //查询所有的admin的用户的个数
+    public List<Admin> findAdminsByCategory();
+    //查询所有的admin的用户的个数
+    public List<User> findUsersByCategory();
+    //查询所有的admin的用户的个数
+    public List<Doctor> findDoctorsByCategory();
+
+    //通过id，修改工作信息的
+    public int editWorkInfoById(Map<String,Object> map);
+
+    //通过id，删除这个信息的
+    public int deleteWorkInfoById(Map<String,Object> map);
 
 }

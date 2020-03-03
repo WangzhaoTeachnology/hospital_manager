@@ -44,6 +44,75 @@ function loading_calendar(id,lan){
 
 		});*/
 
+    var  value=null;
+
+		$("select[name='role_category']").change(function () {
+			var id = $(this).find("option:selected").val();
+			if (id!=null&&id!=""&&parseInt(id)!=0){
+				$.ajax({
+					type:"GET",
+					data:{"id":id},
+					dataType:"JSON",
+					url:"/admin/user/findUsersByCategory",
+					success:function (data) {
+						if (data!=null&&data!=""){
+							var type=data.type;
+							if (type=='success'){
+								$("#menuls").html("");
+								if (parseInt(id)==1){
+									var admin=data.admins;
+
+									if (admin!=null&&admin!=""){
+										for (var i=0;i<admin.length;i++){
+											var   content="\t<input  type=\"hidden\" value='"+admin[i].id+"' name='"+admin[i].name+"' />\n" +
+												"\t\t\t\t\t\t\t\t\t\t<li>\n" +
+												"\t\t\t\t\t\t\t\t\t\t<a href=\"#\">"+admin[i].name+"</a>\n" +
+												"\t\t\t\t\t\t\t\t\t\t</li>";
+											$("#menuls").append(content);
+										}
+
+									}
+								} else if (parseInt(id)==2){
+									var users=data.users;
+									if (users!=null&&users!=""){
+										for (var i=0;i<users.length;i++){
+											var content="\t<input  type=\"hidden\" value='"+users[i].id+"' name='"+users[i].name+"' />\n" +
+												"\t\t\t\t\t\t\t\t\t\t<li>\n" +
+												"\t\t\t\t\t\t\t\t\t\t<a href=\"#\">"+users[i].name+"</a>\n" +
+												"\t\t\t\t\t\t\t\t\t\t</li>";
+											$("#menuls").append(content);
+										}
+
+									}
+								} else  if (parseInt(id)==3){
+									var doctors=data.doctors;
+									if (doctors!=null&&doctors!=""){
+										for (var i=0;i<doctors.length;i++){
+											var content="\t<input  type=\"hidden\" value='"+doctors[i].id+"' name='"+doctors[i].name+"' />\n" +
+												"\t\t\t\t\t\t\t\t\t\t<li>\n" +
+												"\t\t\t\t\t\t\t\t\t\t<a href=\"#\">"+doctors[i].name+"</a>\n" +
+												"\t\t\t\t\t\t\t\t\t\t</li>";
+											$("#menuls").append(content);
+										}
+									}
+								}
+								//这个是下拉列表的获取具体的用户的名字
+								$("#menuls li").click(function () {
+									value=$(this).text().trim();
+									if (value!=null&&value!=""){
+										//  alert(value);
+										$("#searchvalue").val(value);          //这个填充的该用户的姓名
+										$("input[name='username']").val(value);//填充到添加的表单里面
+									}
+								});
+							} else if (type='fail'){
+								alert("响应用户失败");
+							}
+						}
+					}
+				})
+			}
+		});
 
 		$(".fullYearPicker .picker .month-container table  tbody tr td").each(function (i,e) {
 			var  dest;var id;
@@ -56,8 +125,10 @@ function loading_calendar(id,lan){
 					dest=$(this).children("input:eq(0)");
 					//alert("dest"+dest);
 					$(this).children("input:eq(0)").attr("data-toggle","modal").attr("data-target","#exampleModal").attr("type","button");
+					//加上按钮的属性为了，触发这个函数的，
 					$(this).children("input:eq(0)").trigger("click");
 					dest.click(function () {
+						$("#maininfo").html("");
 						//alert("trigger  _click");
 						$.ajax({
 							type:"GET",
@@ -70,37 +141,91 @@ function loading_calendar(id,lan){
 									var  work=data.work;
 									var user=data.user;
 									var  info;
+
 									info="\t\t<div class=\"modal-content\">\n" +
 										"\t\t\t\t\t<div class=\"modal-header\">\n" +
-										"\t\t\t\t\t\t<button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button>\n" +
+										"\t\t\t\t\t\t<button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\"><span aria-hidden=\"true\" id='close'>&times;</span></button>\n" +
 										"\t\t\t\t\t\t<h4 class=\"modal-title\" id=\"exampleModalLabel\">工作表详细信息</h4>\n" +
 										"\t\t\t\t\t</div>\n" +
 										"\t\t\t\t\t<div class=\"modal-body\">\n" +
 										"\t\t\t\t\t\t<form>\n" +
 										"\t\t\t\t\t\t\t<div class=\"form-group\">\n" +
 										"\t\t\t\t\t\t\t\t<label for=\"recipient-name\" class=\"control-label\">姓名:</label>\n" +
-										"\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" value="+user.name+" id=\"recipient-name\">\n" +
+										"\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\"  readonly='readonly'  name='username' value="+user.name+" id=\"recipient-name\">\n" +
 										"\t\t\t\t\t\t\t</div>\n" +
 										"\t\t\t\t\t\t\t<div class=\"form-group\">\n" +
 										"\t\t\t\t\t\t\t\t<label for=\"morningtime\" class=\"control-label\">上午:</label>\n" +
-										"\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" value="+work.morning+" id=\"morningtime\">\n" +
+										"\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\"  readonly='readonly' name='morning' value="+work.morning+" id=\"morningtime\">\n" +
 										"\t\t\t\t\t\t\t</div>\n" +
 										"\t\t\t\t\t\t\t<div class=\"form-group\">\n" +
 										"\t\t\t\t\t\t\t\t<label for=\"afternoontime\" class=\"control-label\">下午:</label>\n" +
-										"\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" value="+work.afternoon+" id=\"afternoontime\">\n" +
+										"\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\"  readonly='readonly'  name='afternoon' value="+work.afternoon+" id=\"afternoontime\">\n" +
 										"\t\t\t\t\t\t\t</div>\n" +
 										"\t\t\t\t\t\t\t<div class=\"form-group\">\n" +
 										"\t\t\t\t\t\t\t\t<label for=\"addressinfo\" class=\"control-label\">地点:</label>\n" +
-										"\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" value="+work.address+" id=\"addressinfo\">\n" +
+										"\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" name='address' value="+work.address+" id=\"addressinfo\">\n" +
 										"\t\t\t\t\t\t\t</div>\n" +
 										"\t\t\t\t\t\t</form>\n" +
 										"\t\t\t\t\t</div>\n" +
 										"\t\t\t\t\t<div class=\"modal-footer\">\n" +
-										  " \t\t\t\t\t<button type=\"button\" class=\"btn btn-primary\"> 编辑</button>"+
-										"\t\t\t\t\t\t<button type=\"button\" class=\"btn btn-default\" data-dismiss=\"+modal\">关闭</button>\n" +
+										  " \t\t\t\t\t<button type=\"button\" class=\"btn btn-primary\"  value='"+work.id+"' id='edit'> 编辑</button>"+
+										"\t\t\t\t\t\t<button type=\"button\" class=\"btn btn-default\"  value='"+work.id+"' data-dismiss=\"+modal\" id='delete'>删除</button>\n" +
 										"\t\t\t\t\t</div>\n" +
 										"\t\t\t\t</div>";
 									$("#maininfo").html(info);
+									$(this).children("input:eq(0)").removeAttr("data-toggle","modal").removeAttr("data-target","#exampleModal").removeAttr("type","button");
+									//$(this).children("input:eq(0)").removeAttr("data-toggle","modal").removeAttr("data-target","#exampleModal");
+
+									$("#edit").click(function () {
+										var id=$(this).val();
+										if (id!=null&&id!=""){
+                                           // var  username=$("input[name='username']").val();
+                                           // var  morning=$("input[name='morning']").val();
+											//var  afternoon=$("input[name='afternoon']").val();
+											var  address=$("input[name='address']").val();
+											$.ajax({
+												type:"GET",
+												url:"/admin/user/editWorkInfoById",
+												data:{"id":id,"address":address},
+												dataTypa:"JSON",
+												success:function (data) {
+													if(data!=null&&data!=""){
+														var  type=data.type;
+														if (type=='success'){
+															alert("编辑成功");
+															//window.location.href="/admin/user/";
+														}else if (type=='fail'){
+															alert("编辑失败");
+														}
+													}
+												},error:function (data) {
+													alert("修改工作信息失败!");
+												}
+											});
+										}
+									});
+									$("#delete").click(function () {
+										var id=$(this).val();
+										if (id!=null&&id!=""){
+											$.ajax({
+												type:"GET",
+												data:{"id":id},
+												dataType:"JSON",
+												url:"/admin/user/deleteWorkInfoById",
+												success:function (data) {
+													if (data!=null&&data!=""){
+														var  type=data.type;
+														if (type=='success'){
+															alert("删除成功");
+															$("#close").trigger("click");
+															$("input[name='search']").trigger("click");
+
+														}
+													}
+												}
+											});
+										}
+									});
 
 								}
 							},error:function (data) {
@@ -110,6 +235,12 @@ function loading_calendar(id,lan){
 					});
 				}
 			});
+
+
+
+
+
+
 		/*	if (dest!=null&&dest!="") {
 				dest.click(function () {
 					alert("trigger  _click");
@@ -172,14 +303,17 @@ function loading_calendar(id,lan){
 		  //select_month(6,1,1,m_type);
 		//  setYearMenu(2020);   //设置年份
 
-		var  value=null;
-		$("#menuls li").click(function () {
-		    value=$(this).text().trim();
+
+		//这个是下拉列表的获取具体的用户的名字
+	/*	$("#menuls li").click(function () {
+			value=$(this).text().trim();
 			if (value!=null&&value!=""){
+				//  alert(value);
 				$("#searchvalue").val(value);          //这个填充的该用户的姓名
 				$("input[name='username']").val(value);//填充到添加的表单里面
 			}
-		});
+		});*/
+
 
 		//加上一个定时器，如果有人清除这个搜素框里面的数据，
 		// 那么这个username的input文本框里面的数据也要清除
@@ -204,6 +338,7 @@ function loading_calendar(id,lan){
 
 
 			var id=$("input[name="+value+"]").val();//这个是得到该用户的id
+			//alert("id="+id);
 			var value_search = $("#searchvalue").val();
 			//alert("value_search="+value_search);
 			if (value_search==null||value_search==""){
@@ -237,27 +372,31 @@ function loading_calendar(id,lan){
 
 							if (work!=null&&work!=""){     //这样做的可以在work为数据的时候，这个work.length;不会报错！
 								//alert("length="+work.length);
+								//alert(work);
 								for (var i=0;i<work.length;i++){
 									var  id=work[i].id;
-
+									console.log("id="+id);
 									var  startime=work[i].startime;
 									var strings = startime.split("-");
-								//	console.log(strings);
+									console.log(strings);
 								//	console.log(strings[0]+"_"+strings[1]+"_"+strings[2]);
 									var start_month=parseInt(strings[1]);
-							//		console.log("start_month="+start_month);
+									console.log("start_month="+start_month);
 									var  start_day=parseInt(strings[2]);
-						//			console.log("start_day="+start_day);
+									console.log("start_day="+start_day);
 									var  endtime=work[i].endtime;
 									var strings1 = endtime.split("-");
 									var  end_month=parseInt(strings1[1]);
 									var end_day=parseInt(strings1[2]);
+									console.log("end_day="+end_day);
 								//	select_month(start_month,start_day,end_day,m_type);
 								//	select_monthById
+									console.log("m_type="+m_type);
 									select_monthById(start_month,start_day,end_day,m_type,id);
 								}
 
 								var picker = $(".fullYearPicker .picker  .month-container .workday");
+								//alert("picker="+picker);
 								var index = picker[0].index;
 								//alert("index="+index);
 								//alert("picker.length="+picker.length);
@@ -265,16 +404,10 @@ function loading_calendar(id,lan){
 							//	alert("$(\".fullYearPicker .picker .month-container .workday\")="+$(".fullYearPicker .picker .month-container .workday").length);
 							   //alert("\t$(\".fullYearPicker .picker .month-container table  tbody tr td workday\")="+$(".fullYearPicker .picker .month-container table  tbody tr  .workday").length);
 
-
-
-
 							}
-
 						}
 					}
 				});
-
-
 			}
 		});
 
@@ -331,8 +464,8 @@ function loading_calendar(id,lan){
 			var  username=$("input[name='username']").val();
 			var  address=$("#address").val();
 			var user_id=$("input[name="+value+"]").val();
-			console.log("user_id="+user_id);
-			console.log("morning="+monrning+"afternoon="+afternoon+"username="+username);
+			//console.log("user_id="+user_id);
+			//console.log("morning="+monrning+"afternoon="+afternoon+"username="+username);
 			if (username==null|| username==""){
 				alert("请你选择数据到搜索框里面");
 				return;
@@ -375,7 +508,6 @@ function loading_calendar(id,lan){
 			m_obj.addClass(class_width+n);
 			m=n;
 		}
-		
 	};
 
 	function changeHandle(){
