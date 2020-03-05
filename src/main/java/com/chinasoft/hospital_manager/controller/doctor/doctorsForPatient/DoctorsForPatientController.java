@@ -46,7 +46,6 @@ public class DoctorsForPatientController {
 
     @RequestMapping("/findPatientOfAppointment")
    public ModelAndView findPatientOfAppointment(HttpServletRequest request,HttpServletResponse response) throws IOException {
-
        ModelAndView  andView=new ModelAndView();
         List<Menu> menus = (List<Menu> )request.getSession().getAttribute("menus");
         HttpSession session = request.getSession();
@@ -59,7 +58,6 @@ public class DoctorsForPatientController {
             int _menuid=Integer.parseInt(menuid);
             third= MenuUtils.getThird(menus, _menuid);
         }
-
         if (third!=null){
             andView.addObject("third",third);
         }else {
@@ -119,13 +117,12 @@ public class DoctorsForPatientController {
                 andView.addObject("doctor",doctor);
                 //为了医生点击停止挂号按钮的功能，把医生的id传递到前台去
                 //当然在医生操作的时候，直接从后台获取这个数据也可以
-
             }
-            andView.addObject("menuid",menuid);
+
         }
 
-
-      andView.setViewName("admin/doctorInfoAndManager/doctorsForPatient/doctorsForPatient");
+        andView.addObject("menuid",menuid);
+         andView.setViewName("admin/doctorInfoAndManager/doctorsForPatient/doctorsForPatient");
        return andView;
    }
 
@@ -148,7 +145,7 @@ public class DoctorsForPatientController {
         HttpSession doctor_session = request.getSession();
         String search = request.getParameter("search");
         String menuid = request.getParameter("menuid");
-        String condition=request.getParameter("conditon").trim();
+        String condition=request.getParameter("condition").trim();
 
         //获取医生的信息
         Object doctor = doctor_session.getAttribute("doctor");
@@ -279,6 +276,11 @@ public class DoctorsForPatientController {
                 //andView.setViewName("redirect:/admin/logout");
                 String requestURL = request.getRequestURL().toString();
                 andView.setViewName(requestURL);
+                //这个是退出frameset框架的操作的java后台代码
+             /*   HttpServletResponse httpServletResponse = (HttpServletResponse) response;
+                request.getSession().removeAttribute("admin");
+                httpServletResponse.getWriter().print("<script>parent.window.location.href="+request.getContextPath()+"'/admin/logout'</script>");
+                */
                 return andView; //如果这个，menuid不为空，而这个menus失效了，那么三级菜单为空，那么这个也跳到logout
             }
 

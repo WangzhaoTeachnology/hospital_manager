@@ -675,7 +675,6 @@ $(function () {
                                   } else if(type=='fail'){
                                       alert("数据查询失败！");
                                   }
-
                               }
                           },error:function (data) {
                                alert("数据响应失败");

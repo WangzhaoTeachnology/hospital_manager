@@ -32,7 +32,7 @@
 	<div class="container">
 			  <div class="row" style="border: 0px solid red;margin: auto;">
 				  <c:if test="${admin!=null}">
-					  <form class="form-horizontal" style="margin-top: 40px;">
+					  <form class="form-horizontal" style="margin-top: 140px;">
 						  <div class="form-group">
 							  <label for="name" class="col-sm-2 control-label">真实姓名</label>
 							  <div class="col-sm-4 col-lg-4 col-xs-4 col-md-4">
@@ -137,8 +137,8 @@
 <!-- 点击编辑按钮 -->
 <div class="modal fade"  id="_updateexampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="update_exampleModalScrollableTitle" aria-hidden="true">
 	<div class="modal-dialog modal-dialog-scrollable" role="document" >
-		<form id="updateform">
-			<div class="modal-content" style="width: 635px;height: 435px;">
+
+			<div class="modal-content" style="width: 635px;height: 480px;">
 				<div class="modal-header">
 					<h5 class="modal-title" id="update_exampleModalScrollableTitle">修改管理员个人信息</h5>
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -146,7 +146,7 @@
 					</button>
 				</div>
 
-				<div class="modal-body"  id="updatemain" style="height: 320px;">
+				<div class="modal-body"  id="updatemain" style="height: 360px;">
 
 				</div>
 
@@ -155,7 +155,7 @@
 					<button type="button"  id="updatebtn" class="btn btn-primary">确认</button>
 				</div>
 			</div>
-		</form>
+
 	</div>
 </div>
 	</body>
@@ -177,69 +177,62 @@
 				}
 			}
 			$("#update").click(function () {
-				var  content="<form class=\"form-horizontal\" style=\"margin-top: 40px;\">\n" +
+
+ 			var  content="<form class=\"form-horizontal\" style=\"margin-top: 10px;\">\n" +
+
 						"\t\t\t\t\t\t  <div class=\"form-group\">\n" +
 						"\t\t\t\t\t\t\t  <label for=\"name\" class=\"col-sm-2 control-label\">真实姓名</label>\n" +
-						"\t\t\t\t\t\t\t  <div class=\"col-sm-4 col-lg-4 col-xs-4 col-md-4\">\n" +
-						"\t\t\t\t\t\t\t\t  <input type=\"hidden\" name=\"id\" value=\"${admin.id}\" class=\"form-control\" id=\"_id\" >\n" +
-						"\t\t\t\t\t\t\t\t  <input type=\"text\" name=\"name\" value=\"${admin.name}\" class=\"form-control\" id=\"name\" placeholder=\"真实姓名\">\n" +
+						"\t\t\t\t\t\t\t  <div class=\"col-sm-10 col-lg-10 col-xs-10 col-md-10\">\n" +
+						"\t\t\t\t\t\t\t\t  <input type=\"hidden\" name=\"id\" readonly=\"readonly\"  value=\"${admin.id}\" class=\"form-control\" id=\"_id\" >\n" +
+						"\t\t\t\t\t\t\t\t  <input type=\"text\" name=\"name\" readonly=\"readonly\" value=\"${admin.name}\" class=\"form-control\" id=\"name\" placeholder=\"真实姓名\"/>\n" +
+						"\t\t\t\t\t\t\t  </div>" +
+						"\t\t\t\t\t\t  </div>" +
+
+						"\t\t\t\t\t\t  <div class=\"form-group\">\n" +
+						"\t\t\t\t\t\t\t  <label for=\"username\" class=\"col-sm-2 control-label\">姓名</label>\n" +
+						"\t\t\t\t\t\t\t  <div class=\"col-sm-10 col-lg-10 col-xs-10 col-md-10\">\n" +
+						"\t\t\t\t\t\t\t\t  <input type=\"text\" name=\"username\"  value=\"${admin.username}\" class=\"form-control\" id=\"username\" placeholder=\"姓名\"/>\n" +
 						"\t\t\t\t\t\t\t  </div>\n" +
 						"\t\t\t\t\t\t  </div>\n" +
 
 						"\t\t\t\t\t\t  <div class=\"form-group\">\n" +
-						"\t\t\t\t\t\t\t  <label for=\"username\" class=\"col-sm-2 control-label\">姓名</label>\n" +
-						"\t\t\t\t\t\t\t  <div class=\"col-sm-4 col-lg-4 col-xs-4 col-md-4\">\n" +
-						"\t\t\t\t\t\t\t\t  <input type=\"text\" name=\"username\" value=\"${admin.username}\" class=\"form-control\" id=\"username\" placeholder=\"姓名\">\n" +
-						"\t\t\t\t\t\t\t  </div>\n" +
-						"\t\t\t\t\t\t  </div>\n" +
-						"\n" +
-						"\t\t\t\t\t\t  <div class=\"form-group\">\n" +
 						"\t\t\t\t\t\t\t  <label for=\"password\" class=\"col-sm-2 control-label\">密码</label>\n" +
-						"\t\t\t\t\t\t\t  <div class=\"col-sm-4 col-lg-4 col-xs-4 col-md-4\">\n" +
-						"\t\t\t\t\t\t\t\t  <input type=\"text\" name=\"password\"  value=\"${doctor.password}\" class=\"form-control\" id=\"_password\" placeholder=\"输入密码\">\n" +
+						"\t\t\t\t\t\t\t  <div class=\"col-sm-10 col-lg-10 col-xs-10 col-md-10\">\n" +
+						"\t\t\t\t\t\t\t\t  <input type=\"text\" name=\"password\"  value=\"${admin.password}\" class=\"form-control\" id=\"_password\" placeholder=\"输入密码\"/>\n" +
 						"\t\t\t\t\t\t\t  </div>\n" +
 						"\t\t\t\t\t\t  </div>\n" +
 
 						"\t\t\t\t\t\t  <div class=\"form-group\">\n" +
 						"\t\t\t\t\t\t\t  <label  class=\"col-sm-2 control-label\">性别</label>\n" +
-						"\t\t\t\t\t\t\t  <div class=\"col-sm-4 col-lg-4 col-xs-4 col-md-4\">\n" +
-						"\t\t\t\t\t\t\t\t  <input type=\"radio\" id=\"_male\" name=\"sex\"  readonly=\"readonly\" >男" +
-						"\t\t\t\t\t\t\t\t  <input type=\"radio\" id=\"_female\" name=\"sex\" readonly=\"readonly\" > 女" +
+						"\t\t\t\t\t\t\t  <div class=\"col-sm-10 col-lg-10 col-xs-10 col-md-10\">\n" +
+						"\t\t\t\t\t\t\t\t  <input type=\"radio\" id=\"_male\" name=\"sex\"  readonly=\"readonly\" />男" +
+						"\t\t\t\t\t\t\t\t  <input type=\"radio\" id=\"_female\" name=\"sex\" readonly=\"readonly\" /> 女" +
 						"\t\t\t\t\t\t\t  </div>\n" +
 						"\t\t\t\t\t\t  </div>\n" +
-						"\n" +
 
-						"\n" +
 						"\t\t\t\t\t\t  <div class=\"form-group\">\n" +
-						"\t\t\t\t\t\t\t  <label for=\"birthday\" class=\"col-sm-2 control-label\">出生日期</label>\n" +
-						"\t\t\t\t\t\t\t  <div class=\"col-sm-4 col-lg-4 col-xs-4 col-md-4\">\n" +
-						"\t\t\t\t\t\t\t\t  <input type=\"date\" name=\"birthday\" class=\"form-control\" readonly=\"readonly\"  id=\"_birthday\" >\n" +
+						"\t\t\t\t\t\t\t  <label  class=\"col-sm-2 control-label\">出生日期</label>\n" +
+						"\t\t\t\t\t\t\t  <div class=\"col-sm-10 col-lg-10 col-xs-10 col-md-10\">\n" +
+						"\t\t\t\t\t\t\t\t  <input type=\"date\" name=\"birthday\" readonly=\"readonly\"  class=\"form-control\" id=\"_birthday\" />\n" +
 						"\t\t\t\t\t\t\t  </div>\n" +
 						"\t\t\t\t\t\t  </div>\n" +
-						"\n" +
-						"\n" +
-						"           <div class=\"form-group\">\n" +
-						"\t\t\t\t\t\t\t  <label for=\"lastime\" class=\"col-sm-2 control-label\">上次登录时间</label>\n" +
-						"\t\t\t\t\t\t\t  <div class=\"col-sm-4 col-lg-4 col-xs-4 col-md-4\">\n" +
-						"\t\t\t\t\t\t\t\t  <input type=\"text\" name=\"lastime\" readonly=\"readonly\" value=\"${admin.lastime}\" class=\"form-control\" id=\"lastime\" />\n" +
+
+						"\t\t\t\t\t\t\t <div class=\"form-group\">\n" +
+						"\t\t\t\t\t\t\t  <label  class=\"col-sm-2 control-label\">上次时间</label>\n" +
+						"\t\t\t\t\t\t\t  <div class=\"col-sm-10 col-lg-10 col-xs-10 col-md-10\">\n" +
+						"\t\t\t\t\t\t\t\t  <input type=\"text\" name=\"lastime\" readonly=\"readonly\" value=\"${admin.lastime}\" class=\"form-control\" id=\"lastime\" />" +
 						"\t\t\t\t\t\t\t  </div>\n" +
 						"\t\t\t\t\t\t  </div>\n" +
-						"\n" +
+
 						"\t\t\t\t\t\t  <div class=\"form-group\">\n" +
-						"\t\t\t\t\t\t\t  <label for=\"count\" class=\"col-sm-2 control-label\">登录次数</label>\n" +
-						"\t\t\t\t\t\t\t  <div class=\"col-sm-4 col-lg-4 col-xs-4 col-md-4\">\n" +
-						"\t\t\t\t\t\t\t\t  <input type=\"text\" name=\"count\" readonly=\"readonly\" class=\"form-control\" value=\"${admin.count}\" id=\"count\" />\n" +
-						"\t\t\t\t\t\t\t  </div>\n" +
-						"\t\t\t\t\t\t  </div>"+
+						"\t\t\t\t\t\t\t  <label  class=\"col-sm-2 control-label\">登录次数</label>\n" +
+						"\t\t\t\t\t\t\t  <div class=\"col-sm-10 col-lg-10 col-xs-10 col-md-10\">\n" +
+						"\t\t\t\t\t\t\t\t  <input type=\"text\" name=\"count\" readonly=\"readonly\" class=\"form-control\" value=\"${admin.count}\" id=\"count\" />" +
+						"\t\t\t\t\t\t\t  </div>" +
+						"\t\t\t\t\t\t  </div>" +
+					"</form>";
 
 
-					/*	"\t\t\t\t\t\t  <div class=\"form-group\">\n" +
-						"\t\t\t\t\t\t\t  <label for=\"role\" class=\"col-sm-2 control-label\">角色</label>\n" +
-						"\t\t\t\t\t\t\t  <div class=\"col-sm-4 col-lg-4 col-xs-4 col-md-4\">\n" +
-						"\t\t\t\t\t\t\t\t  <input type=\"text\" name=\"role\"  value=\"\" class=\"form-control\" id=\"role\" >\n" +
-						"\t\t\t\t\t\t\t  </div>\n" +
-						"\t\t\t\t\t\t  </div>\n" +*/
-						"\t\t\t\t\t  </form>";
 				$("#updatemain").html(content);
 
 				if (sex!=null&&sex!=""){
@@ -253,16 +246,16 @@
 				$("#updatebtn").click(function () {
 					//alert($("#id").val()+$("#name").val()+$("#password").val());
                    $.ajax({
-					   url:"${pageContext.request.contextPath}/admin/doctor/updateDoctorInfoById",
+					   url:"${pageContext.request.contextPath}/admin/info/updateAdminInfoById",
 					   type:"GET",
-					   data:{"id":$("#_id").val(),"name":$("#_name").val(),"password":$("#_password").val()},
+					   data:{"id":$("#_id").val(),"name":$("#username").val(),"password":$("#_password").val()},
 					   dataType:"JSON",
 					   success:function (data) {
 						    if (data!=null&&data!=""){
 						    	var  type=data.type;
 						    	if (type=='success'){
                                        alert("修改数据成功");
-									window.location.href="${pageContext.request.contextPath}/admin/doctor/findDoctorInfoById";
+									window.location.href="${pageContext.request.contextPath}/admin/info/adminForMyselfInfo";
 								} else if(type=='fail'){
 						    		alert("修改失败");
 								}else if (type=='error'){

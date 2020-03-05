@@ -1629,6 +1629,7 @@ $(function () {
             var  conditon= $("#appear_btn").text();
             var  index=-1;
             var  menuid=$("#menuid").val();
+            alert("menuid="+menuid);
             var  startime=$("#startime").val();
             var  endtime=$("#endtime").val();
 
@@ -1668,7 +1669,7 @@ $(function () {
                             return;
                         }
                     }
-                    window.location.href="${pageContext.request.contextPath}/admin/doctor/searchPatientsInfoByCondition?search="+search+"&&menuid="+menuid+"&&conditon="+conditon;
+                    window.location.href="${pageContext.request.contextPath}/admin/doctor/searchPatientsInfoByCondition?search="+search+"&&menuid="+menuid+"&&condition="+conditon;
                 } else{
                     //可能选择了，非今天和全部，但是这个用户没有输入检索的关键字，那么提示它输入关键字，
                     //并且按照conditon条件，提示对应的关键字

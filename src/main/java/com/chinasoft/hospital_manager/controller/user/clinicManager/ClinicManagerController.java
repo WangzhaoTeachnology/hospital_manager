@@ -64,7 +64,6 @@ public class ClinicManagerController {
      * @param null
      * @return
      */
-
     @RequestMapping ("/patientRegister")
     public ModelAndView patientRegister(HttpServletRequest request){
         ModelAndView andView=new ModelAndView();
@@ -83,7 +82,6 @@ public class ClinicManagerController {
      * @param null
      * @return
      */
-
     @RequestMapping(value = "/loadPatientInfo",method = RequestMethod.GET)
     public ModelAndView loadPatientInfo(){
         ModelAndView andView=new ModelAndView();

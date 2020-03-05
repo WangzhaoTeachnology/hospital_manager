@@ -6,4 +6,70 @@
     <select id="findAdminInfoById" parameterType="java.lang.Integer" resultType="com.chinasoft.hospital_manager.domain.Admin">
        select  * from  admin where id=#{id}
     </select>
+
+    <update id="updateAdminInfoById" parameterType="map">
+       UPDATE admin  SET  username =#{username},password =#{password} where id=#{id}
+    </update>
+
+    <select id="findAllAndMangager" resultMap="findAlls" parameterType="map">
+      SELECT * FROM appoint_category limit #{index},#{count}
+    </select>
+    <resultMap id="findAlls" type="com.chinasoft.hospital_manager.domain.Appoint_category">
+          <id column="id" property="id"/>
+          <result column="name" property="name"/>
+    </resultMap>
+
+    <select id="getTotalCounts" resultType="java.lang.Integer">
+      SELECT count(*) FROM appoint_category
+    </select>
+
+    <insert id="insertAppoint_Category" parameterType="map">
+       INSERT INTO appoint_category (`name`) VALUES (#{name})
+    </insert>
+
+    <delete id="deleteAppoint_CategoryById" parameterType="map">
+        delete from appoint_category where  id=#{id}
+    </delete>
+
+    <update id="updateAppointCategoryInfo" parameterType="map">
+      UPDATE appoint_category SET `name` =#{name} WHERE id=#{id}
+    </update>
+
+    <select id="findAllAppoint_category" resultMap="appoint_category">
+      SELECT * FROM appoint_category
+    </select>
+    <resultMap id="appoint_category" type="com.chinasoft.hospital_manager.domain.Appoint_category">
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+    </resultMap>
+
+    <insert id="insertIntoOfficeInfo" parameterType="map">
+       INSERT INTO offices(name,ap_cate_id) VALUES(#{name},#{ap_cate_id})
+    </insert>
+
+
+    <select id="findAllOfficesAndMangager" resultMap="findAllOffices" parameterType="map">
+     SELECT o.id as oid,o.`name` as oname,a.id as aid,a.`name` as aname FROM offices o,appoint_category a WHERE o.ap_cate_id=a.id
+     limit #{index},#{count}
+    </select>
+    <resultMap id="findAllOffices" type="com.chinasoft.hospital_manager.domain.Offices">
+        <id column="oid" property="id"/>
+        <result column="oname" property="name"/>
+        <association property="appoint_category" javaType="com.chinasoft.hospital_manager.domain.Appoint_category">
+            <id column="aid" property="id"/>
+            <result column="aname" property="name"/>
+        </association>
+    </resultMap>
+
+    <select id="getTotalOfficesCounts" resultType="java.lang.Integer">
+       SELECT count(*) FROM offices o,appoint_category a WHERE o.ap_cate_id=a.id
+    </select>
+
+    <update id="updateOfficesInfo" parameterType="map">
+      	UPDATE offices SET name=#{name},ap_cate_id=#{ap_cate_id} WHERE id=#{id}
+    </update>
+
+    <delete id="deleteOfficesInfoById" parameterType="java.lang.Integer">
+	    DELETE FROM offices WHERE id=#{id}
+    </delete>
 </mapper>

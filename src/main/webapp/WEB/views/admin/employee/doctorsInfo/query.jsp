@@ -36,6 +36,8 @@
             window.open(theURL, winName, parameter);
         }
     </script>
+
+
     <SCRIPT language=JavaScript type=text/JavaScript>
         function selectAllByChk(chk, checkbox) {
             var size = checkbox.length;
@@ -158,20 +160,13 @@
                                 <td class="td_01">${doctor.prat}</td>
                                 <td class="td_01">${doctor.school}</td>
                                 <td class="td_01">
-                                    <button data-toggle="modal" data-target="#detailDoctor" type="button" value="${doctor.id}" id="detail"  style="width: 80px;" class="btn btn-success" >查看详情</button>
+                                    <button data-toggle="modal" data-target="#detailDoctor" type="button" value="${doctor.id}" name="detail"  style="width: 80px;" class="btn btn-success" >查看详情</button>
                                 </td>
                             </tr>
                         </c:forEach>
                      </table>
                 </c:if>
                  <c:if test="${userInfo==null}">
-                      <%--  <table width="95%" border="0" cellpadding="2" cellspacing="0" class="table01">
-                            <tr>
-                                <td>
-                                    <img src="${pageContext.request.contextPath}/static/admin/boostrap/images/timg.gif" width="100%" height="100%"/>
-                                </td>
-                            </tr>
-                        </table>--%>
                      <table  border="0" cellpadding="2" cellspacing="0" style="margin: auto;">
                          <tr>
                              <td>
@@ -293,7 +288,6 @@
                             <img src="${pageContext.request.contextPath}/static/admin/images/3.gif" width="4" height="5" align="absmiddle"> 末页
                         </a>
                         　共 ${page.totalPage} 页 ${page.totalCount} 条记录
-
                     </td>
                 </tr>
             </table>
@@ -342,7 +336,6 @@
                 <div class="modal-body" id="detailDoctorContent">
 
                 </div>
-
                 <div class="modal-footer">
                     <button type="button"  class="btn btn-secondary" data-dismiss="modal">关闭</button>
                     <button type="button"  id="updateButton" class="btn btn-primary">确认</button>
@@ -382,11 +375,11 @@
 <script type="text/javascript">
     $(function () {
 
-
         //点击详情信息，查看医生的详细信息
-        $("#detail").click(function () {
+        $("button[name='detail']").click(function () {
             var id=$(this).val();
           //  alert(id);
+            $("#detailDoctorContent").html("");
             if(id!=null&&id!=""){
                 $.ajax({
                    type:"GET",
@@ -399,10 +392,8 @@
                            if (type=='success'){
                                //医生的详情信息
                                var  doct=data.doctor;
-
                                //门诊的详细信息
                                var allAppoint_categorys=data.allAppoint_categorys;
-
                                var content="\t\t\t\t<div class=\"form-horizontal\" style=\"border: 0px solid red;height:auto;width:700px;\">\n" +
                                    "                   \n" +
                                    "                      \t \t\t\t\t\t<div class=\"form-group\">\n" +
@@ -518,26 +509,20 @@
                                //这个是查询科室，然后回显时，自动选中对应的下拉列表
                                var _offices=doct.offices;
                                var _oname=_offices.name;
-
                                if (_offices!=null&&_offices!=""){
                                     $("#offices").append("<option value='"+_offices.id+"'>"+_offices.name+"</option>");
                                }
-
                            }
                            else if (type=='fail'){
                                alert("点击详情查看医生信息失败");
                            }
                        }
-
                    },error:function (data) {
                         alert("点击详情查看医生信息失败！");
                     }
                 });
             }
         });
-
-
-
 
 
         //只能选择一个的功能：

@@ -43,7 +43,7 @@ public class EmployeeManagerController {
 
 
 
-    /**
+ /**
  * @description:这个函数是查看挂号人员的信息
  * @author jack
  * @date 2020/1/18 13:10
@@ -99,7 +99,6 @@ public class EmployeeManagerController {
  * @param null
  * @return
  */
-
    @RequestMapping(value = "/addBeforeFindUserInfo",method = RequestMethod.GET)
    @ResponseBody
    public Map<String,Object> addBeforeFindUserInfo(HttpServletRequest request){
@@ -367,8 +366,6 @@ public class EmployeeManagerController {
                }
            }
 
-
-
            if(third!=null){
                andView.addObject("third",third);
            }
@@ -477,7 +474,6 @@ public class EmployeeManagerController {
      * @param null
      * @return
      */
-
     @RequestMapping("/beforeSelectInfoAddDoctorInfo")
     @ResponseBody
     public Map<String,Object> beforeSelectInfoAddDoctorInfo(HttpServletRequest request){
@@ -500,7 +496,6 @@ public class EmployeeManagerController {
  * @param null
  * @return
  */
-
     @RequestMapping(value="/addDoctorInfo",method = RequestMethod.POST)
     public  @ResponseBody Map<String,Object> addDoctorInfo(HttpServletRequest request,MultipartFile file){
         Map<String,Object> response_map=new HashMap<String, Object>();
@@ -697,9 +692,6 @@ public class EmployeeManagerController {
                     }
                 }
             }
-
-
-
             if(third!=null){
                 andView.addObject("third",third);
             }else {
@@ -708,8 +700,6 @@ public class EmployeeManagerController {
                 andView.setViewName(requestURL);
                 return andView; //如果这个，menuid不为空，而这个menus失效了，那么三级菜单为空，那么这个也跳到logout
             }
-
-
             if (users!=null) {
                 andView.addObject("condition",condition);
                 andView.addObject("search",search);

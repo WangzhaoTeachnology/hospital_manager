@@ -577,9 +577,9 @@
                                                                      "<label  class=\"col-sm-2 control-label\">部门</label>\n" +
                                                                      " <div class=\"col-sm-6 col-lg-6 col-xs-6 col-md-6\">\n" +
                                                                      " <select class=\"form-control\" name=\"department\">";
-                                                                 for (var i=0;i<departments.length;i++){
-                                                                     content+=" <option value="+departments[i].id+">"+departments[i].name+"</option>";
-                                                                 }
+                                                                             for (var i=0;i<departments.length;i++){
+                                                                                 content+=" <option value="+departments[i].id+">"+departments[i].name+"</option>";
+                                                                             }
                                                                  content+=" </select>\n" +
                                                                           "</div>\n" +
                                                                        " </div>\n" +
