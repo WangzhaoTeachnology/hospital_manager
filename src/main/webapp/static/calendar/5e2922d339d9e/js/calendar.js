@@ -61,7 +61,6 @@ function loading_calendar(id,lan){
 								$("#menuls").html("");
 								if (parseInt(id)==1){
 									var admin=data.admins;
-
 									if (admin!=null&&admin!=""){
 										for (var i=0;i<admin.length;i++){
 											var   content="\t<input  type=\"hidden\" value='"+admin[i].id+"' name='"+admin[i].name+"' />\n" +
@@ -397,7 +396,7 @@ function loading_calendar(id,lan){
 
 								var picker = $(".fullYearPicker .picker  .month-container .workday");
 								//alert("picker="+picker);
-								var index = picker[0].index;
+								var index = picker[0].work;
 								//alert("index="+index);
 								//alert("picker.length="+picker.length);
 								//alert($(".fullYearPicker .picker  .month-container .workday").length);
@@ -592,7 +591,7 @@ function loading_calendar(id,lan){
 	}
 	function getDateStr(td) {
 		//console.log("----"+td.parentNode.parentNode.rows[0].cells[0].getAttribute('index')+"-"+ td.innerHTML);
-		return td.parentNode.parentNode.rows[0].cells[0].getAttribute('index')+"-"+ td.innerHTML;
+		return td.parentNode.parentNode.rows[0].cells[0].getAttribute('work.jsp')+"-"+ td.innerHTML;
 	}
 	function renderYear(year, el, disabledDay, value) {
 		

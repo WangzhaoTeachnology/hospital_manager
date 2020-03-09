@@ -70,7 +70,7 @@
                             <div class="col-lg-5 col-sm-5 col-md-5 col-xs-5" style="position: relative;">
                                 <c:forEach items="${third}" var="third">
                                     <c:if test="${third.name=='开处方' && third.status==1}">
-                                        <input data-toggle="modal" type="button" id="prescription" name="prescription" class="btn btn-info" value="开处方"/>
+                                        <input   data-toggle="modal" <%--data-target="#_myModal_prescription"--%>  type="button"  id="prescription" name="prescription" class="btn btn-info" value="开处方"/>
                                     </c:if>
                                     <c:if test="${third.name=='查询病历' && third.status==1}">
                                         <input  data-toggle="modal"   type="button"   id= "delete" name="delete" class="btn btn-success" value="查询病历"/>
@@ -316,6 +316,119 @@
 </c:if>
 
 
+
+   <%-- 注意：如果这个模态框出现，不能弹出来的问题，那么这个一定是这个div标签出现了不能匹配的问题--%>
+    <div class="modal fade" id="_myModal_prescription" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button"  id="auto_close" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabe">开处方</h4>
+                </div>
+                <div class="modal-body">
+                    <%--  这个是导航按钮--%>
+                    <form class="form-inline" style="margin-left: -454px;margin-top: -23px;">
+                        <div class="form-group">
+                            <button type="button"  id="addbtn_prescription" class="btn btn-primary navbar-btn">添加</button>
+                            <button type="button" class="btn btn-info navbar-btn">删除</button>
+                        </div>
+                    </form>
+
+                    <div class="row">
+                        <%--这个是表格--%>
+                        <table class="table table-striped" id="prescribe_Content" style="border: 1px solid red;">
+                            <thead>
+                            <tr>
+                                <td class="active">处方编号</td>
+                                <td class="active" colspan="8"  id="prescription_id">32123213435435435</td>
+                            </tr>
+                            </thead>
+                            <tbody id="table_content">
+                                    <tr>
+                                        <td class="active">选择</td>
+                                        <td class="active">编号</td>
+                                        <td class="success">药品</td>
+                                        <td class="warning">用法</td>
+                                        <td class="danger">天数</td>
+                                        <td class="warning">数量</td>
+                                        <td class="success">备注</td>
+                                        <td class="active">单价</td>
+                                        <td class="active">操作</td>
+                                    </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="row" style="border: 1px solid red;position: relative;margin-bottom:40px; ">
+                        <div class="form-group" style="border: 1px solid red;position: absolute;right: 0px;">
+                            <span for="_comment" class="control-label" style="margin-top: -3px;">总价格:</span>
+                            <span for="_comment" class="control-label" style="margin-top: -3px;" id="totalPrice">￥:5687</span>
+                        </div>
+                    </div>
+
+                    <div class="row" style="margin-top: -10px;border: 1px solid red;">
+                        <div class="form-group">
+                            <label for="prescription_content" class="col-sm-2 control-label" style="margin-top: -3px;margin-left: -20px;">诊断内容:</label>
+                            <div class="col-sm-10">
+                                <textarea   name="prescription_content" id="prescription_content" class="form-control" rows="2" style="width: 440px;height: 100px;" placeholder="请你填写诊断内容"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="border: 1px solid red;">
+                        <div class="form-group">
+                            <label for="doctor_comment" class="col-sm-2 control-label" style="margin-top: -3px;margin-left: -19px;">医嘱:</label>
+                            <div class="col-sm-10">
+                                <textarea   name="doctor_comment" id="doctor_comment" class="form-control" rows="2" style="width: 440px;height: 100px;" placeholder="请你填写医嘱"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="border: 1px solid red;position: relative;">
+                        <div class="form-group" style="border: 1px solid red;position: absolute;right: 0px;">
+                            <span for="_comment" class="control-label" style="margin-top: -3px;">诊断时间:</span>
+                            <span for="_comment" class="control-label" style="margin-top: -3px;" id="nowtime"></span>
+                        </div>
+                    </div>
+
+                    <div class="row" style="border: 0px solid red; margin-top: 20px; ">
+                        <div style="border:0px solid  red ;">
+                            <div  style="border:0px solid  red ;margin-left: -500px ;width:  99px ;">
+                                <a class="" role="button" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                                    查看处方历史
+                                </a>
+                            </div>
+                            <div class="collapse" id="collapseExample">
+                                <div class="well" style="padding:0px ;">
+                                    <table class="table table-striped" id="table_history_info" style="border: 0px solid red;">
+                                        <%-- <thead id="table_history_thead">
+                                             <tr>
+                                                 <td class="active">处方编号</td>
+                                                 <td class="active" colspan="7">32123213435435435</td>
+                                             </tr>
+                                         </thead>--%>
+                                        <%--    <tbody id="table_history">
+                                                <tr>
+                                                    <td class="active">编号</td>
+                                                    <td class="active">药品</td>
+                                                    <td class="active">用法</td>
+                                                    <td class="active">天数</td>
+                                                    <td class="active">数量</td>
+                                                    <td class="active">备注</td>
+                                                    <td class="active">单价</td>
+                                                </tr>
+                                            </tbody>--%>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="bottom_close" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    <button type="button" class="btn btn-primary" id="submitPrescirbeAndDetail">确认</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- 这个是点击详情查询数据 -->
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
@@ -365,6 +478,7 @@
                     <button type="button" class="btn btn-primary">Save changes</button>
                 </div>
         </div>
+     </div>
     </div>
 
 
@@ -372,7 +486,7 @@
 
 
     <!-- 处方按钮的触发 -->
-        <div class="modal fade" id="myModal_prescription" tabindex="0" role="dialog" aria-labelledby="myModalLabel">
+<%--        <div class="modal fade" id="_myModal_prescriptionll" tabindex="0" role="dialog" aria-labelledby="myModalLabel">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                 <div class="modal-header">
@@ -380,20 +494,20 @@
                     <h4 class="modal-title" id="myModalLabe">开处方</h4>
                 </div>
                 <div class="modal-body">
-                  <%--  这个是导航按钮--%>
+                  &lt;%&ndash;  这个是导航按钮&ndash;%&gt;
                         <form class="form-inline" style="margin-left: -454px;margin-top: -23px;">
                             <div class="form-group">
                                 <button type="button"  id="addbtn_prescription" class="btn btn-primary navbar-btn">添加</button>
-<%--                                <button type="button" class="btn btn-success navbar-btn">查看</button>--%>
+&lt;%&ndash;                                <button type="button" class="btn btn-success navbar-btn">查看</button>&ndash;%&gt;
                                 <button type="button" class="btn btn-info navbar-btn">删除</button>
                                 &nbsp; &nbsp; &nbsp;
-                               <%-- <input type="text" class="form-control"  placeholder="输入要搜索的信息">
-                                <button type="button" class="btn btn-default">搜索</button>--%>
+                               &lt;%&ndash; <input type="text" class="form-control"  placeholder="输入要搜索的信息">
+                                <button type="button" class="btn btn-default">搜索</button>&ndash;%&gt;
                             </div>
                         </form>
 
                       <div class="row">
-                              <%--这个是表格--%>
+                              &lt;%&ndash;这个是表格&ndash;%&gt;
                               <table class="table table-striped" id="prescribe_Content" style="border: 1px solid red;">
                                   <thead>
                                       <tr>
@@ -456,13 +570,13 @@
                               <div class="collapse" id="collapseExample">
                                   <div class="well" style="padding:0px ;">
                                       <table class="table table-striped" id="table_history_info" style="border: 0px solid red;">
-                                         <%-- <thead id="table_history_thead">
+                                         &lt;%&ndash; <thead id="table_history_thead">
                                               <tr>
                                                   <td class="active">处方编号</td>
                                                   <td class="active" colspan="7">32123213435435435</td>
                                               </tr>
-                                          </thead>--%>
-                                      <%--    <tbody id="table_history">
+                                          </thead>&ndash;%&gt;
+                                      &lt;%&ndash;    <tbody id="table_history">
                                               <tr>
                                                   <td class="active">编号</td>
                                                   <td class="active">药品</td>
@@ -472,7 +586,7 @@
                                                   <td class="active">备注</td>
                                                   <td class="active">单价</td>
                                               </tr>
-                                          </tbody>--%>
+                                          </tbody>&ndash;%&gt;
                                       </table>
                                   </div>
                               </div>
@@ -485,11 +599,12 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>--%>
+
 
 
     <!-- 处方详情的添加 -->
-    <div class="modal fade" id="add_prescription" tabindex="0" style="z-index: 7000" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal fade" id="add_prescription" tabindex="700" style="z-index: 7000" role="dialog" aria-labelledby="myModalLabe">
         <div class="modal-dialog" role="document">
             <div class="modal-content" style="width: 396px;">
                 <div class="modal-header">
@@ -615,13 +730,9 @@
         </div>
     </div>
 
-
-
 </center>
 </body>
 <script type="text/javascript">
-
-
 
 //这部分是诊断时间的代码
 $(function () {
@@ -645,7 +756,6 @@ $(function () {
         second = extra(second);
         var str= year + " 年 " + month + " 月 " + date + " 日 " + hour + "：" + minute + "：" + second + " " + weekday[num];
         $("#nowtime").html (str);  //这个是处方时间信息
-
         $("#history_nowtime").html (str); //这个是病例时间信息
         t = setTimeout(time, 1000); //设定定时器，循环运行
     }
@@ -664,6 +774,18 @@ function extra(x) {
 
 $(function () {
 
+
+    //在处方里面，点击添加按钮 ，这个跳出处方详情的页面
+   /* $("#addbtn_prescription").click(function(){
+        alert("come in");
+       // $("#add_prescription").modal("show");
+    });*/
+
+    $("#addbtn_prescription").on('click', function () {
+        //$('#secondmodal').modal();
+        $("#add_prescription").modal();
+        alert("come in");
+    });
 
      setInterval(function () {
          var totalPrice= $("#totalPrice").text();
@@ -689,7 +811,6 @@ $(function () {
             $("#totalPrice").text(total);
         }
          console.log("total="+total);
-
     },100);
 
 
@@ -843,10 +964,7 @@ $(function () {
     });
 
 
-         //在处方里面，点击添加按钮 ，这个跳出处方详情的页面
-        $("#addbtn_prescription").click(function(){
-            $("#add_prescription").modal("show");
-        });
+
 
         //这个是点击详情的页面
     $("#prescri_btn").click(function () {
@@ -885,7 +1003,7 @@ $(function () {
             //对于二级模态框，二级模态框关闭，一级就不能滚动了，怎样解决这个问题？？
             //关闭这个二级之前，给这个一级模态框加上滚动的属性，就可以
             $('#prescri_btn').click(function() {
-                $('#myModal_prescription').css({'overflow-y':'scroll'});
+                $('#_myModal_prescription').css({'overflow-y':'scroll'});
             });
 
             //点击确定，让它自动点击这个关闭按钮
@@ -986,7 +1104,9 @@ $(function () {
                 alert("你输入的数量必须为纯数字");
             }
      });
+        //这个是在处方单里面的，添加按钮，触发的函数，添加处方的详情
         $("#addbtn_prescription").click(function () {
+            //alert("come in");
             var checkboxs=$("input[name='checkbox']:checked");
             var  menuid=$("input[name='menuid']").val();
             var uid=checkboxs[0].value;
@@ -994,7 +1114,7 @@ $(function () {
             var drid= $("#doctorid").val();
             var date= new Date().getTime();
             var id= $("#doctorid").val()+uid;
-            //$("#prescription_id").val(id);
+            $("#prescription_id").val(id);
 
             var item_id = $("#doctorid").val()+uid+date;//医生的id加上病人的id为处方的id+加上每次操作的时间的毫秒数据做为每次的处方详情的id编号
           //  alert(id);
@@ -1110,10 +1230,8 @@ $(function () {
               });
         });
 
-
-
         //点击一级模态框的关闭按钮的时候
-        $("#bottom_close").click(function () {
+       $("#bottom_close").click(function () {
             $("#prescription").removeAttr("data-target");
         });
 
@@ -1123,7 +1241,9 @@ $(function () {
         });
 
 
-        //这个是点击开处方按钮的函数
+        //这个是点击开处方按钮的函数，
+        // 这个不仅仅是跳出这个模态框还查询该人以前的处方的信息，然后
+        //显示在历史记录上
         $("#prescription").dblclick(function () {
              //这个是清除处方里面的处方详情的内容
             $("#table_content tr").not(':eq(0)').empty();
@@ -1145,7 +1265,7 @@ $(function () {
 
                //同时根据这个病人id,查询出此病人的以前的处方信息，加载到处方历史上显示出来
                var patient_id=$("#patientid"+uid).val();
-               alert(patient_id);
+              // alert(patient_id);
                if (patient_id!=null&&patient_id!=""){
                    $.ajax({
                        type:"GET",
@@ -1155,8 +1275,10 @@ $(function () {
                        success:function (data) {
                            if (data!=null&&data!=""){
                                var type=data.type;
+                             //  alert("comie ind");
                                if (type=='success'){
                                    var  prescriptions=data.prescriptions;
+                                 //  alert(JSON.stringify(prescriptions));
                                           if (prescriptions!=null&&prescriptions!=""){
                                                for (var i=0;i<prescriptions.length;i++){
                                                    var head="<tr>" +
@@ -1216,7 +1338,7 @@ $(function () {
                 alert("编辑之前请你选择一项数据");
                 return;
             } else{
-                 $("#prescription").attr("data-target","#myModal_prescription");
+                 $("#prescription").attr("data-target","#_myModal_prescription");
                  $("#prescription").trigger("dblclick");
             }
         });
@@ -1438,6 +1560,8 @@ $(function () {
        //双击一行，按照id，查询详细数据
         //获取表格中具体的表格，一般采用find，这个函数
         $("button[name='detail']").click(function () {
+            //这个是每次点击这个详情的按钮的时候，清除之前的内容
+            $("#maincontent").html("");
              var id=$(this).val();
               if (id!=null&&id!=""){
                    //  alert("come in");

@@ -75,7 +75,6 @@ public class ClinicDoctorsController {
                 andView.addObject("pageBean",doctorPageBean);
             }
         }
-
         andView.setViewName("/admin/user_clinicManager/selectDoctorsInfoAndOnTimes/query");
         return andView;
     }

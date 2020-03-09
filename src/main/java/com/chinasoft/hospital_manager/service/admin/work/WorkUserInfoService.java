@@ -41,4 +41,7 @@ public interface WorkUserInfoService {
 
     //通过id，删除这个信息的
     public int deleteWorkInfoById(Map<String,Object> map);
+
+    //根据这个这个挂号人员的id查询该工作的信息
+    public List<Work> findUsersWorkInfo(int id);
 }

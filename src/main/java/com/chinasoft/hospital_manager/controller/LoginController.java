@@ -364,7 +364,7 @@ public class LoginController {
             String name = doctor_info.getRole().getName();
             if ("医生".equals(name)){
                 if (username != null && username != "" && password != null && password != "") {
-                   Doctor doctor1=new Doctor();
+                     Doctor doctor1=new Doctor();
                      doctor1.setPassword(password);
                      doctor1.setName(username);
                     Doctor doctor2 = loginService.selectDoctorNameAndPassword(doctor1);
@@ -378,7 +378,7 @@ public class LoginController {
                             if (menus != null) {
                                 List<Menu> top = MenuUtils.getTop(menus);
                                 List<Menu> second = MenuUtils.getSecond(menus,top);
-                               // request.getSession().setAttribute("doctor", doctor2);
+                                request.getSession().setAttribute("doctor", doctor2);
                                 request.getSession().setAttribute("role", role.getName());
                                 request.getSession().setAttribute("menus",menus);
                                 request.getSession().setAttribute("top",top);
@@ -412,7 +412,6 @@ public class LoginController {
      * @param null
      * @return
      */
-
     @RequestMapping("/index")
     public ModelAndView index(HttpServletRequest request){
        ModelAndView andView=new ModelAndView();
@@ -561,14 +560,13 @@ public class LoginController {
   return andView;
 }
 */
-/**
- * @description:这个是退出的操作！
- * @author jack
- * @date 2019/12/23 19:48
- * @param null
- * @return
- */
-
+    /**
+     * @description:这个是退出的操作！
+     * @author jack
+     * @date 2019/12/23 19:48
+     * @param null
+     * @return
+     */
     @RequestMapping(value = "/logout",method = RequestMethod.GET)
     public  ModelAndView logout(HttpServletRequest request){
         ModelAndView andView=new ModelAndView();
@@ -611,9 +609,9 @@ public class LoginController {
      */
     @RequestMapping("/onclickToUpdatePassword")
     public  ModelAndView onclickToUpdatePassword(HttpServletRequest request){
-        ModelAndView andView=new ModelAndView();
+         ModelAndView andView=new ModelAndView();
          andView.setViewName("admin/PersonalSet/lawset");
-        return andView;
+         return andView;
     }
 
     /**

@@ -80,17 +80,17 @@
                 <table width="95%" border="0" cellpadding="0" cellspacing="0">
                     <tr>
                         <td class="td_page">
-                        <div class="row">
-                            <div class="col-lg-4 col-sm-4 col-md-4 col-xs-4">
-                                <c:forEach items="${third}" var="third">
-                                    <c:if test="${third.name=='修改' && third.status==1}">
-                                        <input data-toggle="modal" type="button" id="update" name="update" class="btn btn-info" value="修改"/>
-                                    </c:if>
-                                    <c:if test="${third.name=='退号' && third.status==1}">
-                                        <input  data-toggle="modal"   type="button"   id= "delete" name="delete" class="btn btn-success" value="退号"/>
-                                    </c:if>
-                                </c:forEach>
-                            </div>
+                          <div class="row">
+                                <div class="col-lg-4 col-sm-4 col-md-4 col-xs-4">
+                                    <c:forEach items="${third}" var="third">
+                                        <c:if test="${third.name=='修改' && third.status==1}">
+                                            <input data-toggle="modal" type="button" id="update" name="update" class="btn btn-info" value="修改"/>
+                                        </c:if>
+                                        <c:if test="${third.name=='退号' && third.status==1}">
+                                            <input  data-toggle="modal"   type="button"   id= "delete" name="delete" class="btn btn-success" value="退号"/>
+                                        </c:if>
+                                    </c:forEach>
+                                  </div>
                             <div class="col-lg-4 col-sm-4 col-md-4 col-xs-4" style="border: 0px solid  red;margin-left: -300px; ">
                                 <div class="input-group">
                                     <div class="input-group-btn">
@@ -122,7 +122,7 @@
                       </td>
                     </tr>
 
-                   <tr>
+         <%--          <tr>
                         <td class="td_page">
                               <div class="row">
                                   <div class="col-lg-6 col-sm-6 col-md-6 col-xs-6">
@@ -137,7 +137,7 @@
                                   </div>
                               </div>
                         </td>
-                    </tr>
+                    </tr>--%>
                 </table>
                 <br>
 
@@ -784,7 +784,7 @@
                          //门诊
                          var allAppoint_categorys=data.allAppoint_categorys;
 
-                        alert(JSON.stringify(patie)+JSON.stringify(appoint_cat)+JSON.stringify(off)+JSON.stringify(doc));
+                      //  alert(JSON.stringify(patie)+JSON.stringify(appoint_cat)+JSON.stringify(off)+JSON.stringify(doc));
                          //头部
                          var content="\t\t\t\t<div class=\"form-horizontal\" style=\"border: 0px solid red;height:auto;width:700px;\">\n" +
                              "                   \n" +
@@ -1118,23 +1118,12 @@
                                      alert("在挂号插入挂号信息响应失败！");
                                  }
                              });
-
-
-
-
                          });
-
-
-
                      } else if (type=='error'){
                          alert("将id传递到后台失败");
                      } else if (type=='fail'){
                          alert("根据id，查询数据失败");
                      }
-
-
-
-
 
                 }
             },error:function (data) {
@@ -1197,6 +1186,19 @@
                  alert("响应数据失败");
             }
         });
+    });
+
+
+    /*这个是退号操作*/
+    $("#delete").click(function () {
+        var checkboxs=$("input[name='checkbox']:checked");//得到的数据都是选中的数据
+        if (checkboxs.length==0){
+            alert("编辑之前请你选择一项数据");
+            return;
+        } else{
+            $("#update").attr("data-target","#updatemyModal");
+            $("#update").trigger("dblclick");
+        }
     });
 
 </script>

@@ -1,26 +1,70 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/controller/doctor/doctorsForWork/DoctorsForWorkController.java" description="id=doctor1.getId();" line="46" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="8cc7c9c7-ca4a-4a16-b175-78ce88a8b224" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/controller/admin/adminForSystem/AdminForSystemController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB/views/admin/adminInfoAndManager/clinicAndManager/query.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB/views/admin/adminInfoAndManager/officesAndManager/query.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/controller/doctor/doctorsForWork/DoctorsForWorkController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/mapper/admin/doctor/doctorsForWork/DoctorsForWorkMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/service/admin/doctor/doctorsForWork/DoctorsForWorkService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/service/admin/doctor/doctorsForWork/impl/DoctorsForWorkServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/mapper/admin/doctor/doctorsForWork/DoctorsForWorkMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB/views/admin/doctorInfoAndManager/doctorsForWork/work.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB/views/admin/userInfoAndManager/usersForWork/work.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/doctor/doctorsWorkJs/calendar/5e2922d339d9e/css/amazeui.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/doctor/doctorsWorkJs/calendar/5e2922d339d9e/css/calendar.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/doctor/doctorsWorkJs/calendar/5e2922d339d9e/css/timedropper.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/doctor/doctorsWorkJs/calendar/5e2922d339d9e/js/amazeui.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/doctor/doctorsWorkJs/calendar/5e2922d339d9e/js/calendar.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/doctor/doctorsWorkJs/calendar/5e2922d339d9e/js/jquery.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/doctor/doctorsWorkJs/calendar/5e2922d339d9e/js/timedropper.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/user/doctorsWorkJs/calendar/5e2922d339d9e/css/amazeui.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/user/doctorsWorkJs/calendar/5e2922d339d9e/css/calendar.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/user/doctorsWorkJs/calendar/5e2922d339d9e/css/timedropper.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/user/doctorsWorkJs/calendar/5e2922d339d9e/js/amazeui.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/user/doctorsWorkJs/calendar/5e2922d339d9e/js/calendar.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/user/doctorsWorkJs/calendar/5e2922d339d9e/js/jquery.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/user/doctorsWorkJs/calendar/5e2922d339d9e/js/timedropper.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/controller/admin/adminForMyself/AdminForMySelfController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/controller/admin/adminForMyself/AdminForMySelfController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/controller/admin/employee/EmployeeManagerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/controller/admin/employee/EmployeeManagerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/controller/LoginController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/controller/doctor/doctorsForPatient/DoctorsForPatientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/controller/doctor/doctorsForPatient/DoctorsForPatientController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/controller/user/clinicManager/ClinicManagerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/controller/user/clinicManager/ClinicManagerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/mapper/admin/admin/adminForMyself/AdminForMyselfMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/mapper/admin/admin/adminForMyself/AdminForMyselfMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/service/admin/admin/adminForMyself/AdminForMyselfService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/service/admin/admin/adminForMyself/AdminForMyselfService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/service/admin/admin/adminForMyself/impl/AdminForMyselfServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/service/admin/admin/adminForMyself/impl/AdminForMyselfServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/controller/user/clinicDoctors/ClinicDoctorsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/controller/user/clinicDoctors/ClinicDoctorsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/controller/user/clinicUserWork/ClinicUserWorkController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/controller/user/clinicUserWork/ClinicUserWorkController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/domain/Work.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/domain/Work.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/mapper/admin/work/WorkInfoMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/mapper/admin/work/WorkInfoMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/service/admin/work/WorkUserInfoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/service/admin/work/WorkUserInfoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/service/admin/work/impl/WorkUserInfoServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/service/admin/work/impl/WorkUserInfoServiceImp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/admin/admin/adminForMyself/AdminsForMyselfMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/admin/admin/adminForMyself/AdminsForMyselfMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB/views/admin/adminInfoAndManager/adminInfoForMySelf/admininfo.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB/views/admin/adminInfoAndManager/adminInfoForMySelf/admininfo.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/data/5dfb9b4d11ed9/静态模板/静态模板/原型/js/menu.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/data/5dfb9b4d11ed9/静态模板/静态模板/原型/js/menu.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/data/蓝色的医院oa后台模板html源码/静态模板/静态模板/原型/js/menu.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/data/蓝色的医院oa后台模板html源码/静态模板/静态模板/原型/js/menu.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/data2/蓝色的医院oa后台模板html源码/静态模板/静态模板/原型/js/menu.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/data2/蓝色的医院oa后台模板html源码/静态模板/静态模板/原型/js/menu.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/admin/work/WorkInfoMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/admin/work/WorkInfoMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB/views/admin/doctorInfoAndManager/doctorsForPatient/doctorsForPatient.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB/views/admin/doctorInfoAndManager/doctorsForPatient/doctorsForPatient.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB/views/admin/employee/doctorsInfo/query.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB/views/admin/employee/doctorsInfo/query.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB/views/admin/user_clinicManager/query.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB/views/admin/user_clinicManager/query.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB/views/admin/user_clinicManager/register.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB/views/admin/user_clinicManager/register.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB/views/admin/left.htm" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB/views/admin/left.htm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB/views/admin/user_clinicManager/clinic_Department/select.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB/views/admin/user_clinicManager/clinic_Department/select.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB/views/admin/user_clinicManager/selectDoctorsInfoAndOnTimes/query.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB/views/admin/user_clinicManager/selectDoctorsInfoAndOnTimes/query.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/static/admin/js/menu.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/admin/js/menu.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/static/calendar/5e2922d339d9e/js/amazeui.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/calendar/5e2922d339d9e/js/amazeui.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/static/calendar/5e2922d339d9e/js/calendar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/calendar/5e2922d339d9e/js/calendar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/static/calendar/5e2922d339d9e/js/jquery.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/calendar/5e2922d339d9e/js/jquery.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/static/layui/layui/lay/modules/carousel.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/layui/layui/lay/modules/carousel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/static/layui/layui/lay/modules/colorpicker.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/layui/layui/lay/modules/colorpicker.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/static/layui/layui/lay/modules/element.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/layui/layui/lay/modules/element.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/static/layui/layui/lay/modules/form.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/layui/layui/lay/modules/form.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/static/layui/layui/lay/modules/jquery.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/layui/layui/lay/modules/jquery.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/static/layui/layui/lay/modules/layer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/layui/layui/lay/modules/layer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/static/layui/layui/lay/modules/laypage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/layui/layui/lay/modules/laypage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/static/layui/layui/lay/modules/mobile.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/layui/layui/lay/modules/mobile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/static/layui/layui/lay/modules/rate.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/layui/layui/lay/modules/rate.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/static/layui/layui/lay/modules/slider.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/layui/layui/lay/modules/slider.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/static/layui/layui/lay/modules/table.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/layui/layui/lay/modules/table.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/static/layui/layui/lay/modules/transfer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/layui/layui/lay/modules/transfer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/static/layui/layui/lay/modules/tree.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/layui/layui/lay/modules/tree.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/static/layui/layui/layui.all.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/layui/layui/layui.all.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/static/login/js/menu.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/login/js/menu.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/static/upload/js/jquery.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/upload/js/jquery.min.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -57,79 +101,95 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/controller/admin/adminForMyself/AdminForMySelfController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="28" column="13" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/controller/admin/employee/EmployeeManagerController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="400">
-              <caret line="431" column="54" selection-start-line="431" selection-start-column="48" selection-end-line="431" selection-end-column="54" />
-              <folding>
-                <element signature="e#1950#1966#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/controller/user/clinicDoctors/ClinicDoctorsController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="67" selection-start-line="67" selection-end-line="67" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/service/admin/product/impl/ProductServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="853">
-              <caret line="98" selection-start-line="98" selection-end-line="98" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB/views/admin/doctorInfoAndManager/doctorsForPatient/doctorsForPatient.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="58">
+              <caret line="1281" column="17" selection-start-line="1281" selection-start-column="17" selection-end-line="1281" selection-end-column="17" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#div#0;n#td#0;n#tr#0;n#table#0;n#td#0;n#tr#0;n#table#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#select#0;n#div#0;n#div#0;n#div#0;n#td#0;n#tr#0;n#table#0;n#td#0;n#tr#0;n#table#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#center#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#table#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#center#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#center#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#center#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#center#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#1;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#center#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#2;n#div#1;n#div#0;n#div#0;n#div#0;n#center#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#3;n#div#1;n#div#0;n#div#0;n#div#0;n#center#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#4;n#div#1;n#div#0;n#div#0;n#div#0;n#center#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#4;n#div#1;n#div#0;n#div#0;n#div#0;n#center#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#div#0;n#div#4;n#div#1;n#div#0;n#div#0;n#div#0;n#center#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#1;n#div#0;n#div#4;n#div#1;n#div#0;n#div#0;n#div#0;n#center#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#5;n#div#1;n#div#0;n#div#0;n#div#0;n#center#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#5;n#div#1;n#div#0;n#div#0;n#div#0;n#center#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#5;n#div#1;n#div#0;n#div#0;n#div#0;n#center#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#5;n#div#1;n#div#0;n#div#0;n#div#0;n#center#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#table#0;n#div#0;n#div#1;n#div#0;n#div#5;n#div#1;n#div#0;n#div#0;n#div#0;n#center#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="e#26507#26880#0#JSP" />
+                <element signature="e#26921#27672#0#JSP" />
+                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="e#24338#32124#0#JSP" />
+                <element signature="n#style#0;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#5;n#form#0;n#div#1;n#div#0;n#div#0;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#div#0;n#div#5;n#form#0;n#div#1;n#div#0;n#div#0;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#1;n#div#0;n#div#5;n#form#0;n#div#1;n#div#0;n#div#0;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#2;n#div#0;n#div#5;n#form#0;n#div#1;n#div#0;n#div#0;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#3;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#3;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="e#559#566#1" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#div#0;n#div#5;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#div#0;n#div#11;n#div#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/controller/doctor/doctorsForPatient/DoctorsForPatientController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="718">
-              <caret line="76" column="37" lean-forward="true" selection-start-line="76" selection-start-column="37" selection-end-line="76" selection-end-column="37" />
+            <state relative-caret-position="775">
+              <caret line="547" lean-forward="true" selection-start-line="547" selection-end-line="547" />
               <folding>
-                <element signature="e#5737#5753#0" expanded="true" />
+                <element signature="e#20387#20403#0" expanded="true" />
+                <element signature="e#23686#23702#0" expanded="true" />
+                <element signature="e#24330#25381#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB/views/admin/doctorInfoAndManager/doctorsForPatient/doctorsForPatientFindProducts.jsp">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/controller/admin/adminForSystem/AdminForSystemController.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/service/admin/doctor/doctorsForPatient/DoctorsForPatientService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="401">
-              <caret line="32" column="138" lean-forward="true" selection-start-line="29" selection-start-column="7" selection-end-line="32" selection-end-column="138" />
+            <state relative-caret-position="131">
+              <caret line="33" column="15" selection-start-line="33" selection-start-column="15" selection-end-line="33" selection-end-column="15" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/controller/user/clinicManager/ClinicManagerController.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/service/admin/doctor/doctorsForPatient/impl/DoctorsForPatientServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-8975">
-              <caret line="101" column="21" selection-start-line="101" selection-start-column="21" selection-end-line="101" selection-end-column="21" />
+            <state relative-caret-position="756">
+              <caret line="179" column="5" lean-forward="true" selection-start-line="179" selection-start-column="5" selection-end-line="179" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/admin/doctor/doctorsForPatient/DoctorsForPatientsMapper.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="145">
+              <caret line="237" column="2" lean-forward="true" selection-start-line="237" selection-start-column="2" selection-end-line="242" selection-end-column="22" />
+              <folding>
+                <element signature="e#11318#11888#0" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -137,32 +197,31 @@
       <file pinned="false" current-in-tab="false">
         <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/5.2.1.RELEASE/spring-web-5.2.1.RELEASE-sources.jar!/org/springframework/web/method/support/InvocableHandlerMethod.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-159">
+            <state relative-caret-position="213">
               <caret line="189" selection-start-line="189" selection-end-line="189" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB/views/admin/doctorInfoAndManager/doctorsForPatient/doctorsForPatient.jsp">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/HospitalManagerApplication.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="243">
-              <caret line="131" column="77" selection-start-line="131" selection-start-column="77" selection-end-line="131" selection-end-column="77" />
+            <state relative-caret-position="225">
+              <caret line="11" selection-start-line="11" selection-end-line="11" />
               <folding>
-                <element signature="n#style#0;n#td#7;n#tr#1;n#table#1;n#td#0;n#tr#0;n#table#1;n#center#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="e#10729#10735#0#HTML" expanded="true" />
-                <element signature="e#10736#10742#0#HTML" expanded="true" />
-                <element signature="e#10743#10749#0#HTML" expanded="true" />
-                <element signature="e#10750#10756#0#HTML" expanded="true" />
-                <element signature="e#11064#11070#0#HTML" expanded="true" />
-                <element signature="e#11071#11077#0#HTML" expanded="true" />
-                <element signature="e#11078#11084#0#HTML" expanded="true" />
-                <element signature="e#11085#11091#0#HTML" expanded="true" />
-                <element signature="e#559#566#1" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#0;n#div#0;n#div#5;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#0;n#div#0;n#div#11;n#div#0;n#!!top" expanded="true" />
+                <element signature="e#332#707#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/controller/doctor/doctorsForWork/DoctorsForWorkController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="522">
+              <caret line="93" column="7" selection-start-line="93" selection-start-column="7" selection-end-line="93" selection-end-column="7" />
+              <folding>
+                <element signature="e#1747#2402#0" />
               </folding>
             </state>
           </provider>
@@ -181,36 +240,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>maininfo</find>
-      <find>updateAdminInfoById</find>
-      <find>getTotalCounts</find>
-      <find>_updateexampleModalScrollable</find>
-      <find>insertAppoint_Category</find>
-      <find>findAllAndMangager</find>
-      <find>beforeInsertFindInfo</find>
-      <find>addDoctorsInfo</find>
-      <find>Appoint_category</find>
-      <find>findAllOfficesAndMangager</find>
-      <find>officename</find>
-      <find>insertIntoOfficeInfo</find>
-      <find>checkbox</find>
-      <find>updatebtn</find>
-      <find>add</find>
-      <find>addbtn</find>
-      <find>bodymain</find>
-      <find>updatemain</find>
-      <find>deleteOfficesInfoById</find>
-      <find>selectDoctorsInfo</find>
-      <find>update</find>
-      <find>detailDoctorContent</find>
-      <find>detail</find>
-      <find>delete</find>
-      <find>selectDoctorInfoBId</find>
-      <find>logout</find>
-      <find>deleteDoctorInfoById</find>
-      <find>search</find>
-      <find>searchPatientsInfoByCondition</find>
       <find>menuid</find>
+      <find>findPatientOfAppointmentById</find>
+      <find>searchPatientsInfoByCondition</find>
+      <find>loading_calendar</find>
+      <find>getOfficesByAppoint_category</find>
+      <find>requestloadUserWorkInfo</find>
+      <find>click</find>
+      <find>findUserWorkInfoById</find>
+      <find>searchUserWorkInfoById</find>
+      <find>findUsersWorkInfo</find>
+      <find>delete</find>
+      <find>&lt;/center&gt;</find>
+      <find>myModal_prescription</find>
+      <find>auto_close</find>
+      <find>findPrescriptionsByPatientId</find>
+      <find>prescribe_Content</find>
+      <find>collapseExample</find>
+      <find>prescription_id</find>
+      <find>patientid</find>
+      <find>_myModal_prescriptionll</find>
+      <find>prescri_btn</find>
+      <find>prescription</find>
+      <find>table_content</find>
+      <find>add_prescription</find>
+      <find>_myModal_prescription</find>
+      <find>addbtn_prescription</find>
+      <find>modal-backdrop fade in</find>
+      <find>maincontent</find>
+      <find>priscribe_close</find>
+      <find>table_history_info</find>
     </findStrings>
     <dirStrings>
       <dir>C:\Users\Administrator\IdeaProjects\SpringBoot\hospital_manager</dir>
@@ -227,18 +286,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/mapper/admin/product/ProductsMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/service/admin/product/ProductService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/service/admin/product/impl/ProductServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/mapper/admin/product/ProductMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB/views/admin/doctorInfoAndManager/doctorsForPatient/doctorsForPatientFindProducts.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB/views/admin/doctorInfoAndManager/doctorsForPatient/doctorsForPatientFindHistory.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB/views/admin/doctorInfoAndManager/doctorsForPatient/doctors.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB/views/admin/doctorInfoAndManager/doctorsForPatient/query.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/domain/History.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/controller/admin/employee/OpenBrowse.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/mapper/admin/doctor/doctorsForPatient/DoctorsForPatientMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/service/admin/doctor/doctorsForPatient/DoctorsForPatientService.java" />
         <option value="$PROJECT_DIR$/src/main/resources/mapper/admin/doctor/doctorsForPatient/DoctorsForPatientsMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB/views/admin/doctorInfoAndManager/doctorsForPatient/doctorsFindHistory.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/controller/doctor/doctorsForSystem/DoctorsForSystemController.java" />
@@ -247,19 +294,9 @@
         <option value="$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/mapper/admin/patient/UserForPatientMapper.java" />
         <option value="$PROJECT_DIR$/src/main/resources/mapper/admin/patient/UserForPatientMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/service/admin/patient/impl/UserForPatientMapperImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/controller/user/clinicDoctors/ClinicDoctorsController.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB/views/admin/user_clinicManager/selectDoctorsInfoAndOnTimes/query.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB/views/admin/user_clinicManager/index.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/mapper/admin/work/WorkInfoMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/service/admin/work/WorkUserInfoService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/service/admin/work/impl/WorkUserInfoServiceImp.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/mapper/admin/work/WorkInfoMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/controller/user/clinicUserWork/ClinicUserWorkController.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/static/calendar/5e2922d339d9e/js/calendar.js" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB/views/admin/adminInfoAndManager/adminInfoForMySelf/doctorinfo.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/mapper/admin/admin/adminForMyself/AdminMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/controller/LoginController.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/application.yml" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB/views/admin/adminInfoAndManager/adminInfoForMySelf/admininfo.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB/views/admin/adminInfoAndManager/offices/query.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB/views/admin/adminInfoAndManager/clinicAndManager/query.jsp" />
@@ -276,8 +313,30 @@
         <option value="$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/controller/admin/adminForMyself/AdminForMySelfController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/controller/admin/employee/EmployeeManagerController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/controller/admin/adminForSystem/AdminForSystemController.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB/views/admin/doctorInfoAndManager/doctorsForPatient/doctorsForPatient.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/controller/user/clinicDoctors/ClinicDoctorsController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB/views/admin/doctorInfoAndManager/doctorsForWork/index.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/static/calendar/5e2922d339d9e/js/calendar.js" />
+        <option value="$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/controller/LoginController.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/application.yml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/domain/Work.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB/views/admin/doctorInfoAndManager/doctorsForWork/work.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/mapper/admin/doctor/doctorsForWork/DoctorsForWorkMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/service/admin/doctor/doctorsForWork/DoctorsForWorkService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/service/admin/doctor/doctorsForWork/impl/DoctorsForWorkServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mapper/admin/doctor/doctorsForWork/DoctorsForWorkMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/webapp/static/doctor/doctorsWorkJs/calendar/5e2922d339d9e/js/calendar.js" />
+        <option value="$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/mapper/admin/work/WorkInfoMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/service/admin/work/WorkUserInfoService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/service/admin/work/impl/WorkUserInfoServiceImp.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mapper/admin/work/WorkInfoMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB/views/admin/userInfoAndManager/usersForWork/work.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/controller/user/clinicUserWork/ClinicUserWorkController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/static/user/doctorsWorkJs/calendar/5e2922d339d9e/js/calendar.js" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB/views/admin/user_clinicManager/clinic_Department/select.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB/views/admin/user_clinicManager/selectDoctorsInfoAndOnTimes/query.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/controller/doctor/doctorsForWork/DoctorsForWorkController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/controller/doctor/doctorsForPatient/DoctorsForPatientController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB/views/admin/doctorInfoAndManager/doctorsForPatient/doctorsForPatient.jsp" />
       </list>
     </option>
   </component>
@@ -341,8 +400,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -518,6 +577,19 @@
               <item name="chinasoft" type="462c0819:PsiDirectoryNode" />
               <item name="hospital_manager" type="462c0819:PsiDirectoryNode" />
               <item name="controller" type="462c0819:PsiDirectoryNode" />
+              <item name="doctor" type="462c0819:PsiDirectoryNode" />
+              <item name="doctorsForWork" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hospital_manager" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hospital_manager" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="chinasoft" type="462c0819:PsiDirectoryNode" />
+              <item name="hospital_manager" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
               <item name="user" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -581,6 +653,17 @@
               <item name="com" type="462c0819:PsiDirectoryNode" />
               <item name="chinasoft" type="462c0819:PsiDirectoryNode" />
               <item name="hospital_manager" type="462c0819:PsiDirectoryNode" />
+              <item name="domain" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hospital_manager" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hospital_manager" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="chinasoft" type="462c0819:PsiDirectoryNode" />
+              <item name="hospital_manager" type="462c0819:PsiDirectoryNode" />
               <item name="mapper" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -594,32 +677,6 @@
               <item name="hospital_manager" type="462c0819:PsiDirectoryNode" />
               <item name="mapper" type="462c0819:PsiDirectoryNode" />
               <item name="admin" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="hospital_manager" type="b2602c69:ProjectViewProjectNode" />
-              <item name="hospital_manager" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="chinasoft" type="462c0819:PsiDirectoryNode" />
-              <item name="hospital_manager" type="462c0819:PsiDirectoryNode" />
-              <item name="mapper" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="hospital_manager" type="b2602c69:ProjectViewProjectNode" />
-              <item name="hospital_manager" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="chinasoft" type="462c0819:PsiDirectoryNode" />
-              <item name="hospital_manager" type="462c0819:PsiDirectoryNode" />
-              <item name="mapper" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-              <item name="patient" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="hospital_manager" type="b2602c69:ProjectViewProjectNode" />
@@ -643,6 +700,19 @@
               <item name="com" type="462c0819:PsiDirectoryNode" />
               <item name="chinasoft" type="462c0819:PsiDirectoryNode" />
               <item name="hospital_manager" type="462c0819:PsiDirectoryNode" />
+              <item name="mapper" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="work" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hospital_manager" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hospital_manager" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="chinasoft" type="462c0819:PsiDirectoryNode" />
+              <item name="hospital_manager" type="462c0819:PsiDirectoryNode" />
               <item name="service" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -656,6 +726,60 @@
               <item name="hospital_manager" type="462c0819:PsiDirectoryNode" />
               <item name="service" type="462c0819:PsiDirectoryNode" />
               <item name="admin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hospital_manager" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hospital_manager" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="chinasoft" type="462c0819:PsiDirectoryNode" />
+              <item name="hospital_manager" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="doctor" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hospital_manager" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hospital_manager" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="chinasoft" type="462c0819:PsiDirectoryNode" />
+              <item name="hospital_manager" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="doctor" type="462c0819:PsiDirectoryNode" />
+              <item name="doctorsForPatient" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hospital_manager" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hospital_manager" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="chinasoft" type="462c0819:PsiDirectoryNode" />
+              <item name="hospital_manager" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="work" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hospital_manager" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hospital_manager" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="chinasoft" type="462c0819:PsiDirectoryNode" />
+              <item name="hospital_manager" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="work" type="462c0819:PsiDirectoryNode" />
+              <item name="impl" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="hospital_manager" type="b2602c69:ProjectViewProjectNode" />
@@ -721,7 +845,60 @@
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="mapper" type="462c0819:PsiDirectoryNode" />
               <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="doctor" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hospital_manager" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hospital_manager" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="mapper" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="doctor" type="462c0819:PsiDirectoryNode" />
+              <item name="doctorsForMyself" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hospital_manager" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hospital_manager" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="mapper" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="doctor" type="462c0819:PsiDirectoryNode" />
+              <item name="doctorsForPatient" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hospital_manager" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hospital_manager" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="mapper" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="doctor" type="462c0819:PsiDirectoryNode" />
+              <item name="doctorsForWork" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hospital_manager" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hospital_manager" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="mapper" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
               <item name="employee" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hospital_manager" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hospital_manager" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="mapper" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="login" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="hospital_manager" type="b2602c69:ProjectViewProjectNode" />
@@ -886,6 +1063,18 @@
               <item name="WEB" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
               <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="doctorInfoAndManager" type="462c0819:PsiDirectoryNode" />
+              <item name="doctorsForWork" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hospital_manager" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hospital_manager" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
               <item name="employee" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -972,6 +1161,29 @@
             <path>
               <item name="hospital_manager" type="b2602c69:ProjectViewProjectNode" />
               <item name="hospital_manager" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="userInfoAndManager" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hospital_manager" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hospital_manager" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="userInfoAndManager" type="462c0819:PsiDirectoryNode" />
+              <item name="usersForWork" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hospital_manager" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hospital_manager" type="462c0819:PsiDirectoryNode" />
               <item name="target" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -994,7 +1206,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/webapp/WEB/views/admin/adminInfoAndManager/officesAndManager" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -1004,25 +1216,25 @@
     <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Administrator\IdeaProjects\SpringBoot\github1\hospital_manager\src\main\webapp\static" />
+      <recent name="C:\Users\Administrator\IdeaProjects\SpringBoot\github1\hospital_manager\src\main\webapp\WEB\views\admin\userInfoAndManager\usersForWork" />
+      <recent name="C:\Users\Administrator\IdeaProjects\SpringBoot\github1\hospital_manager\src\main\webapp\static\doctor\doctorsWorkJs\calendar\5e2922d339d9e\js" />
+      <recent name="C:\Users\Administrator\IdeaProjects\SpringBoot\github1\hospital_manager\src\main\webapp\static\doctor\doctorsWorkJs" />
+      <recent name="C:\Users\Administrator\IdeaProjects\SpringBoot\github1\hospital_manager\src\main\resources\mapper\admin\doctor\doctorsForWork" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.chinasoft.hospital_manager.service.admin.doctor.doctorsForWork.impl" />
+      <recent name="com.chinasoft.hospital_manager.service.admin.doctor.doctorsForWork" />
+      <recent name="com.chinasoft.hospital_manager.mapper.admin.doctor.doctorsForWork" />
+      <recent name="com.chinasoft.hospital_manager.controller.doctor.doctorsForWork" />
+      <recent name="com.chinasoft.hospital_manager.controller.admin.adminForSystem" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Administrator\IdeaProjects\SpringBoot\hospital_manager\src\main\webapp\WEB\views\admin\doctorInfoAndManager\doctorsForMyself" />
       <recent name="C:\Users\Administrator\IdeaProjects\SpringBoot\hospital_manager\src\main\webapp\WEB\views\admin\user_clinicManager\print" />
       <recent name="C:\Users\Administrator\IdeaProjects\SpringBoot\hospital_manager\src\main\resources\mapper\admin\login" />
       <recent name="C:\Users\Administrator\IdeaProjects\SpringBoot\hospital_manager\src\main\resources\style\login" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.chinasoft.hospital_manager.controller.admin.adminForSystem" />
-      <recent name="com.chinasoft.hospital_manager.service.admin.admin.adminForMyself" />
-      <recent name="com.chinasoft.hospital_manager.mapper.admin.admin.adminForMyself" />
-      <recent name="com.chinasoft.hospital_manager.service.admin.product.impl" />
-      <recent name="com.chinasoft.hospital_manager.service.admin.product" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Administrator\IdeaProjects\SpringBoot\github1\hospital_manager\src\main\webapp\WEB\views\admin\adminInfoAndManager\officesAndManager" />
-      <recent name="C:\Users\Administrator\IdeaProjects\SpringBoot\github1\hospital_manager\src\main\webapp\WEB\views\admin\adminInfoAndManager\offices" />
-      <recent name="C:\Users\Administrator\IdeaProjects\SpringBoot\github1\hospital_manager\src\main\webapp\WEB\views\admin\adminInfoAndManager\department" />
-      <recent name="C:\Users\Administrator\IdeaProjects\SpringBoot\github1\hospital_manager\src\main\resources\mapper\admin\admin\adminForMyself" />
-      <recent name="C:\Users\Administrator\IdeaProjects\SpringBoot\github1\hospital_manager\src\main\webapp\WEB\views\admin\adminInfoAndManager\adminInfoForMySelf" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -1249,7 +1461,10 @@
       <workItem from="1583245774834" duration="33000" />
       <workItem from="1583246017769" duration="1965000" />
       <workItem from="1583249514583" duration="32091000" />
-      <workItem from="1583402299337" duration="12422000" />
+      <workItem from="1583402299337" duration="12987000" />
+      <workItem from="1583479106756" duration="26905000" />
+      <workItem from="1583736207251" duration="4166000" />
+      <workItem from="1583744212581" duration="11744000" />
     </task>
     <task id="LOCAL-00001" summary="测试在idea上提交代码">
       <created>1582820583707</created>
@@ -1335,11 +1550,18 @@
       <option name="project" value="LOCAL" />
       <updated>1583232239700</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="这个是三月份的代码提交的">
+      <created>1583427036182</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1583427036182</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1033598000" />
+    <option name="totallyTimeSpent" value="1076978000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1354,8 +1576,8 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4863222" visible="true" weight="0.15778251" />
-      <window_info id="Structure" order="1" sideWeight="0.51367784" side_tool="true" weight="0.21748401" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4852071" visible="true" weight="0.21481876" />
+      <window_info id="Structure" order="1" sideWeight="0.5147929" side_tool="true" weight="0.20895523" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
       <window_info id="Capture Tool" order="4" />
@@ -1363,9 +1585,9 @@
       <window_info id="Favorites" order="6" sideWeight="0.50407606" side_tool="true" weight="0.17430703" />
       <window_info id="Web" order="7" sideWeight="0.5005417" side_tool="true" weight="0.78571427" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32936078" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.28199565" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49840087" visible="true" weight="0.36334056" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3286334" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.47505423" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" sideWeight="0.49840087" visible="true" weight="0.35032538" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32936078" />
@@ -1472,13 +1694,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/controller/user/clinicUserWork/ClinicUserWorkController.java</url>
-          <line>133</line>
+          <line>136</line>
           <properties />
           <option name="timeStamp" value="58" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/controller/user/clinicUserWork/ClinicUserWorkController.java</url>
-          <line>160</line>
+          <line>163</line>
           <properties />
           <option name="timeStamp" value="62" />
         </line-breakpoint>
@@ -1730,7 +1952,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/webapp/WEB/views/admin/doctorInfoAndManager/doctorsForPatient/doctorsForPatient.jsp</url>
-          <line>774</line>
+          <line>895</line>
           <properties />
           <option name="timeStamp" value="273" />
         </line-breakpoint>
@@ -1826,13 +2048,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/controller/user/clinicUserWork/ClinicUserWorkController.java</url>
-          <line>53</line>
+          <line>56</line>
           <properties />
           <option name="timeStamp" value="310" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/controller/user/clinicUserWork/ClinicUserWorkController.java</url>
-          <line>35</line>
+          <line>38</line>
           <properties />
           <option name="timeStamp" value="311" />
         </line-breakpoint>
@@ -2064,6 +2286,132 @@
           <properties />
           <option name="timeStamp" value="358" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/controller/doctor/doctorsForPatient/DoctorsForPatientController.java</url>
+          <line>288</line>
+          <properties />
+          <option name="timeStamp" value="359" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/controller/doctor/doctorsForPatient/DoctorsForPatientController.java</url>
+          <line>215</line>
+          <properties />
+          <option name="timeStamp" value="360" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/controller/doctor/doctorsForWork/DoctorsForWorkController.java</url>
+          <line>40</line>
+          <properties />
+          <option name="timeStamp" value="364" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/controller/doctor/doctorsForWork/DoctorsForWorkController.java</url>
+          <line>57</line>
+          <properties />
+          <option name="timeStamp" value="366" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/controller/doctor/doctorsForWork/DoctorsForWorkController.java</url>
+          <line>50</line>
+          <properties />
+          <option name="timeStamp" value="367" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/controller/doctor/doctorsForWork/DoctorsForWorkController.java</url>
+          <line>55</line>
+          <properties />
+          <option name="timeStamp" value="368" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/controller/user/clinicUserWork/ClinicUserWorkController.java</url>
+          <line>219</line>
+          <properties />
+          <option name="timeStamp" value="369" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/controller/doctor/doctorsForWork/DoctorsForWorkController.java</url>
+          <line>61</line>
+          <properties />
+          <option name="timeStamp" value="374" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/controller/doctor/doctorsForWork/DoctorsForWorkController.java</url>
+          <line>76</line>
+          <properties />
+          <option name="timeStamp" value="375" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/controller/doctor/doctorsForWork/DoctorsForWorkController.java</url>
+          <line>104</line>
+          <properties />
+          <option name="timeStamp" value="376" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/controller/doctor/doctorsForWork/DoctorsForWorkController.java</url>
+          <line>106</line>
+          <properties />
+          <option name="timeStamp" value="377" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/controller/user/clinicUserWork/ClinicUserWorkController.java</url>
+          <line>240</line>
+          <properties />
+          <option name="timeStamp" value="378" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/controller/user/clinicUserWork/ClinicUserWorkController.java</url>
+          <line>265</line>
+          <properties />
+          <option name="timeStamp" value="379" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/controller/user/clinicUserWork/ClinicUserWorkController.java</url>
+          <line>262</line>
+          <properties />
+          <option name="timeStamp" value="380" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/controller/user/clinicUserWork/ClinicUserWorkController.java</url>
+          <line>283</line>
+          <properties />
+          <option name="timeStamp" value="381" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/controller/user/clinicUserWork/ClinicUserWorkController.java</url>
+          <line>241</line>
+          <properties />
+          <option name="timeStamp" value="382" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/controller/user/clinicUserForPatient/ClinicUserForPatient.java</url>
+          <line>416</line>
+          <properties />
+          <option name="timeStamp" value="383" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/webapp/WEB/views/admin/user_clinicManager/clinic_Department/select.jsp</url>
+          <line>699</line>
+          <properties />
+          <option name="timeStamp" value="384" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/controller/doctor/doctorsForPatient/DoctorsForPatientController.java</url>
+          <line>608</line>
+          <properties />
+          <option name="timeStamp" value="385" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/controller/doctor/doctorsForPatient/DoctorsForPatientController.java</url>
+          <line>613</line>
+          <properties />
+          <option name="timeStamp" value="388" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/controller/doctor/doctorsForPatient/DoctorsForPatientController.java</url>
+          <line>503</line>
+          <properties />
+          <option name="timeStamp" value="391" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <watches-manager>
@@ -2107,358 +2455,163 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/mapper/admin/patient/UserForPatientMapper.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/controller/user/clinicUserWork/ClinicUserWorkController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="13" column="17" selection-start-line="13" selection-start-column="17" selection-end-line="13" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/domain/Offices.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="8" column="45" selection-start-line="8" selection-start-column="29" selection-end-line="8" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB/views/admin/adminInfoAndManager/clinicAndManager/query.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-7004">
-          <caret line="103" column="37" selection-start-line="103" selection-start-column="37" selection-end-line="103" selection-end-column="37" />
+        <state relative-caret-position="192">
+          <caret line="241" selection-start-line="241" selection-end-line="241" />
           <folding>
-            <element signature="e#4001#4986#0#JSP" />
-            <element signature="e#5055#6525#0#JSP" />
-            <element signature="n#style#0;n#table#2;n#td#0;n#tr#0;n#table#1;n#center#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#form#0;n#div#0;n#div#0;n#center#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#form#0;n#div#0;n#div#0;n#center#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#form#0;n#div#0;n#div#2;n#center#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="e#19829#30529#0#HTML" />
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="e#5413#5660#0" />
+            <element signature="e#8112#8128#0" expanded="true" />
+            <element signature="e#8746#8762#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB/views/admin/user_clinicManager/query.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3490">
-          <caret line="693" column="23" lean-forward="true" selection-start-line="693" selection-start-column="23" selection-end-line="693" selection-end-column="23" />
-          <folding>
-            <element signature="e#19846#25428#0#JSP" />
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#4;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#4;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB/views/admin/user_clinicManager/index.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1569">
-          <caret line="63" column="66" selection-start-line="63" selection-start-column="58" selection-end-line="63" selection-end-column="66" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB/views/admin/user_clinicManager/lists.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-476">
-          <caret line="13" column="31" lean-forward="true" selection-start-line="13" selection-start-column="31" selection-end-line="13" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB/views/admin/user_clinicManager/register.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="1028" selection-start-line="1028" selection-end-line="1029" />
-          <folding>
-            <element signature="e#10953#12076#0#HTML" />
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#11;n#div#0;n#!!top" expanded="true" />
-            <element signature="e#5001#5007#0" expanded="true" />
-            <element signature="e#5007#5013#0" expanded="true" />
-            <element signature="e#5013#5019#0" expanded="true" />
-            <element signature="e#5019#5025#0" expanded="true" />
-            <element signature="e#5025#5031#0" expanded="true" />
-            <element signature="e#5031#5037#0" expanded="true" />
-            <element signature="e#5037#5043#0" expanded="true" />
-            <element signature="e#5043#5049#0" expanded="true" />
-            <element signature="e#5049#5055#0" expanded="true" />
-            <element signature="e#5055#5061#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB/views/admin/user_clinicManager/work.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3915" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB/views/admin/index.jsp">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB/views/admin/left.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1340" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB/views/admin/login.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3150" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB/views/admin/main.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-7140" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB/views/admin/middle.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-165" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB/views/admin/remind.jsp">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB/views/admin/top.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1015" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB/views/admin/user_clinicManager/clinic_Department/doctors.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-20325">
-          <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB/views/admin/user_clinicManager/clinic_Department/select.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-27675">
-          <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB/views/admin/user_clinicManager/print/print.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1290" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/domain/Appoint_category.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB/views/admin/user_clinicManager/print/print1.jsp">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/admin/admin/adminForMyself/AdminsForMyselfMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="775">
-          <caret line="70" lean-forward="true" selection-start-line="70" selection-end-line="70" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/mapper/admin/admin/adminForMyself/AdminForMyselfMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="385">
-          <caret line="49" column="33" selection-start-line="49" selection-start-column="12" selection-end-line="49" selection-end-column="33" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB/views/admin/adminInfoAndManager/adminInfoForMySelf/admininfo.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="454">
-          <caret line="248" column="93" selection-start-line="248" selection-start-column="74" selection-end-line="248" selection-end-column="93" />
-          <folding>
-            <element signature="e#3649#4328#0#JSP" />
-            <element signature="e#4335#4706#0#JSP" />
-            <element signature="e#4714#5009#0#JSP" />
-            <element signature="e#5020#5798#0#JSP" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB/views/admin/user_clinicManager/selectDoctorsInfoAndOnTimes/query.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1">
-          <caret line="161" column="24" selection-start-line="161" selection-start-column="24" selection-end-line="161" selection-end-column="24" />
-          <folding>
-            <element signature="e#3130#3547#0#JSP" />
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#4;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#4;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB/views/admin/adminInfoAndManager/officesAndManager/query.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="568" column="44" lean-forward="true" selection-start-line="568" selection-start-column="44" selection-end-line="568" selection-end-column="44" />
-          <folding>
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#center#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#center#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#1;n#center#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB/views/admin/employee/doctorsInfo/query.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="82">
-          <caret line="817" column="99" selection-start-line="817" selection-start-column="79" selection-end-line="817" selection-end-column="99" />
-          <folding>
-            <element signature="n#style#0;n#input#0;n#div#2;n#div#0;n#td#0;n#tr#0;n#table#0;n#td#0;n#tr#0;n#table#1;n#center#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#button#0;n#td#8;n#tr#1;n#table#1;n#td#0;n#tr#0;n#table#1;n#center#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#form#0;n#div#0;n#div#2;n#center#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#5;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/admin/employee/EmployeeMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="199">
-          <caret line="246" column="66" selection-start-line="246" selection-start-column="66" selection-end-line="246" selection-end-column="66" />
-          <folding>
-            <element signature="e#2604#2984#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/mapper/admin/employee/EmployeeMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="68" column="15" selection-start-line="68" selection-start-column="15" selection-end-line="68" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/controller/admin/employee/OpenBrowse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/controller/doctor/doctorsForMyself/DoctorsForMyselfController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1033">
-          <caret line="25" column="13" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/controller/doctor/doctorsForSystem/DoctorsForSystemController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/controller/user/clinicUserForPatient/ClinicUserForPatient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3378">
-          <caret line="40" column="7" lean-forward="true" selection-start-line="40" selection-start-column="7" selection-end-line="40" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/controller/user/clinicUserWork/ClinicUserWorkController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="975">
-          <caret line="53" selection-start-line="53" selection-end-line="53" />
+        <state relative-caret-position="186">
+          <caret line="62" selection-start-line="62" selection-end-line="62" />
           <folding>
-            <element signature="e#1812#1828#0" expanded="true" />
+            <element signature="e#2525#2541#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/controller/LoginController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/service/admin/product/impl/ProductServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-222">
-          <caret line="580" column="53" lean-forward="true" selection-start-line="580" selection-start-column="53" selection-end-line="580" selection-end-column="53" />
+        <state relative-caret-position="143">
+          <caret line="98" selection-start-line="98" selection-end-line="98" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/service/admin/admin/adminForMyself/AdminForMyselfService.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/static/user/doctorsWorkJs/calendar/5e2922d339d9e/js/calendar.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="45" column="15" selection-start-line="45" selection-start-column="15" selection-end-line="45" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/service/admin/admin/adminForMyself/impl/AdminForMyselfServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="239">
-          <caret line="46" selection-start-line="46" selection-end-line="46" />
+        <state relative-caret-position="961">
+          <caret line="132" column="33" lean-forward="true" selection-start-line="132" selection-start-column="33" selection-end-line="132" selection-end-column="33" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#4349#4358#0" expanded="true" />
+            <element signature="e#209#216#1" expanded="true" />
+            <element signature="e#4#10#1" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/service/admin/employee/impl/EmployeeServiceImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB/views/admin/left.htm">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB/views/admin/user_clinicManager/lists.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1233">
-          <caret line="226" selection-start-line="226" selection-end-line="226" />
+        <state relative-caret-position="-675" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB/views/admin/top.jsp">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB/views/admin/remind.jsp">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB/views/admin/middle.jsp">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB/views/admin/main.jsp">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB/views/admin/login.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-225" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB/views/admin/left.jsp">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB/views/admin/index.jsp">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB/views/admin/user_clinicManager/work.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2400" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB/views/admin/userInfoAndManager/usersForWork/work.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="358">
+          <caret line="138" column="22" selection-start-line="138" selection-start-column="22" selection-end-line="138" selection-end-column="22" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/service/admin/employee/EmployeeService.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB/views/admin/user_clinicManager/query.jsp">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB/views/admin/user_clinicManager/register.jsp">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB/views/admin/user_clinicManager/index.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="25">
-          <caret line="14" column="17" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
+          <caret line="23" column="32" lean-forward="true" selection-start-line="23" selection-start-column="32" selection-end-line="23" selection-end-column="32" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/service/admin/patient/UserForPatientService.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB/views/admin/user_clinicManager/clinic_Department/doctors.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="12" column="19" selection-start-line="12" selection-start-column="19" selection-end-line="12" selection-end-column="19" />
+        <state relative-caret-position="-1200" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB/views/admin/PersonManager/query.jsp">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB/views/admin/PersonalSet/lawset.jsp">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB/views/admin/PersonalSet/showset.jsp">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB/views/admin/employee/userClinicInfo/query.jsp">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB/views/admin/employee/doctorsInfo/query.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="8" column="21" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="21" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/service/admin/patient/impl/UserForPatientMapperImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB/views/admin/doctorInfoAndManager/doctorsForWork/work.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="238" selection-start-line="238" selection-end-line="238" />
+        <state relative-caret-position="426">
+          <caret line="164" column="13" selection-start-line="164" selection-start-column="13" selection-end-line="164" selection-end-column="13" />
+          <folding>
+            <element signature="e#2059#2653#0#JSP" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/service/admin/doctor/doctorsForPatient/impl/DoctorsForPatientServiceImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB/views/admin/adminInfoAndManager/officesAndManager/query.jsp">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB/views/admin/adminInfoAndManager/clinicAndManager/query.jsp">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB/views/admin/doctorInfoAndManager/doctorsForMyself/doctorinfo.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="223" selection-start-line="223" selection-end-line="223" />
+        <state relative-caret-position="-650">
+          <caret line="10" column="28" selection-start-line="10" selection-start-column="28" selection-end-line="10" selection-end-column="28" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/controller/user/clinicDoctors/ClinicDoctorsController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB/views/admin/adminInfoAndManager/adminInfoForMySelf/admininfo.jsp">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/controller/admin/employee/EmployeeManagerController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="67" selection-start-line="67" selection-end-line="67" />
+        <state relative-caret-position="178">
+          <caret line="56" selection-start-line="56" selection-end-line="56" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/controller/admin/adminForMyself/AdminForMySelfController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="28" column="13" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
+        <state relative-caret-position="2200">
+          <caret line="107" selection-start-line="107" selection-end-line="107" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -2467,74 +2620,201 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/controller/admin/adminForSystem/AdminForSystemController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="401">
-          <caret line="32" column="138" lean-forward="true" selection-start-line="29" selection-start-column="7" selection-end-line="32" selection-end-column="138" />
+        <state relative-caret-position="225">
+          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/controller/admin/employee/EmployeeManagerController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/service/admin/admin/adminForMyself/impl/AdminForMyselfServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="431" column="54" selection-start-line="431" selection-start-column="48" selection-end-line="431" selection-end-column="54" />
+        <state relative-caret-position="850">
+          <caret line="46" selection-start-line="46" selection-end-line="46" />
           <folding>
-            <element signature="e#1950#1966#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/controller/user/clinicUserForPatient/ClinicUserForPatient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="9825">
+          <caret line="416" selection-start-line="416" selection-end-line="416" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB/views/admin/user_clinicManager/clinic_Department/select.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="29350">
+          <caret line="1189" selection-start-line="1189" selection-end-line="1189" />
+          <folding>
+            <element signature="e#6527#7486#0#JSP" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/domain/Prescription.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="350">
+          <caret line="16" column="56" selection-start-line="16" selection-start-column="56" selection-end-line="16" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/controller/user/clinicDoctors/ClinicDoctorsController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1300">
+          <caret line="67" selection-start-line="67" selection-end-line="67" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/controller/user/clinicManager/ClinicManagerController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-8975">
-          <caret line="101" column="21" selection-start-line="101" selection-start-column="21" selection-end-line="101" selection-end-column="21" />
+        <state relative-caret-position="250">
+          <caret line="37" column="13" selection-start-line="37" selection-start-column="13" selection-end-line="37" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/service/admin/product/impl/ProductServiceImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB/views/admin/user_clinicManager/selectDoctorsInfoAndOnTimes/query.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="853">
-          <caret line="98" selection-start-line="98" selection-end-line="98" />
+        <state relative-caret-position="3500">
+          <caret line="140" column="46" selection-start-line="140" selection-start-column="46" selection-end-line="140" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/service/admin/patient/impl/UserForPatientMapperImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5700">
+          <caret line="238" selection-start-line="238" selection-end-line="238" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/controller/LoginController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="36" column="13" selection-start-line="36" selection-start-column="13" selection-end-line="36" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/admin/doctor/doctorsForPatient/DoctorsForPatientsMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="145">
+          <caret line="237" column="2" lean-forward="true" selection-start-line="237" selection-start-column="2" selection-end-line="242" selection-end-column="22" />
+          <folding>
+            <element signature="e#11318#11888#0" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/5.2.1.RELEASE/spring-web-5.2.1.RELEASE-sources.jar!/org/springframework/web/method/support/InvocableHandlerMethod.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-159">
+        <state relative-caret-position="213">
           <caret line="189" selection-start-line="189" selection-end-line="189" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/HospitalManagerApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
+          <folding>
+            <element signature="e#332#707#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB/views/admin/doctorInfoAndManager/doctorsForPatient/doctorsFindHistory.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#4;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#textarea#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB/views/admin/doctorInfoAndManager/doctorsForPatient/doctorsForPatientFindProducts.jsp">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB/views/admin/doctorInfoAndManager/doctorsForPatient/doctorsForPatient.jsp">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/service/admin/doctor/doctorsForPatient/impl/DoctorsForPatientServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="131" column="77" selection-start-line="131" selection-start-column="77" selection-end-line="131" selection-end-column="77" />
+        <state relative-caret-position="756">
+          <caret line="179" column="5" lean-forward="true" selection-start-line="179" selection-start-column="5" selection-end-line="179" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/service/admin/doctor/doctorsForPatient/DoctorsForPatientService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="131">
+          <caret line="33" column="15" selection-start-line="33" selection-start-column="15" selection-end-line="33" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/controller/doctor/doctorsForWork/DoctorsForWorkController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="522">
+          <caret line="93" column="7" selection-start-line="93" selection-start-column="7" selection-end-line="93" selection-end-column="7" />
           <folding>
-            <element signature="n#style#0;n#td#7;n#tr#1;n#table#1;n#td#0;n#tr#0;n#table#1;n#center#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="e#10729#10735#0#HTML" expanded="true" />
-            <element signature="e#10736#10742#0#HTML" expanded="true" />
-            <element signature="e#10743#10749#0#HTML" expanded="true" />
-            <element signature="e#10750#10756#0#HTML" expanded="true" />
-            <element signature="e#11064#11070#0#HTML" expanded="true" />
-            <element signature="e#11071#11077#0#HTML" expanded="true" />
-            <element signature="e#11078#11084#0#HTML" expanded="true" />
-            <element signature="e#11085#11091#0#HTML" expanded="true" />
-            <element signature="e#559#566#1" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#div#0;n#div#5;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#div#0;n#div#11;n#div#0;n#!!top" expanded="true" />
+            <element signature="e#1747#2402#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/chinasoft/hospital_manager/controller/doctor/doctorsForPatient/DoctorsForPatientController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="718">
-          <caret line="76" column="37" lean-forward="true" selection-start-line="76" selection-start-column="37" selection-end-line="76" selection-end-column="37" />
+        <state relative-caret-position="775">
+          <caret line="547" lean-forward="true" selection-start-line="547" selection-end-line="547" />
           <folding>
-            <element signature="e#5737#5753#0" expanded="true" />
+            <element signature="e#20387#20403#0" expanded="true" />
+            <element signature="e#23686#23702#0" expanded="true" />
+            <element signature="e#24330#25381#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB/views/admin/doctorInfoAndManager/doctorsForPatient/doctorsForPatient.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="58">
+          <caret line="1281" column="17" selection-start-line="1281" selection-start-column="17" selection-end-line="1281" selection-end-column="17" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#td#0;n#tr#0;n#table#0;n#td#0;n#tr#0;n#table#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#select#0;n#div#0;n#div#0;n#div#0;n#td#0;n#tr#0;n#table#0;n#td#0;n#tr#0;n#table#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#center#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#table#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#center#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#center#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#center#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#center#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#1;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#center#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#1;n#div#0;n#div#0;n#div#0;n#center#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#3;n#div#1;n#div#0;n#div#0;n#div#0;n#center#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#4;n#div#1;n#div#0;n#div#0;n#div#0;n#center#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#4;n#div#1;n#div#0;n#div#0;n#div#0;n#center#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#4;n#div#1;n#div#0;n#div#0;n#div#0;n#center#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#1;n#div#0;n#div#4;n#div#1;n#div#0;n#div#0;n#div#0;n#center#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#5;n#div#1;n#div#0;n#div#0;n#div#0;n#center#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#5;n#div#1;n#div#0;n#div#0;n#div#0;n#center#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#5;n#div#1;n#div#0;n#div#0;n#div#0;n#center#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#5;n#div#1;n#div#0;n#div#0;n#div#0;n#center#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#table#0;n#div#0;n#div#1;n#div#0;n#div#5;n#div#1;n#div#0;n#div#0;n#div#0;n#center#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#26507#26880#0#JSP" />
+            <element signature="e#26921#27672#0#JSP" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#24338#32124#0#JSP" />
+            <element signature="n#style#0;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#5;n#form#0;n#div#1;n#div#0;n#div#0;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#div#0;n#div#5;n#form#0;n#div#1;n#div#0;n#div#0;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#1;n#div#0;n#div#5;n#form#0;n#div#1;n#div#0;n#div#0;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#2;n#div#0;n#div#5;n#form#0;n#div#1;n#div#0;n#div#0;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#3;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#3;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#559#566#1" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#div#0;n#div#5;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#div#0;n#div#11;n#div#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>

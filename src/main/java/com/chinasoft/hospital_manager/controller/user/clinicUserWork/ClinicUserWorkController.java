@@ -1,5 +1,6 @@
 package com.chinasoft.hospital_manager.controller.user.clinicUserWork;
 
+import com.alibaba.fastjson.JSONObject;
 import com.chinasoft.hospital_manager.domain.*;
 import com.chinasoft.hospital_manager.service.admin.work.WorkUserInfoService;
 
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -25,6 +27,7 @@ public class ClinicUserWorkController {
 
     @Autowired
     private WorkUserInfoService workUserInfoService;
+
 
 
 
@@ -222,6 +225,16 @@ public class ClinicUserWorkController {
         return map;
     }
 
+
+
+
+    /**
+     * @description:这个是根据这个用户的工作的id，查询这个具体的工作的详情信息
+     * @author jack
+     * @date 2020/3/8 17:45
+     * @param null
+     * @return
+     */
     @ResponseBody
     @RequestMapping(value = "/findUserWorkInfoById",method = RequestMethod.GET)
     public Map<String,Object> findUserWorkInfoById(HttpServletRequest request){
@@ -234,6 +247,51 @@ public class ClinicUserWorkController {
             map.put("user",userWorkInfoById.getUser());
         }
         return map;
+    }
+
+    /**
+     * @description：这个是根据id，查询所有的该用户的工作所有的信息
+     * @author jack
+     * @date 2020/3/8 17:48
+     * @param null
+     * @return
+     */
+
+    @RequestMapping("/findUsersWorkInfo")
+    @ResponseBody
+    public Map<String,Object> findUsersWorkInfo (HttpServletRequest request){
+        Map<String,Object> map=new HashMap<String, Object>();
+        int id = Integer.parseInt(request.getParameter("id"));
+        if (id!=0){
+            List<Work> doctorsWorkInfoById = workUserInfoService.findUsersWorkInfo(id);
+            if (doctorsWorkInfoById!=null){
+                String string = JSONObject.toJSONString(doctorsWorkInfoById);
+                map.put("info",doctorsWorkInfoById);
+            }
+        }
+        return map;
+    }
+
+    /**
+     * @description:这个是挂号人员点击工作信息的时候，显示这个工作信息的页面，然后获取这个id，进行这个ajax查询的，从而显示这个工作的信息！！！
+     * @author jack
+     * @date 2020/3/7 16:26
+     * @param null
+     * @return
+     */
+    @RequestMapping("/findUsersWorkInfoById")
+    public ModelAndView findUsersWorkInfoById(HttpServletRequest request){
+        ModelAndView andView=new ModelAndView();
+        HttpSession session = request.getSession();
+        Object user = session.getAttribute("user");
+        User doctor1=null;int id=0;
+        if (user!=null){
+            doctor1=(User) user;
+            id=doctor1.getId();
+        }
+        andView.addObject("user",doctor1);
+        andView.setViewName("/admin/userInfoAndManager/usersForWork/work");
+        return andView;
     }
 
 }

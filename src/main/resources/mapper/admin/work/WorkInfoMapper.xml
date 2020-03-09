@@ -10,7 +10,7 @@
     <select id="requestloadUserWorkInfo" resultMap="getAlUserWorks" parameterType="java.lang.Integer">
         select  * from  work w,user u where u.id=w.user_id
             <if test="user_id!=null">
-               and user_id=${user_id}
+               and user_id=#{user_id}
             </if>
     </select>
 
@@ -70,6 +70,7 @@
             <result column="remark" property="remark"/>
         </association>
     </resultMap>
+
 
     <select id="findUserWorkInfoById" parameterType="java.lang.Integer"  resultMap="findUser">
         select  * from  work w,user u where u.id=w.user_id
@@ -152,5 +153,33 @@
         DELETE FROM work WHERE id=#{id}
     </delete>
 
+
+    <select id="findUsersWorkInfo" parameterType="java.lang.Integer"  resultMap="findUsersWorkInfo">
+        select  *  from  work w,user u where u.id=w.user_id
+        <if test="id!=null">
+            and u.id=#{id}
+        </if>
+    </select>
+    <resultMap id="findUsersWorkInfo" type="com.chinasoft.hospital_manager.domain.Work">
+        <id column="id" property="id"/>
+        <result column="address" property="address"/>
+        <result column="onday" property="onday"/>
+        <result column="morning" property="morning"/>
+        <result column="afternoon" property="afternoon"/>
+        <result column="startime" property="startime"/>
+        <result column="endtime" property="endtime"/>
+        <association property="user" javaType="com.chinasoft.hospital_manager.domain.User">
+            <id column="user_id"  property="id"/>
+            <result column="name" property="name"/>
+            <result column="username" property="username"/>
+            <result column="password" property="password"/>
+            <result column="birthday" property="birthday"/>
+            <result column="sex" property="sex"/>
+            <result column="profession" property="profession"/>
+            <result column="datetime" property="datetime"/>
+            <result column="job" property="job"/>
+            <result column="school" property="school"/>
+        </association>
+    </resultMap>
 
 </mapper>

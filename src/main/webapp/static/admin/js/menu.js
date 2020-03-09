@@ -95,9 +95,9 @@ stm_aix("p7i1","p2i1",[0," ��������        ","","",-1,-1,0,"../h
 
 stm_aix("p7i3","p2i1",[0," ��־����        ","","",-1,-1,0,"#","","","","../images/icon12.gif","../images/icon12.gif"]);
 stm_bpx("p19","p4",[]);
-stm_aix("p19i0","p2i0",[0,"������־    ","","",-1,-1,0,"../html/sys/log/operate-index.jsp","main","","","../images/icon08.gif","../images/icon08.gif"]);
-stm_aix("p19i1","p2i0",[0,"��¼��־    ","","",-1,-1,0,"../html/sys/log/login-index.jsp","main","","","../images/icon08.gif","../images/icon08.gif"]);
-stm_aix("p19i2","p2i0",[0,"��־����   ","","",-1,-1,0,"../html/sys/log/exp-index.jsp","main","","","../images/icon08.gif","../images/icon08.gif"]);
+stm_aix("p19i0","p2i0",[0,"������־    ","","",-1,-1,0,"../html/sys/log/operate-work.jsp","main","","","../images/icon08.gif","../images/icon08.gif"]);
+stm_aix("p19i1","p2i0",[0,"��¼��־    ","","",-1,-1,0,"../html/sys/log/login-work.jsp","main","","","../images/icon08.gif","../images/icon08.gif"]);
+stm_aix("p19i2","p2i0",[0,"��־����   ","","",-1,-1,0,"../html/sys/log/exp-work.jsp","main","","","../images/icon08.gif","../images/icon08.gif"]);
 stm_ep();
 
 stm_aix("p7i3","p2i1",[0," ���̶��� "]);

@@ -130,7 +130,7 @@
 
     <div class="row" style="border:0px solid red;margin: auto;">
         <c:if test="${doctorsInfo!=null}">
-            <c:forEach items="${doctorsInfo}" var="doctor">
+            <c:forEach items="${doctorsInfo}" var="doctor"  varStatus="vs">
                 <div class="col-sm-6 col-md-4" style=" border:0px solid  red;width:320px;margin-left: 70px;">
                     <div class="thumbnail" style="text-align: center;">
                         <img src="${pageContext.request.contextPath}${doctor.url}" style="height: 150px;width:190px; ">

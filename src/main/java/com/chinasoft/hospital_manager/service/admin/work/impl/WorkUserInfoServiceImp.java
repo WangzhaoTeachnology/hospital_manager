@@ -108,4 +108,13 @@ public class WorkUserInfoServiceImp implements WorkUserInfoService {
         }
         return 0;
     }
+
+    @Override
+    public List<Work> findUsersWorkInfo(int id) {
+        List<Work> usersWorkInfo = workInfoMapper.findUsersWorkInfo(id);
+        if (usersWorkInfo!=null&&usersWorkInfo.size()>0){
+            return usersWorkInfo;
+        }
+        return null;
+    }
 }

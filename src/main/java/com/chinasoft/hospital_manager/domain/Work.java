@@ -24,6 +24,7 @@ public class Work {
     //因为这个work工作表，设计成医生和挂号人员共用的，所以将医生的实体作为字段
     private Doctor doctor;
     private int status; //这个字段0，表示这个号可以挂，默认为0，只要为1，是医生停止了挂号操作
+    private String comment;
 
     public Work() {
     }
@@ -140,6 +141,14 @@ public class Work {
         this.doctor = doctor;
     }
 
+    public String getComment() {
+        return comment;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
+    }
+
     @Override
     public String toString() {
         return "Work{" +
@@ -152,6 +161,8 @@ public class Work {
                 ", startime='" + startime + '\'' +
                 ", endtime='" + endtime + '\'' +
                 ", doctor=" + doctor +
+                ", status=" + status +
+                ", comment='" + comment + '\'' +
                 '}';
     }
 }

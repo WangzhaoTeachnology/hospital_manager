@@ -4,6 +4,7 @@ package com.chinasoft.hospital_manager.mapper.admin.work;
 
 import com.chinasoft.hospital_manager.domain.*;
 import com.sun.javafx.tk.TKPulseListener;
+import org.omg.CORBA.INTERNAL;
 import org.springframework.stereotype.Repository;
 
 import java.lang.reflect.MalformedParameterizedTypeException;
@@ -41,5 +42,8 @@ public interface WorkInfoMapper {
 
     //通过id，删除这个信息的
     public int deleteWorkInfoById(Map<String,Object> map);
+
+    //根据这个这个挂号人员的id查询该工作的信息
+    public List<Work> findUsersWorkInfo(int id);
 
 }

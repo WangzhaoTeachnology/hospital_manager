@@ -602,7 +602,7 @@ public class DoctorsForPatientController {
         return map;
     }
 
-    @RequestMapping("/findPrescriptionsByPatientId")
+    @RequestMapping(value = "/findPrescriptionsByPatientId",method = RequestMethod.GET)
     @ResponseBody
     public Map<String,Object> findPrescriptionsByPatientId(HttpServletRequest request){
         Map<String,Object> response_map=new HashMap<String, Object>();
