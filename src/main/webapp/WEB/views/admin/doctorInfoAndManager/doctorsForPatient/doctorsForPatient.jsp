@@ -360,8 +360,8 @@
                     </div>
                     <div class="row" style="border: 1px solid red;position: relative;margin-bottom:40px; ">
                         <div class="form-group" style="border: 1px solid red;position: absolute;right: 0px;">
-                            <span for="_comment" class="control-label" style="margin-top: -3px;">总价格:</span>
-                            <span for="_comment" class="control-label" style="margin-top: -3px;" id="totalPrice">￥:5687</span>
+                            <span for="_comment" class="control-label" style="margin-top: -3px;">总价格:￥</span>
+                            <span for="_comment" class="control-label" style="margin-top: -3px;" id="totalPrice">5687</span>
                         </div>
                     </div>
 
@@ -802,12 +802,16 @@ $(function () {
             if (total==0){
                 $("#totalPrice").text("无");
             }else{
+                //因为随时都要添加这个处方的详情的信息，当再次添加处方的详情的时候，
+                //上次的总价格，与这个次的总价个，又不同，所以马上比较，发现这个不同，替换
                 if (parseFloat(temp)!=total){
+                    //total="￥:"+total;
                     $("#totalPrice").text(total);
                 }
             }
         }else{
             //如果初次加载或者删除完了后，那么这个为0
+            //total="￥:"+total;
             $("#totalPrice").text(total);
         }
          console.log("total="+total);
@@ -859,6 +863,9 @@ $(function () {
         var detailprice=obj.find("input[name='detailprice']");
 
 
+        //这个是为了获取处方的总的价格，为了提交到缴费单里面
+        var totalPrice= $("#totalPrice").text();
+
         var data =[];
         var count=prescri_id.length;
         //这个判断是为了判断这个处方详情的信息：
@@ -875,6 +882,14 @@ $(function () {
                 doctor_comment!=null&&doctor_comment!=""&&id!=null&&id!=""&&patient_id!=null&&
                 patient_id!=""&&doctor_id!=null&&doctor_id!=""
                ){
+                //这个函数的提交有两个目的：
+
+               /*
+                   成功提交处方的信息后
+                  1:将数据插入到处方的详情里面去
+                  2：自动的生成这个需要的缴费单信息
+                */
+
                 $.ajax({
                     type:"GET",
                     url:"${pageContext.request.contextPath}/admin/doctor/submitPrescriptionInfo",
@@ -882,7 +897,9 @@ $(function () {
                         "id":id,"doctor_id":doctor_id,
                         "content":prescription_content,
                         "comment":doctor_comment,"patient_id":patient_id,
-                        "data":JSON.stringify(data)},
+                        "data":JSON.stringify(data),
+                        "totalPrice":totalPrice
+                    },
                     dataType:"JSON",
                     success:function (data) {
                         if (data!=null&&data!=""){
@@ -909,19 +926,23 @@ $(function () {
 
 
                                 //这个是填写好病例的信息，然后提交数据
+                                //填写好病历，同时将刚才的处方的编号的信息修改，添加historyid字段的
+                                //此时利用  var id= $("#prescription_id").text().trim();这个作为where查询的条件
                                 $("#history_btn").click(function () {
                                     var history_content = $("#history_content").val();
                                     if(history_content!=null&&history_content!=""){
                                         var historyId = $("#historyId").val();
                                         var patient_id = $("#patient_id").val();
                                         // var patient_name = $("#patient_name").val();
+                                        var prescription_id= $("#prescription_id").text().trim();
                                         if (historyId!=null&&historyId!=""&&
-                                            patient_id!=null&&patient_id!=""
+                                            patient_id!=null&&patient_id!=""&&
+                                            prescription_id!=null&&prescription_id!=""
                                         ){
                                             $.ajax({
                                                 type:"GET",
                                                 url:"${pageContext.request.contextPath}/admin/doctor/submitHistoryByDoctor",
-                                                data:{"id":historyId,"patient_id":patient_id,"content":history_content},
+                                                data:{"id":historyId,"patient_id":patient_id,"content":history_content,"prescription_id":prescription_id},
                                                 dataType:"JSON",
                                                 success:function (data) {
                                                     if (data!=null&&data!=""){
@@ -932,7 +953,6 @@ $(function () {
 
                                                             $("#table_history_info").html("");
                                                             $("#history_close_btn").trigger("click");
-
                                                             $("#bottom_close").trigger("click");
 
                                                         } else if (type=='fail'){
@@ -1317,7 +1337,6 @@ $(function () {
                                                    }
                                                }
                                            }
-
                                }else if (type=='fail'){
                                    alert("处方历史记录查询失败");
                                }

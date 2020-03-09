@@ -229,9 +229,17 @@
       INSERT INTO itemprescription (id,prescription_id,product_id,number,itemprescription.use,itemprescription.day,itemprescription.comment) VALUES(#{id},#{prescription_id},#{product_id},#{number},#{use},#{day},#{comment})
     </insert>
 
+    <insert id="addPays" parameterType="map">
+	  INSERT INTO pay(id,patient_id,doctor_id,user_id,flag,datetime,prescription_id,fee) VALUES(#{id},#{patient_id},#{doctor_id},#{user_id},#{flag},#{datetime},#{prescription_id},#{fee})
+    </insert>
+
     <insert id="submitHistoryByDoctor" parameterType="map">
       INSERT INTO history (id,patient_id,content,doctor_id,datetime) VALUES(#{id},#{patient_id},#{content},#{doctor_id},#{datetime})
     </insert>
+
+    <update id="updatePrescriptionItemInfo" parameterType="map">
+      	UPDATE prescription SET history_id=#{id} WHERE id=#{prescription_id}
+    </update>
 
 
     <select id="findPrescriptionsByPatientId" parameterType="map" resultMap="findPrescriptions">

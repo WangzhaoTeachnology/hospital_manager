@@ -11,7 +11,7 @@ import java.io.IOException;
  * Created by Jack on 2020/2/13 0:20
  */
 @Controller
-@RequestMapping("admin/doctor")
+@RequestMapping("/admin/doctor")
 public class DoctorsForSystemController {
 
 

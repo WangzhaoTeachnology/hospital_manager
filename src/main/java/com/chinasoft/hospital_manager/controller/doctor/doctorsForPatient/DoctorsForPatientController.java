@@ -503,13 +503,14 @@ public class DoctorsForPatientController {
         JSONArray json = JSONArray.parseArray(data);
         Map<String,Map<String,Object>> items=new HashMap<String, Map<String,Object>>();
         Map<String, Object>  prescription=new HashMap<String,Object>();
-
+        Map<String,Object> pay=new HashMap<String, Object>();
 
         String id=request.getParameter("id");
         int doctor_id=Integer.parseInt(request.getParameter("doctor_id"));
         String content=request.getParameter("content").trim();
         String comment=request.getParameter("comment").trim();
         String patient_id=request.getParameter("patient_id");
+        String totalPrice=request.getParameter("totalPrice");
         if(json.size()>0){
 
 /*          private String id;
@@ -544,8 +545,6 @@ public class DoctorsForPatientController {
             }
         }
 
-
-
         Date date=new Date();
         prescription.put("id",id);
         prescription.put("content",content);
@@ -554,15 +553,42 @@ public class DoctorsForPatientController {
         prescription.put("doctor_id",doctor_id);
         prescription.put("comment",comment);
         prescription.put("prescription_id",items);
-        int i = doctorsForPatientService.submitPrescriptionInfo(prescription);
+
+        /*id
+        patient_id
+        doctor_id
+        user_id
+        flag
+        datetime
+        prescription_id
+        */
+
+        Random random=new Random();
+      //  int time = Integer.parseInt(new String(String.valueOf(date.getTime())));
+        int random_number = random.nextInt(100);
+        String payId= (String) (random_number+id);
+        //将前端生成的处方的id，转化为数字，然后与时间的毫秒数，相加得到数字，
+        //将这个数字，转化为字符id，作为主键！可以保证这个唯一！
+        pay.put("id",payId);
+        pay.put("patient_id",patient_id);
+        pay.put("doctor_id",doctor_id);
+        //pay.put("user_id",)//这个是等交完费用，这个自动的会修改操作人员的信息
+        pay.put("flag",0);   //默认尚未缴费
+        pay.put("datetime",date);
+        pay.put("prescription_id",id);//这个是处方的id
+        pay.put("fee",Double.parseDouble(totalPrice));
+
+
+        //这个函数的底部:有三个插入的操作，插入处方，插入处方的详情，插入缴费单！
+        int i = doctorsForPatientService.submitPrescriptionInfo(prescription,pay);
         if (i>0){
             response_map.put("type","success");
+            return response_map;
         }else {
             response_map.put("type","fail");
         }
         return response_map;
     }
-
 /**
  * @description:这个是医生开完处方后填写病例史的函数
  * @author jack
@@ -570,7 +596,6 @@ public class DoctorsForPatientController {
  * @param null
  * @return
  */
-
     @ResponseBody
     @RequestMapping("/submitHistoryByDoctor")
     public Map<String,Object> submitHistoryByDoctor(HttpServletRequest request){
@@ -584,16 +609,22 @@ public class DoctorsForPatientController {
         if (doctor_info!=null){
             Integer id = doctor_info.getId();
             map.put("doctor_id",id);
+        }else {
+            //这个是有可能这个doctor长时间未操作的话，这个doctor里面的数据会失效！！，所以这个要重定向到登录的页面，重新登录！！
         }
         String id=request.getParameter("id");
         String patient_id=request.getParameter("patient_id");
         String content=request.getParameter("content");
+        String prescription_id=request.getParameter("prescription_id");
         map.put("id",id);
         map.put("patient_id",patient_id);
         map.put("content",content);
         map.put("datetime",date);
+        map.put("prescription_id",prescription_id);
+        //填写好这个病历的信息，马上去对应的处方单里面修改这个history_id,的信息
         int i = doctorsForPatientService.submitHistoryByDoctor(map);
-        if (i>0){
+        int j = doctorsForPatientService.updatePrescriptionItemInfo(map);
+        if (i>0&&j>0){
             response_map.put("type","success");
             return  response_map;
         }else {
@@ -627,30 +658,6 @@ public class DoctorsForPatientController {
      * @param null
      * @return
      */
-
-/*    @RequestMapping("/doctorsfindProducts")
-    public ModelAndView findAllProducts(HttpServletRequest request){
-        ModelAndView andView=new ModelAndView();
-        //指定当前页数和个数
-        String currentPage = request.getParameter("currentPage");
-        if (currentPage==null){
-            currentPage="1";
-        }
-        int currentCount=3;
-        PageBean<Product> allProducts = productService.findAllProducts(Integer.parseInt(currentPage), currentCount);
-        List<Category_Product> productCategory = productService.findProductCategory();
-        if (allProducts!=null&&productCategory!=null){
-            List<Product> list = allProducts.getList();
-            if (list!=null&&list.size()>0){
-                andView.addObject("list",list);
-                andView.addObject("productCategory",productCategory);
-                andView.addObject("page",allProducts);
-                andView.setViewName("admin/doctorInfoAndManager/doctorsForPatient/doctorsForPatientFindProducts");
-            }
-        }
-        return andView;
-    }*/
-
     @RequestMapping("/doctorsfindProducts")
     public ModelAndView findAllProductsByCategoryId(HttpServletRequest request){
         Map<String,Object> map=new HashMap<String, Object>();

@@ -148,7 +148,7 @@ public class DoctorsForPatientServiceImpl implements DoctorsForPatientService {
     }
 
     @Override
-    public int submitPrescriptionInfo(Map<String, Object> map) {
+    public int submitPrescriptionInfo(Map<String, Object> map,Map<String, Object> pay) {
         Map<String,Map<String,Object>> items=new HashMap<String, Map<String,Object>>();
 
         //这个if判断是为了筛选处，这个处方里面处方详情的数据
@@ -168,12 +168,18 @@ public class DoctorsForPatientServiceImpl implements DoctorsForPatientService {
              flag=0;
             String key = entry_items.getKey();
             Map<String, Object> value = entry_items.getValue();
+            //这个是将数据插入到处方详情表里面
             int i1 = doctorsForPatientMapper.addItemsPrescription(value);
             if (i1>0){
                 flag=1;
             }
         }
-        if (flag>0&&i>0){
+
+        //这个是将数据插入到缴费单表里面
+        int i2 = doctorsForPatientMapper.addPays(pay);
+        //只有这个三个插入的函数同时成功的话，那么这个返回1，表示这个处方
+        //提交的状态成功了
+        if (flag>0&&i>0&&i2>0){
             return 1;
         }
         return 0;
@@ -181,6 +187,15 @@ public class DoctorsForPatientServiceImpl implements DoctorsForPatientService {
 
     @Override
     public int submitHistoryByDoctor(Map<String, Object> map) {
+        int i = doctorsForPatientMapper.submitHistoryByDoctor(map);
+        if (i>0){
+            return i;
+        }
+        return 0;
+    }
+
+    @Override
+    public int updatePrescriptionItemInfo(Map<String, Object> map) {
         int i = doctorsForPatientMapper.submitHistoryByDoctor(map);
         if (i>0){
             return i;

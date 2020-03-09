@@ -31,10 +31,11 @@ public interface DoctorsForPatientService  {
     public int updateDoctorWorkInfoById(Map<String,Object> map);
 
     //这个是医生插入处方的信息
-    public int submitPrescriptionInfo(Map<String,Object> map);
+    public int submitPrescriptionInfo(Map<String,Object> map,Map<String,Object> pay);
 
-    //医生填写病例史
+    //医生填写病例史，医生填写这个病历史的同时，修改这个处方的history_id字段信息
     public int submitHistoryByDoctor(Map<String,Object> map);
+    public  int updatePrescriptionItemInfo(Map<String,Object> map);
 
     //根据病人的id信息查询这个病人的处方史
     public List<Prescription> findPrescriptionsByPatientId(Map<String,Object> map);

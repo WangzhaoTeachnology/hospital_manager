@@ -46,8 +46,12 @@ public interface DoctorsForPatientMapper {
     //将数据插入到处方详情表里面
     public int addItemsPrescription(Map<String,Object> map);
 
+    //同时将生成这个缴费的单
+    public  int addPays(Map<String,Object> map);
+
     //医生填写病例史
     public int submitHistoryByDoctor(Map<String,Object> map);
+    public  int updatePrescriptionItemInfo(Map<String,Object> map);
 
 
     //根据病人的id信息查询这个病人的处方史
