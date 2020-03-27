@@ -934,7 +934,6 @@
                                                      $("#offices").append("<option value='"+data_offices[i].id+"'>"+data_offices[i].name+"</option>");
                                                  }
                                              }
-
                                          } else if (type=='fail'){
                                              alert("根据这个选择的门诊，查询科室数据失败");
                                          } else if (type=='init'){

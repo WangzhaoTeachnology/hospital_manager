@@ -20,6 +20,8 @@ public class Prescription {
         private History history;
         //private MoneyPay history;
         private String comment;
+        //private Pay pay;//对应Prescription表里面的money_id字段，但是这个字段去掉了
+       //原本的逻辑是：缴费成功后，同时修改这个处方的money_id字段，让医生查看病人这个处方有没有缴费
 
     public Prescription() {
     }

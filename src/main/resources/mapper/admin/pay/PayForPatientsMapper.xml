@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chinasoft.hospital_manager.mapper.admin.pay.PayForPatientsMapper">
+<!--    private String id;
+    private  Patient patient;
+    private Doctor doctor;
+    private  User user;
+    private  int flag;  //这个字段是是否缴费，0,or 1
+    private double fee;
+    @DateTimeFormat(pattern = "yyyy-MM-ss HH:mm:ss")
+    private  String datetime;
+    private List<Prescription> prescriptions;-->
+    <select id="findPayAllInfoByCondition" resultMap="findPayAllInfoByName" parameterType="map">
+       select *
+       from (
+            SELECT pay.id,pay.flag,pay.datetime,pay.fee,
+            patient.id as pid,patient.`name`,
+            doctor.id as drid,doctor.realname,
+            user.id as uid , user.name as uname,
+            prescription.id as prescriptionId
+            FROM pay,doctor,user,patient,prescription
+            WHERE pay.patient_id=patient.id
+            AND pay.doctor_id=doctor.id
+            AND prescription.id=pay.prescription_id
+        ) list
+        <where>
+            <if test="today!=null">
+                AND  to_days(list.datetime) = to_days(now())
+            </if>
+            <if test="name!=null">
+                AND  list.name  like concat('%',#{name},'%')
+            </if>
+        </where>
+        limit #{index},#{count}
+     </select>
+
+    <select id="getTotalPaysCountByCondition" resultType="java.lang.Integer" parameterType="map">
+  /*      SELECT COUNT(*)
+        FROM pay,doctor,user,patient,prescription
+        WHERE pay.patient_id=patient.id
+        AND pay.doctor_id=doctor.id
+        AND prescription.id=pay.prescription_id*/
+      /*  AND pay.user_id=user.id*/
+/*      问题：
+        1：如果按照
+          SELECT COUNT(*)
+        FROM pay,doctor,user,patient,prescription
+        WHERE pay.patient_id=patient.id
+        AND pay.doctor_id=doctor.id
+        AND prescription.id=pay.prescription_id
+        的查询的话，会查询三条数据，但是这个三条的数据是因为，相当于用了外连接的方式组成
+        2：
+        但是mybatis这个框架在映射的时候，采用这个id作为主键映射的
+        3：可以采用先分组，按照这个id分组，再按照这计数，可以解决上面的2,3问题*/
+
+        SELECT COUNT(*)
+        FROM (
+            SELECT pay.id,pay.flag,pay.datetime,pay.fee,
+            patient.id as pid,patient.`name`,
+            doctor.id as drid,doctor.realname,
+            user.id as uid , user.name as uname,
+            prescription.id as prescriptionId
+            FROM pay,doctor,user,patient,prescription
+            WHERE pay.patient_id=patient.id
+            AND pay.doctor_id=doctor.id
+            AND prescription.id=pay.prescription_id
+            GROUP BY pay.id
+        )  list
+        <where>
+            <if test ="today!=null">
+                AND  to_days(list.datetime) = to_days(now())
+            </if>
+            <if test ="name!=null">
+                and  list.name  like concat('%',#{name},'%')
+            </if>
+        </where>
+    </select>
+
+    <resultMap id="findPayAllInfoByName" type="com.chinasoft.hospital_manager.domain.Pay">
+          <id column="id" property="id"/>
+           <result column="flag" property="flag"/>
+           <result column="datetime" property="datetime"/>
+           <result column="fee" property="fee"/>
+        <association property="patient" javaType="com.chinasoft.hospital_manager.domain.Patient">
+            <id column="pid" property="id"/>
+            <result column="name" property="name"/>
+        </association>
+        <association property="doctor" javaType="com.chinasoft.hospital_manager.domain.Doctor">
+            <id column="drid" property="id"/>
+            <result column="realname" property="realname"/>
+        </association>
+        <association property="user" javaType="com.chinasoft.hospital_manager.domain.User">
+            <id column="uid" property="id"/>
+            <result column="uname" property="name"/>
+        </association>
+        <collection property="prescriptions" ofType="com.chinasoft.hospital_manager.domain.Prescription">
+            <id column="prescriptionId" property="id"/>
+        </collection>
+    </resultMap>
+
+
+    <select id="findItemPrescriptionsById" resultMap="findPrescriptions" parameterType="java.lang.String">
+         SELECT p.id as pid ,p.content,p.datetime,p.comment as pcomment,
+        i.id as iid,i.number,i.use,i.day,i.comment as icomment,
+        pt.id as ptid,pt.name,pt.price
+        FROM prescription p,itemprescription i, product pt
+        WHERE  p.id=i.prescription_id  AND i.product_id=pt.id
+        AND p.id=#{id}
+    </select>
+
+    <resultMap id="findPrescriptions" type="com.chinasoft.hospital_manager.domain.Itemprescription">
+            <id column="iid" property="id" />
+            <result column="number" property="number"/>
+            <result column="day" property="day"/>
+            <result column="use" property="use"/>
+            <result column="icomment" property="comment"/>
+            <association property="product" javaType="com.chinasoft.hospital_manager.domain.Product">
+                <id column="ptid" property="id"/>
+                <result column="name" property="name"/>
+                <result column="price" property="price"/>
+            </association>
+    </resultMap>
+
+    <update id="updatePayItemInfoStatusByBtn" parameterType="java.lang.Object">
+           UPDATE pay SET flag=1,user_id=#{user_id} WHERE id=#{id}
+    </update>
+
+    <select id="findItemPrescriptionsByIdWithPrint" parameterType="java.lang.String" resultMap="findItemPrescriptionsWithPrint">
+        SELECT p.id as pid ,p.content,p.datetime,p.comment as pcomment,
+        i.id as iid,i.number,i.use,i.day,i.comment as icomment,
+        pt.id as ptid,pt.name,pt.price,pt.standards,
+		pa.id as paid,pa.name as paname
+        FROM prescription p,itemprescription i, product pt,patient pa
+        WHERE  p.id=i.prescription_id  AND i.product_id=pt.id AND pa.id=p.patient_id
+	    AND p.id=#{id}
+    </select>
+
+    <resultMap id="findItemPrescriptionsWithPrint" type="com.chinasoft.hospital_manager.domain.Prescription">
+        <id column="pid" property="id"/>
+        <result column="content" property="content"/>
+        <result column="datetime" property="datetime"/>
+        <result column="pcomment" property="comment"/>
+        <association property="patient" javaType="com.chinasoft.hospital_manager.domain.Patient">
+            <id column="paid" property="id"/>
+            <result column="paname" property="name"/>
+        </association>
+        <collection property="itemprescription" ofType="com.chinasoft.hospital_manager.domain.Itemprescription">
+            <id column="iid" property="id" />
+            <result column="number" property="number"/>
+            <result column="day" property="day"/>
+            <result column="use" property="use"/>
+            <result column="icomment" property="comment"/>
+            <association property="product" javaType="com.chinasoft.hospital_manager.domain.Product">
+                <id column="ptid" property="id"/>
+                <result column="name" property="name"/>
+                <result column="price" property="price"/>
+                <result column="standards" property="standards"/>
+            </association>
+        </collection>
+    </resultMap>
+
+</mapper>

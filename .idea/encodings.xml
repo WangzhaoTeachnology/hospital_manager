@@ -18,6 +18,7 @@
     <file url="file://$PROJECT_DIR$/src/main/webapp/WEB/views/admin/user_clinicManager/clinic_Department/doctors.jsp" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/WEB/views/admin/user_clinicManager/clinic_Department/select.jsp" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/WEB/views/admin/user_clinicManager/index.jsp" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB/views/admin/user_clinicManager/payForPatients/payForPatients.jsp" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/WEB/views/admin/user_clinicManager/query.jsp" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/WEB/views/admin/user_clinicManager/work.jsp" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/WEB/views/layui/demo1.html" charset="GBK" />
@@ -62,11 +63,6 @@
     <file url="file://$PROJECT_DIR$/src/main/webapp/static/upload/img" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/static/upload/js" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/static/user/doctorsWorkJs/calendar/5e2922d339d9e" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/main/webapp/static/user/imgUrl/张天丽.jpg" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/main/webapp/static/user/imgUrl/江直树.jpg" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/main/webapp/static/user/imgUrl/王丽琳.jpg" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/main/webapp/static/user/imgUrl/程立林.jpg" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/main/webapp/static/user/imgUrl/郝医生.jpg" charset="GBK" />
     <file url="PROJECT" charset="GBK" />
   </component>
 </project>

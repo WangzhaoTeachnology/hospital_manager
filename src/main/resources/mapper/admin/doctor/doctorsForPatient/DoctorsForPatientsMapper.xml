@@ -343,7 +343,6 @@
         <if test="id!=null">
             AND  h.id=#{id}
         </if>
-
     </select>
 
     <select id="findHistoryById" parameterType="map" resultMap="findHistory">

@@ -495,6 +495,14 @@ public class DoctorsForPatientController {
         return map;
     }
 
+    /**
+     * @description：这个是将这个处方的信息提交的函数
+     * @author jack
+     * @date 2020/3/23 18:30
+     * @param null
+     * @return
+     */
+
     @RequestMapping("/submitPrescriptionInfo")
     @ResponseBody
     public Map<String,Object> submitPrescriptionInfo(HttpServletRequest request){
@@ -750,8 +758,6 @@ public class DoctorsForPatientController {
                     }
                 }
             }
-
-
             if (list!=null){
                 andView.addObject("list",list);
                 andView.addObject("search",search);

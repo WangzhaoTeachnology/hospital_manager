@@ -217,7 +217,7 @@
 
 
     <select id="selectPatientNumberInfoById" parameterType="java.lang.String" resultMap="selectItemByid">
-      SELECT t.id,t.fee,t.datetime,t.address,t.`comment`,t.number,t.`status`,t.time ,d.id as did ,d.realname,d.`name`  as dname  ,d.strength ,p.id as pid ,p.`name` as pname ,p.id_number ,p.is_marry,
+         SELECT t.id,t.fee,t.datetime,t.address,t.`comment`,t.number,t.`status`,t.time ,d.id as did ,d.realname,d.`name`  as dname  ,d.strength ,p.id as pid ,p.`name` as pname ,p.id_number ,p.is_marry,
 		 p.sex,p.telephone,p.`work`,p.address as paddress,p.birthday ,a.id as aid ,a.`name` as aname,o.id as oid  ,o.`name` as oname ,u.id as uid,u.`name` as uname
 		 FROM appointment t,doctor d,patient p,appoint_category a ,offices o,USER  u
 		 WHERE t.clinc_category_id=a.id AND p.id=t.patient_id AND t.doctor_id =d.id AND t.office_id=o.id AND  u.id=t.user_id AND t.id=#{id}
@@ -273,10 +273,10 @@
 
 
     <select id="beforeSelectupdatePatientNumberInfoById" parameterType="java.lang.Integer" resultMap="findAppointmentById">
-		     SELECT t.id,t.fee,t.datetime,t.address,t.`comment`,t.number,t.`status`,t.time ,d.id as did ,d.realname,d.`name`  as dname  ,d.strength ,p.id as pid ,p.`name` as pname ,p.id_number ,p.is_marry,
+	    SELECT t.id,t.fee,t.datetime,t.address,t.`comment`,t.number,t.`status`,t.time ,d.id as did ,d.realname,d.`name`  as dname  ,d.strength ,p.id as pid ,p.`name` as pname ,p.id_number ,p.is_marry,
 		p.sex,p.telephone,p.`work`,p.address as paddress,p.birthday ,a.id as aid ,a.`name` as aname,o.id as oid  ,o.`name` as oname ,u.id as uid,u.`name` as uname
 		FROM appointment t,doctor d,patient p,appoint_category a ,offices o,`user` u
-		 WHERE t.clinc_category_id=a.id AND p.id=t.patient_id AND t.doctor_id =d.id AND t.office_id=o.id AND  u.id=t.user_id AND t.id=#{id}
+		WHERE t.clinc_category_id=a.id AND p.id=t.patient_id AND t.doctor_id =d.id AND t.office_id=o.id AND  u.id=t.user_id AND t.id=#{id}
     </select>
 
     <resultMap id="findAppointmentById" type="com.chinasoft.hospital_manager.domain.Appointment">

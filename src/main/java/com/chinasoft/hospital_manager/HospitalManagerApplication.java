@@ -5,7 +5,11 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
+//方式1：这个是采用的是xml方式，这个扫描的是mapper的代理类
 @MapperScan("com.chinasoft.hospital_manager.mapper")
+//方法2：这个是将这个dao层里面的代理类与这个xml文件，合成为一个文件，直接采用注解的方式@select，@delete方式
+//直接在dao层的函数上书写这个业务逻辑的sql语句，传递参数的时候可以利用这个@param注解
+//@MapperScan("com.chinasoft.hospital_manager.dao")
 public class HospitalManagerApplication {
 
 

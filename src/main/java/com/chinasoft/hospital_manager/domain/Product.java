@@ -6,8 +6,6 @@ package com.chinasoft.hospital_manager.domain;
  * Created by Jack on 2020/2/17 22:34
  */
 public class Product {
-
-
     private Integer id;
     private String url;
     private  String name;
