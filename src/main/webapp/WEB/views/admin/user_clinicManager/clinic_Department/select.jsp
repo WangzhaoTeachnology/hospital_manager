@@ -83,11 +83,11 @@
                           <div class="row">
                                 <div class="col-lg-4 col-sm-4 col-md-4 col-xs-4">
                                     <c:forEach items="${third}" var="third">
-                                        <c:if test="${third.name=='修改' && third.status==1}">
+                                      <%--  <c:if test="${third.name=='修改' && third.status==1}">
                                             <input data-toggle="modal" type="button" id="update" name="update" class="btn btn-info" value="修改"/>
-                                        </c:if>
+                                        </c:if>--%>
                                         <c:if test="${third.name=='退号' && third.status==1}">
-                                            <input  data-toggle="modal"   type="button"   id= "delete" name="delete" class="btn btn-success" value="退号"/>
+                                            <input  data-toggle="modal"   type="button"   id= "delete" name="delete" class="btn btn-default" value="退号"/>
                                         </c:if>
                                     </c:forEach>
                                   </div>
@@ -142,45 +142,45 @@
                 <br>
 
                 <c:if test="${list!=null}">
-                    <table width="95%" border="0" cellpadding="2" cellspacing="0" class="table01">
-                        <tr>
-                            <td class="td_top">
+                    <table class="table table-bordered"   style="width: 1580px;">
+                        <tr class="active">
+                            <td >
                                 选择
                             </td>
-                            <td class="td_top">病人姓名</td>
-                            <td class="td_top">挂号编号</td>
-                            <td class="td_top">身份证编号</td>
-                            <td class="td_top">挂号费用</td>
-                            <td class="td_top">挂号时间</td>
-                            <td class="td_top">就诊编号</td>
-                            <td class="td_top">门诊名称</td>
-                            <td class="td_top">科室名称</td>
-                            <td class="td_top">医生姓名</td>
-                            <td class="td_top">挂号类型</td>
-                            <td class="td_top">查看详情</td>
+                            <td>病人姓名</td>
+                            <td >挂号编号</td>
+                            <td >身份证编号</td>
+                            <td >挂号费用</td>
+                            <td >挂号时间</td>
+                            <td>就诊编号</td>
+                            <td >门诊名称</td>
+                            <td >科室名称</td>
+                            <td >医生姓名</td>
+                            <td >挂号类型</td>
+                            <td >查看详情</td>
                         </tr>
                         <c:forEach items="${list}" var="info">
-                            <tr class="content">
-                                <td class="td_01">
-                                                <span class="td01">
+                            <tr>
+                                <td >
+                                                <span >
                                                      <input name="checkbox"  value="${info.id}" type="checkbox" />
                                                </span>
                                 </td>
-                                <td class="td_01">
+                                <td >
                                     <a>
                                             ${info.patient.name}
                                     </a>
                                 </td>
-                                <td class="td_01">${info.id}</td>
-                                <td class="td_01">${info.patient.id_number}</td>
-                                <td class="td_01">${info.fee}</td>
-                                <td class="td_01">${info.datetime}</td>
-                                <td class="td_01">${info.number}</td>
-                                <td class="td_01">${info.appoint_category.name}</td>
-                                <td class="td_01">${info.offices.name}</td>
-                                <td class="td_01">${info.doctor.realname}</td>
-                                <td class="td_01">${info.status==0? '初诊':'复诊'}</td>
-                                <td class="td_01"> <button data-toggle="modal" data-target="#myModal" type="button" value="${info.id}" id="detail" class="btn btn-success">查看详情</button></td>
+                                <td >${info.id}</td>
+                                <td >${info.patient.id_number}</td>
+                                <td>${info.fee}</td>
+                                <td >${info.datetime}</td>
+                                <td >${info.number}</td>
+                                <td >${info.appoint_category.name}</td>
+                                <td >${info.offices.name}</td>
+                                <td>${info.doctor.realname}</td>
+                                <td >${info.status==0? '初诊':'复诊'}</td>
+                                <td > <button data-toggle="modal" data-target="#myModal" type="button" value="${info.id}" name="detail" class="btn btn-default">查看详情</button></td>
                             </tr>
                         </c:forEach>
                     </table>
@@ -199,11 +199,61 @@
             </td>
         </tr>
     </table>
+    <!--分页 -->
+    <div style="width: 380px; margin: 0 auto; margin-top: 50px;position: relative;">
+        <ul class="pagination" style="text-align: center; margin-top: 10px;right: -496px;position: absolute;">
+            <!-- 上一页 -->
+            <c:if test="${pageBean.currentPage==1 }">
+                <li class="disabled">
+                    <a href="javascript:void(0);" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+            </c:if>
 
-<c:if test="${list!=null}">
+            <c:if test="${pageBean.currentPage!=1 }">
+                <li>
+                    <a href="${pageContext.request.contextPath}/admin/userForPatient/searchPatientsInfoByCondition?currentPage=${page.currentPage-1}&&menuid=${menuid}&&search=${search}&&conditon=${condition}" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+            </c:if>
+
+
+            <!-- 显示每一页 -->
+            <c:forEach begin="1" end="${pageBean.totalPage }" var="page">
+                <!-- 判断是否是当前页 -->
+                <c:if test="${page==pageBean.currentPage }">
+                    <li class="active"><a href="javascript:void(0);">${page }</a></li>
+                </c:if>
+                <c:if test="${page!=pageBean.currentPage }">
+                    <li><a href="${pageContext.request.contextPath}/admin/userForPatient/searchPatientsInfoByCondition?currentPage=${page}&&menuid=${menuid}&&search=${search}&&conditon=${condition}">${page}</a></li>
+                </c:if>
+            </c:forEach>
+
+
+            <!-- 下一页 -->
+            <c:if test="${pageBean.currentPage==pageBean.totalPage }">
+                <li class="disabled">
+                    <a href="javascript:void(0);" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </c:if>
+            <c:if test="${pageBean.currentPage!=pageBean.totalPage }">
+                <li>
+                    <a href="${pageContext.request.contextPath}/admin/userForPatient/searchPatientsInfoByCondition?currentPage=${page.currentPage+1}&&menuid=${menuid}&&search=${search}&&conditon=${condition}" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </c:if>
+
+        </ul>
+    </div>
+<%--<c:if test="${list!=null}">
     <c:choose>
         <c:when test="${search!=null&&search!=''}">
-            <%--分页程序--%>
+
             <table width="95%" border="0" cellpadding="0" cellspacing="0" class="table02" align="center">
                 <tr>
                     <td height="30" align="right">
@@ -229,7 +279,7 @@
                             </c:choose>
                         </c:if>
 
-                            <%-- 这个是中间的情况--%>
+
                         <c:if test="${page.currentPage!=1 && page.currentPage!=page.totalPage}">
                             <a  href="${pageContext.request.contextPath}/admin/userForPatient/searchPatientsInfoByCondition?currentPage=${page.currentPage-1}&&menuid=${menuid}&&search=${search}&&conditon=${condition}">
                                 <img src="${pageContext.request.contextPath}/static/admin/images/2.gif" width="3" height="5" align="absmiddle"> 上一页
@@ -240,7 +290,7 @@
                         </c:if>
 
 
-                            <%--  当数据只有一个的时候，第一页与最后一页是重复的：为了避免这种情况的发生，加上!=1--%>
+
                         <c:if test="${page.currentPage!=1&&page.currentPage==page.totalPage}">
                             <a  href="${pageContext.request.contextPath}/admin/userForPatient/searchPatientsInfoByCondition?currentPage=${page.currentPage-1}&&menuid=${menuid}&&search=${search}&&conditon=${condition}">
                                 <img src="${pageContext.request.contextPath}/static/admin/images/2.gif" width="3" height="5" align="absmiddle"> 上一页
@@ -260,7 +310,7 @@
 
 
         <c:otherwise>
-            <%--分页程序--%>
+
             <table width="95%" border="0" cellpadding="0" cellspacing="0" class="table02" align="center">
                 <tr>
                     <td height="30" align="right">
@@ -286,7 +336,7 @@
                             </c:choose>
                         </c:if>
 
-                            <%-- 这个是中间的情况--%>
+
                         <c:if test="${page.currentPage!=1 && page.currentPage!=page.totalPage}">
                             <a  href="${pageContext.request.contextPath}/admin/userForPatient/selectPatientNumberInfo?currentPage=${page.currentPage-1}&&menuid=${menuid}">
                                 <img src="${pageContext.request.contextPath}/static/admin/images/2.gif" width="3" height="5" align="absmiddle"> 上一页
@@ -297,7 +347,7 @@
                         </c:if>
 
 
-                            <%--  当数据只有一个的时候，第一页与最后一页是重复的：为了避免这种情况的发生，加上!=1--%>
+
                         <c:if test="${page.currentPage!=1&&page.currentPage==page.totalPage}">
                             <a  href="${pageContext.request.contextPath}/admin/userForPatient/selectPatientNumberInfo?currentPage=${page.currentPage-1}&&menuid=${menuid}">
                                 <img src="${pageContext.request.contextPath}/static/admin/images/2.gif" width="3" height="5" align="absmiddle"> 上一页
@@ -315,7 +365,7 @@
             </table>
         </c:otherwise>
     </c:choose>
-</c:if>
+</c:if>--%>
 
 
     <!-- 这个是点击详情查询数据 -->
@@ -420,11 +470,13 @@
 
        //双击一行，按照id，查询详细数据
         //获取表格中具体的表格，一般采用find，这个函数
-        $("#detail").click(function () {
+        $("button[name='detail']").click(function () {
              var id=$(this).val();
+             //每次点击详情的时候，清除上次的数据
+            $("#maincontent").html("");
           // var id= $(this).find("input:eq(0)").val();
             //var id=$(this).find("td:eq(0)").find("input:eq(1)").val();
-           //  alert(id);
+            // alert(id);
             // var  btn=$(this).find("td:eq(0)").find("input:eq(0)");
               if (id!=null&&id!=""){
                     //自动用程序双击
@@ -772,7 +824,7 @@
                              dateHours = "0" + dateHours;
                          }
                          var  str_datetime=year+"-"+month+"-"+strDate+"T"+dateHours+":"+dateMinutes;
-                         alert(str_datetime);
+                        // alert(str_datetime);
 
                          //数据回显，病人，门诊，科室，医生，四个信息
                          var  appointment=data.appointment;
@@ -813,12 +865,12 @@
                              "\t\t\t\t\t\t</div>\n" +
                              "\t\t\t\t\t</div>\n" ;
 
-                         content+= "\t\t\t\t\t<div class=\"form-group\">\n" +
+                     /*    content+= "\t\t\t\t\t<div class=\"form-group\">\n" +
                              "\t\t\t\t\t\t<label for=\"inputPassword3\" class=\"col-sm-2 control-label\">挂号时间</label>\n" +
                              "\t\t\t\t\t\t<div class=\"col-sm-4 col-lg-4 col-xs-4 col-md-4\">\n" +
                              "\t\t\t\t\t\t\t<input type=\"datetime-local\" class=\"form-control\"   name=\"datetime\" id=\"_date\" >\n" +
                              "\t\t\t\t\t\t</div>\n" +
-                             "\t\t\t\t\t</div>\n" ;
+                             "\t\t\t\t\t</div>\n" ;*/
 
 
                          content+=  "\t\t\t\t\t<div class=\"form-group\">\n" +
@@ -833,7 +885,7 @@
                              "\t\t\t\t\t\t<label for=\"inputPassword3\" class=\"col-sm-2 control-label\">挂号类型</label>\n" +
                              "\t\t\t\t\t\t<div class=\"col-sm-4 col-lg-4 col-xs-4 col-md-4\">\n" +
                              "\t\t\t\t\t\t\t<input type=\"radio\"   name=\"clinic_type\" value='0'  checked=\"checked\"> 初诊\n" +
-                             "\t\t\t\t\t\t\t<input type=\"radio\"    name=\"clinic_type\" value='1'  > 复诊\n" +
+                             "\t\t\t\t\t\t\t<input type=\"radio\"    name=\"clinic_type\" value='1' > 复诊\n" +
                              "\t\t\t\t\t\t</div>\n" +
                              "\t\t\t\t\t</div>\n" ;
 
@@ -905,7 +957,7 @@
 
 
                          $("#registerDate").val("2020-02-09T01:48");
-                         $("#registerDate").val(str_datetime);
+                         //$("#registerDate").val(str_datetime);
                          $("#updatemain").html(content);
                          $("#update").removeAttr("data-target");
                          //每次成功的加载数据，要移出这个属性，
@@ -1195,10 +1247,37 @@
             alert("编辑之前请你选择一项数据");
             return;
         } else{
-            $("#update").attr("data-target","#updatemyModal");
-            $("#update").trigger("dblclick");
+          //  $("#delete").attr("data-target","#updatemyModal");
+            $("#delete").trigger("dblclick");
         }
     });
+    $("#delete").dblclick(function (){
+        var checkboxs=$("input[name='checkbox']:checked");//得到的数据都是选中的数据
+        var  menuid=$("input[name='menuid']").val();
+        var uid=checkboxs[0].value;
+        $.ajax({
+            type:"GET",
+            url:"${pageContext.request.contextPath}/admin/userForPatient/deletePatientInfoByIdBetweenTime",
+            data:{"id":uid},
+            dataType:"JSON", //这个表示ajax请求后，返回数据的类型，为json类型
+            success:function (data) {
+                if (data!=null&&data!=""){
+                    var type=data.type;
+                    if (type=='success'){
+                         alert("退号成功!");
+                        window.location.href="${pageContext.request.contextPath}/admin/user/clinicUserInfo?menuid="+menuid;
+                      //   window.location.href="${pageContext.request.contextPath}/admin/userForPatient/deletePatientInfoByIdBetweenTime";
+                    }else if (type=='fail'){
+                        alert("超过30分钟，退号失败!");
+                    }
+                }
+            },error:function (data) {
+                alert("退号操作数据响应失败!");
+            }
+        });
+    });
+
+
 
 </script>
 </html>

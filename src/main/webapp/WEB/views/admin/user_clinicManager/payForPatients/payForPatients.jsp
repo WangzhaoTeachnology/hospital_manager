@@ -216,7 +216,7 @@
                     <td style="text-align: center;vertical-align: center;">${pay.datetime}</td>
                     <td style="text-align: center;vertical-align: center;">
                         <c:if test="${pay.flag==1}">
-                            <input type="button" class="btn btn-default btn-lg" disabled="disabled" value="已经缴费"/>
+                            <input type="button" class="btn btn-default" disabled="disabled" value="已经缴费"/>
                         </c:if>
                         <c:if test="${pay.flag==0}">
                             <a name="${pay.fee}">
@@ -243,7 +243,7 @@
 
                                     </table>
                                 </div>
-                            </div>
+                             </div>
                         </c:forEach>
                     </td>
                 </tr>
@@ -547,32 +547,51 @@
          if (collapses!=null&&collapses!="") {
              for (var i=0;i<collapses.length;i++) {
                  var id = collapses[i].value;
+                 //alert("id="+id);
+                 var obj = collapses[i];
 
+                // alert("obj="+obj);
+                // var table_info = obj.parent("a").next("div").find("div").find("table");
+
+
+                 //table_history_info是每一条处方，对应多个处方详情的，存放处方详情的数据表格
+                 var table_history_info =$("#table_history_info"+id);
                  //每次重新查询新的数据的时候，都要将这个置为空
-                 $("#table_history_info"+id).html("");
+                 table_history_info.empty();
+
+               /*  这个 案例很好地：解释这个 async:false,问题，这个是同步，
+                 问题的所在：for 循环是一个单线程的东西，而ajax是多线程的，之所以称之为异步同步，是因为执行到ajax的时候去后台开启了一个线程，
+                 但是for循环本身就是一个单线程的东西，
+                 那么执行到ajax的时候，ajax开启了一个线程，for循环是没有等他的，知道for循环结束的时候，才会把ajax返回的数据拿回来，所以会出问题。
+                 解决办法：只需要把ajax改成同步的就可以了，每次for循环，都要去加载ajax方法，并且拿到他返回的数据，只需要在ajax中间加一个代码就可以搞定了。
+                 */
+
                  $.ajax({
                     type:"GET",
                     url:"${pageContext.request.contextPath}/admin/payForPatientController/findItemPrescriptionsById",
                     data:{"id":id},
                     dataType:"JSON",
+                     async:false,
                     success:function (data) {
                         if (data!=null&&data!=""){
                             var  type=data.type;
                             if (type=='success'){
+                              //   $("#table_history_info"+id).empty();
                                 var   itemprescrips=data.itemPrescriptionsById;
-                                if (itemprescrips!=null){
-                                    var head=" <tr style='text-align: center;'>" +
-                                        "          <td style='text-align: center;'>编号</td>" +
-                                        "          <td >药品</td>" +
-                                        "          <td >用法</td>" +
-                                        "          <td >天数</td>" +
+                                //alert("itemprescrips="+JSON.stringify(itemprescrips));
+                                if (itemprescrips!=null&&itemprescrips!=""){
+                                    var head="<tr style='text-align: center;'>" +
+                                        "           <td style='text-align: center;'>编号</td>" +
+                                        "           <td >药品</td>" +
+                                        "           <td >用法</td>" +
+                                        "           <td >天数</td>" +
                                         "           <td >数量</td>" +
                                         "           <td >备注</td>" +
                                         "           <td >单价</td>" +
                                         "      </tr>";
 
                                     //因为每一个不同的处方的处方编号可能有多个处方详情的信息，
-                                    $("#table_history_info"+id).append(head);
+                                    table_history_info.append(head);
                                     var totalfee=0;
                                     for (var j=0;j<itemprescrips.length;j++){
                                         var   tbody ="<tr>" +
@@ -585,16 +604,17 @@
                                             "       <td>"+(parseInt(itemprescrips[j].number)* parseFloat(itemprescrips[j].product.price))+"</td>" +
                                             "</tr>";
                                        totalfee+=Math.ceil((parseInt(itemprescrips[j].number)* parseFloat(itemprescrips[j].product.price)));
-                                        $("#table_history_info"+id).append(tbody);
+                                        table_history_info.append(tbody);
                                     }
+
+                                    //这个是加入总的金额
                                     if (totalfee!=0){
-                                        //这个是加入总的金额
-                                        var tfooter=" <tr>\n" +
-                                            "          <td colspan='7' style='text-align: right;'>" +
-                                            "总金额￥："+"<a><font style='color: red;'> "+totalfee+"</font></a>"+
+                                        var tfooter=" <tr>" +
+                                            "             <td colspan='7' style='text-align: right;'>" +
+                                                                  "总金额￥："+"<a><font style='color: red;'> "+totalfee+"</font></a>"+
                                             "            </td>"
                                         "      </tr>";
-                                        $("#table_history_info"+id).append(tfooter);
+                                        table_history_info.append(tfooter);
                                     }
                                 }
 

@@ -5,74 +5,27 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Untitled Document</title>
 <link href="../css/style.css" rel="stylesheet" type="text/css" />
+    <!-- 引入Bootstrap核心样式文件 -->
+    <link href="${pageContext.request.contextPath}/static/admin/boostrap/css/bootstrap.min.css" rel="stylesheet">
+  <%--  <link href="${pageContext.request.contextPath}/static/admin/css/style.css" rel="stylesheet" type="text/css">--%>
+    <!-- 引入jQuery核心js文件 -->
+    <script language="javascript"
+            src="${pageContext.request.contextPath}/static/admin/boostrap/js/jquery-1.11.3.min.js"></script>
+    <!-- 引入BootStrap核心js文件 -->
+    <script src="${pageContext.request.contextPath}/static/admin/boostrap/js/bootstrap.min.js"></script>
+
 </head>
 
 <body>
 <table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
   <tr>
     <td align="center" valign="top" background="${pageContext.request.contextPath}/static/admin/images/main_17.gif"><br>
-      <table width="95%" border="0" cellspacing="0" cellpadding="0">
-        <tr>
-          <td><img src="${pageContext.request.contextPath}/static/admin/images/main_24.gif" width="97" height="11"></td>
-        </tr>
-      </table>
+
+        <div class="jumbotron">
+<%--           <img src="${pageContext.request.contextPath}/static/upload/img/医生图片/背景.jpg" width="100%" height="100%"/>--%>
+        </div>
         <br>
-        <table width="95%" border="0" cellspacing="0" cellpadding="0">
-      <tr>
-        <td width="5"><img src="${pageContext.request.contextPath}/static/admin/images/main_11.gif" width="5" height="5"></td>
-        <td background="${pageContext.request.contextPath}/static/admin/images/main_12.gif"><img src="../images/spacer.gif" width="1" height="1"></td>
-        <td width="5"><img src="${pageContext.request.contextPath}/static/admin/images/main_14.gif" width="5" height="5"></td>
-      </tr>
-      <tr>
-        <td background="${pageContext.request.contextPath}/static/admin/images/main_19.gif"><img src="${pageContext.request.contextPath}/static/admin/images/spacer.gif" width="1" height="1"></td>
-        <td align="center" class="td01"><table width="95%" border="0" cellspacing="0" cellpadding="0">
-          <tr>
-            <td height="25"><img src="${pageContext.request.contextPath}/static/admin/images/main_28.gif" width="9" height="9" align="absmiddle"> <strong>待办事宜</strong></td>
-            <td width="35" align="right"><a href="bpms/undo.htm" target="mainFrame"><img src="${pageContext.request.contextPath}/static/admin/images/main_53.gif" width="35" height="9" border="0"></a></td>
-          </tr>
-          <tr>
-            <td height="1" class="td05"><img src="${pageContext.request.contextPath}/static/admin/images/spacer.gif" width="1" height="1"></td>
-            <td class="td05"><img src="${pageContext.request.contextPath}/static/admin/images/spacer.gif" width="1" height="1"></td>
-          </tr>
-          <tr>
-            <td height="5"><img src="${pageContext.request.contextPath}/static/admin/images/spacer.gif" width="1" height="1"></td>
-            <td><img src="${pageContext.request.contextPath}/static/admin/images/spacer.gif" width="1" height="1"></td>
-          </tr>
-        </table>
-              <table width="95%" border="0" cellspacing="0" cellpadding="0">
-                <tr>
-                  <td width="120"><img src="${pageContext.request.contextPath}/static/admin/images/info_24.gif" width="104" height="76"></td>
-                  <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
-                    <tr>
-                      <td width="15"><img src="${pageContext.request.contextPath}/static/admin/images/index_57.gif" width="15" height="16"></td>
-                      <td valign="top" class="td08"><a href="bpms/employeeIn/leaderSuggest.htm" target="_blank"> <a href="bpms/employeeIn/shen_pi_qingjia.htm" target="_blank">李某 提交请假待审批办理时间 2005-10-15</a></span></td>
-                    </tr>
-                    <tr>
-                      <td><img src="${pageContext.request.contextPath}/static/admin/images/index_57.gif" width="15" height="16"></td>
-                      <td valign="top" class="td08"><a href="bpms/employeeIn/shen_pi_qingjia.htm" target="_blank">张三 提交请假待审批 办理时间 2005-09-30</a></span></td>
-                    </tr>
-                    <tr>
-                      <td><img src="${pageContext.request.contextPath}/static/admin/images/index_57.gif" width="15" height="16"></td>
-                      <td valign="top" class="td08"><a href="bpms/employeeIn/ke_ti_jiekuan_shenpi.htm" target="_blank">张三 提交课题借款待审批 办理时间 2005-09-30</a></span></td>
-                    </tr>
-                    <tr>
-                      <td><img src="${pageContext.request.contextPath}/static/admin/images/index_57.gif" width="15" height="16"></td>
-                      <td valign="top" class="td08"><a href="bpms/employeeIn/shen_pi_yiliao_baoxiao.htm" target="_blank">张三 提交医疗借款待审批办理时间 2005-09-30</a></span></td>
-                    </tr>
-                  </table></td>
-                </tr>
-              </table>
-              <br></td>
-        <td background="../images/main_21.gif"><img src="../images/spacer.gif" width="1" height="1"></td>
-      </tr>
-      <tr>
-        <td><img src="../images/main_34.gif" width="5" height="5"></td>
-        <td background="../images/main_35.gif"><img src="../images/spacer.gif" width="1" height="1"></td>
-        <td><img src="../images/main_36.gif" width="5" height="5"></td>
-      </tr>
-    </table>
-        <br>
-        <table width="95%" border="0" cellspacing="0" cellpadding="0">
+<%--        <table width="95%" border="0" cellspacing="0" cellpadding="0">
           <tr>
             <td width="5"><img src="../images/main_11.gif" width="5" height="5"></td>
             <td background="../images/main_12.gif"><img src="../images/spacer.gif" width="1" height="1"></td>
@@ -80,41 +33,24 @@
           </tr>
           <tr>
             <td background="../images/main_19.gif"><img src="../images/spacer.gif" width="1" height="1"></td>
-            <td align="center" class="td01"><table width="95%" border="0" cellspacing="0" cellpadding="0">
+            <td align="center" class="td01">&lt;%&ndash;<table width="95%" border="0" cellspacing="0" cellpadding="0">
                 <tr>
-                  <td height="25"><img src="../images/main_28.gif" width="9" height="9" align="absmiddle"> <strong>提醒信息</strong></td>
-                  <td width="35" align="right"><a href="ti_xing\ti_xing.htm" target="mainFrame"><img src="../images/main_53.gif" width="35" height="9" border="0"></td>
+                  <td height="25"><img src="${pageContext.request.contextPath}/static/admin/images/main_28.gif" width="9" height="9" align="absmiddle"> <strong>提醒信息</strong></td>
+                  <td width="35" align="right"><a href="ti_xing\ti_xing.htm" target="mainFrame"><img src="${pageContext.request.contextPath}/static/admin/images/main_53.gif" width="35" height="9" border="0"></td>
                 </tr>
                 <tr>
-                  <td height="1" class="td05"><img src="../images/spacer.gif" width="1" height="1"></td>
-                  <td class="td05"><img src="../images/spacer.gif" width="1" height="1"></td>
+                  <td height="1" class="td05"><img src="${pageContext.request.contextPath}/static/admin/images/spacer.gif" width="1" height="1"></td>
+                  <td class="td05"><img src="${pageContext.request.contextPath}/static/admin/images/spacer.gif" width="1" height="1"></td>
                 </tr>
                 <tr>
-                  <td height="5"><img src="../images/spacer.gif" width="1" height="1"></td>
+                  <td height="5"><img src="${pageContext.request.contextPath}/static/admin/images/spacer.gif" width="1" height="1"></td>
                   <td><img src="../images/spacer.gif" width="1" height="1"></td>
                 </tr>
-              </table>
+              </table>&ndash;%&gt;
                 <table width="95%" border="0" cellspacing="0" cellpadding="0">
                   <tr>
-                    <td width="120"><img src="../images/info_46.gif" width="104" height="76"></td>
-                    <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
-                        <tr>
-                          <td width="15"><img src="../images/index_57.gif" width="15" height="16"></td>
-                          <td valign="top" class="td08"><a href="ti_xing/xiang_xi_xinxi.htm" target="_blank">刘岳 提交新闻申报以通过时间 2005-10-15</span></a></td>
-                        </tr>
-                        <tr>
-                          <td><img src="../images/index_57.gif" width="15" height="16"></td>
-                          <td valign="top" class="td08"><a href="ti_xing/xiang_xi_xinxi.htm" target="_blank">张三 提交新闻申报未通过时间 2005-09-30</span></a></td>
-                        </tr>
-                        <tr>
-                          <td><img src="../images/index_57.gif" width="15" height="16"></td>
-                          <td valign="top" class="td08"><a href="ti_xing/xiang_xi_xinxi.htm" target="_blank">张三 提交请假申请退回时间 2005-09-30</span></a></td>
-                        </tr>
-                        <tr>
-                          <td><img src="../images/index_57.gif" width="15" height="16"></td>
-                          <td valign="top" class="td08"><a href="ti_xing/xiang_xi_xinxi.htm" target="_blank">张三 提交撤消请假通过时间 2005-09-30</span></a></td>
-                        </tr>
-                    </table></td>
+                    <td width="120"></td>
+                    <td></td>
                   </tr>
                 </table>
                 <br></td>
@@ -125,7 +61,7 @@
             <td background="../images/main_35.gif"><img src="../images/spacer.gif" width="1" height="1"></td>
             <td><img src="../images/main_36.gif" width="5" height="5"></td>
           </tr>
-      </table>
+      </table>--%>
         <br>
         <table width="95%" border="0" cellspacing="0" cellpadding="0">
           <tr>
@@ -135,7 +71,7 @@
           </tr>
           <tr>
             <td background="../images/main_19.gif"><img src="../images/spacer.gif" width="1" height="1"></td>
-            <td align="center" class="td01"><table width="95%" border="0" cellspacing="0" cellpadding="0">
+            <td align="center" class="td01"><%--<table width="95%" border="0" cellspacing="0" cellpadding="0">
                 <tr>
                   <td height="25"><img src="../images/main_28.gif" width="9" height="9" align="absmiddle"> <strong>在线消息</strong></td>
                   <td width="35" align="right"><a href="message/message.htm"><img src="../images/main_53.gif" width="35" height="9" border="0"></a></td>
@@ -148,8 +84,8 @@
                   <td height="5"><img src="../images/spacer.gif" width="1" height="1"></td>
                   <td><img src="../images/spacer.gif" width="1" height="1"></td>
                 </tr>
-              </table>
-                <table width="95%" border="0" cellspacing="0" cellpadding="0">
+              </table>--%>
+       <%--         <table width="95%" border="0" cellspacing="0" cellpadding="0">
                   <tr>
                     <td width="120"><img src="../images/info_62.gif" width="104" height="76"></td>
                     <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
@@ -171,7 +107,7 @@
                         </tr>
                     </table></td>
                   </tr>
-                </table>
+                </table>--%>
                 <br></td>
             <td background="../images/main_21.gif"><img src="../images/spacer.gif" width="1" height="1"></td>
           </tr>

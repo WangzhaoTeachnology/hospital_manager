@@ -272,7 +272,7 @@
 
 
 
-    <select id="beforeSelectupdatePatientNumberInfoById" parameterType="java.lang.Integer" resultMap="findAppointmentById">
+    <select id="beforeSelectupdatePatientNumberInfoById" parameterType="java.lang.String" resultMap="findAppointmentById">
 	    SELECT t.id,t.fee,t.datetime,t.address,t.`comment`,t.number,t.`status`,t.time ,d.id as did ,d.realname,d.`name`  as dname  ,d.strength ,p.id as pid ,p.`name` as pname ,p.id_number ,p.is_marry,
 		p.sex,p.telephone,p.`work`,p.address as paddress,p.birthday ,a.id as aid ,a.`name` as aname,o.id as oid  ,o.`name` as oname ,u.id as uid,u.`name` as uname
 		FROM appointment t,doctor d,patient p,appoint_category a ,offices o,`user` u
@@ -708,5 +708,7 @@
         </collection>
     </resultMap>
 
-
+<delete id="deletePatientInfoByIdBetweenTime" parameterType="java.lang.String">
+  DELETE FROM appointment  WHERE id=#{id} AND  datetime>DATE_ADD(NOW(),INTERVAL-30 MINUTE)
+</delete>
 </mapper>

@@ -114,27 +114,25 @@
                 private  String standards;--%>
 
                 <c:if test="${list!=null}">
-                    <table width="95%" border="0" cellpadding="2"  style="border: 0px solid red;" cellspacing="0" class="table01" id="tableInfo">
-                        <tr>
-                            <td class="td_top">图片</td>
-                            <td class="td_top">名称</td>
-                            <td class="td_top">价格</td>
-                            <td class="td_top">数量</td>
-                            <td class="td_top">适用症</td>
-                            <td class="td_top">使用方法</td>
-                            <td class="td_top">成分</td>
-                          <%--  <td class="td_top">注意事项</td>--%>
+                    <table class="table table-bordered" style="width: 1580px;" id="tableInfo">
+                        <tr class="active" style="text-align: center;">
+                            <td>图片</td>
+                            <td >名称</td>
+                            <td >价格</td>
+                            <td>数量</td>
+                            <td >适用症</td>
+                            <td >使用方法</td>
+                            <td >成分</td>
                         </tr>
                         <c:forEach items="${list}" var="info">
                             <tr class="content">
-                                <td class="td_01" ><img src="${pageContext.request.contextPath}${info.url}" style="width: 150px;height: 122px;" /></td>
-                                <td class="td_01" >${info.name}</td>
-                                <td class="td_01">${info.price}</td>
-                                <td class="td_01">${info.number}</td>
-                                <td class="td_01">${info.content}</td>
-                                <td class="td_01">${info.use}</td>
-                                <td class="td_01">${info.component}</td>
-                           <%--     <td class="td_01">${info.comment}</td>--%>
+                                <td  ><img src="${pageContext.request.contextPath}${info.url}" style="width: 50px;height: 50px;" /></td>
+                                <td  >${info.name}</td>
+                                <td >${info.price}</td>
+                                <td >${info.number}</td>
+                                <td >${info.content}</td>
+                                <td>${info.use}</td>
+                                <td >${info.component}</td>
                             </tr>
                         </c:forEach>
                     </table>
@@ -154,8 +152,59 @@
         </tr>
     </table>
 
-<c:if test="${list!=null}">
-            <table width="95%" border="0" cellpadding="0" cellspacing="0" class="table02" align="center">
+
+    <!--分页 -->
+    <div style="width: 380px; margin: 0 auto; margin-top: 50px;position: relative;">
+        <ul class="pagination" style="text-align: center; margin-top: 10px;right: -496px;position: absolute;">
+            <!-- 上一页 -->
+            <c:if test="${pageBean.currentPage==1 }">
+                <li class="disabled">
+                    <a href="javascript:void(0);" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+            </c:if>
+
+            <c:if test="${pageBean.currentPage!=1 }">
+                <li>
+                    <a href="${pageContext.request.contextPath}/admin/doctor/doctorsfindProducts?currentPage=${pageBean.currentPage-1}&&value=${search}&&condition=${condition}&&menuid=${menuid}" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+            </c:if>
+
+
+            <!-- 显示每一页 -->
+            <c:forEach begin="1" end="${pageBean.totalPage }" var="page">
+                <!-- 判断是否是当前页 -->
+                <c:if test="${page==pageBean.currentPage }">
+                    <li class="active"><a href="javascript:void(0);">${page }</a></li>
+                </c:if>
+                <c:if test="${page!=pageBean.currentPage }">
+                    <li><a href="${pageContext.request.contextPath}/admin/doctor/doctorsfindProducts?currentPage=${page}&&value=${search}&&condition=${condition}&&menuid=${menuid}">${page}</a></li>
+                </c:if>
+            </c:forEach>
+
+
+            <!-- 下一页 -->
+            <c:if test="${pageBean.currentPage==pageBean.totalPage }">
+                <li class="disabled">
+                    <a href="javascript:void(0);" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </c:if>
+            <c:if test="${pageBean.currentPage!=pageBean.totalPage }">
+                <li>
+                    <a href="${pageContext.request.contextPath}/admin/doctor/doctorsfindProducts?currentPage=${pageBean.currentPage+1}&&value=${search}&&condition=${condition}&&menuid=${menuid}" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </c:if>
+
+        </ul>
+    </div>
+<%--            <table width="95%" border="0" cellpadding="0" cellspacing="0" class="table02" align="center">
                 <tr>
                     <td height="30" align="right">
                         <a href="${pageContext.request.contextPath}/admin/doctor/doctorsfindProducts?currentPage=${1}&&menuid=${menuid}&&value=${search}&&condition=${condition}">
@@ -203,7 +252,7 @@
                         　共 ${page.totalPage} 页 ${page.totalCount} 条记录
                     </td>
                 </tr>
-            </table>
+            </table>--%>
 <%--
             <table width="95%" border="0" cellpadding="0" cellspacing="0" class="table02" align="center">
                 <tr>
@@ -257,7 +306,7 @@
                     </td>
                 </tr>
             </table>--%>
-</c:if>
+
 </center>
 </body>
 <script type="text/javascript">

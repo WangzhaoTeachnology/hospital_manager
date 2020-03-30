@@ -165,8 +165,9 @@
 	<script src="${pageContext.request.contextPath}/static/calendar/5e2922d339d9e/js/timedropper.js" charset="utf-8"></script>
 	<script src="${pageContext.request.contextPath}/static/calendar/5e2922d339d9e/js/calendar.js" charset="utf-8"></script>
 	<script type="text/javascript">
-			/*日历*/
-			loading_calendar("div1","cn");
-
+			$(function(){
+				/*日历*/
+				loading_calendar("div1","cn");
+			});
 	</script>
 </html>

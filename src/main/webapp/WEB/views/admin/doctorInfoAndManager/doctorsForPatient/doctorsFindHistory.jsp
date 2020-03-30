@@ -72,7 +72,7 @@
                                 <div class="col-lg-4 col-sm-4 col-md-4 col-xs-4">
                                   <%--  <c:forEach items="${third}" var="third">
                                         <c:if test="${third.name=='添加' && third.status==1}">--%>
-                                            <input data-toggle="modal" data-target="#exampleModalScrollable" type="button" id="add" name="add" class="btn btn-info" value="添加"/>
+                                         <%--   <input data-toggle="modal" data-target="#exampleModalScrollable" type="button" id="add" name="add" class="btn btn-info" value="添加"/>--%>
                                   <%--      </c:if>
                                         <c:if test="${third.name=='编辑' && third.status==1}">--%>
                                             <input  data-toggle="modal"   type="button"   id= "update" name="update" class="btn btn-success" value="编辑"/>
@@ -108,31 +108,31 @@
                 <br>
 
                 <c:if test="${list!=null}">
-                    <table width="95%" border="0" cellpadding="2" cellspacing="0" class="table01">
-                        <tr>
-                            <td class="td_top">
+                    <table class="table table-bordered" style="width: 1580px;">
+                        <tr class="active" style="text-align: center;">
+                            <td >
                                 选择
                                 <input name="menuid" type="hidden" value="${menuid}" id="menuid"/>
                             </td>
-                            <td class="td_top">病历编号</td>
-                            <td class="td_top">病人姓名</td>
-                            <td class="td_top">病人诊断</td>
-                            <td class="td_top">医生姓名</td>
-                            <td class="td_top">日期时间</td>
+                            <td >病历编号</td>
+                            <td >病人姓名</td>
+                            <td >病人诊断</td>
+                            <td>医生姓名</td>
+                            <td >日期时间</td>
                         </tr>
 
                         <c:forEach items="${list}" var="history">
                             <tr>
-                                <td class="td_01">
-                                <span class="td01">
+                                <td>
+                                <span >
                                   <input name="checkbox" type="checkbox" value="${history.id}" >
                                </span>
                                 </td>
-                                <td class="td_01">${history.id}</td>
-                                <td class="td_01">${history.patient.name}</td>
-                                <td class="td_01">${history.content}</td>
-                                <td class="td_01">${history.doctor.realname}</td>
-                                <td class="td_01">${history.datetime}</td>
+                                <td >${history.id}</td>
+                                <td >${history.patient.name}</td>
+                                <td >${history.content}</td>
+                                <td >${history.doctor.realname}</td>
+                                <td >${history.datetime}</td>
                             </tr>
                         </c:forEach>
                     </table>
@@ -151,7 +151,60 @@
         </tr>
     </table>
 
-    <c:if test="${list!=null}">
+
+    <!--分页 -->
+    <div style="width: 380px; margin: 0 auto; margin-top: 50px;position: relative;">
+        <ul class="pagination" style="text-align: center; margin-top: 10px;right: -496px;position: absolute;">
+            <!-- 上一页 -->
+            <c:if test="${pageBean.currentPage==1 }">
+                <li class="disabled">
+                    <a href="javascript:void(0);" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+            </c:if>
+
+            <c:if test="${pageBean.currentPage!=1 }">
+                <li>
+                    <a href="${pageContext.request.contextPath}/admin/doctor/doctorsFindHistory?currentPage=${pageBean.currentPage-1}&&menuid=${menuid}&&search=${search}&&condition=${condition}" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+            </c:if>
+
+
+            <!-- 显示每一页 -->
+            <c:forEach begin="1" end="${pageBean.totalPage}" var="page">
+                <!-- 判断是否是当前页 -->
+                <c:if test="${page==pageBean.currentPage}">
+                    <li class="active"><a href="javascript:void(0);">${page}</a></li>
+                </c:if>
+                <c:if test="${page!=pageBean.currentPage}">
+                    <li><a href="${pageContext.request.contextPath}/admin/doctor/doctorsFindHistory?currentPage=${page}&&menuid=${menuid}&&search=${search}&&condition=${condition}">${page}</a></li>
+                </c:if>
+            </c:forEach>
+
+
+            <!-- 下一页 -->
+            <c:if test="${pageBean.currentPage==pageBean.totalPage }">
+                <li class="disabled">
+                    <a href="javascript:void(0);" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </c:if>
+
+            <c:if test="${pageBean.currentPage!=pageBean.totalPage }">
+                <li>
+                    <a href="${pageContext.request.contextPath}/admin/doctor/doctorsFindHistory?currentPage=${pageBean.currentPage+1}&&menuid=${menuid}&&search=${search}&&condition=${condition}" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </c:if>
+        </ul>
+    </div>
+
+<%--    <c:if test="${list!=null}">
         <table width="95%" border="0" cellpadding="0" cellspacing="0" class="table02" align="center">
             <tr>
                 <td height="30" align="right">
@@ -201,7 +254,7 @@
                 </td>
             </tr>
         </table>
-    </c:if>
+    </c:if>--%>
 
 
 

@@ -52,7 +52,7 @@ public interface UserForPatientMapper {
 
 
     //在修改挂号之前的数据回显
-    public Appointment beforeSelectupdatePatientNumberInfoById(int id);
+    public Appointment beforeSelectupdatePatientNumberInfoById(String id);
 
     //根据关键字，搜素信息，这个是管理病人的信息
     public List<Appointment> searchPatientsInfoByCondition(Map<String,Object> map);
@@ -66,6 +66,9 @@ public interface UserForPatientMapper {
     //涉及到分页，所以要查询个数
     public List<Doctor> selectDoctorsInfoByOnTime(Map<String,Object> map);
     public int getSelectDoctorsInfoByOnTimeCount(Map<String,Object> map);
+
+    //门诊人员，在30分钟之内退号操作
+     public  int deletePatientInfoByIdBetweenTime(String id);
 
 
 

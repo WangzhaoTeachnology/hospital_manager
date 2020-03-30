@@ -131,27 +131,28 @@
                 <br>
 
                 <c:if test="${userInfo!=null}">
-                      <table width="95%" border="0" cellpadding="2" cellspacing="0" class="table01">
-                            <tr>
-                                <td class="td_top">
+                  <%--    <table width="95%" border="0" cellpadding="2" cellspacing="0" class="table01">--%>
+                          <table class="table table-bordered"   style="height: 24px;width: 1580px;">
+                            <tr class="active">
+                                <td>
                                        选择
                                 </td>
-                                <td class="td_top">照片</td>
-                                <td class="td_top">真实姓名</td>
-                                <td class="td_top">姓名</td>
-                                <td class="td_top">性别</td>
-                                <td class="td_top">擅长</td>
-                                <td class="td_top">职称</td>
-                                <td class="td_top">毕业学校</td>
-                                <td class="td_top">查看详情</td>
+                                <td<%-- class="td_top"--%>>照片</td>
+                                <td >真实姓名</td>
+                                <td >姓名</td>
+                                <td >性别</td>
+                                <td>擅长</td>
+                                <td >职称</td>
+                                <td >毕业学校</td>
+                                <td >查看详情</td>
                             </tr>
                         <c:forEach items="${userInfo}" var="doctor">
                             <tr>
-                                <td class="td_01">
+                              <%--  <td class="td_01">
                                 <span class="td01">
                                   <input name="checkbox" type="checkbox" value="${doctor.id}" >
                                </span>
-                                </td>
+                            </td>
                                 <td class="td_01"><a><img src="${pageContext.request.contextPath}${doctor.url}" width="70px" height="50px"></a></td>
                                 <td class="td_01">${doctor.realname}</td>
                                 <td class="td_01">${doctor.name}</td>
@@ -160,7 +161,24 @@
                                 <td class="td_01">${doctor.prat}</td>
                                 <td class="td_01">${doctor.school}</td>
                                 <td class="td_01">
-                                    <button data-toggle="modal" data-target="#detailDoctor" type="button" value="${doctor.id}" name="detail"  style="width: 80px;" class="btn btn-success" >查看详情</button>
+                                    <button data-toggle="modal" data-target="#detailDoctor" type="button" value="${doctor.id}" name="detail"  style="width: 80px;" class="btn btn-default" >查看详情</button>
+                                </td>--%>
+
+
+                                <td>
+                                    <span >
+                                      <input name="checkbox" type="checkbox" value="${doctor.id}" >
+                                   </span>
+                                </td>
+                                <td ><a><img src="${pageContext.request.contextPath}${doctor.url}" width="70px" height="50px"></a></td>
+                                <td >${doctor.realname}</td>
+                                <td>${doctor.name}</td>
+                                <td >${doctor.sex}</td>
+                                <td >${doctor.strength}</td>
+                                <td >${doctor.prat}</td>
+                                <td >${doctor.school}</td>
+                                <td >
+                                    <button data-toggle="modal" data-target="#detailDoctor" type="button" value="${doctor.id}" name="detail"  style="width: 80px;" class="btn btn-default" >查看详情</button>
                                 </td>
                             </tr>
                         </c:forEach>
@@ -180,10 +198,60 @@
         </tr>
     </table>
 
-<c:if test="${userInfo!=null}">
+    <!--分页 -->
+    <div style="width: 380px; margin: 0 auto; margin-top: 50px;position: relative;">
+        <ul class="pagination" style="text-align: center; margin-top: 10px;right: -496px;position: absolute;">
+            <!-- 上一页 -->
+            <c:if test="${pageBean.currentPage==1 }">
+                <li class="disabled">
+                    <a href="javascript:void(0);" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+            </c:if>
+
+            <c:if test="${pageBean.currentPage!=1 }">
+                <li>
+                    <a href="${pageContext.request.contextPath}/admin/employee/searchDoctorsInfoByCondition?currentPage=${pageBean.currentPage-1}&&search=${search}&&conditon=${condition}&&menuid=${menuid}" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+            </c:if>
+
+
+            <!-- 显示每一页 -->
+            <c:forEach begin="1" end="${pageBean.totalPage }" var="page">
+                <!-- 判断是否是当前页 -->
+                <c:if test="${page==pageBean.currentPage }">
+                    <li class="active"><a href="javascript:void(0);">${page }</a></li>
+                </c:if>
+                <c:if test="${page!=pageBean.currentPage }">
+                    <li><a href="${pageContext.request.contextPath}/admin/employee/searchDoctorsInfoByCondition?currentPage=${page}&&search=${search}&&conditon=${condition}&&menuid=${menuid}">${page}</a></li>
+                </c:if>
+            </c:forEach>
+
+
+            <!-- 下一页 -->
+            <c:if test="${pageBean.currentPage==pageBean.totalPage }">
+                <li class="disabled">
+                    <a href="javascript:void(0);" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </c:if>
+            <c:if test="${pageBean.currentPage!=pageBean.totalPage }">
+                <li>
+                    <a href="${pageContext.request.contextPath}/admin/employee/searchDoctorsInfoByCondition?currentPage=${pageBean.currentPage+1}&&search=${search}&&conditon=${condition}&&menuid=${menuid}" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </c:if>
+
+        </ul>
+    </div>
+<%--<c:if test="${userInfo!=null}">
     <c:choose>
         <c:when test="${search!=null&&search!=''}">
-            <%--分页程序--%>
             <table width="95%" border="0" cellpadding="0" cellspacing="0" class="table02" align="center">
                 <tr>
                     <td height="30" align="right">
@@ -208,7 +276,7 @@
                             </c:choose>
                         </c:if>
 
-                            <%-- 这个是中间的情况--%>
+                            &lt;%&ndash; 这个是中间的情况&ndash;%&gt;
                         <c:if test="${page.currentPage!=1 && page.currentPage!=page.totalPage}">
                             <a  href="${pageContext.request.contextPath}/admin/employee/searchDoctorsInfoByCondition?currentPage=${page.currentPage-1}&&menuid=${menuid}&&search=${search}&&conditon=${condition}">
                                 <img src="${pageContext.request.contextPath}/static/admin/images/2.gif" width="3" height="5" align="absmiddle"> 上一页
@@ -219,7 +287,7 @@
                         </c:if>
 
 
-                            <%--  当数据只有一个的时候，第一页与最后一页是重复的：为了避免这种情况的发生，加上!=1--%>
+                            &lt;%&ndash;  当数据只有一个的时候，第一页与最后一页是重复的：为了避免这种情况的发生，加上!=1&ndash;%&gt;
                         <c:if test="${page.currentPage!=1&&page.currentPage==page.totalPage}">
                             <a  href="${pageContext.request.contextPath}/admin/employee/searchDoctorsInfoByCondition?currentPage=${page.currentPage-1}&&menuid=${menuid}&&search=${search}&&conditon=${condition}">
                                 <img src="${pageContext.request.contextPath}/static/admin/images/2.gif" width="3" height="5" align="absmiddle"> 上一页
@@ -239,7 +307,7 @@
 
 
         <c:otherwise>
-            <%--分页程序--%>
+
             <table width="95%" border="0" cellpadding="0" cellspacing="0" class="table02" align="center">
                 <tr>
                     <td height="30" align="right">
@@ -264,7 +332,7 @@
                             </c:choose>
                         </c:if>
 
-                            <%-- 这个是中间的情况--%>
+                            &lt;%&ndash; 这个是中间的情况&ndash;%&gt;
                         <c:if test="${page.currentPage!=1 && page.currentPage!=page.totalPage}">
                             <a  href="${pageContext.request.contextPath}/admin/employee/selectDoctorsInfo?currentPage=${page.currentPage-1}&&menuid=${menuid}">
                                 <img src="${pageContext.request.contextPath}/static/admin/images/2.gif" width="3" height="5" align="absmiddle"> 上一页
@@ -275,7 +343,7 @@
                         </c:if>
 
 
-                            <%--  当数据只有一个的时候，第一页与最后一页是重复的：为了避免这种情况的发生，加上!=1--%>
+                            &lt;%&ndash;  当数据只有一个的时候，第一页与最后一页是重复的：为了避免这种情况的发生，加上!=1&ndash;%&gt;
                         <c:if test="${page.currentPage!=1&&page.currentPage==page.totalPage}">
                             <a  href="${pageContext.request.contextPath}/admin/employee/selectDoctorsInfo?currentPage=${page.currentPage-1}&&menuid=${menuid}">
                                 <img src="${pageContext.request.contextPath}/static/admin/images/2.gif" width="3" height="5" align="absmiddle"> 上一页
@@ -293,7 +361,7 @@
             </table>
         </c:otherwise>
     </c:choose>
-</c:if>
+</c:if>--%>
 
 
 
@@ -446,7 +514,7 @@
                                    "\t\t\t            <div class=\"col-sm-4 col-lg-4 col-xs-4 col-md-4\">\n" +
                                    "\t\t\t                <input   class=\"form-control\"  name=\"strength\"  value='"+doct.profession+"' readonly='readonly'  id=\"profession\">" +
                                    "\t\t\t            </div>\n" +
-                                   "\t\t\t     </div>\n" ;
+                                   "\t\t\t</div>\n" ;
 
 
                                content+=  "\t\t\t\t\t<div class=\"form-group\">\n" +

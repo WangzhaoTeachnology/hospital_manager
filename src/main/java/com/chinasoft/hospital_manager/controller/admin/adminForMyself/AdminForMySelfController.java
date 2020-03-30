@@ -115,7 +115,7 @@ public class AdminForMySelfController {
                // andView.addObject("search",value);
                 //andView.addObject("condition",id);
                 //andView.addObject("productCategory",productCategory);
-                andView.addObject("page",allAndMangager);
+                andView.addObject("pageBean",allAndMangager);
             }
          }
         andView.setViewName("/admin/adminInfoAndManager/clinicAndManager/query");
@@ -281,7 +281,7 @@ public class AdminForMySelfController {
                 // andView.addObject("search",value);
                 //andView.addObject("condition",id);
                 //andView.addObject("productCategory",productCategory);
-                andView.addObject("page",allAndMangager);
+                andView.addObject("pageBean",allAndMangager);
             }
         }
         andView.setViewName("/admin/adminInfoAndManager/officesAndManager/query");

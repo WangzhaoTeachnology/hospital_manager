@@ -129,7 +129,6 @@
                 and u.name like concat('%',#{name},'%')
             </if>
             <if test="sex!=null">
-          /*    and  u.sex like concat('%',#{sex},'%')*/
                 and u.sex = #{sex}
             </if>
            limit #{index} ,#{count}

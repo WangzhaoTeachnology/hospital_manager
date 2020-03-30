@@ -70,13 +70,13 @@
                             <div class="col-lg-5 col-sm-5 col-md-5 col-xs-5" style="position: relative;">
                                 <c:forEach items="${third}" var="third">
                                     <c:if test="${third.name=='开处方' && third.status==1}">
-                                        <input   data-toggle="modal" <%--data-target="#_myModal_prescription"--%>  type="button"  id="prescription" name="prescription" class="btn btn-info" value="开处方"/>
+                                        <input   data-toggle="modal" <%--data-target="#_myModal_prescription"--%>  type="button"  id="prescription" name="prescription" class="btn btn-default" value="开处方"/>
                                     </c:if>
                                     <c:if test="${third.name=='查询病历' && third.status==1}">
-                                        <input  data-toggle="modal"   type="button"   id= "delete" name="delete" class="btn btn-success" value="查询病历"/>
+                                        <input  data-toggle="modal"   type="button"   id= "delete" name="delete" class="btn btn-default" value="查询病历"/>
                                     </c:if>
                                     <c:if test="${third.name=='查询药品' && third.status==1}">
-                                        <input  data-toggle="modal"   type="button"  data-toggle="modal" data-target=".bs-example-modal-lg" id= "delete" name="delete" class="btn btn-success" value="查询药品"/>
+                                        <input  data-toggle="modal"   type="button"  data-toggle="modal" data-target=".bs-example-modal-lg" id= "delete" name="delete" class="btn btn-default" value="查询药品"/>
                                     </c:if>
                                     <c:if test="${third.name=='诊断' && third.status==1}">
                                         <div style="position: absolute;left: 260px;top: 0px;">
@@ -118,11 +118,11 @@
                             </c:if>
                             <c:if test="${third.name=='停止挂号' && third.status==1}">
                                 <input type="button"  name="stop" width="60px" height="30px"
-                                       class="btn btn-success" id="stop" value="停止挂号" style=" margin-left: -20px;position: absolute;left: 206px; "/>
+                                       class="btn btn-default" id="stop" value="停止挂号" style=" margin-left: -20px;position: absolute;left: 206px; "/>
                             </c:if>
                             <c:if test="${third.name=='时间排序' && third.status==1}">
                                 <input type="button"  name="sortbytime" width="60px" height="30px"
-                                       class="btn btn-success" value="按时间排序" style=" margin-left: -20px;position: absolute;left: 346px; "/>
+                                       class="btn btn-default" value="按时间排序" style=" margin-left: -20px;position: absolute;left: 346px; "/>
 
                                         </div>
                                     </div>
@@ -139,47 +139,49 @@
 
 
                 <c:if test="${list!=null}">
-                    <table width="95%" border="0" cellpadding="2"  style="border: 0px solid red;" cellspacing="0" class="table01" id="tableInfo">
-                        <tr >
-                            <td class="td_top">选择</td>
-                            <td class="td_top">姓名</td>
-                            <td class="td_top">性别</td>
-                            <td class="td_top">就诊序号</td>
-                            <td class="td_top">初/复诊</td>
-                            <td class="td_top">是否诊断</td>
-                            <td class="td_top">挂号时间</td>
-                            <td class="td_top">等候时间</td>
-                            <td class="td_top" style="padding-left: 74px;">操作</td>
+                    <table class="table table-bordered" style="width: 1580px;" id="tableInfo">
+                        <tr class="active">
+                            <td >选择</td>
+                            <td>挂号编号</td>
+                            <td >姓名</td>
+                            <td >性别</td>
+                            <td>就诊序号</td>
+                            <td >初/复诊</td>
+                            <td >是否诊断</td>
+                            <td >挂号时间</td>
+                            <td>等候时间</td>
+                            <td  style="padding-left: 74px;">操作</td>
                         </tr>
                         <c:forEach items="${list}" var="info">
-                            <tr class="content">
-                                <td class="td_01">
+                            <tr>
+                                <td>
                                     <span >
                                           <input name="checkbox"   id="appointid" value="${info.id}" type="checkbox" />
                                           <input name="patientid"   id="patientid${info.id}" value="${info.patient.id}" type="hidden" />
                                           <input name="patientname"   id="patientname${info.id}" value="${info.patient.name}" type="hidden" />
                                    </span>
                                 </td>
-                                <td class="td_01" >${info.patient.name}</td>
-                                <td class="td_01">${info.patient.sex}</td>
-                                <td class="td_01">${info.number}</td>
-                                <td class="td_01">${info.status==0?   '初诊':'复诊'}</td>
-                                <td class="td_01">${info.flag==1?   '已诊断':'未诊断'}</td>
-                                <td class="td_01">
+                                <td >${info.id}</td>
+                                <td >${info.patient.name}</td>
+                                <td >${info.patient.sex}</td>
+                                <td >${info.number}</td>
+                                <td >${info.status==0?   '初诊':'复诊'}</td>
+                                <td >${info.flag==1?   '已诊断':'未诊断'}</td>
+                                <td >
                                         ${info.datetime}
                                     <input type="hidden" value="${info.datetime}" name="${info.id}"/>
                                 </td>
-                                <td class="td_01" style="width: 340px;" name="waitime${info.id}">${info.waitime}</td>
-                                <td class="td_01">
+                                <td  style="width: 340px;" name="waitime${info.id}">${info.waitime}</td>
+                                <td >
                                     <c:if test="${info.flag==1}">
-                                        <button  type="button" value="${info.id}" name="confirm" id="confirm${info.id}"  disabled="disabled" class="btn btn-success">接诊</button>
+                                        <button  type="button" value="${info.id}" name="confirm" id="confirm${info.id}"  disabled="disabled" class="btn btn-default">接诊</button>
                                         &nbsp; &nbsp; &nbsp; &nbsp;
                                     </c:if>
                                     <c:if test="${info.flag==0}">
-                                        <button  type="button" value="${info.id}"  name="confirm" id="confirm${info.id}" class="btn btn-success">接诊</button>
+                                        <button  type="button" value="${info.id}"  name="confirm" id="confirm${info.id}" class="btn btn-default">接诊</button>
                                         &nbsp; &nbsp; &nbsp; &nbsp;
                                     </c:if>
-                                    <button data-toggle="modal" data-target="#myModal" type="button" value="${info.id}" name="detail" class="btn btn-info">查看详情</button>
+                                    <button data-toggle="modal" data-target="#myModal" type="button" value="${info.id}" name="detail" class="btn btn-default">查看详情</button>
                                 </td>
                             </tr>
                         </c:forEach>
@@ -200,55 +202,106 @@
         </tr>
     </table>
 
-<c:if test="${list!=null}">
+    <!--分页 -->
+    <div style="width: 380px; margin: 0 auto; margin-top: 50px;position: relative;">
+        <ul class="pagination" style="text-align: center; margin-top: 10px;right: -496px;position: absolute;">
+            <!-- 上一页 -->
+            <c:if test="${pageBean.currentPage==1 }">
+                <li class="disabled">
+                    <a href="javascript:void(0);" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+            </c:if>
+
+            <c:if test="${pageBean.currentPage!=1 }">
+                <li>
+                    <a href="${pageContext.request.contextPath}/admin/doctor/searchPatientsInfoByCondition?currentPage=${pageBean.currentPage-1}&&menuid=${menuid}&&search=${search}&&condition=${condition}" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+            </c:if>
+
+
+            <!-- 显示每一页 -->
+            <c:forEach begin="1" end="${pageBean.totalPage }" var="page">
+                <!-- 判断是否是当前页 -->
+                <c:if test="${page==pageBean.currentPage }">
+                    <li class="active"><a href="javascript:void(0);">${page}</a></li>
+                </c:if>
+                <c:if test="${page!=pageBean.currentPage }">
+                    <li><a href="${pageContext.request.contextPath}/admin/doctor/searchPatientsInfoByCondition?currentPage=${page}&&menuid=${menuid}&&search=${search}&&condition=${condition}">${page}</a></li>
+                </c:if>
+            </c:forEach>
+
+
+            <!-- 下一页 -->
+            <c:if test="${pageBean.currentPage==pageBean.totalPage }">
+                <li class="disabled">
+                    <a href="javascript:void(0);" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </c:if>
+            <c:if test="${pageBean.currentPage!=pageBean.totalPage }">
+                <li>
+                    <a href="${pageContext.request.contextPath}/admin/doctor/searchPatientsInfoByCondition?currentPage=${pageBean.currentPage+1}&&menuid=${menuid}&&search=${search}&&condition=${condition}" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </c:if>
+        </ul>
+    </div>
+
+<%--<c:if test="${list!=null}">
     <c:choose>
         <c:when test="${search!=null&&search!=''}">
             <table width="95%" border="0" cellpadding="0" cellspacing="0" class="table02" align="center">
                 <tr>
                     <td height="30" align="right">
-                        <a href="${pageContext.request.contextPath}/admin/doctor/searchPatientsInfoByCondition?currentPage=${1}&&menuid=${menuid}&&search=${search}&&conditon=${condition}">
+                        <a href="${pageContext.request.contextPath}/admin/doctor/searchPatientsInfoByCondition?currentPage=${1}&&menuid=${menuid}&&search=${search}&&condition=${condition}">
                             <img src="${pageContext.request.contextPath}/static/admin/images/1.gif" width="4" height="5" align="absmiddle"> 首页
                         </a>
 
                         <c:if test="${page.currentPage==1}">
-                            <a  href="${pageContext.request.contextPath}/admin/doctor/searchPatientsInfoByCondition?currentPage=${1}&&menuid=${menuid}&&search=${search}&&conditon=${condition}">
+                            <a  href="${pageContext.request.contextPath}/admin/doctor/searchPatientsInfoByCondition?currentPage=${1}&&menuid=${menuid}&&search=${search}&&condition=${condition}">
                                 <img src="${pageContext.request.contextPath}/static/admin/images/2.gif" width="3" height="5" align="absmiddle"> 上一页
                             </a>
                             <c:choose>
                                 <c:when test="${page.currentPage==page.totalPage&&page.currentPage==1}">
-                                    <a  href="${pageContext.request.contextPath}/admin/doctor/searchPatientsInfoByCondition?currentPage=${1}&&menuid=${menuid}&&search=${search}&&conditon=${condition}">
+                                    <a  href="${pageContext.request.contextPath}/admin/doctor/searchPatientsInfoByCondition?currentPage=${1}&&menuid=${menuid}&&search=${search}&&condition=${condition}">
                                         <img src="${pageContext.request.contextPath}/static/admin/images/2-2.gif" width="3" height="5" align="absmiddle"> 下一页
                                     </a>
                                 </c:when>
                                 <c:otherwise>
-                                    <a  href="${pageContext.request.contextPath}/admin/doctor/searchPatientsInfoByCondition?currentPage=${page.currentPage+1}&&menuid=${menuid}&&search=${search}&&conditon=${condition}">
+                                    <a  href="${pageContext.request.contextPath}/admin/doctor/searchPatientsInfoByCondition?currentPage=${page.currentPage+1}&&menuid=${menuid}&&search=${search}&&condition=${condition}">
                                         <img src="${pageContext.request.contextPath}/static/admin/images/2-2.gif" width="3" height="5" align="absmiddle"> 下一页
                                     </a>
                                 </c:otherwise>
                             </c:choose>
                         </c:if>
 
-                            <%-- 这个是中间的情况--%>
+
                         <c:if test="${page.currentPage!=1 && page.currentPage!=page.totalPage}">
-                            <a  href="${pageContext.request.contextPath}/admin/doctor/searchPatientsInfoByCondition?currentPage=${page.currentPage-1}&&menuid=${menuid}&&search=${search}&&conditon=${condition}">
+                            <a  href="${pageContext.request.contextPath}/admin/doctor/searchPatientsInfoByCondition?currentPage=${page.currentPage-1}&&menuid=${menuid}&&search=${search}&&condition=${condition}">
                                 <img src="${pageContext.request.contextPath}/static/admin/images/2.gif" width="3" height="5" align="absmiddle"> 上一页
                             </a>
-                            <a  href="${pageContext.request.contextPath}/admin/doctor/searchPatientsInfoByCondition?currentPage=${page.currentPage+1}&&menuid=${menuid}&&search=${search}&&conditon=${condition}">
+                            <a  href="${pageContext.request.contextPath}/admin/doctor/searchPatientsInfoByCondition?currentPage=${page.currentPage+1}&&menuid=${menuid}&&search=${search}&&condition=${condition}">
                                 <img src="${pageContext.request.contextPath}/static/admin/images/2-2.gif" width="3" height="5" align="absmiddle"> 下一页
                             </a>
                         </c:if>
 
 
-                            <%--  当数据只有一个的时候，第一页与最后一页是重复的：为了避免这种情况的发生，加上!=1--%>
+
                         <c:if test="${page.currentPage!=1&&page.currentPage==page.totalPage}">
-                            <a  href="${pageContext.request.contextPath}/admin/doctor/searchPatientsInfoByCondition?currentPage=${page.currentPage-1}&&menuid=${menuid}&&search=${search}&&conditon=${condition}">
+                            <a  href="${pageContext.request.contextPath}/admin/doctor/searchPatientsInfoByCondition?currentPage=${page.currentPage-1}&&menuid=${menuid}&&search=${search}&&condition=${condition}">
                                 <img src="${pageContext.request.contextPath}/static/admin/images/2.gif" width="3" height="5" align="absmiddle"> 上一页
                             </a>
-                            <a  href="${pageContext.request.contextPath}/admin/doctor/searchPatientsInfoByCondition?currentPage=${page.totalPage}&&menuid=${menuid}&&search=${search}&&conditon=${condition}">
+                            <a  href="${pageContext.request.contextPath}/admin/doctor/searchPatientsInfoByCondition?currentPage=${page.totalPage}&&menuid=${menuid}&&search=${search}&&condition=${condition}">
                                 <img src="${pageContext.request.contextPath}/static/admin/images/2-2.gif" width="3" height="5" align="absmiddle"> 下一页
                             </a>
                         </c:if>
-                        <a  href="${pageContext.request.contextPath}/admin/doctor/searchPatientsInfoByCondition?currentPage=${page.totalPage}&&menuid=${menuid}&&search=${search}&&conditon=${condition}">
+                        <a  href="${pageContext.request.contextPath}/admin/doctor/searchPatientsInfoByCondition?currentPage=${page.totalPage}&&menuid=${menuid}&&search=${search}&&condition=${condition}">
                             <img src="${pageContext.request.contextPath}/static/admin/images/3.gif" width="4" height="5" align="absmiddle"> 末页
                         </a>
                         　共 ${page.totalPage} 页 ${page.totalCount} 条记录
@@ -284,7 +337,7 @@
                             </c:choose>
                         </c:if>
 
-                            <%-- 这个是中间的情况--%>
+
                         <c:if test="${page.currentPage!=1 && page.currentPage!=page.totalPage}">
                             <a  href="${pageContext.request.contextPath}/admin/doctor/findPatientOfAppointment?currentPage=${page.currentPage-1}&&menuid=${menuid}">
                                 <img src="${pageContext.request.contextPath}/static/admin/images/2.gif" width="3" height="5" align="absmiddle"> 上一页
@@ -295,7 +348,7 @@
                         </c:if>
 
 
-                            <%--  当数据只有一个的时候，第一页与最后一页是重复的：为了避免这种情况的发生，加上!=1--%>
+
                         <c:if test="${page.currentPage!=1&&page.currentPage==page.totalPage}">
                             <a  href="${pageContext.request.contextPath}/admin/doctor/findPatientOfAppointment?currentPage=${page.currentPage-1}&&menuid=${menuid}">
                                 <img src="${pageContext.request.contextPath}/static/admin/images/2.gif" width="3" height="5" align="absmiddle"> 上一页
@@ -313,7 +366,7 @@
             </table>
         </c:otherwise>
     </c:choose>
-</c:if>
+</c:if>--%>
 
 
 
@@ -336,7 +389,7 @@
 
                     <div class="row">
                         <%--这个是表格--%>
-                        <table class="table table-striped" id="prescribe_Content" style="border: 1px solid red;">
+                        <table class="table table-striped" id="prescribe_Content" style="border: 0px solid red;">
                             <thead>
                             <tr>
                                 <td class="active">处方编号</td>
@@ -358,14 +411,14 @@
                             </tbody>
                         </table>
                     </div>
-                    <div class="row" style="border: 1px solid red;position: relative;margin-bottom:40px; ">
-                        <div class="form-group" style="border: 1px solid red;position: absolute;right: 0px;">
+                    <div class="row" style="border: 0px solid red;position: relative;margin-bottom:40px; ">
+                        <div class="form-group" style="border: 0px solid red;position: absolute;right: 0px;">
                             <span for="_comment" class="control-label" style="margin-top: -3px;">总价格:￥</span>
                             <span for="_comment" class="control-label" style="margin-top: -3px;" id="totalPrice">5687</span>
                         </div>
                     </div>
 
-                    <div class="row" style="margin-top: -10px;border: 1px solid red;">
+                    <div class="row" style="margin-top: -10px;border: 0px solid red;">
                         <div class="form-group">
                             <label for="prescription_content" class="col-sm-2 control-label" style="margin-top: -3px;margin-left: -20px;">诊断内容:</label>
                             <div class="col-sm-10">
@@ -373,7 +426,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row" style="border: 1px solid red;">
+                    <div class="row" style="border: 0px solid red;">
                         <div class="form-group">
                             <label for="doctor_comment" class="col-sm-2 control-label" style="margin-top: -3px;margin-left: -19px;">医嘱:</label>
                             <div class="col-sm-10">
@@ -381,8 +434,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row" style="border: 1px solid red;position: relative;">
-                        <div class="form-group" style="border: 1px solid red;position: absolute;right: 0px;">
+                    <div class="row" style="border: 0px solid red;position: relative;">
+                        <div class="form-group" style="border: 0px solid red;position: absolute;right: 0px;">
                             <span for="_comment" class="control-label" style="margin-top: -3px;">诊断时间:</span>
                             <span for="_comment" class="control-label" style="margin-top: -3px;" id="nowtime"></span>
                         </div>
@@ -428,6 +481,7 @@
             </div>
         </div>
     </div>
+
 
     <!-- 这个是点击详情查询数据 -->
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -784,7 +838,7 @@ $(function () {
     $("#addbtn_prescription").on('click', function () {
         //$('#secondmodal').modal();
         $("#add_prescription").modal();
-        alert("come in");
+        //alert("come in");
     });
 
      setInterval(function () {
@@ -1313,7 +1367,7 @@ $(function () {
                                                        "             <td class=\"active\">数量</td>\n" +
                                                        "             <td class=\"active\">备注</td>\n" +
                                                        "             <td class=\"active\">单价</td>\n" +
-                                                             "</tr>\n";
+                                                       "</tr>";
 
                                                    $("#table_history_info").append(head);
 
@@ -1363,15 +1417,12 @@ $(function () {
         });
 
 
-
-
-
         //这个是医生按照时间排序的操作
         $("input[name='sortbytime']").click(function () {
             var search="sort";
             var conditon="排序";
             var  menuid=$("#menuid").val();
-            window.location.href="${pageContext.request.contextPath}/admin/doctor/searchPatientsInfoByCondition?search="+search+"&&menuid="+menuid+"&&conditon="+conditon;
+            window.location.href="${pageContext.request.contextPath}/admin/doctor/searchPatientsInfoByCondition?search="+search+"&&menuid="+menuid+"&&condition="+conditon;
         });
 
 
@@ -1383,15 +1434,17 @@ $(function () {
          $("#stop").click(function () {
             var value=$(this).val();
             var id=$("#doctorid").val();
+           // alert("id="+id);
             var status;
            // alert(id);
              if (value=='停止挂号'){
-                 $(this).removeClass("btn btn-success");
+                 //btn btn-default
+                 $(this).removeClass("btn btn-default");
                  $(this).addClass("btn btn-danger");
                  $(this).val("继续挂号");
                  status=1;
              } else  if (value=='继续挂号'){
-                 $(this).removeClass("btn btn-danger");
+                 $(this).removeClass("btn btn-default");
                  $(this).addClass("btn btn-success");
                  $(this).val("停止挂号");
                  status=0;
@@ -1411,7 +1464,6 @@ $(function () {
                             }else if (status==0){
                                 alert("继续正常挂号");
                             }
-
                         }else if (type=='fail'){
                             alert("操作失败，请你重新操作");
                         }
@@ -1515,6 +1567,7 @@ $(function () {
              var  btn=$(this);     //临时存储，后面要用这个变量
                 if(id!=null&&id!=""){
                     var waitime = $("#tableInfo").find("td[name='waitime"+id+"']").text();
+                    var  menuid=$("input[name='menuid']").val();
                     //将这个等待的时间，存放到后台里面，然后再次响应页面的时间，将这个数据显示在页面上
                   //  alert("waitime="+waitime);
                     $.ajax({
@@ -1534,6 +1587,9 @@ $(function () {
                                     //将这个按钮同时置为不可用的状态，而上面的定时器是将按钮可用的状态的数据，不断地
                                     //调用，不断地动态显示时间
                                     alert("操作成功");
+                                    //这个是医生接诊成功后，再次查询这个页面
+                                    window.location.href="${pageContext.request.contextPath}/admin/doctor/findPatientOfAppointment?menuid="+menuid;
+
                                 } else if(type=='fai1'){
                                     alert("接诊操作失败");
                                 } else if(type=='error'){
@@ -1582,6 +1638,7 @@ $(function () {
             //这个是每次点击这个详情的按钮的时候，清除之前的内容
             $("#maincontent").html("");
              var id=$(this).val();
+            // alert("id="+id);
               if (id!=null&&id!=""){
                    //  alert("come in");
                       $.ajax({
@@ -1601,6 +1658,15 @@ $(function () {
                                   //获取年 
                                   var fullYear =parseInt(d.getFullYear());
                                   var age=fullYear-year;
+                                  var datetime=appointment.datetime;
+                                /*  var year = datetime.substring(0,9);
+                                  var hours=datetime.substring(10,datetime.length);
+                                 var str_datetime=year+" T"+hours;
+                                   str_datetime=str_datetime.trim();
+                                  alert("str_datetime="+str_datetime);*/
+
+                            /*      var  str_datetime=year+"-"+month+"-"+strDate+"T"+dateHours+":"+dateMinutes;
+                                  alert(str_datetime);*/
 
                                   var  content=" <div class=\"form-horizontal\" style=\"border:0px solid red;text-align:center;margin-left: 100px;\">\n" +
                                       "                        <div class=\"form-group\">\n" +
@@ -1740,7 +1806,6 @@ $(function () {
         //只要点击事件
         $("#menuls li").click(function () {
             var  value=$(this).text()+"<span class=\"caret\"></span>";
-
             if (value!=null&&value!=""){
                 $("#appear_btn").html(value);
                 var str="按照"+$(this).text()+"条件搜索";
@@ -1762,7 +1827,7 @@ $(function () {
             else if(id==-1){
 
             }
-            window.location.href="${pageContext.request.contextPath}/admin/doctor/searchPatientsInfoByCondition?search="+search+"&&menuid="+menuid+"&&conditon="+conditon;
+            window.location.href="${pageContext.request.contextPath}/admin/doctor/searchPatientsInfoByCondition?search="+search+"&&menuid="+menuid+"&&condition="+conditon;
         });
 
 
@@ -1772,7 +1837,7 @@ $(function () {
             var  conditon= $("#appear_btn").text();
             var  index=-1;
             var  menuid=$("#menuid").val();
-            alert("menuid="+menuid);
+           // alert("menuid="+menuid);
             var  startime=$("#startime").val();
             var  endtime=$("#endtime").val();
 
@@ -1787,7 +1852,7 @@ $(function () {
                          return;
                      }
                      //其他的条件。同时这个search不为空，
-                     window.location.href="${pageContext.request.contextPath}/admin/doctor/searchPatientsInfoByCondition?search="+search+"&&menuid="+menuid+"&&conditon="+conditon;
+                     window.location.href="${pageContext.request.contextPath}/admin/doctor/searchPatientsInfoByCondition?search="+search+"&&menuid="+menuid+"&&condition="+conditon;
                  }
 
             }else{
@@ -1796,7 +1861,7 @@ $(function () {
                 // 而后台有search判断不为空，所以在前端的页面加上search默认的数据
                 if (conditon=="今天"){
                     search="今天";
-                    window.location.href="${pageContext.request.contextPath}/admin/doctor/searchPatientsInfoByCondition?search="+search+"&&menuid="+menuid+"&&conditon="+conditon;
+                    window.location.href="${pageContext.request.contextPath}/admin/doctor/searchPatientsInfoByCondition?search="+search+"&&menuid="+menuid+"&&condition="+conditon;
                 } else  if (conditon=="全部"){
                     search="全部";
 
@@ -1808,7 +1873,7 @@ $(function () {
                             alert("开始时间不能大于结束时间！");
                             return ;
                         }else{
-                            window.location.href="${pageContext.request.contextPath}/admin/doctor/searchPatientsInfoByCondition?search="+search+"&&menuid="+menuid+"&&conditon="+conditon+"&&startime="+start+"&&endtime="+end;
+                            window.location.href="${pageContext.request.contextPath}/admin/doctor/searchPatientsInfoByCondition?search="+search+"&&menuid="+menuid+"&&condition="+conditon+"&&startime="+start+"&&endtime="+end;
                             return;
                         }
                     }
@@ -1823,11 +1888,6 @@ $(function () {
             }
         });
     });
-
-
-
-
-
 
 
 

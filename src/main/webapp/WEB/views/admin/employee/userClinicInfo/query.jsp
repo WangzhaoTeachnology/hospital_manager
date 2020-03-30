@@ -122,25 +122,19 @@
                     </tr>
                 </table>
                 <br>
-                <%--   <table width="95%"  border="0" cellspacing="2" cellpadding="0">
-                     <tr>
-                       <td align="right"><input name="Submit" type="button" class="buttonface" onClick="windowOpen('rolelist2.htm','','','340','270','no','50','50')" value="分配角色">
-                         <input name="Submit" type="button" class="buttonface"  value="分配系统管理员">
-                         <input name="Submit" type="button" class="buttonface" onClick="javascript:window.location.href='userpms.htm'" value="查看用户权限">
-                         </td>
-                       </tr>
-                     </table>--%>
 
-                <table width="95%" border="0" cellpadding="2" cellspacing="0" class="table01">
-                    <tr>
-                        <td class="td_top">
-                           <%-- <input name="chk" type="checkbox" id="chk" onClick="selectAllByChk(chk,checkbox)"
-                                   value="checkbox0">--%>
 
-                            <%--  这个是为了点击不同的二级的菜单的时候，利用二级菜单，查询三级菜单,这个函数
+             <%--   <table width="95%" border="0" cellpadding="2" cellspacing="0" class="table01">--%>
+                <table class="table table-bordered"  style="height: 24px;width: 1580px;">
+                    <tr class="active">
+          <%--              <td class="td_top">
+                           &lt;%&ndash; <input name="chk" type="checkbox" id="chk" onClick="selectAllByChk(chk,checkbox)"
+                                   value="checkbox0">&ndash;%&gt;
+
+                            &lt;%&ndash;  这个是为了点击不同的二级的菜单的时候，利用二级菜单，查询三级菜单,这个函数
                               是查看数据的函数，当你点击上下页的时候也是利用这个查询的函数，此时这个函数是两个功能
                               所以，当你每次你点击下一页的时候，都得把这个menuid二级菜单的id，存放到该页面上隐藏起来，然后再次请求这个
-                              查询的函数的时候，再次接受这个menuid--%>
+                              查询的函数的时候，再次接受这个menuid&ndash;%&gt;
                                选择
                             <input name="menuid" type="hidden" value="${menuid}" id="menuid"/>
                         </td>
@@ -151,24 +145,37 @@
                         <td class="td_top">性别</td>
                         <td class="td_top">专业</td>
                         <td class="td_top">工作</td>
-                        <td class="td_top">毕业学校</td>
+                        <td class="td_top">毕业学校</td>--%>
+
+                        <td >
+                            选择
+                            <input name="menuid" type="hidden" value="${menuid}" id="menuid"/>
+                        </td>
+                        <td>姓名</td>
+                        <td >真实姓名</td>
+                        <td >密码</td>
+                        <td >出生日期</td>
+                        <td >性别</td>
+                        <td >专业</td>
+                        <td >工作</td>
+                        <td >毕业学校</td>
                     </tr>
 
                     <c:forEach items="${userInfo}" var="user">
                         <tr>
-                            <td class="td_01">
-                                <span class="td01">
+                            <td >
+                                <span >
                                   <input name="checkbox" type="checkbox" value="${user.id}" onclick="chooseOne(this)">
                                </span>
                             </td>
-                            <td class="td_01"><a>${user.username}</a></td>
-                            <td class="td_01">${user.name}</td>
-                            <td class="td_01">${user.password}</td>
-                            <td class="td_01">${user.birthday}</td>
-                            <td class="td_01">${user.sex==0? '男':'女'}</td>
-                            <td class="td_01">${user.profession}</td>
-                            <td class="td_01">${user.job}</td>
-                            <td class="td_01">${user.school}</td>
+                            <td ><a>${user.username}</a></td>
+                            <td >${user.name}</td>
+                            <td >${user.password}</td>
+                            <td >${user.birthday}</td>
+                            <td >${user.sex==0? '男':'女'}</td>
+                            <td >${user.profession}</td>
+                            <td >${user.job}</td>
+                            <td >${user.school}</td>
                         </tr>
                     </c:forEach>
                 </table>
@@ -176,19 +183,71 @@
         </tr>
     </table>
 
-    <c:choose>
+
+    <!--分页 -->
+    <div style="width: 380px; margin: 0 auto; margin-top: 50px;position: relative;">
+        <ul class="pagination" style="text-align: center; margin-top: 10px;right: -496px;position: absolute;">
+            <!-- 上一页 -->
+            <c:if test="${pageBean.currentPage==1 }">
+                <li class="disabled">
+                    <a href="javascript:void(0);" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+            </c:if>
+
+            <c:if test="${pageBean.currentPage!=1 }">
+                <li>
+                    <a href="${pageContext.request.contextPath}/admin/user/searchUserInfoByCondition?currentPage=${pageBean.currentPage-1}&&search=${search}&&conditon=${condition}&&menuid=${menuid}" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+            </c:if>
+
+
+            <!-- 显示每一页 -->
+            <c:forEach begin="1" end="${pageBean.totalPage }" var="page">
+                <!-- 判断是否是当前页 -->
+                <c:if test="${page==pageBean.currentPage }">
+                    <li class="active"><a href="javascript:void(0);">${page }</a></li>
+                </c:if>
+                <c:if test="${page!=pageBean.currentPage }">
+                    <li><a href="${pageContext.request.contextPath}/admin/user/searchUserInfoByCondition?currentPage=${page}&&search=${search}&&conditon=${condition}&&menuid=${menuid}">${page}</a></li>
+                </c:if>
+            </c:forEach>
+
+
+            <!-- 下一页 -->
+            <c:if test="${pageBean.currentPage==pageBean.totalPage }">
+                <li class="disabled">
+                    <a href="javascript:void(0);" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </c:if>
+            <c:if test="${pageBean.currentPage!=pageBean.totalPage }">
+                <li>
+                    <a href="${pageContext.request.contextPath}/admin/user/searchUserInfoByCondition?currentPage=${pageBean.currentPage+1}&&search=${search}&&conditon=${condition}&&menuid=${menuid}" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </c:if>
+
+        </ul>
+    </div>
+<%--    <c:choose>
         <c:when test="${search!=null&&search!=''}">
-            <%--分页程序--%>
+            &lt;%&ndash;分页程序&ndash;%&gt;
             <table width="95%" border="0" cellpadding="0" cellspacing="0" class="table02" align="center">
                 <tr>
                     <td height="30" align="right">
                         <a href="${pageContext.request.contextPath}/admin/user/searchUserInfoByCondition?currentPage=${1}&&menuid=${menuid}&&search=${search}&&conditon=${condition}">
                             <img src="${pageContext.request.contextPath}/static/admin/images/1.gif" width="4" height="5" align="absmiddle"> 首页
                         </a>
-                            <%--         当你一直点击上一页，直到第一页的时候：
+                            &lt;%&ndash;         当你一直点击上一页，直到第一页的时候：
                                       如果这个总的页数就是一页：
                                         点击下一页的会异常。
-                                     怎样解决这个问题：就是判断此时处于第一页的时候，判断当前的页码与总页数是不是相等为1--%>
+                                     怎样解决这个问题：就是判断此时处于第一页的时候，判断当前的页码与总页数是不是相等为1&ndash;%&gt;
                         <c:if test="${page.currentPage==1}">
                             <a  href="${pageContext.request.contextPath}/admin/user/searchUserInfoByCondition?currentPage=${1}&&menuid=${menuid}&&search=${search}&&conditon=${condition}">
                                 <img src="${pageContext.request.contextPath}/static/admin/images/2.gif" width="3" height="5" align="absmiddle"> 上一页
@@ -207,7 +266,7 @@
                             </c:choose>
                         </c:if>
 
-                            <%-- 这个是中间的情况--%>
+                            &lt;%&ndash; 这个是中间的情况&ndash;%&gt;
                         <c:if test="${page.currentPage!=1 && page.currentPage!=page.totalPage}">
                             <a  href="${pageContext.request.contextPath}/admin/user/searchUserInfoByCondition?currentPage=${page.currentPage-1}&&menuid=${menuid}&&search=${search}&&conditon=${condition}">
                                 <img src="${pageContext.request.contextPath}/static/admin/images/2.gif" width="3" height="5" align="absmiddle"> 上一页
@@ -218,7 +277,7 @@
                         </c:if>
 
 
-                            <%--  当数据只有一个的时候，第一页与最后一页是重复的：为了避免这种情况的发生，加上!=1--%>
+                            &lt;%&ndash;  当数据只有一个的时候，第一页与最后一页是重复的：为了避免这种情况的发生，加上!=1&ndash;%&gt;
                         <c:if test="${page.currentPage!=1&&page.currentPage==page.totalPage}">
                             <a  href="${pageContext.request.contextPath}/admin/user/searchUserInfoByCondition?currentPage=${page.currentPage-1}&&menuid=${menuid}&&search=${search}&&conditon=${condition}">
                                 <img src="${pageContext.request.contextPath}/static/admin/images/2.gif" width="3" height="5" align="absmiddle"> 上一页
@@ -238,17 +297,17 @@
 
 
         <c:otherwise>
-            <%--分页程序--%>
+            &lt;%&ndash;分页程序&ndash;%&gt;
             <table width="95%" border="0" cellpadding="0" cellspacing="0" class="table02" align="center">
                 <tr>
                     <td height="30" align="right">
                         <a href="${pageContext.request.contextPath}/admin/user/clinicUserInfo?currentPage=${1}&&menuid=${menuid}">
                             <img src="${pageContext.request.contextPath}/static/admin/images/1.gif" width="4" height="5" align="absmiddle"> 首页
                         </a>
-                            <%--         当你一直点击上一页，直到第一页的时候：
+                            &lt;%&ndash;         当你一直点击上一页，直到第一页的时候：
                                       如果这个总的页数就是一页：
                                         点击下一页的会异常。
-                                     怎样解决这个问题：就是判断此时处于第一页的时候，判断当前的页码与总页数是不是相等为1--%>
+                                     怎样解决这个问题：就是判断此时处于第一页的时候，判断当前的页码与总页数是不是相等为1&ndash;%&gt;
                         <c:if test="${page.currentPage==1}">
                             <a  href="${pageContext.request.contextPath}/admin/user/clinicUserInfo?currentPage=${1}&&menuid=${menuid}">
                                 <img src="${pageContext.request.contextPath}/static/admin/images/2.gif" width="3" height="5" align="absmiddle"> 上一页
@@ -267,7 +326,7 @@
                             </c:choose>
                         </c:if>
 
-                            <%-- 这个是中间的情况--%>
+                            &lt;%&ndash; 这个是中间的情况&ndash;%&gt;
                         <c:if test="${page.currentPage!=1 && page.currentPage!=page.totalPage}">
                             <a  href="${pageContext.request.contextPath}/admin/user/clinicUserInfo?currentPage=${page.currentPage-1}&&menuid=${menuid}">
                                 <img src="${pageContext.request.contextPath}/static/admin/images/2.gif" width="3" height="5" align="absmiddle"> 上一页
@@ -278,7 +337,7 @@
                         </c:if>
 
 
-                            <%--  当数据只有一个的时候，第一页与最后一页是重复的：为了避免这种情况的发生，加上!=1--%>
+                            &lt;%&ndash;  当数据只有一个的时候，第一页与最后一页是重复的：为了避免这种情况的发生，加上!=1&ndash;%&gt;
                         <c:if test="${page.currentPage!=1&&page.currentPage==page.totalPage}">
                             <a  href="${pageContext.request.contextPath}/admin/user/clinicUserInfo?currentPage=${page.currentPage-1}&&menuid=${menuid}">
                                 <img src="${pageContext.request.contextPath}/static/admin/images/2.gif" width="3" height="5" align="absmiddle"> 上一页
@@ -296,7 +355,7 @@
                 </tr>
             </table>
         </c:otherwise>
-    </c:choose>
+    </c:choose>--%>
 
 
 
@@ -375,7 +434,8 @@
         $("#searchvalue").dblclick(function () {
             var  menuid=$("#menuid").val();
             if (menuid!=null&&menuid!=""){
-                window.location.href="${pageContext.request.contextPath}/admin/user/clinicUserInfo?menuid="+menuid;
+              //  window.location.href="${pageContext.request.contextPath}/admin/user/clinicUserInfo?menuid="+menuid;
+                window.location.href="${pageContext.request.contextPath}/admin/user/searchUserInfoByCondition?search="+search+"&&menuid="+menuid+"&&conditon="+conditon;
             }
         });
 
@@ -421,7 +481,8 @@
                 }
                 window.location.href="${pageContext.request.contextPath}/admin/user/searchUserInfoByCondition?search="+search+"&&menuid="+menuid+"&&conditon="+conditon;
             }else{
-                window.location.href="${pageContext.request.contextPath}/admin/user/clinicUserInfo?menuid="+menuid;
+              //  window.location.href="${pageContext.request.contextPath}/admin/user/clinicUserInfo?menuid="+menuid;
+                window.location.href="${pageContext.request.contextPath}/admin/user/searchUserInfoByCondition?search="+search+"&&menuid="+menuid+"&&conditon="+conditon;
             }
 
         });
@@ -555,7 +616,8 @@
                        if (type=='success'){
                            alert("添加数据成功");
                            if (menuid!=null&&menuid!=""){
-                               window.location.href="${pageContext.request.contextPath}/admin/user/clinicUserInfo?menuid="+menuid;
+                            //   window.location.href="${pageContext.request.contextPath}/admin/user/clinicUserInfo?menuid="+menuid;
+                               window.location.href="${pageContext.request.contextPath}/admin/user/searchUserInfoByCondition?search="+search+"&&menuid="+menuid+"&&conditon="+conditon;
                            }
                        } else if (type=='fail'){
                           alert("添加数据失败");
@@ -594,7 +656,8 @@
                                 if (type=='success'){
                                     alert("删除成功");
                                     if (menuid!=null&&menuid!=""){
-                                        window.location.href="${pageContext.request.contextPath}/admin/user/clinicUserInfo?menuid="+menuid;
+                                     //   window.location.href="${pageContext.request.contextPath}/admin/user/clinicUserInfo?menuid="+menuid;
+                                        window.location.href="${pageContext.request.contextPath}/admin/user/searchUserInfoByCondition?search="+search+"&&menuid="+menuid+"&&conditon="+conditon;
                                     }
                                 } else {
                                     alert("删除失败");
@@ -757,7 +820,8 @@
                      if (type == 'success'){
                          alert("修改数据成功");
                          if (menuid!=null&&menuid!=""){
-                             window.location.href="${pageContext.request.contextPath}/admin/user/clinicUserInfo?menuid="+menuid;
+                           //  window.location.href="${pageContext.request.contextPath}/admin/user/clinicUserInfo?menuid="+menuid;
+                             window.location.href="${pageContext.request.contextPath}/admin/user/searchUserInfoByCondition?search="+search+"&&menuid="+menuid+"&&conditon="+conditon;
                          }
                      } else if (type == 'fail') {
                          alert("修改数据失败");
@@ -770,12 +834,6 @@
     });
 
 
-
-    //这个种写法也行
-   /* $("#menuls").on("click","li",function(){
-        alert($(this).text());
-    });
-*/
 
 </script>
 </html>

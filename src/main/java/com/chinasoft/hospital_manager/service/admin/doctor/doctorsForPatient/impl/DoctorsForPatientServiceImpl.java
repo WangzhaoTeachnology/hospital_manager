@@ -196,7 +196,7 @@ public class DoctorsForPatientServiceImpl implements DoctorsForPatientService {
 
     @Override
     public int updatePrescriptionItemInfo(Map<String, Object> map) {
-        int i = doctorsForPatientMapper.submitHistoryByDoctor(map);
+        int i = doctorsForPatientMapper.updatePrescriptionItemInfo(map);
         if (i>0){
             return i;
         }

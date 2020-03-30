@@ -97,30 +97,30 @@
                   </table>
                 <br>
                 <c:if test="${lists!=null}">
-                      <table width="95%" border="0" cellpadding="2" cellspacing="0" class="table01">
+                      <table class="table table-bordered" style="width: 1580px;">
                             <tr>
-                                <td class="td_top">
+                                <td>
                                        选择
                                 </td>
-                                <td class="td_top">编号</td>
-                                <td class="td_top">科室名称</td>
-                                <td class="td_top">门诊名称</td>
+                                <td >编号</td>
+                                <td >科室名称</td>
+                                <td >门诊名称</td>
                             </tr>
                         <c:forEach items="${lists}" var="clinic">
                             <tr>
-                                   <td class="td_01">
-                                        <span class="td01">
+                                   <td >
+                                        <span >
                                           <input name="checkbox" type="checkbox" value="${clinic.id}" />
                                        </span>
                                     </td>
-                                    <td class="td_01">
+                                    <td >
                                             ${clinic.id}
                                     </td>
-                                    <td class="td_01">
+                                    <td >
                                             ${clinic.name}
                                         <input  type="hidden" name="${clinic.appoint_category.name}" value="${clinic.name}" id="appointId${clinic.id}"/>
                                     </td>
-                                    <td class="td_01">
+                                    <td >
                                             ${clinic.appoint_category.name}
                                     </td>
                             </tr>
@@ -140,8 +140,59 @@
         </tr>
     </table>
 
+    <!--分页 -->
+    <div style="width: 380px; margin: 0 auto; margin-top: 50px;position: relative;">
+        <ul class="pagination" style="text-align: center; margin-top: 10px;right: -496px;position: absolute;">
+            <!-- 上一页 -->
+            <c:if test="${pageBean.currentPage==1 }">
+                <li class="disabled">
+                    <a href="javascript:void(0);" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+            </c:if>
 
-            <table width="95%" border="0" cellpadding="0" cellspacing="0" class="table02" align="center">
+            <c:if test="${pageBean.currentPage!=1 }">
+                <li>
+                    <a href="${pageContext.request.contextPath}/admin/info/findOfficesInfoAndManagers?currentPage=${pageBean.currentPage-1}&&search=${search}&&conditon=${condition}&&menuid=${menuid}" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+            </c:if>
+
+
+            <!-- 显示每一页 -->
+            <c:forEach begin="1" end="${pageBean.totalPage }" var="page">
+                <!-- 判断是否是当前页 -->
+                <c:if test="${page==pageBean.currentPage }">
+                    <li class="active"><a href="javascript:void(0);">${page }</a></li>
+                </c:if>
+                <c:if test="${page!=pageBean.currentPage }">
+                    <li><a href="${pageContext.request.contextPath}/admin/info/findOfficesInfoAndManagers?currentPage=${page}&&search=${search}&&conditon=${condition}&&menuid=${menuid}">${page}</a></li>
+                </c:if>
+            </c:forEach>
+
+
+            <!-- 下一页 -->
+            <c:if test="${pageBean.currentPage==pageBean.totalPage }">
+                <li class="disabled">
+                    <a href="javascript:void(0);" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </c:if>
+            <c:if test="${pageBean.currentPage!=pageBean.totalPage }">
+                <li>
+                    <a href="${pageContext.request.contextPath}/admin/info/findOfficesInfoAndManagers?currentPage=${pageBean.currentPage+1}&&search=${search}&&conditon=${condition}&&menuid=${menuid}" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </c:if>
+
+        </ul>
+    </div>
+
+<%--            <table width="95%" border="0" cellpadding="0" cellspacing="0" class="table02" align="center">
                 <tr>
                     <td height="30" align="right">
                         <a href="${pageContext.request.contextPath}/admin/info/findOfficesInfoAndManagers?currentPage=${1}&&menuid=${menuid}&&search=${search}&&conditon=${condition}">
@@ -191,7 +242,7 @@
                         　共 ${page.totalPage} 页 ${page.totalCount} 条记录
                     </td>
                 </tr>
-            </table>
+            </table>--%>
 
 
 

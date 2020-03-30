@@ -131,23 +131,23 @@
                   </table>
                 <br>
                 <c:if test="${lists!=null}">
-                      <table width="95%" border="0" cellpadding="2" cellspacing="0" class="table01">
-                            <tr>
-                                <td class="td_top">
+                      <table class="table table-bordered" style="width: 1580px;">
+                            <tr class="active">
+                                <td >
                                        选择
                                 </td>
-                                <td class="td_top">编号</td>
-                                <td class="td_top">名称</td>
+                                <td >编号</td>
+                                <td >名称</td>
                             </tr>
                         <c:forEach items="${lists}" var="clinic">
                             <tr>
-                                <td class="td_01">
-                                    <span class="td01">
+                                <td >
+                                    <span >
                                       <input name="checkbox" type="checkbox" value="${clinic.id}" />
                                    </span>
                                 </td>
-                                <td class="td_01">${clinic.id}</td>
-                                <td class="td_01">
+                                <td >${clinic.id}</td>
+                                <td >
                                         ${clinic.name}
                                     <input  type="hidden" value="${clinic.name}" id="appointId${clinic.id}"/>
                                 </td>
@@ -168,7 +168,60 @@
         </tr>
     </table>
 
-            <%--分页程序--%>
+    <!--分页 -->
+    <div style="width: 380px; margin: 0 auto; margin-top: 50px;position: relative;">
+        <ul class="pagination" style="text-align: center; margin-top: 10px;right: -496px;position: absolute;">
+            <!-- 上一页 -->
+            <c:if test="${pageBean.currentPage==1 }">
+                <li class="disabled">
+                    <a href="javascript:void(0);" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+            </c:if>
+
+            <c:if test="${pageBean.currentPage!=1 }">
+                <li>
+                    <a href="${pageContext.request.contextPath}/admin/info/findClinicInfoAndManagers?currentPage=${pageBean.currentPage-1}&&search=${search}&&conditon=${condition}&&menuid=${menuid}" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+            </c:if>
+
+
+            <!-- 显示每一页 -->
+            <c:forEach begin="1" end="${pageBean.totalPage }" var="page">
+                <!-- 判断是否是当前页 -->
+                <c:if test="${page==pageBean.currentPage }">
+                    <li class="active"><a href="javascript:void(0);">${page }</a></li>
+                </c:if>
+                <c:if test="${page!=pageBean.currentPage }">
+                    <li><a href="${pageContext.request.contextPath}/admin/info/findClinicInfoAndManagers?currentPage=${page}&&search=${search}&&conditon=${condition}&&menuid=${menuid}">${page}</a></li>
+                </c:if>
+            </c:forEach>
+
+
+            <!-- 下一页 -->
+            <c:if test="${pageBean.currentPage==pageBean.totalPage }">
+                <li class="disabled">
+                    <a href="javascript:void(0);" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </c:if>
+            <c:if test="${pageBean.currentPage!=pageBean.totalPage }">
+                <li>
+                    <a href="${pageContext.request.contextPath}/admin/info/findClinicInfoAndManagers?currentPage=${pageBean.currentPage+1}&&search=${search}&&conditon=${condition}&&menuid=${menuid}" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </c:if>
+
+        </ul>
+    </div>
+
+
+<%--            &lt;%&ndash;分页程序&ndash;%&gt;
             <table width="95%" border="0" cellpadding="0" cellspacing="0" class="table02" align="center">
                 <tr>
                     <td height="30" align="right">
@@ -193,7 +246,7 @@
                             </c:choose>
                         </c:if>
 
-                            <%-- 这个是中间的情况--%>
+                            &lt;%&ndash; 这个是中间的情况&ndash;%&gt;
                         <c:if test="${page.currentPage!=1 && page.currentPage!=page.totalPage}">
                             <a  href="${pageContext.request.contextPath}/admin/info/findClinicInfoAndManagers?currentPage=${page.currentPage-1}&&menuid=${menuid}&&search=${search}&&conditon=${condition}">
                                 <img src="${pageContext.request.contextPath}/static/admin/images/2.gif" width="3" height="5" align="absmiddle"> 上一页
@@ -204,7 +257,7 @@
                         </c:if>
 
 
-                            <%--  当数据只有一个的时候，第一页与最后一页是重复的：为了避免这种情况的发生，加上!=1--%>
+                            &lt;%&ndash;  当数据只有一个的时候，第一页与最后一页是重复的：为了避免这种情况的发生，加上!=1&ndash;%&gt;
                         <c:if test="${page.currentPage!=1&&page.currentPage==page.totalPage}">
                             <a  href="${pageContext.request.contextPath}/admin/info/findClinicInfoAndManagers?currentPage=${page.currentPage-1}&&menuid=${menuid}&&search=${search}&&conditon=${condition}">
                                 <img src="${pageContext.request.contextPath}/static/admin/images/2.gif" width="3" height="5" align="absmiddle"> 上一页
@@ -219,7 +272,7 @@
                         　共 ${page.totalPage} 页 ${page.totalCount} 条记录
                     </td>
                 </tr>
-            </table>
+            </table>--%>
 
 
 
@@ -543,7 +596,6 @@
                     }
                     else{
                         alert("你选择的条件是性别，请输入男或女，或者包含男或女的关键字");
-
                     }
                 }else if (conditon=='姓名') {
 

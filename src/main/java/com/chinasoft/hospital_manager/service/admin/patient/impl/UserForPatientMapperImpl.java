@@ -135,7 +135,7 @@ public class UserForPatientMapperImpl implements UserForPatientService {
     }
 
     @Override
-    public Appointment beforeSelectupdatePatientNumberInfoById(int id) {
+    public Appointment beforeSelectupdatePatientNumberInfoById(String id) {
         Appointment appointment = userForPatientMapper.beforeSelectupdatePatientNumberInfoById(id);
         if (appointment!=null&&appointment.getId()!=""){
             return appointment;
@@ -254,6 +254,15 @@ public class UserForPatientMapperImpl implements UserForPatientService {
             return  pageBean;
         }
         return null;
+    }
+
+    @Override
+    public int deletePatientInfoByIdBetweenTime(String id) {
+        int i = userForPatientMapper.deletePatientInfoByIdBetweenTime(id);
+        if (i>0){
+            return i;
+        }
+        return 0;
     }
 
 

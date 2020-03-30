@@ -23,7 +23,7 @@ function loading_calendar(id,lan){
 	//开始
 	$(aim_div).fullYearPicker({
 		disabledDay : '',
-		value : [ /* '2016-6-25', '2016-8-26'  */],
+		value : [ '2016-6-25', '2016-8-26'  ],
 		cellClick : function(dateStr, isDisabled) {
 			/* console.log("单击日期:"+dateStr); */
 			//alert("dateStr="+dateStr);
@@ -203,6 +203,7 @@ function loading_calendar(id,lan){
 											});
 										}
 									});
+
 									$("#delete").click(function () {
 										var id=$(this).val();
 										if (id!=null&&id!=""){
@@ -221,6 +222,8 @@ function loading_calendar(id,lan){
 
 														}
 													}
+												},error:function (data) {
+													alert("删除工作信息失败!");
 												}
 											});
 										}

@@ -149,7 +149,7 @@
             AND p.name  like concat('%',#{name},'%')
         </if>
         <if test="aid!=null">
-            AND a.id=#{id}
+            AND a.id=#{aid}
         </if>
         <if test="flag!=null">
             AND a.flag=#{flag}
@@ -157,7 +157,7 @@
         <if test="sort!=null">
             ORDER BY a.datetime DESC
         </if>
-        limit #{index} ,#{count}
+        limit #{index},#{count}
     </select>
     <resultMap id="searchs" type="com.chinasoft.hospital_manager.domain.Appointment">
         <id column="aid" property="id"/>
@@ -205,7 +205,7 @@
             AND p.name  like concat('%',#{name},'%')
         </if>
         <if test="aid!=null">
-            AND a.id=#{id}
+            AND a.id=#{aid}
         </if>
         <if test="flag!=null">
             AND a.flag=#{flag}

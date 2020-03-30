@@ -23,7 +23,7 @@
 	   %>
 		<div class="row" style="padding-left: 310px;margin-top: 20px;">
 			<input type="hidden" name="doctorId" value="${doctor.id}" id="doctorId" />
-		<input type="hidden" name="works" value="${works}" id="works" />
+			<input type="hidden" name="works" value="${works}" id="works" />
 		<%--	<div class="col-lg-3 col-sm-3 col-md-3 col-xs-3" style="border: 0px solid  red;margin-left: -300px;">
 				<div class="form-group">
 					<div class="col-sm-10">
@@ -51,10 +51,9 @@
 					<input type="text" placeholder="按照条件进行搜索" id="searchvalue"  value="" class="form-control" aria-label="...">
 				</div>
 			</div>--%>
-		<div class="col-lg-6 col-sm-6  col-md-6 col-xs-6">
-				<input type="hidden"  name="search" width="60px" height="30px"
-					   class="btn btn-success" value="搜索" style=" margin-left: -20px; "/>
-			</div>-
+		    <div class="col-lg-6 col-sm-6  col-md-6 col-xs-6">
+				<input type="hidden"  name="search" width="60px" height="30px"  class="btn btn-success" value="搜索" style=" margin-left: -20px; "/>
+			</div>
 		</div>
 
 		<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">

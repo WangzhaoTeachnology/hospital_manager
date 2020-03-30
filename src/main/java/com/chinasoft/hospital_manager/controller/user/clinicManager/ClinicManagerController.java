@@ -150,7 +150,7 @@ public class ClinicManagerController {
                andView.addObject("third",third);
            }
            if (users!=null) {
-               andView.addObject("page",allUserInfo);
+               andView.addObject("pageBean",allUserInfo);
                andView.addObject("userInfo", users);
               // andView.setViewName("/admin/user_clinicManager/query");//这样会导致将所有的数据，删除了，会出现报错
            }
@@ -415,7 +415,7 @@ public class ClinicManagerController {
            if (currentPage==null){
                currentPage="1";
            }
-           int currentCount=2;
+           int currentCount=3;
 
            //查询出来的数据
          //  List<User> users = employeeService.searchUserInfoByCondition(map);
@@ -468,7 +468,7 @@ public class ClinicManagerController {
            if (users!=null) {
                andView.addObject("condition",condition);
                andView.addObject("search",search);
-               andView.addObject("page",pageBean);
+               andView.addObject("pageBean",pageBean);
                andView.addObject("userInfo", users);
                // andView.setViewName("/admin/user_clinicManager/query");//这样会导致将所有的数据，删除了，会出现报错
            }
@@ -476,7 +476,8 @@ public class ClinicManagerController {
 
 
        andView.addObject("menuid",menuid);
-       andView.setViewName("/admin/user_clinicManager/query");
+      // andView.setViewName("/admin/user_clinicManager/query");
+       andView.setViewName("/admin/employee/userClinicInfo/query");
        return andView;
    }
 

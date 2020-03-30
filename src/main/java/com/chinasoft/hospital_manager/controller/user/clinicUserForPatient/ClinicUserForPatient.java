@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 
@@ -441,7 +442,7 @@ public class ClinicUserForPatient {
         PageBean<Appointment> appointmentPageBean = userForPatientService.selectPatientNumberInfo(Integer.parseInt(currentPage), currentCount);
         List<Appointment> list = appointmentPageBean.getList();
         if (list!=null&&list.size()>0){
-            andView.addObject("page",appointmentPageBean);
+            andView.addObject("pageBean",appointmentPageBean);
             andView.addObject("list",list);
             andView.addObject("menuid",menuid);
         }
@@ -570,7 +571,7 @@ public class ClinicUserForPatient {
             if (users!=null) {
                 andView.addObject("condition",condition);
                 andView.addObject("search",search);
-                andView.addObject("page",pageBean);
+                andView.addObject("pageBean",pageBean);
                 andView.addObject("list", users);
             }
         }else {
@@ -644,7 +645,7 @@ public class ClinicUserForPatient {
         String menuid = request.getParameter("menuid");
         String id = request.getParameter("id");
         if (menuid!=null&&menuid!=""&&id!=null&&id!=""){
-            Appointment appointment = userForPatientService.beforeSelectupdatePatientNumberInfoById(Integer.parseInt(id));
+            Appointment appointment = userForPatientService.beforeSelectupdatePatientNumberInfoById(id);
             //查询门诊
             List<Appoint_category> allAppoint_categorys = userForPatientService.getAllAppoint_categorys();
 
@@ -683,7 +684,28 @@ public class ClinicUserForPatient {
         return map;
     }
 
+    /**
+     * @description:这个是点击退号操作的函数
+     * @author jack
+     * @date 2020/3/29 14:10
+     * @param null
+     * @return
+     */
 
+    @RequestMapping("/deletePatientInfoByIdBetweenTime")
+    @ResponseBody
+    public  Map<String ,Object> deletePatientInfoByIdBetweenTime(HttpServletRequest request){
+        Map<String,Object> map=new HashMap<String, Object>();
+        String id = request.getParameter("id");
+        int i = userForPatientService.deletePatientInfoByIdBetweenTime(id);
+        if (i>0){
+            map.put("type","success");
+            return map;
+        }else {
+            map.put("type","fail");
+        }
+        return map;
+    }
 
 
 

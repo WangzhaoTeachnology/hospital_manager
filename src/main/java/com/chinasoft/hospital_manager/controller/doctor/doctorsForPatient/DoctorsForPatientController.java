@@ -44,6 +44,13 @@ public class DoctorsForPatientController {
     @Autowired
     private ProductService productService;
 
+    /**
+     * @description:这个是医生门诊管理中的接诊管理
+     * @author jack
+     * @date 2020/3/28 15:07
+     * @param null
+     * @return 
+     */
     @RequestMapping("/findPatientOfAppointment")
    public ModelAndView findPatientOfAppointment(HttpServletRequest request,HttpServletResponse response) throws IOException {
        ModelAndView  andView=new ModelAndView();
@@ -110,7 +117,7 @@ public class DoctorsForPatientController {
             }
 
 
-            andView.addObject("page",appointmentPageBean);
+            andView.addObject("pageBean",appointmentPageBean);
             andView.addObject("list",list);
             if (object != null) {
                 doctor = (Doctor) object;
@@ -118,9 +125,7 @@ public class DoctorsForPatientController {
                 //为了医生点击停止挂号按钮的功能，把医生的id传递到前台去
                 //当然在医生操作的时候，直接从后台获取这个数据也可以
             }
-
         }
-
         andView.addObject("menuid",menuid);
          andView.setViewName("admin/doctorInfoAndManager/doctorsForPatient/doctorsForPatient");
        return andView;
@@ -179,7 +184,7 @@ public class DoctorsForPatientController {
             int id=doctor_info.getId();
             map.put("drid",id);
             if (search!=null&&search!=""){
-                  if (condition.equals("挂号编号")){
+               if (condition.equals("挂号编号")){
                     map.put("aid",search);
                 }
                 else  if (condition.equals("全部")){
@@ -219,13 +224,15 @@ public class DoctorsForPatientController {
             if (users!=null){
                 for (Map.Entry<String,Object> entry:map.entrySet()){
                     String key = entry.getKey();
-                    if (key.equals("name")){
+
+                    //为了影响在浏览器上显示，所以将这数据清除掉
+                   /* if (key.equals("name")){
                         for (Appointment appointment:users){
                             String name = appointment.getPatient().getName();
                             name=" <font style=\"color: red;\">"+name+"</font>";
                             appointment.getPatient().setName(name);
                           }
-                     }
+                     }*/
                     //排序的话
 /*                    if (key.equals("sort")){
                         for (int i=0;i<users.size();i++){
@@ -277,10 +284,10 @@ public class DoctorsForPatientController {
                 String requestURL = request.getRequestURL().toString();
                 andView.setViewName(requestURL);
                 //这个是退出frameset框架的操作的java后台代码
-             /*   HttpServletResponse httpServletResponse = (HttpServletResponse) response;
-                request.getSession().removeAttribute("admin");
-                httpServletResponse.getWriter().print("<script>parent.window.location.href="+request.getContextPath()+"'/admin/logout'</script>");
-                */
+                 /*   HttpServletResponse httpServletResponse = (HttpServletResponse) response;
+                    request.getSession().removeAttribute("admin");
+                    httpServletResponse.getWriter().print("<script>parent.window.location.href="+request.getContextPath()+"'/admin/logout'</script>");
+                    */
                 return andView; //如果这个，menuid不为空，而这个menus失效了，那么三级菜单为空，那么这个也跳到logout
             }
 
@@ -288,7 +295,7 @@ public class DoctorsForPatientController {
 
                 andView.addObject("condition",condition);
                 andView.addObject("search",search);
-                andView.addObject("page",pageBean);
+                andView.addObject("pageBean",pageBean);
                 andView.addObject("list", users);
             }
         }else {
@@ -331,7 +338,7 @@ public class DoctorsForPatientController {
                 //显示在浏览器上
 
                 Cookie cookie = new Cookie(id, info);
-                cookie.setMaxAge(60*60*60*60);
+                cookie.setMaxAge(60*60*60*60*60*60);
                 cookie.setPath("/");
                 response.addCookie(cookie);
                 return map;
@@ -386,12 +393,11 @@ public class DoctorsForPatientController {
 
     /**
      * @description:这个是医生点击停止挂号，继续挂号按钮，修改医生工作表的状态
-     * @author jack
+     * @author jack，，这个状态改为1的话，这个医生有今天的工作任务，但是医生没有上班
      * @date 2020/2/16 20:47
      * @param null
      * @return
      */
-
     @RequestMapping("/updateDoctorWorkInfoById")
     @ResponseBody
     public Map<String,Object> updateDoctorWorkInfoById(HttpServletRequest request){
@@ -402,6 +408,7 @@ public class DoctorsForPatientController {
         if (id!=null&&id!=""){
             parameter.put("id",Integer.parseInt(id));
             parameter.put("status",Integer.parseInt(status));
+            //这个函数是修改这个医生的工作的状态，work表中的status字段，
             int i = doctorsForPatientService.updateDoctorWorkInfoById(parameter);
             if (i>0){
                 map.put("status",Integer.parseInt(status));
@@ -696,10 +703,11 @@ public class DoctorsForPatientController {
                 andView.addObject("search",value);
                 andView.addObject("condition",id);
                 andView.addObject("productCategory",productCategory);
-                andView.addObject("page",allProducts);
-                andView.setViewName("admin/doctorInfoAndManager/doctorsForPatient/doctorsForPatientFindProducts");
+                andView.addObject("pageBean",allProducts);
+
             }
         }
+        andView.setViewName("admin/doctorInfoAndManager/doctorsForPatient/doctorsForPatientFindProducts");
         return andView;
     }
 
@@ -762,7 +770,7 @@ public class DoctorsForPatientController {
                 andView.addObject("list",list);
                 andView.addObject("search",search);
                 andView.addObject("condition",condition);
-                andView.addObject("page",historyPageBean);
+                andView.addObject("pageBean",historyPageBean);
             }
             andView.setViewName("/admin/doctorInfoAndManager/doctorsForPatient/doctorsFindHistory");
         }

@@ -159,7 +159,7 @@
                             <td class="td_01">${info.offices.name}</td>
                             <td class="td_01">${info.doctor.name}</td>
                             <td class="td_01">${info.status==0? '初诊':'复诊'}</td>
-                            <td class="td_01"> <button data-toggle="modal" data-target="#myModal" type="button" value="${info.id}" id="detail" class="btn btn-success">查看详情</button></td>
+                            <td class="td_01"> <button data-toggle="modal" data-target="#myModal" type="button" value="${info.id}" id="detail" class="btn btn-default">查看详情</button></td>
                         </tr>
                     </c:forEach>
                 </table>
@@ -332,8 +332,6 @@
         </table>
         <!--endprint-->
     </div>
-
-
 </center>
 </body>
 <script type="text/javascript">
@@ -644,7 +642,7 @@
                              dateHours = "0" + dateHours;
                          }
                          var  str_datetime=year+"-"+month+"-"+strDate+"T"+dateHours+":"+dateMinutes;
-                         alert(str_datetime);
+                       //  alert(str_datetime);
 
                          //数据回显，病人，门诊，科室，医生，四个信息
                          var  appointment=data.appointment;
@@ -656,7 +654,7 @@
                          //门诊
                          var allAppoint_categorys=data.allAppoint_categorys;
 
-                        alert(JSON.stringify(patie)+JSON.stringify(appoint_cat)+JSON.stringify(off)+JSON.stringify(doc));
+                       // alert(JSON.stringify(patie)+JSON.stringify(appoint_cat)+JSON.stringify(off)+JSON.stringify(doc));
                          //头部
                          var content="\t\t\t\t<div class=\"form-horizontal\" style=\"border: 0px solid red;height:auto;width:700px;\">\n" +
                              "                   \n" +
@@ -990,14 +988,7 @@
                                      alert("在挂号插入挂号信息响应失败！");
                                  }
                              });
-
-
-
-
                          });
-
-
-
                      } else if (type=='error'){
                          alert("将id传递到后台失败");
                      } else if (type=='fail'){

@@ -42,7 +42,6 @@ public class EmployeeManagerController {
 
 
 
-
  /**
  * @description:这个函数是查看挂号人员的信息
  * @author jack
@@ -83,7 +82,7 @@ public class EmployeeManagerController {
                andView.addObject("third",third);
            }
            if (users!=null) {
-               andView.addObject("page",allUserInfo);
+               andView.addObject("pageBean",allUserInfo);
                andView.addObject("userInfo", users);
               // andView.setViewName("/admin/user_clinicManager/query");//这样会导致将所有的数据，删除了，会出现报错
            }
@@ -288,7 +287,7 @@ public class EmployeeManagerController {
        String menuid = request.getParameter("menuid");
        String condition=request.getParameter("conditon").trim();
 
-       if (menuid!="" && menuid!=null && condition!=null && condition!=""){
+       if (menuid!="" && menuid!=null){
 
            HttpSession session = request.getSession();
            Object menu = session.getAttribute("menus");
@@ -372,7 +371,7 @@ public class EmployeeManagerController {
            if (users!=null) {
                andView.addObject("condition",condition);
                andView.addObject("search",search);
-               andView.addObject("page",pageBean);
+               andView.addObject("pageBean",pageBean);
                andView.addObject("userInfo", users);
                // andView.setViewName("/admin/user_clinicManager/query");//这样会导致将所有的数据，删除了，会出现报错
            }
@@ -425,7 +424,7 @@ public class EmployeeManagerController {
            }
 
            if (list!=null) {
-               andView.addObject("page",allDoctorsInfo);
+               andView.addObject("pageBean",allDoctorsInfo);
                andView.addObject("userInfo", list);
            }
        }else {
@@ -533,7 +532,9 @@ public class EmployeeManagerController {
             }
           //  INSERT INTO doctor (realname,url,name,password,sex,strength,status,birthday,profession,school,job,prat,office_id,role_id,appoint_categoryid) VALUES()
             request_map.put("realname",realname);
-            request_map.put("url","/static/upload/img/"+filename);
+    /*        src/main/webapp程立林1.jpg
+                    /static/upload/img/医生图片/*/
+            request_map.put("url","/static/upload/img/医生图片/"+filename);
             request_map.put("name",name);
             request_map.put("password",password);
             request_map.put("sex",sex);
@@ -620,7 +621,7 @@ public class EmployeeManagerController {
         String search = request.getParameter("search");
         String menuid = request.getParameter("menuid");
         String condition=request.getParameter("conditon").trim();
-        if (menuid!="" && menuid!=null && condition!=null && condition!=""){
+        if (menuid!="" && menuid!=null){
             HttpSession session = request.getSession();
             Object menu = session.getAttribute("menus");
             List<Menu> list_menu=(List<Menu>)menu;
@@ -703,7 +704,7 @@ public class EmployeeManagerController {
             if (users!=null) {
                 andView.addObject("condition",condition);
                 andView.addObject("search",search);
-                andView.addObject("page",pageBean);
+                andView.addObject("pageBean",pageBean);
                 andView.addObject("userInfo", users);
             }
         }else {

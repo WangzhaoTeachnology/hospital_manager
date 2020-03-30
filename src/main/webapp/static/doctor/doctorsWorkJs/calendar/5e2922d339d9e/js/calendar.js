@@ -23,7 +23,7 @@ function _loading_calendar(id,lan){
 	//开始
 	$(aim_div).fullYearPicker({
 		disabledDay : '',
-		value : [ /* '2016-6-25', '2016-8-26'  */],
+		value : [  '2016-6-25', '2016-8-26'  ],
 		cellClick : function(dateStr, isDisabled) {
 			/* console.log("单击日期:"+dateStr); */
 			//alert("dateStr="+dateStr);
@@ -164,7 +164,7 @@ function _loading_calendar(id,lan){
 				if ($(this).find("input").length>0){
 					$("#maininfo").html("");
 					 id= $(this).find("input:eq(0)").val();
-					 alert("id="+id);
+					// alert("id="+id);
 					//alert("有input标签"+id);
 					dest=$(this).children("input:eq(0)");
 					//alert("dest"+dest);
