@@ -229,7 +229,7 @@
                     <td colspan="9">
                             <%--  因为一个缴费单下面可能有多个处方的信息，
                              一个处方的信息，可能有多个处方详情的信息--%>
-                        <c:forEach items="${pay.prescriptions}" var="prescription">
+                       <c:forEach items="${pay.prescriptions}" var="prescription">
                             <a  data-toggle="collapse" href="#collapseExample${prescription.id}" aria-expanded="false" aria-controls="collapseExample">
                                 查看处方详情  &nbsp; &nbsp; &nbsp;处方编号 :${prescription.id}
                                 <input  type="hidden" value="${prescription.id}" name="collapseDetail" />
@@ -244,7 +244,7 @@
                                     </table>
                                 </div>
                              </div>
-                        </c:forEach>
+                     </c:forEach>
                     </td>
                 </tr>
             </c:forEach>

@@ -3,15 +3,7 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.chinasoft.hospital_manager.mapper.admin.pay.PayForPatientsMapper">
-<!--    private String id;
-    private  Patient patient;
-    private Doctor doctor;
-    private  User user;
-    private  int flag;  //这个字段是是否缴费，0,or 1
-    private double fee;
-    @DateTimeFormat(pattern = "yyyy-MM-ss HH:mm:ss")
-    private  String datetime;
-    private List<Prescription> prescriptions;-->
+
     <select id="findPayAllInfoByCondition" resultMap="findPayAllInfoByName" parameterType="map">
        select *
        from (
@@ -24,6 +16,7 @@
             WHERE pay.patient_id=patient.id
             AND pay.doctor_id=doctor.id
             AND prescription.id=pay.prescription_id
+            GROUP BY pay.id
         ) list
         <where>
             <if test="today!=null">
@@ -42,7 +35,7 @@
         WHERE pay.patient_id=patient.id
         AND pay.doctor_id=doctor.id
         AND prescription.id=pay.prescription_id*/
-      /*  AND pay.user_id=user.id*/
+
 /*      问题：
         1：如果按照
           SELECT COUNT(*)
@@ -53,7 +46,8 @@
         的查询的话，会查询三条数据，但是这个三条的数据是因为，相当于用了外连接的方式组成
         2：
         但是mybatis这个框架在映射的时候，采用这个id作为主键映射的
-        3：可以采用先分组，按照这个id分组，再按照这计数，可以解决上面的2,3问题*/
+        3：可以采用先分组，按照这个id分组，再按照这计数，可以解决上面的2,3问题
+        */
 
         SELECT COUNT(*)
         FROM (
@@ -102,7 +96,7 @@
 
 
     <select id="findItemPrescriptionsById" resultMap="findPrescriptions" parameterType="java.lang.String">
-         SELECT p.id as pid ,p.content,p.datetime,p.comment as pcomment,
+        SELECT p.id as pid ,p.content,p.datetime,p.comment as pcomment,
         i.id as iid,i.number,i.use,i.day,i.comment as icomment,
         pt.id as ptid,pt.name,pt.price
         FROM prescription p,itemprescription i, product pt

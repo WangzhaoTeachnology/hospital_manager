@@ -18,30 +18,12 @@ public class Pay {
     @DateTimeFormat(pattern = "yyyy-MM-ss HH:mm:ss")
     private  String datetime;
     private List<Prescription> prescriptions;
+   // private Prescription prescriptions;
 
     public Pay() {
     }
 
-    public Pay(String id, Patient patient, Doctor doctor, User user, int flag, double fee, String datetime, List<Prescription> prescriptions) {
-        this.id = id;
-        this.patient = patient;
-        this.doctor = doctor;
-        this.user = user;
-        this.flag = flag;
-        this.fee = fee;
-        this.datetime = datetime;
-        this.prescriptions = prescriptions;
-    }
 
-    public Pay(Patient patient, Doctor doctor, User user, int flag, double fee, String datetime, List<Prescription> prescriptions) {
-        this.patient = patient;
-        this.doctor = doctor;
-        this.user = user;
-        this.flag = flag;
-        this.fee = fee;
-        this.datetime = datetime;
-        this.prescriptions = prescriptions;
-    }
 
     public double getFee() {
         return fee;

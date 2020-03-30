@@ -1444,8 +1444,8 @@ $(function () {
                  $(this).val("继续挂号");
                  status=1;
              } else  if (value=='继续挂号'){
-                 $(this).removeClass("btn btn-default");
-                 $(this).addClass("btn btn-success");
+                 $(this).removeClass("btn btn-danger");
+                 $(this).addClass("btn btn-default");
                  $(this).val("停止挂号");
                  status=0;
              }
@@ -1520,6 +1520,10 @@ $(function () {
                           if(number1 >0){
                               var convertToTime = ConvertToTime(number1); //转化为时间格式
                               $("#tableInfo").find("td[name='waitime"+id+"']").html(convertToTime); //赋值为对应的表格位置
+                          }
+                          //如果后台数据库被修改了，现在时间与后台时间做差小于0，那么显示时间被修改
+                          else {
+                              $("#tableInfo").find("td[name='waitime"+id+"']").html("挂号时间被人修改");
                           }
                     }
                 }
