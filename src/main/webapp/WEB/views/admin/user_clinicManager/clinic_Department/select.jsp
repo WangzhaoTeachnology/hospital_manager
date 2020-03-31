@@ -820,9 +820,9 @@
                          if (strDate >= 0 && strDate <= 9) {
                              strDate = "0" + strDate;
                          }
-                         if (dateHours >= 0 && dateHours <= 9) {
+                     /*    if (dateHours >= 0 && dateHours <= 9) {
                              dateHours = "0" + dateHours;
-                         }
+                         }*/
                          var  str_datetime=year+"-"+month+"-"+strDate+"T"+dateHours+":"+dateMinutes;
                         // alert(str_datetime);
 
@@ -956,8 +956,8 @@
                              "\t\t\t     </div>\n" ;
 
 
-                         $("#registerDate").val("2020-02-09T01:48");
-                         //$("#registerDate").val(str_datetime);
+                        // $("#registerDate").val("2020-02-09T01:48");
+                         $("#registerDate").val(str_datetime);
                          $("#updatemain").html(content);
                          $("#update").removeAttr("data-target");
                          //每次成功的加载数据，要移出这个属性，
@@ -1265,8 +1265,10 @@
                     var type=data.type;
                     if (type=='success'){
                          alert("退号成功!");
-                        window.location.href="${pageContext.request.contextPath}/admin/user/clinicUserInfo?menuid="+menuid;
-                      //   window.location.href="${pageContext.request.contextPath}/admin/userForPatient/deletePatientInfoByIdBetweenTime";
+
+                        window.location.href="${pageContext.request.contextPath}/admin/userForPatient/selectPatientNumberInfo?menuid="+menuid;
+                        //window.location.href="/admin/user/clinicUserInfo?menuid="+menuid;
+                      //   window.location.href="/admin/userForPatient/deletePatientInfoByIdBetweenTime";
                     }else if (type=='fail'){
                         alert("超过30分钟，退号失败!");
                     }

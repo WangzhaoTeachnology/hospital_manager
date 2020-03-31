@@ -407,9 +407,11 @@ $(function () {
                                   }
                                   if (strDate >= 0 && strDate <= 9) {
                                       strDate = "0" + strDate;
+                                  }   if (dateHours >= 0 && dateHours <= 9) {
+                                      dateHours = "0" + dateHours;
                                   }
                                   var  str=year+"-"+month+"-"+strDate+"T"+dateHours+":"+dateMinutes;
-                                // alert("currentdate="+str);
+                                 //alert("currentdate="+str);
 
                                   if (type=='success'){
 
