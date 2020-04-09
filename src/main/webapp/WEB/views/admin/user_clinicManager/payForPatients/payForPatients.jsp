@@ -216,7 +216,7 @@
                     <td style="text-align: center;vertical-align: center;">${pay.datetime}</td>
                     <td style="text-align: center;vertical-align: center;">
                         <c:if test="${pay.flag==1}">
-                            <input type="button" class="btn btn-default" disabled="disabled" value="已经缴费"/>
+                            <input type="button" class="btn btn-default btn-lg" disabled="disabled" value="已经缴费"/>
                         </c:if>
                         <c:if test="${pay.flag==0}">
                             <a name="${pay.fee}">
@@ -229,7 +229,7 @@
                     <td colspan="9">
                             <%--  因为一个缴费单下面可能有多个处方的信息，
                              一个处方的信息，可能有多个处方详情的信息--%>
-                       <c:forEach items="${pay.prescriptions}" var="prescription">
+                        <c:forEach items="${pay.prescriptions}" var="prescription">
                             <a  data-toggle="collapse" href="#collapseExample${prescription.id}" aria-expanded="false" aria-controls="collapseExample">
                                 查看处方详情  &nbsp; &nbsp; &nbsp;处方编号 :${prescription.id}
                                 <input  type="hidden" value="${prescription.id}" name="collapseDetail" />
@@ -244,7 +244,7 @@
                                     </table>
                                 </div>
                              </div>
-                     </c:forEach>
+                        </c:forEach>
                     </td>
                 </tr>
             </c:forEach>
@@ -584,7 +584,9 @@
                                         "           <td style='text-align: center;'>编号</td>" +
                                         "           <td >药品</td>" +
                                         "           <td >用法</td>" +
-                                        "           <td >天数</td>" +
+                                       /* "           <td >天数</td>" +*/
+                                        "           <td >天/次</td>" +
+                                        "           <td >次/量</td>" +
                                         "           <td >数量</td>" +
                                         "           <td >备注</td>" +
                                         "           <td >单价</td>" +
@@ -598,7 +600,9 @@
                                             "       <td >"+itemprescrips[j].id+"</td>" +
                                             "       <td >"+itemprescrips[j].product.name+"</td>" +
                                             "       <td>"+itemprescrips[j].use+"</td>" +
-                                            "       <td >"+itemprescrips[j].day+"</td>" +
+                                          /*  "       <td >"+itemprescrips[j].day+"</td>" +*/
+                                            "       <td >"+itemprescrips[j].time+"</td>" +
+                                            "       <td >"+itemprescrips[j].per+"</td>" +
                                             "       <td >"+itemprescrips[j].number+"</td>" +
                                             "       <td >"+itemprescrips[j].comment+"</td>" +
                                             "       <td>"+(parseInt(itemprescrips[j].number)* parseFloat(itemprescrips[j].product.price))+"</td>" +
@@ -610,7 +614,7 @@
                                     //这个是加入总的金额
                                     if (totalfee!=0){
                                         var tfooter=" <tr>" +
-                                            "             <td colspan='7' style='text-align: right;'>" +
+                                            "             <td colspan='8' style='text-align: right;'>" +
                                                                   "总金额￥："+"<a><font style='color: red;'> "+totalfee+"</font></a>"+
                                             "            </td>"
                                         "      </tr>";

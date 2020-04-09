@@ -20,8 +20,17 @@ public class Prescription {
         private History history;
         //private MoneyPay history;
         private String comment;
+        private int status;
         //private Pay pay;//对应Prescription表里面的money_id字段，但是这个字段去掉了
        //原本的逻辑是：缴费成功后，同时修改这个处方的money_id字段，让医生查看病人这个处方有没有缴费
+       private String comment_reason;//这个是审核处方不通过的字段
+
+       //total总价格，虽然在数据库中，不设计，但是在后端数据在计算总的价格的时候，需要有字段传递到前端
+      //所以设计这字段
+       private  String total;
+
+
+
 
     public Prescription() {
     }
@@ -120,6 +129,30 @@ public class Prescription {
         this.comment = comment;
     }
 
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
+
+    public String getComment_reason() {
+        return comment_reason;
+    }
+
+    public void setComment_reason(String comment_reason) {
+        this.comment_reason = comment_reason;
+    }
+
+    public String getTotal() {
+        return total;
+    }
+
+    public void setTotal(String total) {
+        this.total = total;
+    }
+
     @Override
     public String toString() {
         return "Prescription{" +
@@ -131,6 +164,9 @@ public class Prescription {
                 ", content='" + content + '\'' +
                 ", history=" + history +
                 ", comment='" + comment + '\'' +
+                ", status=" + status +
+                ", comment_reason='" + comment_reason + '\'' +
+                ", total=" + total +
                 '}';
     }
 }

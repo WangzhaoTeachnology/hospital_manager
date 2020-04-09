@@ -99,20 +99,6 @@
                 </table>
            <br>
 
-
-<%--                private Integer id;
-                private String url;
-                private  String name;
-                private  Category_Product category_product;
-                private String detail; //这个是药品的详情
-                private Float price; //价格
-                private int number;  //这个是现有的数量，这个是药房仓库用到的，医生开处方详情时候，用不到这个信息
-                private  String content; //这个药品的适用症
-                private String use;   //这个是使用量，剂量
-                private String component; //成分
-                private  String comment; //注意事项，可有可无
-                private  String standards;--%>
-
                 <c:if test="${list!=null}">
                     <table class="table table-bordered" style="width: 1580px;" id="tableInfo">
                         <tr class="active" style="text-align: center;">

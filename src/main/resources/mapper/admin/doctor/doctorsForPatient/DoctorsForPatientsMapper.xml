@@ -220,13 +220,14 @@
     </update>
 
     <insert id="addPrescription" parameterType="map">
-       INSERT INTO prescription (id,content,datetime,patient_id,doctor_id,comment) VALUES(#{id},#{content},#{datetime},#{patient_id},#{doctor_id},#{comment})
+       INSERT INTO prescription (id,content,datetime,patient_id,doctor_id,comment,status) VALUES(#{id},#{content},#{datetime},#{patient_id},#{doctor_id},#{comment},#{status})
     </insert>
 
 
 
     <insert id="addItemsPrescription" parameterType="map">
-      INSERT INTO itemprescription (id,prescription_id,product_id,number,itemprescription.use,itemprescription.day,itemprescription.comment) VALUES(#{id},#{prescription_id},#{product_id},#{number},#{use},#{day},#{comment})
+      INSERT INTO itemprescription (id,prescription_id,product_id,number,itemprescription.use,itemprescription.time,itemprescription.per,itemprescription.comment)
+       VALUES(#{id},#{prescription_id},#{product_id},#{number},#{use},#{time},#{per},#{comment})
     </insert>
 
     <insert id="addPays" parameterType="map">
@@ -244,35 +245,12 @@
 
     <select id="findPrescriptionsByPatientId" parameterType="map" resultMap="findPrescriptions">
         SELECT p.id as pid ,p.content,p.datetime,p.comment as pcomment,
-        i.id as iid,i.number,i.use,i.day,i.comment as icomment,
+        i.id as iid,i.number,i.use,i.comment as icomment,i.time,i.per,i.status,
         pt.id as ptid,pt.name,pt.price
         FROM prescription p,itemprescription i,patient t, product pt
         WHERE p.patient_id=t.id AND p.id=i.prescription_id  AND i.product_id=pt.id
         AND t.id=#{id}
     </select>
-
-<!--
-    private String id;
-    @DateTimeFormat(pattern = "yyyy-MM-ss HH:mm:ss")
-    private String datetime;
-    private Patient patient;
-    private List<Itemprescription> itemprescription;
-    private Doctor doctor;
-    private String content;
-    private History history;
-    //private MoneyPay history;
-    private String comment;
-
-
-
-    private String id;
-    private Prescription prescription;
-    private Product product;
-    private int number;
-    private String use;//这个是医生安排给病人怎样使用，而药品上有具体的使用方法
-    private int day;  //这个是使用几天
-    private String comment;
--->
 
     <resultMap id="findPrescriptions" type="com.chinasoft.hospital_manager.domain.Prescription">
        <id column="pid" property="id"/>
@@ -282,9 +260,11 @@
         <collection property="itemprescription" ofType="com.chinasoft.hospital_manager.domain.Itemprescription">
              <id column="iid" property="id" />
              <result column="number" property="number"/>
-            <result column="day" property="day"/>
             <result column="use" property="use"/>
             <result column="icomment" property="comment"/>
+            <result column="time" property="time"/>
+            <result column="per" property="per"/>
+            <result column="status" property="status"/>
             <association property="product" javaType="com.chinasoft.hospital_manager.domain.Product">
                 <id column="ptid" property="id"/>
                 <result column="name" property="name"/>
@@ -381,4 +361,133 @@
     <delete id="deleteHistoryById" parameterType="map">
           DELETE  FROM history WHERE id=#{id}
     </delete>
+
+    <select id="findPrescriptionById" parameterType="java.lang.String" resultType="com.chinasoft.hospital_manager.domain.Prescription">
+      SELECT * FROM `prescription` WHERE id=#{id}
+    </select>
+
+
+    <select id="findPrescriptionsByDoctorId" parameterType="map" resultMap="findPrescriptionsByDoctorId">
+        SELECT p.id as pid ,p.content,p.datetime,p.comment as pcomment,p.status,
+        t.id, t.`name`,
+        dr.id as drid,dr.realname
+        FROM prescription p,patient t,doctor dr
+        WHERE p.patient_id=t.id
+        AND dr.id=p.doctor_id
+        AND dr.id=#{id}
+        limit #{index},#{count}
+    </select>
+    <resultMap id="findPrescriptionsByDoctorId" type="com.chinasoft.hospital_manager.domain.Prescription">
+        <id column="pid" property="id"/>
+        <result column="content" property="content"/>
+        <result column="datetime" property="datetime"/>
+        <result column="pcomment" property="comment"/>
+        <result column="status" property="status"/>
+        <association property="patient" javaType="com.chinasoft.hospital_manager.domain.Patient">
+            <id column="id" property="id"/>
+            <result column="name" property="name"/>
+        </association>
+        <association property="doctor" javaType="com.chinasoft.hospital_manager.domain.Doctor">
+            <id column="drid" property="id"/>
+            <result column="realname" property="realname"/>
+        </association>
+    </resultMap>
+
+    <select id="getTotalfindPrescriptionsByDoctorId" parameterType="map"  resultType="java.lang.Integer">
+        SELECT count(*)
+        FROM prescription p,patient t,doctor dr
+        WHERE p.patient_id=t.id
+        AND dr.id=p.doctor_id
+        AND dr.id=#{id}
+    </select>
+
+
+
+  <select id="findItemPrescriptionById" resultMap="find" parameterType="java.lang.String">
+        SELECT p.id as pid ,p.content,p.datetime,p.comment as pcomment,
+        i.id as iid,i.number,i.use,i.day,i.comment as icomment,i.time,i.per,i.status,
+        pt.id as ptid,pt.name,pt.price,pt.content as tcontent
+        FROM prescription p,itemprescription i, product pt
+        WHERE  p.id=i.prescription_id  AND i.product_id=pt.id
+        AND p.id=#{id}
+    </select>
+    <resultMap id="find" type="com.chinasoft.hospital_manager.domain.Itemprescription">
+        <id column="iid" property="id" />
+        <result column="number" property="number"/>
+        <result column="day" property="day"/>
+        <result column="use" property="use"/>
+        <result column="icomment" property="comment"/>
+        <result column="time" property="time"/>
+        <result column="per" property="per"/>
+        <result column="status" property="status"/>
+        <association property="product" javaType="com.chinasoft.hospital_manager.domain.Product">
+            <id column="ptid" property="id"/>
+            <result column="name" property="name"/>
+            <result column="price" property="price"/>
+            <result column="tcontent" property="content"/>
+        </association>
+    </resultMap>
+
+    <select id="findItemprescriptionById" parameterType="java.lang.String" resultMap="findItem">
+      SELECT i.*,p.id as pid ,p.`name`,p.price FROM `itemprescription` i , product  p WHERE  p.id = i.product_id AND i.id=#{id}
+    </select>
+    <resultMap id="findItem" type="com.chinasoft.hospital_manager.domain.Itemprescription">
+        <id  column="id" property="id"/>
+        <result column="number" property="number"/>
+        <result column="use" property="use"/>
+        <result column="comment" property="comment"/>
+        <result column="day" property="day"/>
+        <result column="time" property="time"/>
+        <result column="per" property="per"/>
+        <result column="status" property="status"/>
+        <association  property="product" javaType="com.chinasoft.hospital_manager.domain.Product">
+                   <id column="pid" property="id"/>
+                  <result column="name" property="name"/>
+                  <result column="price" property="price"/>
+        </association>
+    </resultMap>
+
+    <delete id="deleteItemPrescriptionById" parameterType="java.lang.String">
+       DELETE FROM itemprescription WHERE id=#{id}
+    </delete>
+
+    <update id="updateItemPrescriptionById" parameterType="map">
+        update itemprescription
+            <set>
+                <if test="use!=null">
+                    `use`=#{use},
+                </if>
+                <if test="time!=null">
+                    time =#{time},
+                </if>
+                <if test="per!=null">
+                    per =#{per},
+                </if>
+                <if test="status!=null">
+                    status =#{status},
+                </if>
+            </set>
+            where   id=#{id}
+    </update>
+
+    <update id="updatePrescriptionById" parameterType="map">
+       UPDATE prescription SET `status` =0 WHERE id =#{id}
+    </update>
+
+    <update id="updatecheckByItemPrescriptionId" parameterType="map">
+            update `check`
+            <set>
+                <if test="use!=null">
+                    if_use=0,
+                </if>
+                <if test="time!=null">
+                    if_time =0,
+                </if>
+                <if test="per!=null">
+                    if_per =0,
+                </if>
+            </set>
+            WHERE  item_id=#{id}
+    </update>
+
 </mapper>

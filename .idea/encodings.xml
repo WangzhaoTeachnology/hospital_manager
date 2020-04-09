@@ -8,11 +8,14 @@
     <file url="file://$PROJECT_DIR$/src/main/webapp/WEB/views/admin/adminInfoAndManager/officesAndManager/query.jsp" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/WEB/views/admin/doctorInfoAndManager/doctorsForMyself/doctorinfo.jsp" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/WEB/views/admin/doctorInfoAndManager/doctorsForPatient/doctorsFindHistory.jsp" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB/views/admin/doctorInfoAndManager/doctorsForPatient/doctorsFindPrescription.jsp" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/WEB/views/admin/doctorInfoAndManager/doctorsForPatient/doctorsForPatient.jsp" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/WEB/views/admin/doctorInfoAndManager/doctorsForPatient/doctorsForPatientFindProducts.jsp" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB/views/admin/doctorInfoAndManager/doctorsForPatient/doctorsForPrescription.jsp" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/WEB/views/admin/doctorInfoAndManager/doctorsForWork/work.jsp" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/WEB/views/admin/employee/doctorsInfo/query.jsp" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/WEB/views/admin/employee/userClinicInfo/query.jsp" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB/views/admin/examineAndVerify/examineAndVerify.jsp" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/WEB/views/admin/left.jsp" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/WEB/views/admin/userInfoAndManager/usersForWork/work.jsp" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/WEB/views/admin/user_clinicManager/clinic_Department/doctors.jsp" charset="GBK" />

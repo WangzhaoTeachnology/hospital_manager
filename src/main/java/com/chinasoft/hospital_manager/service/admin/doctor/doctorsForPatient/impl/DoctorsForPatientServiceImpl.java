@@ -164,8 +164,9 @@ public class DoctorsForPatientServiceImpl implements DoctorsForPatientService {
         //插入数据到处方表里面
         int i = doctorsForPatientMapper.addPrescription(map);
         int flag=0;
+        //插入数据到处方详情里面
         for (Map.Entry<String,Map<String,Object>> entry_items:items.entrySet()){
-             flag=0;
+            flag=0;
             String key = entry_items.getKey();
             Map<String, Object> value = entry_items.getValue();
             //这个是将数据插入到处方详情表里面
@@ -176,10 +177,10 @@ public class DoctorsForPatientServiceImpl implements DoctorsForPatientService {
         }
 
         //这个是将数据插入到缴费单表里面
-        int i2 = doctorsForPatientMapper.addPays(pay);
+        //int i2 = doctorsForPatientMapper.addPays(pay);
         //只有这个三个插入的函数同时成功的话，那么这个返回1，表示这个处方
         //提交的状态成功了
-        if (flag>0&&i>0&&i2>0){
+        if (flag>0&&i>0){
             return 1;
         }
         return 0;
@@ -277,6 +278,116 @@ public class DoctorsForPatientServiceImpl implements DoctorsForPatientService {
     @Override
     public int deleteHistoryById(Map<String, Object> map) {
         int i = doctorsForPatientMapper.deleteHistoryById(map);
+        if (i>0){
+            return i;
+        }
+        return 0;
+    }
+
+    @Override
+    public Prescription findPrescriptionById(String id) {
+        Prescription prescriptionById = doctorsForPatientMapper.findPrescriptionById(id);
+        if (prescriptionById!=null&&prescriptionById.getId()!=""&&prescriptionById.getId()!=null){
+            return  prescriptionById;
+        }
+        return null;
+    }
+
+    @Override
+    public PageBean<Prescription> findPrescriptionsByDoctorId(Map<String, Object> map,int currentPage,int count) {
+        PageBean<Prescription> pageBean = new PageBean<Prescription>();
+        if (count != 0 && currentPage != 0) {
+            int totalCount = doctorsForPatientMapper.getTotalfindPrescriptionsByDoctorId(map);
+            if (totalCount != 0) {
+                int totalPages = (int) Math.ceil(totalCount * 1.0 / count);
+                int index = (currentPage - 1) * count;
+                map.put("index", index);
+                map.put("count", count);
+                List<Prescription> prescriptionsByDoctorId = doctorsForPatientMapper.findPrescriptionsByDoctorId(map);
+                if (prescriptionsByDoctorId != null && prescriptionsByDoctorId.size() != 0) {
+                    pageBean.setCurrentCount(count);
+                    pageBean.setCurrentPage(currentPage);
+                    pageBean.setList(prescriptionsByDoctorId);
+                    pageBean.setTotalCount(totalCount);
+                    pageBean.setTotalPage(totalPages);
+                }
+                return pageBean;
+            } else {
+                pageBean.setTotalPage(0);
+                pageBean.setTotalCount(0);
+                pageBean.setCurrentPage(currentPage);
+                pageBean.setCurrentCount(count);
+                pageBean.setList(null);
+            }
+        }
+        return pageBean;
+
+    }
+
+    @Override
+    public List<Itemprescription> findItemPrescriptionById(String id) {
+        List<Itemprescription> itemPrescriptionsById = doctorsForPatientMapper.findItemPrescriptionById(id);
+        if (itemPrescriptionsById!=null&&itemPrescriptionsById.size()>0){
+            return itemPrescriptionsById;
+        }
+        return null;
+    }
+
+    @Override
+    public Itemprescription findItemprescriptionById(String id) {
+        Itemprescription itemprescriptionById = doctorsForPatientMapper.findItemprescriptionById(id);
+        if (itemprescriptionById!=null&&itemprescriptionById.getId()!=null&&itemprescriptionById.getId()!=""){
+            return itemprescriptionById;
+        }
+        return null;
+    }
+
+    @Override
+    public int deleteItemPrescriptionById(String id) {
+        int i = doctorsForPatientMapper.deleteItemPrescriptionById(id);
+        if (i>0){
+            return i;
+        }
+        return 0;
+    }
+
+    @Override
+    public int addItemsPrescription(Map<String, Object> map) {
+        int i = doctorsForPatientMapper.addItemsPrescription(map);
+        if (i>0){
+            return  i;
+        }
+        return 0;
+    }
+
+    @Override
+    public int updateItemPrescriptionInfo(Map<String,Map<String,Object>> map) {
+        int flag=-1;
+        //修改数据
+        for (Map.Entry<String,Map<String,Object>> entry_item:map.entrySet()){
+             flag=0;
+            String key = entry_item.getKey();
+            Map<String, Object> value = entry_item.getValue();
+            //逻辑
+            //只要这个三个条件，修改了，不仅要修改字段，同时将处方的详情，status改为0
+            //同时将处方详情对应的check里面的一项数据，对应的审核条件状态改为0，
+            //其他审核条件不改
+            int i1 = doctorsForPatientMapper.updateItemPrescriptionById(value);
+
+            int i = doctorsForPatientMapper.updatecheckByItemPrescriptionId(value);
+            if (i1>0&&i1>0){
+                flag=1;
+            }
+        }
+        if (flag==1){
+            return flag;
+        }
+        return 0;
+    }
+
+    @Override
+    public int updatePrescriptionById(Map<String, Object> map) {
+        int i = doctorsForPatientMapper.updatePrescriptionById(map);
         if (i>0){
             return i;
         }

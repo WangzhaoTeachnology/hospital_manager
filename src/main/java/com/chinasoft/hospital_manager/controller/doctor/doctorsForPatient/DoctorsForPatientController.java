@@ -6,6 +6,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.chinasoft.hospital_manager.domain.*;
 import com.chinasoft.hospital_manager.domain.page.PageBean;
 import com.chinasoft.hospital_manager.service.admin.doctor.doctorsForPatient.DoctorsForPatientService;
+import com.chinasoft.hospital_manager.service.admin.examineAndVerify.ExamineAndVerifyService;
 import com.chinasoft.hospital_manager.service.admin.patient.UserForPatientService;
 import com.chinasoft.hospital_manager.service.admin.product.ProductService;
 import com.chinasoft.hospital_manager.utils.MenuUtils;
@@ -43,6 +44,9 @@ public class DoctorsForPatientController {
     private UserForPatientService userForPatientService;
     @Autowired
     private ProductService productService;
+
+    @Autowired
+    private ExamineAndVerifyService examineAndVerifyService;
 
     /**
      * @description:这个是医生门诊管理中的接诊管理
@@ -126,7 +130,7 @@ public class DoctorsForPatientController {
                 //当然在医生操作的时候，直接从后台获取这个数据也可以
             }
         }
-        andView.addObject("menuid",menuid);
+         andView.addObject("menuid",menuid);
          andView.setViewName("admin/doctorInfoAndManager/doctorsForPatient/doctorsForPatient");
        return andView;
    }
@@ -547,14 +551,18 @@ public class DoctorsForPatientController {
                 int product_id=JSONObject.parseObject(JSONObject.toJSONString(json.get(i))).getInteger("product_id");
                 int number=JSONObject.parseObject(JSONObject.toJSONString(json.get(i))).getInteger("number");
                 String use=JSONObject.parseObject(JSONObject.toJSONString(json.get(i))).getString("use");
-                int day=JSONObject.parseObject(JSONObject.toJSONString(json.get(i))).getInteger("day");
+                String time=JSONObject.parseObject(JSONObject.toJSONString(json.get(i))).getString("time");
+                String per=JSONObject.parseObject(JSONObject.toJSONString(json.get(i))).getString("per");
+               // int day=JSONObject.parseObject(JSONObject.toJSONString(json.get(i))).getInteger("day");
                 String item_comment=JSONObject.parseObject(JSONObject.toJSONString(json.get(i))).getString("comment");
                      item.put("id",item_id);
                      item.put("prescription_id",id);
                      item.put("product_id",product_id);
                      item.put("number",number);
                      item.put("use",use);
-                     item.put("day",day);
+                     item.put("time",time);
+                     item.put("per",per);
+                    // item.put("day",day);
                      item.put("comment",item_comment);
                     items.put(item_id,item);
             }
@@ -567,6 +575,7 @@ public class DoctorsForPatientController {
         prescription.put("patient_id",patient_id);
         prescription.put("doctor_id",doctor_id);
         prescription.put("comment",comment);
+        prescription.put("status",0);
         prescription.put("prescription_id",items);
 
         /*id
@@ -871,5 +880,219 @@ public class DoctorsForPatientController {
         return  response_map;
     }
 
+
+    /**
+     * @description:这是处方管理的主页面的载入
+     * @author jack
+     * @date 2020/4/7 18:47
+     * @param null
+     * @return
+     */
+    @RequestMapping("/loadPrescriptionInfo")
+    public  ModelAndView loadPrescriptionInfo(HttpServletRequest request){
+        Map<String,Object> map=new HashMap<String, Object>();
+        String currentPage = request.getParameter("currentPage");
+        ModelAndView andView=new ModelAndView();
+        Object doctor = request.getSession().getAttribute("doctor");
+        Doctor dr=null;
+        dr=(Doctor) doctor;
+        if (dr!=null){
+            map.put("id",dr.getId());
+            if (currentPage==null){
+                currentPage="1";
+            }
+            int currentCount=9;
+
+            PageBean<Prescription> prescriptionsByDoctorId = doctorsForPatientService.findPrescriptionsByDoctorId(map,Integer.parseInt(currentPage),currentCount);
+            List<Prescription> list = prescriptionsByDoctorId.getList();
+            if (list!=null){
+                andView.addObject("list",list);
+               // andView.addObject("search",value);
+                //andView.addObject("condition",id);
+                andView.addObject("pageBean",prescriptionsByDoctorId);
+            }
+        }
+        andView.setViewName("/admin/doctorInfoAndManager/doctorsForPatient/doctorsFindPrescription");
+        return andView;
+    }
+
+
+    /**
+     * @description:根据处方编号，查询处方的详情信息
+     * @author jack
+     * @date 2020/4/7 21:54
+     * @param null
+     * @return
+     */
+
+    @RequestMapping("/findItemPrescriptionsById")
+    @ResponseBody
+    public  Map<String ,Object> findItemPrescriptionsById(HttpServletRequest request){
+        Map<String,Object> map=new HashMap<String, Object>();
+        String id = request.getParameter("id");
+        List<Itemprescription> itemPrescriptionById = doctorsForPatientService.findItemPrescriptionById(id);
+        if (itemPrescriptionById!=null){
+           map.put("type","success");
+           map.put("list",itemPrescriptionById);
+           return map;
+        }else {
+            map.put("type","fail");
+        }
+        return map;
+    }
+
+    /**
+     * @description:这个根据处方详情的id，查询考核的信息
+     * @author jack
+     * @date 2020/4/8 13:43
+     * @param null
+     * @return
+     */
+    @RequestMapping("/findCheckInfoByItemId")
+    @ResponseBody
+    public  Map<String ,Object> findCheckInfoByItemId(HttpServletRequest request){
+        Map<String,Object> map=new HashMap<String, Object>();
+        String id = request.getParameter("id");
+        Check checkItemByItemId = examineAndVerifyService.findCheckItemByItemId(id);
+        if (checkItemByItemId!=null){
+            map.put("type","success");
+            map.put("check",checkItemByItemId);
+            return map;
+        }else {
+            map.put("type","fail");
+        }
+        return map;
+    }
+
+
+    /**
+     * @description:这个是医生在发现审核后药品与诊断的内容，以及药物之前如果存在相互的反应，需要修改药品信息
+     * 那么这个是以前的处方详情的信息的数据的回显部分
+     * @author jack
+     * @date 2020/4/8 13:43
+     * @param null
+     * @return
+     */
+    @RequestMapping("/findItemprescriptionById")
+    @ResponseBody
+    public  Map<String ,Object> findItemprescriptionById(HttpServletRequest request){
+        Map<String,Object> map=new HashMap<String, Object>();
+        String id = request.getParameter("id");
+        Itemprescription itemprescriptionById = doctorsForPatientService.findItemprescriptionById(id);
+        if (itemprescriptionById!=null){
+            map.put("type","success");
+            map.put("itemprescription",itemprescriptionById);
+            return map;
+        }else {
+            map.put("type","fail");
+        }
+        return map;
+    }
+
+
+    /**
+     * @description:根据id删除处方详情数据
+     * @author jack
+     * @date 2020/4/8 22:50
+     * @param null
+     * @return
+     */
+
+    @ResponseBody
+    @RequestMapping("/deleteItemPrescriptionById")
+    public  Map<String,Object> deleteItemPrescriptionById(HttpServletRequest request){
+        Map<String,Object> map=new HashMap<String, Object>();
+        String id=request.getParameter("id");
+        int i = doctorsForPatientService.deleteItemPrescriptionById(id);
+        if (i>0){
+            map.put("type","success");
+            return map;
+        }else {
+            map.put("type","fail");
+        }
+        return map;
+    }
+
+
+    /**
+     * @description：添加处方详情数据
+     * @author jack
+     * @date 2020/4/8 22:51
+     * @param null
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping("/addItemPrescription")
+    public  Map<String,Object> addItemPrescription(HttpServletRequest request){
+        Map<String,Object> map=new HashMap<String, Object>();
+        String id=request.getParameter("id");
+        String prescription_id=request.getParameter("prescription_id");
+        String product_id=request.getParameter("product_id");
+        String number=request.getParameter("number");
+        String use=request.getParameter("use");
+        String comment=request.getParameter("comment");
+        String time=request.getParameter("time");
+        String per=request.getParameter("per");
+        String status=request.getParameter("status");
+        map.put("id",id);
+        map.put("prescription_id",prescription_id);
+        map.put("product_id",product_id);
+        map.put("number",number);
+        map.put("use",use);
+        map.put("comment",comment);
+        map.put("time",time);
+        map.put("per",per);
+        map.put("status",status);
+        int i = doctorsForPatientService.addItemsPrescription(map);
+        if (i>0){
+            map.put("type","success");
+            return map;
+        }else {
+            map.put("type","fail");
+        }
+        return map;
+    }
+
+    @ResponseBody
+    @RequestMapping("/updateItemPrescriptionInfo")
+    public  Map<String,Object> updateItemPrescriptionInfo(HttpServletRequest request){
+        Map<String,Object> map=new HashMap<String, Object>();
+        Map<String,Object> prescription_map=new HashMap<String, Object>();
+        //pid为处方的id，只要这个处方详情修改了，这个处方的状态再次改为0
+        String pid=request.getParameter("id");
+        String data=request.getParameter("data");
+        JSONArray json = JSONArray.parseArray(data);
+        Map<String,Map<String,Object>> items=new HashMap<String, Map<String,Object>>();
+        // var row={"id":itemsId[i].value,"use":if_use_str,"time":if_time_str,"per":if_per_str};
+        for (int i=0;i<json.size();i++){
+            Map<String,Object> item=new HashMap<String, Object>();
+            String id=JSONObject.parseObject(JSONObject.toJSONString(json.get(i))).getString("id");
+            String use=JSONObject.parseObject(JSONObject.toJSONString(json.get(i))).getString("use");
+            String time=JSONObject.parseObject(JSONObject.toJSONString(json.get(i))).getString("time");
+            String per=JSONObject.parseObject(JSONObject.toJSONString(json.get(i))).getString("per");
+
+            item.put("id",id);
+            item.put("use",use);
+            item.put("time",time);
+            item.put("per",per);
+            //只要发生了修改操作，那么这个再次置为0，尚未审核的状态，药剂师需要再次审核
+            item.put("status",0);
+            items.put(id,item);
+        }
+        prescription_map.put("id",pid);
+        //这个是修改三个条件的字段的内容，同时修改check表里面的三个字段的状态
+        int i = doctorsForPatientService.updateItemPrescriptionInfo(items);
+
+        //因为修改，后将修改处方详情的状态为0，在处方中，至少存在一个处方详情的状态为0，所以整个处方的状态为0
+        int i1 = doctorsForPatientService.updatePrescriptionById(prescription_map);
+
+        if (i>0&&i1>0){
+            map.put("type","success");
+            return map;
+        }else {
+            map.put("type","fail");
+        }
+        return map;
+    }
 
 }

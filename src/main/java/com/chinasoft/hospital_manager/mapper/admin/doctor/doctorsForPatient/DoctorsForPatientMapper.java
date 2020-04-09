@@ -3,6 +3,7 @@ package com.chinasoft.hospital_manager.mapper.admin.doctor.doctorsForPatient;
 
 import com.chinasoft.hospital_manager.domain.Appointment;
 import com.chinasoft.hospital_manager.domain.History;
+import com.chinasoft.hospital_manager.domain.Itemprescription;
 import com.chinasoft.hospital_manager.domain.Prescription;
 
 import org.springframework.stereotype.Repository;
@@ -69,5 +70,29 @@ public interface DoctorsForPatientMapper {
 
     //根据id,删除这个病历的信息
     public int deleteHistoryById(Map<String,Object> map);
+
+    //根据id，查询医生开的处方信息
+    public Prescription findPrescriptionById(String id);
+
+
+    //根据医生的id，查询该医生的所有的处方信息
+    public List<Prescription> findPrescriptionsByDoctorId(Map<String,Object> map);
+    public int getTotalfindPrescriptionsByDoctorId(Map<String,Object> map);
+
+
+    //根据这个处方的编号，查询这个处方的详情的信息
+    List<Itemprescription> findItemPrescriptionById(String id);
+
+    //查询每一个处方详情的数据，按照处方详情的id
+    public Itemprescription findItemprescriptionById(String id);
+
+    //根据主键删除处方详情数据
+    public int deleteItemPrescriptionById(String id);
+
+    //医生按照审核修改数据，提交,
+    //修改那三个最普通的审核条件
+    public int updateItemPrescriptionById(Map<String,Object> map);
+    public int updatePrescriptionById(Map<String,Object> map);
+    public int updatecheckByItemPrescriptionId(Map<String,Object> map);
 
 }

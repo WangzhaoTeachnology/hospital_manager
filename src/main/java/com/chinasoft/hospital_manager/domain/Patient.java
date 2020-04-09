@@ -19,6 +19,8 @@ public class Patient {
     private String work;
     private User user;//这个字段的设计已经没有用了，但是不想让程序动，这个字段还是没有从数据库里面删除
 
+    //年纪这个字段不加入到数据中，但是显示在页面上需要，所以加上这个类里面
+    private int age;
     public Patient(String id, String name, String id_number, String sex, int is_marry, String birthday, String telephone, String address, String work, User user) {
         this.id = id;
         this.name = name;
@@ -138,12 +140,20 @@ public class Patient {
         this.user = user;
     }
 
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
     @Override
     public String toString() {
         return "Patient{" +
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
-                ", id_number=" + id_number +
+                ", id_number='" + id_number + '\'' +
                 ", sex='" + sex + '\'' +
                 ", is_marry=" + is_marry +
                 ", birthday='" + birthday + '\'' +
@@ -151,6 +161,7 @@ public class Patient {
                 ", address='" + address + '\'' +
                 ", work='" + work + '\'' +
                 ", user=" + user +
+                ", age=" + age +
                 '}';
     }
 }

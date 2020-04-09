@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chinasoft.hospital_manager.mapper.admin.examineAndVerify.ExamineAndVerifyMapper">
+
+    <select id="findAllPrescriptionByNoStatus"  resultMap="findPrescriptions" parameterType="map">
+            SELECT *
+            FROM(
+                SELECT p.id as pid ,p.content,p.datetime,p.comment as pcomment,p.`status`,
+                i.id as iid,i.number,i.use,i.day,i.comment as icomment,i.time,i.per,
+                pt.id as ptid,pt.name,pt.price,
+                t.id as tid,t.name as tname,t.sex,t.birthday,
+                dr.id,dr.realname
+                FROM prescription p,itemprescription i,patient t, product pt,doctor dr
+                WHERE p.patient_id=t.id AND p.id=i.prescription_id  AND i.product_id=pt.id AND p.doctor_id=dr.id
+               <if test="id!=null">
+                 AND  p.id=#{id}
+               </if>
+                <if test="content!=null">
+                    AND  p.content like concat('%',#{content},'%')
+                </if>
+                <if test="status!=null">
+                    AND p.`status`=#{status}
+                </if>
+                GROUP BY p.id
+            )list
+            limit #{index},#{count}
+    </select>
+    <resultMap id="findPrescriptions" type="com.chinasoft.hospital_manager.domain.Prescription">
+        <id column="pid" property="id"/>
+        <result column="content" property="content"/>
+        <result column="datetime" property="datetime"/>
+        <result column="pcomment" property="comment"/>
+        <result column="status" property="status"/>
+        <association property="doctor" javaType="com.chinasoft.hospital_manager.domain.Doctor">
+            <id column="id" property="id"/>
+            <result column="realname" property="realname"/>
+        </association>
+        <association property="patient" javaType="com.chinasoft.hospital_manager.domain.Patient">
+            <id column="tid" property="id"/>
+            <result column="tname" property="name"/>
+            <result column="sex" property="sex"/>
+            <result column="birthday" property="birthday"/>
+        </association>
+        <collection property="itemprescription" ofType="com.chinasoft.hospital_manager.domain.Itemprescription">
+            <id column="iid" property="id" />
+            <result column="number" property="number"/>
+            <result column="day" property="day"/>
+            <result column="use" property="use"/>
+            <result column="time" property="time"/>
+            <result column="per" property="per"/>
+            <result column="icomment" property="comment"/>
+            <association property="product" javaType="com.chinasoft.hospital_manager.domain.Product">
+                <id column="ptid" property="id"/>
+                <result column="name" property="name"/>
+                <result column="price" property="price"/>
+            </association>
+        </collection>
+    </resultMap>
+
+
+    <select id="getTotalfindAllPrescriptionByNoStatus" parameterType="map" resultType="java.lang.Integer">
+        select count(*)
+        FROM (
+             SELECT p.id as pid ,p.content,p.datetime,p.comment as pcomment,p.`status`,
+            i.id as iid,i.number,i.use,i.day,i.comment as icomment,i.time,i.per,
+            pt.id as ptid,pt.name,pt.price,
+            t.id as tid,t.name as tname,t.sex,
+            dr.id,dr.realname
+            FROM prescription p,itemprescription i,patient t, product pt,doctor dr
+            WHERE p.patient_id=t.id AND p.id=i.prescription_id  AND i.product_id=pt.id AND p.doctor_id=dr.id
+            <if test="id!=null">
+                AND p.id =#{id}
+            </if>
+            <if test="content!=null">
+                AND p.content like concat('%',#{content},'%')
+            </if>
+            <if test="status!=null">
+                AND p.`status`=#{status}
+            </if>
+            GROUP BY p.id
+        )list
+    </select>
+
+
+    <insert id="submitCheckInfo" parameterType="map">
+        INSERT INTO `check`(cid,if_use,if_use_str,if_per,if_per_str,if_time,if_time_str,if_react,if_react_str,item_id,if_content,if_content_str)
+        VALUES(#{cid},#{if_use},#{if_use_str},#{if_per},#{if_per_str},#{if_time},#{if_time_str},#{if_react},#{if_react_str},#{item_id},#{if_content},#{if_content_str})
+    </insert>
+
+    <select id="findCheckItemByItemId" resultMap="findCheckItemByItemId" parameterType="java.lang.String">
+       SELECT * FROM `check`,itemprescription WHERE `check`.item_id=itemprescription.id
+       and `check`.item_id=#{id}
+    </select>
+
+    <resultMap id="findCheckItemByItemId" type="com.chinasoft.hospital_manager.domain.Check">
+        <id column="cid" property="cid"/>
+        <result column="if_use" property="if_use"/>
+        <result column="if_use_str" property="if_use_str"/>
+        <result column="if_per" property="if_per"/>
+        <result column="if_per_str" property="if_per_str"/>
+        <result column="if_time" property="if_time"/>
+        <result column="if_time_str" property="if_time_str"/>
+        <result column="if_react" property="if_react"/>
+        <result column="if_react_str" property="if_react_str"/>
+        <result column="if_content" property="if_content"/>
+        <result column="if_content_str" property="if_content_str"/>
+        <association property="itemprescription" javaType="com.chinasoft.hospital_manager.domain.Itemprescription">
+            <id column="id" property="id" />
+            <result column="number" property="number"/>
+            <result column="use" property="use"/>
+            <result column="time" property="time"/>
+            <result column="per" property="per"/>
+            <result column="status" property="status"/>
+            <result column="comment" property="comment"/>
+            <association property="product" javaType="com.chinasoft.hospital_manager.domain.Product">
+                <id column="ptid" property="id"/>
+                <result column="name" property="name"/>
+                <result column="price" property="price"/>
+                <result column="standards" property="standards"/>
+            </association>
+        </association>
+    </resultMap>
+
+    <update id="updateItemPrescriptionByCheckInfo" parameterType="java.lang.Object">
+        UPDATE itemprescription
+        <if test="flag==1">
+        SET  `status`=1
+        </if>
+        <if test="flag==2">
+        SET  `status`=2
+        </if>
+        where id=#{id}
+    </update>
+
+    <select id="findItemPrescriptionById" resultType="com.chinasoft.hospital_manager.domain.Itemprescription" parameterType="java.lang.Object">
+        SELECT * FROM itemprescription
+        <where>
+            <if test="id!=null">
+                id=#{id}
+            </if>
+        </where>
+    </select>
+
+    <select id="submitCheck" parameterType="java.lang.String" resultMap="items">
+          SELECT * FROM itemprescription WHERE prescription_id=#{id}
+    </select>
+    <resultMap id="items" type="com.chinasoft.hospital_manager.domain.Itemprescription">
+        <id column="id" property="id" />
+        <result column="number" property="number"/>
+        <result column="day" property="day"/>
+        <result column="use" property="use"/>
+        <result column="status" property="status"/>
+    </resultMap>
+
+    <update id="updatePrescriptionStatus" parameterType="java.lang.Object">
+        <if test="ret==2">
+            UPDATE prescription SET `status` =2 WHERE id=#{id}
+        </if>
+        <if test="ret==1">
+            UPDATE prescription SET `status` =1 WHERE id=#{id}
+        </if>
+    </update>
+
+    <insert id="addPays" parameterType="map">
+	  INSERT INTO pay(id,patient_id,doctor_id,user_id,flag,datetime,prescription_id,fee) VALUES(#{id},#{patient_id},#{doctor_id},#{user_id},#{flag},#{datetime},#{prescription_id},#{fee})
+    </insert>
+
+
+    <select id="findPayByPrescriptionId" resultMap="listPays" parameterType="java.lang.String">
+       SELECT * FROM `pay` WHERE prescription_id=#{id}
+    </select>
+    <resultMap id="listPays" type="com.chinasoft.hospital_manager.domain.Pay">
+        <id column="id" property="id"/>
+        <result column="flag" property="flag"/>
+        <result column="datetime" property="datetime"/>
+        <result column="fee" property="fee"/>
+        <association property="patient" javaType="com.chinasoft.hospital_manager.domain.Patient">
+            <id column="pid" property="id"/>
+            <result column="name" property="name"/>
+        </association>
+        <association property="doctor" javaType="com.chinasoft.hospital_manager.domain.Doctor">
+            <id column="drid" property="id"/>
+            <result column="realname" property="realname"/>
+        </association>
+        <association property="user" javaType="com.chinasoft.hospital_manager.domain.User">
+            <id column="uid" property="id"/>
+            <result column="uname" property="name"/>
+        </association>
+        <collection property="prescriptions" ofType="com.chinasoft.hospital_manager.domain.Prescription">
+            <id column="prescriptionId" property="id"/>
+        </collection>
+    </resultMap>
+
+    <delete id="deletePayByPrescriptionId" parameterType="java.lang.String">
+           DELETE FROM pay WHERE id=#{id}
+    </delete>
+
+    <delete id="deleteCheckInfoByItemId" parameterType="java.lang.String">
+        DELETE FROM `check` WHERE item_id=#{id}
+    </delete>
+</mapper>

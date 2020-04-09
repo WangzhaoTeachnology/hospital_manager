@@ -70,7 +70,7 @@
                             <div class="col-lg-5 col-sm-5 col-md-5 col-xs-5" style="position: relative;">
                                 <c:forEach items="${third}" var="third">
                                     <c:if test="${third.name=='开处方' && third.status==1}">
-                                        <input   data-toggle="modal" <%--data-target="#_myModal_prescription"--%>  type="button"  id="prescription" name="prescription" class="btn btn-default" value="开处方"/>
+                                        <input   data-toggle="modal"   type="button"  id="prescription" name="prescription" class="btn btn-default" value="开处方"/>
                                     </c:if>
                                     <c:if test="${third.name=='查询病历' && third.status==1}">
                                         <input  data-toggle="modal"   type="button"   id= "delete" name="delete" class="btn btn-default" value="查询病历"/>
@@ -393,7 +393,7 @@
                             <thead>
                             <tr>
                                 <td class="active">处方编号</td>
-                                <td class="active" colspan="8"  id="prescription_id">32123213435435435</td>
+                                <td class="active" colspan="9"  id="prescription_id">32123213435435435</td>
                             </tr>
                             </thead>
                             <tbody id="table_content">
@@ -402,7 +402,8 @@
                                         <td class="active">编号</td>
                                         <td class="success">药品</td>
                                         <td class="warning">用法</td>
-                                        <td class="danger">天数</td>
+                                        <td class="danger">天/次</td>
+                                        <td class="success">次/量</td>
                                         <td class="warning">数量</td>
                                         <td class="success">备注</td>
                                         <td class="active">单价</td>
@@ -536,127 +537,6 @@
     </div>
 
 
-
-
-
-    <!-- 处方按钮的触发 -->
-<%--        <div class="modal fade" id="_myModal_prescriptionll" tabindex="0" role="dialog" aria-labelledby="myModalLabel">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button"  id="auto_close" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="myModalLabe">开处方</h4>
-                </div>
-                <div class="modal-body">
-                  &lt;%&ndash;  这个是导航按钮&ndash;%&gt;
-                        <form class="form-inline" style="margin-left: -454px;margin-top: -23px;">
-                            <div class="form-group">
-                                <button type="button"  id="addbtn_prescription" class="btn btn-primary navbar-btn">添加</button>
-&lt;%&ndash;                                <button type="button" class="btn btn-success navbar-btn">查看</button>&ndash;%&gt;
-                                <button type="button" class="btn btn-info navbar-btn">删除</button>
-                                &nbsp; &nbsp; &nbsp;
-                               &lt;%&ndash; <input type="text" class="form-control"  placeholder="输入要搜索的信息">
-                                <button type="button" class="btn btn-default">搜索</button>&ndash;%&gt;
-                            </div>
-                        </form>
-
-                      <div class="row">
-                              &lt;%&ndash;这个是表格&ndash;%&gt;
-                              <table class="table table-striped" id="prescribe_Content" style="border: 1px solid red;">
-                                  <thead>
-                                      <tr>
-                                          <td class="active">处方编号</td>
-                                          <td class="active" colspan="8"  id="prescription_id">32123213435435435</td>
-                                      </tr>
-                                  </thead>
-                                  <tbody id="table_content">
-                                      <tr>
-                                          <td class="active">选择</td>
-                                          <td class="active">编号</td>
-                                          <td class="success">药品</td>
-                                          <td class="warning">用法</td>
-                                          <td class="danger">天数</td>
-                                          <td class="warning">数量</td>
-                                          <td class="success">备注</td>
-                                          <td class="active">单价</td>
-                                          <td class="active">操作</td>
-                                      </tr>
-                                  </tbody>
-                              </table>
-                      </div>
-                      <div class="row" style="border: 1px solid red;position: relative;margin-bottom:40px; ">
-                          <div class="form-group" style="border: 1px solid red;position: absolute;right: 0px;">
-                              <span for="_comment" class="control-label" style="margin-top: -3px;">总价格:</span>
-                              <span for="_comment" class="control-label" style="margin-top: -3px;" id="totalPrice">￥:5687</span>
-                          </div>
-                      </div>
-
-                      <div class="row" style="margin-top: -10px;border: 1px solid red;">
-                          <div class="form-group">
-                              <label for="prescription_content" class="col-sm-2 control-label" style="margin-top: -3px;margin-left: -20px;">诊断内容:</label>
-                              <div class="col-sm-10">
-                                 <textarea   name="prescription_content" id="prescription_content" class="form-control" rows="2" style="width: 440px;height: 100px;" placeholder="请你填写诊断内容"></textarea>
-                              </div>
-                          </div>
-                      </div>
-                      <div class="row" style="border: 1px solid red;">
-                          <div class="form-group">
-                              <label for="doctor_comment" class="col-sm-2 control-label" style="margin-top: -3px;margin-left: -19px;">医嘱:</label>
-                              <div class="col-sm-10">
-                                 <textarea   name="doctor_comment" id="doctor_comment" class="form-control" rows="2" style="width: 440px;height: 100px;" placeholder="请你填写医嘱"></textarea>
-                              </div>
-                          </div>
-                      </div>
-                      <div class="row" style="border: 1px solid red;position: relative;">
-                          <div class="form-group" style="border: 1px solid red;position: absolute;right: 0px;">
-                              <span for="_comment" class="control-label" style="margin-top: -3px;">诊断时间:</span>
-                              <span for="_comment" class="control-label" style="margin-top: -3px;" id="nowtime"></span>
-                          </div>
-                      </div>
-
-                      <div class="row" style="border: 0px solid red; margin-top: 20px; ">
-                          <div style="border:0px solid  red ;">
-                              <div  style="border:0px solid  red ;margin-left: -500px ;width:  99px ;">
-                                  <a class="" role="button" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                                      查看处方历史
-                                  </a>
-                              </div>
-                              <div class="collapse" id="collapseExample">
-                                  <div class="well" style="padding:0px ;">
-                                      <table class="table table-striped" id="table_history_info" style="border: 0px solid red;">
-                                         &lt;%&ndash; <thead id="table_history_thead">
-                                              <tr>
-                                                  <td class="active">处方编号</td>
-                                                  <td class="active" colspan="7">32123213435435435</td>
-                                              </tr>
-                                          </thead>&ndash;%&gt;
-                                      &lt;%&ndash;    <tbody id="table_history">
-                                              <tr>
-                                                  <td class="active">编号</td>
-                                                  <td class="active">药品</td>
-                                                  <td class="active">用法</td>
-                                                  <td class="active">天数</td>
-                                                  <td class="active">数量</td>
-                                                  <td class="active">备注</td>
-                                                  <td class="active">单价</td>
-                                              </tr>
-                                          </tbody>&ndash;%&gt;
-                                      </table>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" id="bottom_close" class="btn btn-default" data-dismiss="modal">关闭</button>
-                    <button type="button" class="btn btn-primary" id="submitPrescirbeAndDetail">确认</button>
-                </div>
-            </div>
-        </div>
-    </div>--%>
-
-
-
     <!-- 处方详情的添加 -->
     <div class="modal fade" id="add_prescription" tabindex="700" style="z-index: 7000" role="dialog" aria-labelledby="myModalLabe">
         <div class="modal-dialog" role="document">
@@ -692,18 +572,52 @@
                         </div>
 
                         <div class="form-group">
+                            <label class="col-sm-2 control-label">用法</label>
+                            <div class="col-sm-10" style="border:0px solid red;position: relative;">
+                                <label class="radio-inline" style="position:absolute;left: 17px;">
+                                    <input type="radio" name="use" id="inlineRadio1" value="口服"> 口服
+                                </label>
+                                <label class="radio-inline" style="position:absolute;left: 82px;">
+                                    <input type="radio" name="use" id="inlineRadio2" value="外服"> 外服
+                                </label>
+                                <label class="radio-inline" style="position:absolute;left: 157px;">
+                                    <input type="radio" name="use" id="inlineRadio3" value="注射"> 注射
+                                </label>
+                            </div>
+                        </div>
+
+                <%--        <div class="form-group">
                             <label for="use" class="col-sm-2 control-label">用法</label>
                             <div class="col-sm-10">
                                 <input type="text" class="form-control" id="use" name="use">
                             </div>
-                        </div>
+                        </div>--%>
+                       <%-- 按照每天几次，每次多少量，多少数量的药，到底吃几天，医生不管--%>
                         <div class="form-group">
-                            <label for="day" class="col-sm-2 control-label">天数</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" id="day" name="day">
+                            <label for="time" class="col-sm-2 control-label">天/次</label>
+                            <div class="col-sm-10" style="position: relative;left: -40px;">
+                                <input type="button"  value="+" style="width: 34px;height: 31px;margin-left: 42px;position: absolute;" class="form-control" id="add_time" name="add_time">
+                                <input type="text" style="width: 64px;height: 31px;position: absolute;left: 92px;" value="1" class="form-control" id="time" name="time">
+                                <input type="button" value="-"  style="width: 34px;height: 31px;position: absolute;left: 158px;" class="form-control" id="minus_time" name="minus_time">
                             </div>
                         </div>
-                        <div class="form-group" >
+                  <%--      <div class="form-group">
+                            <label for="number" class="col-sm-2 control-label">次/量</label>
+                            <div class="col-sm-10" style="position: relative;left: -40px;">
+                                <input type="button"  value="+" style="width: 34px;height: 31px;margin-left: 42px;position: absolute;" class="form-control" id="add_per" name="add_per">
+                                <input type="text" style="width: 64px;height: 31px;position: absolute;left: 92px;" value="1" class="form-control" id="per" name="per">
+                                <input type="button" value="-"  style="width: 34px;height: 31px;position: absolute;left: 158px;" class="form-control" id="minus_per" name="minus_per">
+                            </div>
+                        </div>--%>
+
+
+                        <div class="form-group">
+                            <label for="per" class="col-sm-2 control-label">次/量</label>
+                            <div class="col-sm-10" style="width: 83.333333%;">
+                                <input type="text" class="form-control" id="per" name="per" />
+                            </div>
+                        </div>
+                        <div class="form-group">
                             <label for="number" class="col-sm-2 control-label">数量</label>
                             <div class="col-sm-10" style="position: relative;left: -40px;">
                                 <input type="button"  value="+" style="width: 34px;height: 31px;margin-left: 42px;position: absolute;" class="form-control" id="add" name="add">
@@ -754,7 +668,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="use" class="col-sm-2 control-label">病人姓名</label>
+                            <label  class="col-sm-2 control-label">病人姓名</label>
                             <div class="col-sm-10">
                                 <input type="hidden" class="form-control" value="" id="patient_id" name="patient_id">
                                 <input type="text" class="form-control" id="patient_name" name="patient_name">
@@ -830,11 +744,6 @@ $(function () {
 
 
     //在处方里面，点击添加按钮 ，这个跳出处方详情的页面
-   /* $("#addbtn_prescription").click(function(){
-        alert("come in");
-       // $("#add_prescription").modal("show");
-    });*/
-
     $("#addbtn_prescription").on('click', function () {
         //$('#secondmodal').modal();
         $("#add_prescription").modal();
@@ -906,9 +815,11 @@ $(function () {
 
         var proId=obj.find("input[name='proId']");
 
-        var use=obj.find("input[name='use']");
-
-        var day=obj.find("input[name='day']");
+        var use=obj.find("input[name='use']") ;
+       // alert("use"+JSON .stringify( use ));
+        var time=obj.find("input[name='time']");
+        var per=obj.find("input[name='per']");
+        //var day=obj.find("input[name='day']");//这个字段已经废除！
 
         var _number=obj.find("input[name='number']");
 
@@ -923,12 +834,12 @@ $(function () {
         var data =[];
         var count=prescri_id.length;
         //这个判断是为了判断这个处方详情的信息：
-        if ((proId.length>0&&use.length>0&&day.length>0&&_number.length>0&&comment.length>0&&detailprice.length)&&
-            (proId.length==use.length)&&(day.length==_number.length)&&(comment.length==detailprice.length)
+        if ((proId.length>0&&use.length>0&&use.length>0&&_number.length>0&&comment.length>0&&detailprice.length)&&
+            (proId.length==use.length)&&(use.length==_number.length)&&(comment.length==detailprice.length)
         ){
             var number=prescri_id.length;
             for (var i=0;i<number;i++){
-                 var row={id:prescri_id[i].value,product_id:proId[i].value ,number:_number[i].value,use:use[i].value,day:day[i].value,comment:comment[i].value};
+                 var row={id:prescri_id[i].value,product_id:proId[i].value ,number:_number[i].value,use:use[i].value,time:time[i].value,per:per[i].value,comment:comment[i].value};
                  data.push(row);
             }
             //这个是为了判断这个处方的整体信息：
@@ -941,7 +852,9 @@ $(function () {
                /*
                    成功提交处方的信息后
                   1:将数据插入到处方的详情里面去
-                  2：自动的生成这个需要的缴费单信息
+                  2:处方提交后，需要药剂师审核，审核通过后，可以自动的生成这个需要的缴费单信息
+                   不通过通知医生修改处方信息，就是重回医生端
+                  :
                 */
 
                 $.ajax({
@@ -1033,6 +946,8 @@ $(function () {
             }else {
                 alert("请你填写医嘱和诊断的内容");
             }
+        }else{
+            alert("处方详情的内容有误!");
         }
         //  alert(JSON.stringify(data));
     });
@@ -1040,19 +955,24 @@ $(function () {
 
 
 
-        //这个是点击详情的页面
+    //这个是点击详情的页面
     $("#prescri_btn").click(function () {
 
         var prescri_id = $("#prescri_id").val();
         var product = $("select[name='product'] option:selected").text();
         var pro_id = $("select[name='product'] option:selected").val();
-        var use=$("#use").val();
-        var day=$("#day").val();
+
+         var use= $('input:radio[name="use"]:checked').val();
+       // alert("use="+use);
+      //  var day=$("#day").val();
+        var time=$("#time").val();
+        var per=$("#per").val();
+
         var number=$("#number").val();
         var comment=$("#comment").val();
         var price=$("#price").val();
-        if (prescri_id!=null&&prescri_id!=""&&product!=null&&product!="" && !(product=="请选择") && use!=null&&use!=""&&day!=null&&day!=""
-           &&number!=null&&number!=""&&comment!=null&&comment!=""&&price!=null&&price!=""
+        if (prescri_id!=null&&prescri_id!=""&&product!=null&&product!="" && !(product=="请选择") && use!=null&&use!=""
+           &&number!=null&&number!=""&&comment!=null&&comment!=""&&price!=null&&price!=""&&per!=null&&per!=""&&time!=null&&time!=""
         ){
                   //这个里面td里面的数据是为了给用户看的，但是数据的提交到后台是input里面的数据，
                  //为了方便获取数据，从而将这个td后面加上input标签，存放数据
@@ -1060,16 +980,18 @@ $(function () {
                                 "<td>"+prescri_id+"</td><input name='prescrid' type='hidden' value='"+prescri_id+"'/>"+
                                 " <td>"+product+"</td><input name='proId' type='hidden' value='"+pro_id+"'/>"+
                                 " <td>"+use+"</td><input name='use' type='hidden' value='"+use+"'/>"+
-                                " <td>"+day+"</td><input name='day' type='hidden' value='"+day+"'/>"+
+                                 " <td>"+time+"</td><input name='time' type='hidden' value='"+time+"'/>"+
+                                 " <td>"+per+"</td><input name='per' type='hidden' value='"+per+"'/>"+
+                               /* " <td>"+day+"</td><input name='day' type='hidden' value='"+day+"'/>"+*/
                                 " <td>"+number+"</td><input name='number' type='hidden' value='"+number+"'/>"+
                                 " <td>"+comment+"</td><input name='comment' type='hidden' value='"+comment+"'/>"+
                                 " <td >"+price+"</td><input name='detailprice' type='hidden' value='"+price+"'/>" +
                                 "<td><button type=\"button\" class=\"close\"  name=\"btn_item_close\">" +
                                     "<span aria-hidden=\"true\">&times;</span></button></td></tr>";
-
+                  // alert(info);
             $("#table_content").append(info);
 
-            //前端jquery删除元素
+            //前端jquery删除一行数据元素
             $("button[name='btn_item_close']").click(function () {
                 $(this).parent().parent().remove();
             });
@@ -1089,6 +1011,80 @@ $(function () {
     });
 
 
+   //这个是每天服药的次数
+    $("#time").blur(function () {
+        var time=parseInt($("#time").val());
+        if (isNaN(time)){
+            time=1;
+            $("#time").val(time);
+        }
+        var selected = $("select[name='product'] option:selected").val();
+        if (parseInt(selected)!=0){
+            if (time<1){
+                alert("数量至少为1");
+                return;
+             }
+        }else {
+             alert("请你先选择具体的药品，才能选择具体的数量");
+             return;
+        }
+    });
+
+    //这个每天服药的次数减法
+    $("#minus_time").click(function () {
+        var selected = $("select[name='product'] option:selected").val();
+        if (parseInt(selected)!=0){
+            var time=$("#time").val();
+            if (check(time)){
+                time=parseInt($("#time").val());
+                if (time==1){
+                    alert("不能继续减少了，最低为1");
+                    return;
+                }else if (time>1) {
+                    time=time-1;
+                    $("#time").val(time);
+                }
+            } else{
+                //此时当医生输入选中了药品，但是这个药品的服药次数被修改了为非数字，此时
+                //提示用户
+                alert("你输入的数量必须为纯数字");
+            }
+        }else{
+            alert("请你先选择具体的药品，才能选择具体的数量");
+            return;
+        }
+    });
+
+    //这个每天服药的次数加法
+    $("#add_time").click(function () {
+        var time=$("#time").val();
+        if (check(time)){
+            time=parseInt($("#time").val());
+            var selected = $("select[name='product'] option:selected").val();
+            if (parseInt(selected)!=0){
+                time=parseInt(time)+1;
+                $("#time").val(time);
+            }else{
+                alert("请你先选择具体的药品，才能选择具体的数量");
+                return;
+            }
+        } else{
+            alert("你输入的数量必须为纯数字");
+        }
+    });
+
+
+    //判断文本框是不是数字的函数
+    function check(value){
+        var reg=/^[1-9]\d*$|^0$/;
+        if(reg.test(value)==true){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+
         //这个天数的填写
         $("#day").blur(function () {
             var day = $(this).val();
@@ -1102,15 +1098,7 @@ $(function () {
         });
 
 
-        //判断文本框是不是数字的函数
-        function check(value){
-            var reg=/^[1-9]\d*$|^0$/;
-            if(reg.test(value)==true){
-                return true;
-            }else{
-                return false;
-            }
-        }
+
 
         //这个是直接输入数量，然后点击文本框
         $("#number").blur(function () {
@@ -1135,6 +1123,7 @@ $(function () {
                 return;
             }
         });
+
         //这个是点击数据减少
         $("#minus").click(function () {
             var selected = $("select[name='product'] option:selected").val();
@@ -1178,8 +1167,13 @@ $(function () {
                 alert("你输入的数量必须为纯数字");
             }
      });
+
+
         //这个是在处方单里面的，添加按钮，触发的函数，添加处方的详情
         $("#addbtn_prescription").click(function () {
+            //只要医生一点击这个添加，我默认一个药品的用法
+            $("#inlineRadio1").attr("checked",true);
+
             //alert("come in");
             var checkboxs=$("input[name='checkbox']:checked");
             var  menuid=$("input[name='menuid']").val();
@@ -1355,6 +1349,7 @@ $(function () {
                                  //  alert(JSON.stringify(prescriptions));
                                           if (prescriptions!=null&&prescriptions!=""){
                                                for (var i=0;i<prescriptions.length;i++){
+
                                                    var head="<tr>" +
                                                        "            <td class=\"active\">处方编号</td>\n" +
                                                        "            <td class=\"active\" colspan=\"8\">"+prescriptions[i].id+"</td>\n" +
@@ -1363,7 +1358,8 @@ $(function () {
                                                        "           <td class=\"active\">编号</td>\n" +
                                                        "            <td class=\"active\">药品</td>\n" +
                                                        "             <td class=\"active\">用法</td>\n" +
-                                                       "             <td class=\"active\">天数</td>\n" +
+                                                       "              <td class=\"active\">天/次</td>\n" +
+                                                       "              <td class=\"active\">次/量</td>\n" +
                                                        "             <td class=\"active\">数量</td>\n" +
                                                        "             <td class=\"active\">备注</td>\n" +
                                                        "             <td class=\"active\">单价</td>\n" +
@@ -1380,7 +1376,8 @@ $(function () {
                                                                    "       <td >"+itemprescrips[j].id+"</td>\n" +
                                                                    "       <td >"+itemprescrips[j].product.name+"</td>\n" +
                                                                    "       <td>"+itemprescrips[j].use+"</td>\n" +
-                                                                   "       <td >"+itemprescrips[j].day+"</td>\n" +
+                                                                   "       <td >"+itemprescrips[j].time+"</td>\n" +
+                                                                   "       <td >"+itemprescrips[j].per+"</td>\n" +
                                                                    "       <td >"+itemprescrips[j].number+"</td>\n" +
                                                                    "       <td >"+itemprescrips[j].comment+"</td>\n" +
                                                                    "       <td>"+(parseInt(itemprescrips[j].number)* parseFloat(itemprescrips[j].product.price))+"</td>" +
@@ -1477,25 +1474,8 @@ $(function () {
 
 
        //将数据从后台查询出来，马上按照性别修改数据
-       /* var d = new Date();
-        var  birthday=patient.birthday;
-        var strings = birthday.split("-");
-        var year=parseInt(strings[0]);
-        //获取年 
-        var fullYear =parseInt(d.getFullYear());
-        var age=fullYear-year;*/
-
-      //  var times = .find("tr").find("td[name='waitime']").text();
-        //
-       // alert(times.length);
         var find = $("#tableInfo").find("input[name='checkbox']");
-     /*   var ids = $("#tableInfo").find("input[name='checkbox']").val();
-        for (var i=0;i<ids.length;i++){
-            var id=ids[i];
-            if($("#confirm"+id+"").prop("disabled") == true){
 
-            }
-        } */
 
 
       //这个是得到的挂号时间与现实时间做差，得到等待的时间，然后让这个时间动态地显示到页面上

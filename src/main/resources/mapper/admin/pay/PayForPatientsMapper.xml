@@ -97,25 +97,31 @@
 
     <select id="findItemPrescriptionsById" resultMap="findPrescriptions" parameterType="java.lang.String">
         SELECT p.id as pid ,p.content,p.datetime,p.comment as pcomment,
-        i.id as iid,i.number,i.use,i.day,i.comment as icomment,
-        pt.id as ptid,pt.name,pt.price
+        i.id as iid,i.number,i.use,i.day,i.comment as icomment,i.time,i.per,i.status,
+        pt.id as ptid,pt.name,pt.price,pt.content as tcontent
         FROM prescription p,itemprescription i, product pt
         WHERE  p.id=i.prescription_id  AND i.product_id=pt.id
         AND p.id=#{id}
     </select>
-
     <resultMap id="findPrescriptions" type="com.chinasoft.hospital_manager.domain.Itemprescription">
             <id column="iid" property="id" />
             <result column="number" property="number"/>
             <result column="day" property="day"/>
             <result column="use" property="use"/>
             <result column="icomment" property="comment"/>
+            <result column="time" property="time"/>
+            <result column="per" property="per"/>
+            <result column="status" property="status"/>
             <association property="product" javaType="com.chinasoft.hospital_manager.domain.Product">
                 <id column="ptid" property="id"/>
                 <result column="name" property="name"/>
                 <result column="price" property="price"/>
+                <result column="tcontent" property="content"/>
             </association>
     </resultMap>
+
+
+
 
     <update id="updatePayItemInfoStatusByBtn" parameterType="java.lang.Object">
            UPDATE pay SET flag=1,user_id=#{user_id} WHERE id=#{id}
@@ -154,5 +160,4 @@
             </association>
         </collection>
     </resultMap>
-
 </mapper>

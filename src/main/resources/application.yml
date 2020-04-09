@@ -27,7 +27,8 @@ mybatis:
   type-aliases-package: com.chinasoft.hospital_manager.domain
   mapper-locations: classpath:mapper/admin/login/*.xml,mapper/admin/employee/*.xml,mapper/admin/work/*.xml,mapper/admin/patient/*.xml,mapper/admin/doctor/doctorsForPatient/*.xml,
                      mapper/admin/admin/adminForMyself/AdminsForMyselfMapper.xml,mapper/admin/doctor/doctorsForWork/DoctorsForWorkMapper.xml,
-                     mapper/admin/doctor/doctorsForMyself/*.xml,mapper/admin/product/*.xml,mapper/admin/pay/*.xml
+                     mapper/admin/doctor/doctorsForMyself/*.xml,mapper/admin/product/*.xml,mapper/admin/pay/*.xml,
+                     mapper/admin/examineAndVerify/ExamineAndVerifyMapper.xml
 
 
 
