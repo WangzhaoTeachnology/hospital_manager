@@ -322,7 +322,7 @@
             <thead id="thead_tableUserInfo">
                 <tr>
                     <td style="text-align: center;font-family: '微软雅黑';font-size:xx-large;" colspan="6">
-                        xxxx医院缴费单
+                        人民医院缴费单
                     </td>
                 </tr>
          <%--       <tr>
@@ -596,7 +596,7 @@
                                     table_history_info.append(head);
                                     var totalfee=0;
                                     for (var j=0;j<itemprescrips.length;j++){
-                                        var   tbody ="<tr>" +
+                                        var   tbody ="<tr  style='text-align: center;'>" +
                                             "       <td >"+itemprescrips[j].id+"</td>" +
                                             "       <td >"+itemprescrips[j].product.name+"</td>" +
                                             "       <td>"+itemprescrips[j].use+"</td>" +
