@@ -28,6 +28,7 @@ import java.util.Map;
 @RequestMapping("/admin/info")
 public class AdminForMySelfController {
 
+
     @Autowired
     private AdminForMyselfService adminForMyselfService;
 
